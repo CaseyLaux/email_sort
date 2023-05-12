@@ -1,6 +1,6 @@
 import React from 'react';
 import EmailViewer from './EmailViewer';
-
+import "./index.css"
 
 
 function App() {

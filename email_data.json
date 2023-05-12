@@ -1,0 +1,230 @@
+[
+    {
+        "prompt": "Subject: An update on your missed and answered calls\nFrom:Google My Business <googlemybusiness-noreply@google.com>\nDate:Fri, 07 Apr 2023 03:26:25 -0700\nContent:\n\n###\n\n",
+        "completion": "Classification: Analytics , Rating: 5"
+    },
+    {
+        "prompt": "Subject: =?utf-8?B?RlBMOiBOZXcgcmF0ZXMgaW4gZWZmZWN0?=\nFrom:\"FPL Account Management\" <FPL-Account-Management@noreply.fpl.com>\nDate:Thu, 06 Apr 2023 06:02:39 -0700\nContent:\n\n###\n\n",
+        "completion": "Classification: Analytics, Rating: 3"
+    },
+    {
+        "prompt": "Subject: DoorDash Daily Summary\nFrom:\"DoorDash\" <no-reply@doordash.com>\nDate:Fri, 07 Apr 2023 05:29:22 +0000\nContent:undefined\n\n###\n\n",
+        "completion": "Classification: Analytics, Rating: 5"
+    },
+    {
+        "prompt": "Subject: DoorDash Payment to Green Turtle Kava (Beville Rd) (Daytona Beach) for 03/27/2023 to 04/02/2023\nFrom:\"DoorDash\" <accounts@doordash.com>\nDate:Thu, 06 Apr 2023 15:11:15 +0000\nContent:undefined\n\n###\n\n",
+        "completion": "Classification: Analytics, Rating: 5"
+    },
+    {
+        "prompt": "Subject: An update on your missed and answered calls\nFrom:Google My Business <googlemybusiness-noreply@google.com>\nDate:Wed, 05 Apr 2023 03:45:50 -0700\nContent:\n\n###\n\n",
+        "completion": "Classification: Analytics, Rating: 5"
+    },
+    {
+        "prompt": "Subject: Daily Report for Green Turtle Kava Daytona Beach on 04/05/2023\nFrom:no-reply@joinhomebase.com\nDate:Wed, 05 Apr 2023 06:05:52 +0000 (UTC)\nContent:\n\n###\n\n",
+        "completion": "Classification: Analytics, Rating: 5"
+    },
+    {
+        "prompt": "Subject: DoorDash Daily Summary\nFrom:\"DoorDash\" <no-reply@doordash.com>\nDate:Sat, 15 Apr 2023 05:15:38 +0000\nContent:undefined\n\n###\n\n",
+        "completion": "Classification: Analytics, Rating: 6"
+    },
+    {
+        "prompt": "Subject: Green Turtle Kava Bar - Daytona Beach, your performance report for\r\n March 2023\nFrom:Google Business Profile <businessprofile-noreply@google.com>\nDate:Thu, 06 Apr 2023 04:47:31 -0700\nContent:\n\n###\n\n",
+        "completion": "Classification: Analytics, Rating: 6"
+    },
+    {
+        "prompt": "Subject: Your March financial statement is in the Portal\nFrom:\"DoorDash\" <no-reply@doordash.com>\nDate:Thu, 06 Apr 2023 13:48:53 +0000\nContent:undefined\n\n###\n\n",
+        "completion": "Classification: Analytics, Rating: 6"
+    },
+    {
+        "prompt": "Subject: Your bank account will be debited for Clover services\nFrom:Clover <noreply@clover.com>\nDate:Sat, 01 Apr 2023 07:21:32 +0000 (UTC)\nContent:\n\n###\n\n",
+        "completion": "Classification: Bills, Rating: 5"
+    },
+    {
+        "prompt": "Subject: Your Spectrum Business Statement is Ready\nFrom:MyAccount@spectrumemails.com\nDate:Fri, 7 Apr 2023 17:36:39 +0000\nContent:\n\n###\n\n",
+        "completion": "Classification: Bills, Rating: 7"
+    },
+    {
+        "prompt": "Subject: The Shoppes at Beville Road - Sales Report Needed\nFrom:Rebecca Mavros <Rebecca.Mavros@tscg.com>\nDate:Thu, 6 Apr 2023 17:06:48 +0000\nContent:\n\n###\n\n",
+        "completion": "Classification: Business , Rating: 10"
+    },
+    {
+        "prompt": "Subject: It's time to set your holiday hours!\nFrom:Grubhub for Restaurants <restaurants@b.grubhub.com>\nDate:Wed, 05 Apr 2023 18:14:47 +0000 (UTC)\nContent:undefined\n\n###\n\n",
+        "completion": "Classification: Business , Rating: 6"
+    },
+    {
+        "prompt": "Subject: Delivery order from Tanya C. for Green Turtle Kava (Beville Rd):\r\n Order # f278119f\nFrom:DoorDash <orders@doordash.com>\nDate:Sat, 01 Apr 2023 15:15:21 +0000 (UTC)\nContent:undefined\n\n###\n\n",
+        "completion": "Classification: Delivery , Rating: 1"
+    },
+    {
+        "prompt": "Subject: Delivery order from Tanya C. for Green Turtle Kava (Beville Rd):\r\n Order # 90151e85\nFrom:DoorDash <orders@doordash.com>\nDate:Thu, 06 Apr 2023 15:18:49 +0000 (UTC)\nContent:undefined\n\n###\n\n",
+        "completion": "Classification: Delivery , Rating: 1"
+    },
+    {
+        "prompt": "Subject: Delivery order from Tanya C. for Green Turtle Kava (Beville Rd):\r\n Order # 8b0f7a4b\nFrom:DoorDash <orders@doordash.com>\nDate:Wed, 05 Apr 2023 18:42:30 +0000 (UTC)\nContent:undefined\n\n###\n\n",
+        "completion": "Classification: Delivery, Rating: 1"
+    },
+    {
+        "prompt": "Subject: Delivery order from Tanya C. for Green Turtle Kava (Beville Rd):\r\n Order # 71d605de\nFrom:DoorDash <orders@doordash.com>\nDate:Fri, 07 Apr 2023 15:19:46 +0000 (UTC)\nContent:undefined\n\n###\n\n",
+        "completion": "Classification: DoorDash, Rating: 1"
+    },
+    {
+        "prompt": "Subject: New members in Daytona Beach Green Turtle Kava Social\nFrom:Meetup <info@meetup.com>\nDate:Thu, 06 Apr 2023 09:27:06 +0000 (UTC)\nContent:\n\n###\n\n",
+        "completion": "Classification: Events, Rating: 2"
+    },
+    {
+        "prompt": "Subject: Cjklos RSVPed to Ladies Night (7 - 10 pm) Ladies Get Buy One Get One\r\n Free on Thu, April 6\nFrom:Daytona Beach Green Turtle Kava Social <info@meetup.com>\nDate:Thu, 06 Apr 2023 09:42:11 +0000 (UTC)\nContent:\n\n###\n\n",
+        "completion": "Classification: Events, Rating: 2"
+    },
+    {
+        "prompt": "Subject: Easter savings are calling: Fill your baskets now!\nFrom:\"Michaels\" <michaels@emdeals.michaels.com>\nDate:Fri, 07 Apr 2023 02:37:59 -0600\nContent:\n\n###\n\n",
+        "completion": "Classification: Marketing, Rating: 1"
+    },
+    {
+        "prompt": "Subject: =?UTF-8?B?Q291cG9uIGVuZHMgc29vbiEg4o+x77iPOiBBTEwgQ3VzdG9tIEZy?=\r\n =?UTF-8?B?YW1lcyBTLUUtVi1FLU4tVC1ZIHBlcmNlbnQgb2ZmLg==?=\nFrom:\"Michaels Custom Framing\" <customframe@michaelscustomframing.com>\nDate:Fri, 07 Apr 2023 07:38:39 -0600\nContent:\n\n###\n\n",
+        "completion": "Classification: Marketing, Rating: 1"
+    },
+    {
+        "prompt": "Subject: 15% Off The Custom Products Your Business Needs\nFrom:\"Deluxe\" <deluxe.emails@info.deluxe.com>\nDate:Fri, 07 Apr 2023 08:05:24 -0600\nContent:\n\n###\n\n",
+        "completion": "Classification: Marketing, Rating: 1"
+    },
+    {
+        "prompt": "Subject: Hey... Hey... Get the Epson ET-4850 Supertank Printer & SAVE $150\nFrom:\"Office Depot\" <rewards@e.officedepot.com>\nDate:Fri, 07 Apr 2023 08:24:42 -0600\nContent:\n\n###\n\n",
+        "completion": "Classification: Marketing, Rating: 1"
+    },
+    {
+        "prompt": "Subject: All set to celebrate Easter for less? =?UTF-8?B?8J+QsA==?=\nFrom:Walmart <newsletters@em.walmart.com>\nDate:Fri, 07 Apr 2023 09:18:17 +0000 (UTC)\nContent:undefined\n\n###\n\n",
+        "completion": "Classification: Marketing, Rating: 1"
+    },
+    {
+        "prompt": "Subject: =?UTF-8?B?8J+QoyBTaG9wIG91ciBlZ2ctY2l0aW5nIGRlYWxzIGFuZCBiYXNr?=\r\n =?UTF-8?B?ZXQgZXNzZW50aWFscyDigJQ+IEVJR0hUIGRheXMgdW50aWwgRWFzdGVyISA=?=\r\n =?UTF-8?B?8J+Qow==?=\nFrom:\"Michaels\" <michaels@emdeals.michaels.com>\nDate:Sat, 01 Apr 2023 04:01:08 -0600\nContent:\n\n###\n\n",
+        "completion": "Classification: Marketing, Rating: 1"
+    },
+    {
+        "prompt": "Subject: Ann RSVPed to BOGO (Buy One, Get One) Tea and Kava Drinks on Mon,\r\n April 3\nFrom:Daytona Beach Green Turtle Kava Social <info@meetup.com>\nDate:Sat, 01 Apr 2023 07:36:49 +0000 (UTC)\nContent:\n\n###\n\n",
+        "completion": "Classification: Marketing, Rating: 1"
+    },
+    {
+        "prompt": "Subject: =?UTF-8?B?OCBkYXlzIOKAmXRpbCBFYXN0ZXIhIOKPsCDwn5CwIENoZWNrIG91?=\r\n =?UTF-8?B?dCB0aGVzZSBidW5ueS1hcHByb3ZlZCBkZWFscyBhbmQgRElZcy4=?=\nFrom:\"Michaels\" <michaels@emdeals.michaels.com>\nDate:Sat, 01 Apr 2023 11:17:50 -0600\nContent:\n\n###\n\n",
+        "completion": "Classification: Marketing, Rating: 1"
+    },
+    {
+        "prompt": "Subject: 4 easy ways to refresh your home this spring =?UTF-8?B?8J+MvA==?=\nFrom:Walmart Home <newsletters@em.walmart.com>\nDate:Sat, 01 Apr 2023 12:01:04 +0000 (UTC)\nContent:undefined\n\n###\n\n",
+        "completion": "Classification: Marketing, Rating: 1"
+    },
+    {
+        "prompt": "Subject: Epic film locations you can actually visit\nFrom:\"Tripadvisor\" <inspiration@mp1.tripadvisor.com>\nDate:Sat, 01 Apr 2023 14:34:22 +0000\nContent:\n\n###\n\n",
+        "completion": "Classification: Marketing, Rating: 1"
+    },
+    {
+        "prompt": "Subject: New members in Daytona Beach Green Turtle Kava Social\nFrom:Meetup <info@meetup.com>\nDate:Sat, 01 Apr 2023 19:02:56 +0000 (UTC)\nContent:\n\n###\n\n",
+        "completion": "Classification: Marketing, Rating: 1"
+    },
+    {
+        "prompt": "Subject: =?UTF-8?Q?Spring_D=C3=A9cor_is_50%_off!_Make_way_for_a_fresh_take?=\r\n =?UTF-8?Q?_on_coastal.?=\nFrom:\"Michaels\" <michaels@emdeals.michaels.com>\nDate:Sat, 15 Apr 2023 02:16:32 -0600\nContent:\n\n###\n\n",
+        "completion": "Classification: Marketing, Rating: 1"
+    },
+    {
+        "prompt": "Subject: Discover the latest & greatest =?UTF-8?B?4qyH77iP?=\nFrom:Walmart <newsletters@em.walmart.com>\nDate:Sat, 15 Apr 2023 12:20:00 +0000 (UTC)\nContent:undefined\n\n###\n\n",
+        "completion": "Classification: Marketing, Rating: 1"
+    },
+    {
+        "prompt": "Subject: =?UTF-8?B?8J+QsCBDb3Vwb24gYWxlcnQhIFBsdXMsIGdldCBGSUZUWSBwZXJj?=\r\n =?UTF-8?B?ZW50IG9mZiBFYXN0ZXIgZXNzZW50aWFscy4g8J+QsA==?=\nFrom:\"Michaels\" <michaels@emdeals.michaels.com>\nDate:Thu, 06 Apr 2023 02:13:44 -0600\nContent:\n\n###\n\n",
+        "completion": "Classification: Marketing, Rating: 1"
+    },
+    {
+        "prompt": "Subject: STARTS TODAY > > Save up to 50% when you buy online, pick up in store.\nFrom:\"Office Depot\" <rewards@e.officedepot.com>\nDate:Thu, 06 Apr 2023 08:00:07 -0600\nContent:\n\n###\n\n",
+        "completion": "Classification: Marketing, Rating: 1"
+    },
+    {
+        "prompt": "Subject: Rollbacks & more big savings =?UTF-8?B?8J+lsw==?=\nFrom:Walmart <newsletters@em.walmart.com>\nDate:Thu, 06 Apr 2023 09:16:47 +0000 (UTC)\nContent:undefined\n\n###\n\n",
+        "completion": "Classification: Marketing, Rating: 1"
+    },
+    {
+        "prompt": "Subject: =?UTF-8?B?QXJlIHlvdSByZWFkeSBmb3IgRWFzdGVyPyDwn4y3IFByZXAgZm9y?=\r\n =?UTF-8?B?IGd1ZXN0cyB3aXRoIGRlYWxzIG9uIGTDqWNvciBhbmQgbW9yZS4=?=\nFrom:\"Michaels\" <michaels@emdeals.michaels.com>\nDate:Thu, 06 Apr 2023 11:25:43 -0600\nContent:\n\n###\n\n",
+        "completion": "Classification: Marketing, Rating: 1"
+    },
+    {
+        "prompt": "Subject: =?UTF-8?Q?Order_now_for_a_=C2=BD_gallon_of_Strawberry_Lemonade_on?=\r\n =?UTF-8?Q?_us?=\nFrom:\"Cracker Barrel Old Country Store, Inc.\" <crackerbarrelnews@email.crackerbarrel.com>\nDate:Thu, 06 Apr 2023 14:04:26 -0600\nContent:\n\n###\n\n",
+        "completion": "Classification: Marketing, Rating: 1"
+    },
+    {
+        "prompt": "Subject: Make headlines with this =?UTF-8?B?d2Vla+KAmXM=?=\r\n #CanvaDesignChallenge\nFrom:Canva <marketing@engage.canva.com>\nDate:Thu, 06 Apr 2023 20:37:30 +0000 (UTC)\nContent:undefined\n\n###\n\n",
+        "completion": "Classification: Marketing, Rating: 1"
+    },
+    {
+        "prompt": "Subject: =?UTF-8?B?U2F2ZSBvbiBzdXJmYWNlcywgbWF0ZXJpYWxzIGFuZCBtb3JlIGZv?=\r\n =?UTF-8?B?ciBFYXN0ZXIgRElZcyDwn5Cw?=\nFrom:\"Michaels\" <michaels@emdeals.michaels.com>\nDate:Wed, 05 Apr 2023 01:33:38 -0600\nContent:\n\n###\n\n",
+        "completion": "Classification: Marketing, Rating: 1"
+    },
+    {
+        "prompt": "Subject: Celebrate your favorite team with an exclusive offer- 70% off all custom frames!\nFrom:\"Michaels Custom Framing\" <customframe@michaelscustomframing.com>\nDate:Wed, 05 Apr 2023 07:27:59 -0600\nContent:\n\n###\n\n",
+        "completion": "Classification: Marketing, Rating: 1"
+    },
+    {
+        "prompt": "Subject: Try Walmart+ InHome for deliveries beyond your door\nFrom:Walmart+ <newsletters@em.walmart.com>\nDate:Wed, 05 Apr 2023 08:03:58 +0000 (UTC)\nContent:undefined\n\n###\n\n",
+        "completion": "Classification: Marketing, Rating: 1"
+    },
+    {
+        "prompt": "Subject: Save up to 25% as our Welcome Gift to you.\nFrom:\"Deluxe\" <deluxe.emails@info.deluxe.com>\nDate:Wed, 05 Apr 2023 08:32:33 -0600\nContent:\n\n###\n\n",
+        "completion": "Classification: Marketing, Rating: 1"
+    },
+    {
+        "prompt": "Subject: Your workspace needs a style update. Furniture, Tech, or Both. Shop Now\nFrom:\"Office Depot\" <rewards@e.officedepot.com>\nDate:Wed, 05 Apr 2023 09:19:35 -0600\nContent:\n\n###\n\n",
+        "completion": "Classification: Marketing, Rating: 1"
+    },
+    {
+        "prompt": "Subject: =?UTF-8?B?QXJlIHlvdSByZWFkeSBmb3IgTW90aGVy4oCZcyBEYXk/?=\nFrom:\"Sysco Corporation\" <email@corp.sysco.com>\nDate:Wed, 05 Apr 2023 11:01:42 -0600\nContent:\n\n###\n\n",
+        "completion": "Classification: Marketing, Rating: 1"
+    },
+    {
+        "prompt": "Subject: =?UTF-8?B?Q2FuZGFjZSwgaGVyZeKAmXMgYSAkMTAwIGNyZWRpdCBvbiB1cyB0?=\r\n =?UTF-8?B?byBnaXZlIFllbHAgQWRzIGFub3RoZXIgdHJ5?=\nFrom:\"Yelp for Business\" <business@yelp.com>\nDate:Wed, 05 Apr 2023 11:27:24 -0600\nContent:\n\n###\n\n",
+        "completion": "Classification: Marketing, Rating: 1"
+    },
+    {
+        "prompt": "Subject: =?UTF-8?B?8J+QoyBDcmFjayBpbnRvIGNyZWF0aXZlIGNsYXNzZXMgYW5kIGV2?=\r\n =?UTF-8?B?ZW50cyB0aGlzIHNwcmluZyE=?=\nFrom:\"Michaels\" <michaels@emdeals.michaels.com>\nDate:Wed, 05 Apr 2023 11:52:12 -0600\nContent:\n\n###\n\n",
+        "completion": "Classification: Marketing, Rating: 1"
+    },
+    {
+        "prompt": "Subject: Get cracking on these great Easter deals!\nFrom:\"Publix Weekly Savings\" <coupons-noreply@exact.publix.com>\nDate:Wed, 05 Apr 2023 22:24:26 -0600\nContent:\n\n###\n\n",
+        "completion": "Classification: Marketing, Rating: 1"
+    },
+    {
+        "prompt": "Subject: [Insights] How I Did It: Used QR Codes to Take Our Customer\r\n Experience to New Heights\nFrom:Spectrum Business <info@spectrumbusiness.spectrum.com>\nDate:Wed, 5 Apr 2023 19:15:28 +0000 (UTC)\nContent:\n\n###\n\n",
+        "completion": "Classification: Marketing, Rating: 1"
+    },
+    {
+        "prompt": "Subject: Ann RSVPed to Ladies Night (7 - 10 pm) Ladies Get Buy One Get One\r\n Free on Thu, April 13\nFrom:Daytona Beach Green Turtle Kava Social <info@meetup.com>\nDate:Sat, 01 Apr 2023 07:36:49 +0000 (UTC)\nContent:\n\n###\n\n",
+        "completion": "Classification: Marketing, Rating: 3"
+    },
+    {
+        "prompt": "Subject: A special thank you from Bad Omens\nFrom:Spotify <no-reply@spotify.com>\nDate:Wed, 05 Apr 2023 14:00:00 +0000 (UTC)\nContent:\n\n###\n\n",
+        "completion": "Classification: Marketing, Rating: 3"
+    },
+    {
+        "prompt": "Subject: =?utf-8?Q?Share_Your_Brand=E2=80=99s_Passion_|_FASTSIGNS?=\nFrom:FASTSIGNS <616@fastsigns.com>\nDate:Wed, 5 Apr 2023 10:37:21 -0500\nContent:undefined\n\n###\n\n",
+        "completion": "Classification: Marketing, Rating: 3"
+    },
+    {
+        "prompt": "Subject: Daily Report for Green Turtle Kava Daytona Beach on 04/07/2023\nFrom:no-reply@joinhomebase.com\nDate:Fri, 07 Apr 2023 06:08:05 +0000 (UTC)\nContent:\n\n###\n\n",
+        "completion": "Classification: Payroll, Rating: 5"
+    },
+    {
+        "prompt": "Subject: Daily Report for Green Turtle Kava Daytona Beach on 04/15/2023\nFrom:no-reply@joinhomebase.com\nDate:Sat, 15 Apr 2023 06:09:37 +0000 (UTC)\nContent:\n\n###\n\n",
+        "completion": "Classification: Payroll, Rating: 5"
+    },
+    {
+        "prompt": "Subject: Daily Report for Green Turtle Kava Daytona Beach on 04/06/2023\nFrom:no-reply@joinhomebase.com\nDate:Thu, 06 Apr 2023 06:06:04 +0000 (UTC)\nContent:\n\n###\n\n",
+        "completion": "Classification: Payroll, Rating: 6"
+    },
+    {
+        "prompt": "Subject: Steven left a review for Green Turtle Kava Bar - Daytona Beach\nFrom:Google Business Profile <businessprofile-noreply@google.com>\nDate:Wed, 05 Apr 2023 10:43:19 -0700\nContent:\n\n###\n\n",
+        "completion": "Classification: Rating, Rating: 4"
+    },
+    {
+        "prompt": "Subject: Michael left a review for Green Turtle Kava Bar - Daytona Beach\nFrom:Google Business Profile <businessprofile-noreply@google.com>\nDate:Fri, 14 Apr 2023 19:11:18 -0700\nContent:\n\n###\n\n",
+        "completion": "Classification: Review, Rating: 4"
+    },
+    {
+        "prompt": "Subject: 8 hacks to make you healthier =?UTF-8?B?8J+Njg==?=\nFrom:Meetup <info@email.meetup.com>\nDate:Thu, 06 Apr 2023 14:07:05 +0000 (UTC)\nContent:\n\n###\n\n",
+        "completion": "Classification: Spam, Rating: 1"
+    }
+]

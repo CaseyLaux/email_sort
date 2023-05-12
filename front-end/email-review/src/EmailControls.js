@@ -5,16 +5,17 @@ const EmailControls = ({
   currentIndex,
   emailsLength,
   buttonTexts,
+  changeFunc,
 }) => (
   <>
     <button
-      onClick={() => changeIndex(currentIndex, emailsLength, -1)}
+      onClick={() => changeIndex(currentIndex, emailsLength, changeFunc, -1)}
       disabled={currentIndex === 0}
     >
       {buttonTexts.previous}
     </button>
     <button
-      onClick={() => changeIndex(currentIndex, emailsLength, 1)}
+      onClick={() => changeIndex(currentIndex, emailsLength, changeFunc, 1)}
       disabled={currentIndex === emailsLength - 1}
     >
       {buttonTexts.next}

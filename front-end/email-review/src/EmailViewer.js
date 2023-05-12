@@ -11,6 +11,29 @@ const EmailViewer = () => {
   const [rating, setRating] = useState('');
   const [classification, setClassification] = useState('');
   const [unsortedFilenames, setUnsortedFilenames] = useState([]);
+  
+  const deleteEmail = async (email, originalPath) => {
+    try {
+      const response = await fetch('http://localhost:3001/api/delete-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ originalPath }),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to delete email.');
+      }
+  
+      // Update unsortedEmails state to remove the deleted email
+      setUnsortedEmails((prevState) => prevState.filter((e) => e !== email));
+  
+      alert('Email deleted successfully.');
+      
+    } catch (error) {
+      console.error(error);
+      alert('Failed to delete email.');
+    }
+  };
 
   useEffect(() => {
     async function loadHumanSortedEmails() {
@@ -21,9 +44,18 @@ const EmailViewer = () => {
         const humanSortedFilenames = await humanSortedResponse.json();
 
         const humanSortedEmailPromises = humanSortedFilenames.map(async (filename) => {
-          const emailResponse = await fetch(`${process.env.PUBLIC_URL}/human_sorted/${filename}`);
-          return await emailResponse.json();
+          try {
+            const emailResponse = await fetch(`${process.env.PUBLIC_URL}/human_sorted/${filename}`);
+            if (!emailResponse.ok) {
+              console.error(`Error fetching file: ${filename}`);
+              return;
+            }
+            return await emailResponse.json();
+          } catch (error) {
+            console.error(`Error parsing JSON from file: ${filename}`, error);
+          }
         });
+        
 
         const loadedHumanSortedEmails = await Promise.all(humanSortedEmailPromises);
         return loadedHumanSortedEmails;
@@ -44,6 +76,7 @@ const EmailViewer = () => {
         const end = Math.min(start + limit, unsortedFilenames.length);
 
         const unsortedEmailPromises = unsortedFilenames.slice(start, end).map(async (filename) => {
+          console.log(`loading  ${filename}`)
           const emailResponse = await fetch(`${process.env.PUBLIC_URL}/unsorted/${filename}`);
           return await emailResponse.json();
         });
@@ -68,7 +101,13 @@ const EmailViewer = () => {
       alert('Please enter a rating and classification.');
       return;
     }
-
+  
+    // Add classification and rating to the email completion field
+    const updatedEmail = {
+      prompt: `Subject: ${email.email_subject}\nFrom:${email.email_sender}\nDate:${email.email_date}\nContent:${email.prompt.split('\n\n###\n\n')[1]}\n\n###\n\n`,
+      completion: `Classification: ${classification}, Rating: ${rating}`,
+    };
+  
     const newPath = `human_sorted\\${classification}_${rating}_${email.email_date.replace(/[^a-zA-Z0-9]/g, '_')}_${email.email_sender.replace(/[^a-zA-Z0-9]/g, '_')}.json`;
     // Log the filename before saving it
     console.log('Saving email to:', newPath);
@@ -76,54 +115,29 @@ const EmailViewer = () => {
       const response = await fetch('http://localhost:3001/api/move-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ originalPath, newPath }),
+        body: JSON.stringify({ email: updatedEmail, originalPath, newPath }),
       });
-
+  
       if (!response.ok) {
         throw new Error('Failed to move email.');
       }
-
+  
       // Update unsortedEmails state to remove the moved email
       setUnsortedEmails((prevState) => prevState.filter((e) => e !== email));
-
+  
       // Reset rating and classification inputs
       setRating('');
       setClassification('');
-
+  
       alert('Email moved successfully.');
-      async function callPythonScript() {
-    const url = "http://localhost:5000/index_emails";
-    const data = {
+
       
-    };
-  
-    try {
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-  
-      if (response.ok) {
-        const result = await response.json();
-        console.log('Python script result:', result);
-      } else {
-        console.error('Error calling Python script:', response.status, response.statusText);
-      }
-    } catch (error) {
-      console.error('Error calling Python script:', error);
-    }
-  }
-  
-  // Call the function without blocking the main process
-  callPythonScript();
     } catch (error) {
       console.error(error);
       alert('Failed to move email.');
     }
   };
+  
 
   const changeIndex = (currentIndex, emailsLength, changeFunc, increment) => {
     const newIndex = currentIndex + increment;
@@ -142,7 +156,8 @@ const EmailViewer = () => {
           currentIndex={humanSortedIndex}
           emailsLength={humanSortedEmails.length}
           buttonTexts={{ previous: 'Previous', next: 'Next' }}
-        />
+          changeFunc={setHumanSortedIndex}
+/>
       </div>
       <div className="email-box unsorted">
         <h2>
@@ -178,12 +193,20 @@ const EmailViewer = () => {
         >
           Submit and Move Email
         </button>
+        <button
+          onClick={() =>
+            deleteEmail(unsortedEmails[unsortedIndex], `unsorted\\${unsortedFilenames[unsortedIndex]}`)
+          }
+        >
+          Delete Email
+        </button>
         <EmailControls
           changeIndex={changeIndex}
           currentIndex={unsortedIndex}
           emailsLength={unsortedEmails.length}
           buttonTexts={{ previous: 'Previous', next: 'Next' }}
-        />
+          changeFunc={setUnsortedIndex}
+/>
       </div>
     </div>
   );

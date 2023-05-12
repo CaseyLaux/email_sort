@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 user = 'greenturtlekava@gmail.com'
 password = 'hjolwtqwkwnhzhjp'
 imap_url = 'imap.gmail.com'
-directory = "unsorted"
+directory = "front-end\\email-review\\public\\unsorted"
 
 
 def get_body(msg):
@@ -48,8 +48,8 @@ con.login(user, password)
 con.select('Inbox')
 
 # Calculate the date 12 hours ago
-since_date = datetime.now() - timedelta(hours=880)
-before_date = datetime.now() - timedelta(hours=820)
+since_date = datetime.now() - timedelta(hours=60)
+before_date = datetime.now() - timedelta(hours=0)
 
 msgs = get_emails(get_emails_since(con, since_date, before_date))
 
