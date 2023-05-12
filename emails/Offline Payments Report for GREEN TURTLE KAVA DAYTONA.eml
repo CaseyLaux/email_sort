@@ -1,0 +1,544 @@
+Delivered-To: greenturtlekava@gmail.com
+Received: by 2002:a05:7208:8788:b0:64:a764:ea5d with SMTP id hc8csp211041rbb;
+        Sat, 18 Mar 2023 03:31:13 -0700 (PDT)
+X-Google-Smtp-Source: AK7set+Wa7RjBqr/Y52ZougUTKMk4sWcClasUYyHoJoDuLf17za/QPMpAsukySKPCLxj3VbVrPfT
+X-Received: by 2002:a17:902:ced0:b0:19e:2495:20d2 with SMTP id d16-20020a170902ced000b0019e249520d2mr12531158plg.30.1679135473337;
+        Sat, 18 Mar 2023 03:31:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1679135473; cv=none;
+        d=google.com; s=arc-20160816;
+        b=vodtp9SWLpUXj+f4Z5KL6qJnLRm9APjiYyXxXzeqQMbrUsl0XZSVNc8Eui0078TYHz
+         13M20kcEAa/p1XUQETyVxs9W4jH4hUbnKZ6Y6rAtPbtUDmdYuLLpvyw6KP07nPr11xpn
+         8nDHQOq8Y6ECPt15gFrceP4ccZoFHUPOKpo3j6Yv8Lh2lqrAIMWSCX4S7IZ6ZawzVbfr
+         udag1LBAGEtRm8EGylozeoowwwuhcMkFTHnSQ+i60J7KDHleOOHG6UwSKm1E1uC1XqY6
+         9g3x/mAgp/vIo7yEz3bgXEyfs2qIPL/+RQK7IeNhTgh/9dbSenq0JLEmozR3utRUIPg5
+         yQ3Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:reply-to:mime-version:subject:message-id:from:date
+         :dkim-signature:dkim-signature;
+        bh=sfT0RrkQH/GG0xsDBe55nW3P8QZYiBv3JH2zqhHGWlo=;
+        b=EsSSLp1NzhZqPPFU2fRMEFN2Hq8GphivM5XHqzFA4h2xvV7bH0yt1apNXjwxTrroF2
+         OvaSKJepr3sZPmzqtEqzpAXaVK07U5kFUzd4G7pyafYoxH74RB/kIODp+wckzvc6iAa7
+         zY3N8gArETquveUOOkDTy1yhahA64nLj2eFNq7OITy8UsqXMnh++kE34w7nIQ7iu/ivK
+         MBz4iTA0lUJd9Qua2FHbbqc9Wmd/8v95kfiQyx348AnLiE6zf+zah5oLMAS69DDxq4+8
+         6NYFW7/IQc6rfkFJJPeTeLGPLsYviwjWEMOlrky7fThd7jg+Lo/JCRn7g5aXiCF8jvD0
+         GPVg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@clover.com header.s=s1 header.b=ARNyhTAw;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=zIH8tcU3;
+       spf=pass (google.com: domain of bounces+2450327-4a2d-greenturtlekava=gmail.com@mx.clover.com designates 167.89.94.160 as permitted sender) smtp.mailfrom="bounces+2450327-4a2d-greenturtlekava=gmail.com@mx.clover.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=clover.com
+Return-Path: <bounces+2450327-4a2d-greenturtlekava=gmail.com@mx.clover.com>
+Received: from o2.mx.clover.com (o2.mx.clover.com. [167.89.94.160])
+        by mx.google.com with ESMTPS id u2-20020a17090341c200b001a0505a442esi5544133ple.322.2023.03.18.03.31.12
+        for <greenturtlekava@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 18 Mar 2023 03:31:13 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+2450327-4a2d-greenturtlekava=gmail.com@mx.clover.com designates 167.89.94.160 as permitted sender) client-ip=167.89.94.160;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@clover.com header.s=s1 header.b=ARNyhTAw;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=zIH8tcU3;
+       spf=pass (google.com: domain of bounces+2450327-4a2d-greenturtlekava=gmail.com@mx.clover.com designates 167.89.94.160 as permitted sender) smtp.mailfrom="bounces+2450327-4a2d-greenturtlekava=gmail.com@mx.clover.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=clover.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=clover.com;
+	h=from:subject:mime-version:content-type:reply-to:x-feedback-id:to:cc:
+	content-type:from:subject:to;
+	s=s1; bh=sfT0RrkQH/GG0xsDBe55nW3P8QZYiBv3JH2zqhHGWlo=;
+	b=ARNyhTAwr4FpjdDR7bVMixvNKAaeq5jVaNJSmUttmpbLKwRCanOU1fHH6mijT5tfWQBB
+	e+2p/D/GJ/nQ3bkhwbEAF+YeYP64q2EJezz3GSFdJaWxoOXh+JK5bEy3dp+kPM+S4Y0qKg
+	DH5GF/H8/efjtH8o9+uIb+5tOXuG2q3ysnIkp1zLkfL2/6/Hy79xFqi2Vvg3k5djTrC9g8
+	6huPULiar8t1FeVLfiD2ba3ARfPMtWBEzEEDulsnsD47+JTQZl0TRBivj2BgiWuA3FqCy/
+	MOUaAxIDUjnm+RsypggqrMTXLivEs/c16h282WpA5BGcJlGw7Dpb9P+ZhsCtfnMA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=from:subject:mime-version:content-type:reply-to:x-feedback-id:to:cc:
+	content-type:from:subject:to;
+	s=smtpapi; bh=sfT0RrkQH/GG0xsDBe55nW3P8QZYiBv3JH2zqhHGWlo=;
+	b=zIH8tcU3AKu+deWcGMbdci8GDjhc5eWNzMdAWiH97u1OJwJftSr8OsnpHM4n5CNApBVR
+	MGGTWk2SI5V77YatsismEvV7gXQpMbE3BxNAyfTf/on/Z0Wha9Qh8PtbxOAuaSZM0XBjul
+	WdzTJDKR+IS+WlCiI9R2KSJ9Ir1n4S4aY=
+Received: by filterdrecv-5b9f75888b-hpljk with SMTP id filterdrecv-5b9f75888b-hpljk-1-641592EF-2C
+        2023-03-18 10:31:11.505598315 +0000 UTC m=+2113025.379992891
+Received: from cosbatch01.prod.dsm04.clover.network (unknown)
+	by geopod-ismtpd-10 (SG) with ESMTP id oCWCxSapTROSlwLehUG1Xw
+	for <GREENTURTLEKAVA@GMAIL.com>; Sat, 18 Mar 2023 10:31:11.323 +0000 (UTC)
+Received: from cosbatch01.prod.dsm04.clover.network (localhost [127.0.0.1])
+	by cosbatch01.prod.dsm04.clover.network (Postfix) with ESMTP id B144716A7F9
+	for <GREENTURTLEKAVA@GMAIL.com>; Sat, 18 Mar 2023 10:31:10 +0000 (UTC)
+Date: Sat, 18 Mar 2023 10:31:11 +0000 (UTC)
+From: Clover <app@clover.com>
+Message-ID: <1708881890.359650.1679135470725@cosbatch01.prod.dsm04.clover.network>
+Subject: Offline Payments Report for GREEN TURTLE KAVA DAYTONA
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_359649_563939349.1679135470713"
+X-Clover-Merchant-ID: 8VZVAZ85CGR71
+Reply-To: support@clover.com
+X-Feedback-ID: 2450327:SG
+X-SG-EID: 
+ =?us-ascii?Q?kgOZmGVkUT8KxHGayBL7KrFv30NS3Nq3hN0RZR53PXG8jEgRI6B4vH5iOAzIq4?=
+ =?us-ascii?Q?HFUWu1GI9seoEZS3zLea1nQM21eNx4wGU6giZ3S?=
+ =?us-ascii?Q?eqA0MhOGVHZvmPpkEVUuu78mV8AZOOkayfSgFUP?=
+ =?us-ascii?Q?NhnBPuQaMq20Fof5vLa27wQ4tNLEqqrmgeWcakB?=
+ =?us-ascii?Q?ykU+Rzla8FUSfMnNwJAJCsYR96Ww=2FBtKV+LRh+J?=
+ =?us-ascii?Q?AS0JUabKGCD1buYU+lkKIh7xhfFkim4HW+q9DX?=
+To: GREENTURTLEKAVA@GMAIL.com
+X-Entity-ID: 8rDF73b50jvHZdAyvwepMg==
+
+------=_Part_359649_563939349.1679135470713
+Content-Type: text/html; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta charset="utf-8" /> 
+  <meta name="format-detection" content="telephone=no" /> 
+  <meta name="viewport" content="width=device-width" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+  <meta name="x-apple-disable-message-reformatting" />  
+  <title>A Message from Clover</title> 
+  
+  <!--[if gte mso 9]>
+  <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+  </xml>
+  <![endif]-->
+
+
+<style type="text/css">
+  
+  
+  .ExternalClass {
+    width: 100%;
+  }
+  .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td {
+    line-height: 100%;
+  }
+
+  
+  
+  html,
+  body {
+    margin: 0 auto !important;
+    padding: 0 !important;
+    height: 100% !important;
+    width: 100% !important;
+  }
+
+  
+  * {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  
+  div[style*="margin: 16px 0"] {
+    margin:0 !important;
+  }
+
+  
+  table,
+  td {
+    mso-table-lspace: 0 !important;
+    mso-table-rspace: 0 !important;
+  }
+
+  
+  table {
+    border-spacing: 0 !important;
+    border-collapse: collapse !important;
+    table-layout: fixed;
+    margin: 0 auto !important;
+  }
+  table table table{
+    table-layout: auto;
+        font-size: 16px; font-family: 'Arial', 'Helvetica', sans-serif; line-height: 24px; word-break: normal; color: #253338;
+  }
+
+  
+  img {
+    -ms-interpolation-mode:bicubic;
+  }
+
+    
+  *[x-apple-data-detectors], 
+  .x-gmail-data-detectors, 
+  .x-gmail-data-detectors *,
+  .aBn {
+    border-bottom: 0 !important;
+    cursor: default !important;
+    color: inherit !important;
+    text-decoration: none !important;
+    font-size: inherit !important;
+    font-family: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+  }
+
+  
+  .a6S {
+    display: none !important;
+    opacity: 0.01 !important;
+  }
+  
+  img.g-img + div {
+    display:none !important;
+  }
+
+  
+  .button-a {
+    text-decoration: none !important;
+  }
+  /*--- Preheader declaration in style block in addition to inline for Outlook */
+   .preheader {
+       display:none !important; visibility:hidden; opacity:0; color:transparent; height:0; width:0;
+   }
+
+    
+  
+  
+  @media only screen and (min-device-width: 375px) and (max-device-width: 413px) { 
+    .email-container {
+      min-width: 375px !important;
+    }
+  }
+</style>
+
+
+<style type="text/css">
+    
+  .button-a {
+    transition: all 100ms ease-in;
+  }
+  .button-a:hover {
+    background: #46b92d !important;
+    border-color: #46b92d !important;
+  }
+
+  .button-ghost {
+    transition: all 100ms ease-in;
+  }
+
+  .button-ghost:hover,
+  .button-ghost:focus {
+    border-color: #46b92d !important;
+    color: #46b92d !important;
+  }
+
+  .button-ghost:hover > a {
+    background-color: #f2fcee !important;
+    border-color: #246615 !important;
+    color: #246615 !important;
+  }
+
+  .button-ghost:focus {
+    box-shadow: rgba(#000, 0.3) 0 0 0 1px, rgba(#43b02a, 0.5) 0 0 0 3px;
+  }
+
+    
+  @media screen and (max-width: 480px) {
+    
+    .fluid {
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    
+    .stack-column,
+    .stack-column-center {
+      display: block !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      direction: ltr !important;
+    }
+    
+    .stack-column-center {
+      text-align: center !important;
+    }
+
+    
+    .center-on-narrow {
+      text-align: center !important;
+      display: block !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      float: none !important;
+    }
+    table.center-on-narrow {
+      display: inline-block !important;
+    }
+  }
+
+  @media screen and (max-width: 690px) {
+    .email-container {
+    border-left: 10px solid #FFFFFF;
+    border-right: 10px solid #FFFFFF;
+    }
+  }
+</style>
+
+
+<style type="text/css">
+    
+  @media print {  }
+</style>
+
+</head>
+<body style="margin: 0; mso-line-height-rule: exactly; height: 100%; width: 100%">
+
+<table role="presentation" class="bodyTable" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#FFFFFF">
+  <tr>
+    <td align="center" valign="top" style="width: 100%;">
+      <div style="max-width: 680px; margin: auto;" class="email-container">
+        <!--[if mso]>
+        <table role="presentation" border="0" cellspacing="0" cellpadding="0" align="center" valign="top" width="680" align="center">
+          <tr>
+            <td>
+        <![endif]-->
+
+        
+        <table role="presentation" border="0" cellspacing="0" cellpadding="0" align="center" valign="top" width="100%" style="max-width: 680px; font-size: 16px; font-family: 'Arial', 'Helvetica', sans-serif; line-height: 24px; word-break: normal; color: #253338;" class="header">
+            
+
+
+<tr>
+  <td align="left" style="line-height: 0px;">
+    <a href="https://www.clover.com" title="Go to Clover Home" style="text-decoration: none;">
+      <img border="0" width="116" height="28"
+           src="https://cloverstatic.com/web/email-assets/assets/common/clover_nomark_rgb.png" alt="Clover"
+           style="height: 28px; -ms-interpolation-mode: bicubic; border: none; outline: none; margin-top: 15px;"/>
+    </a>
+  </td>
+</tr>
+
+          </table>
+        
+
+        
+        <table role="presentation" border="0" cellspacing="0" cellpadding="0" align="center" valign="top" width="100%" style="max-width: 680px; padding: 0 10px 0 10px; font-size: 16px; font-family: 'Arial', 'Helvetica', sans-serif; line-height: 24px; word-break: normal; color: #253338;" class="email-container">
+        <tr class="spacer-row" aria-hidden="true" style="font-size: 0; line-height: 0;"><td aria-hidden="true" height="20">&nbsp;</td></tr>
+
+          <tr>
+    <td>
+      <h1 style="font-weight: bold; padding: 0; margin-left: 0; margin-right: 0; font-family: 'Arial', 'Helvetica', sans-serif; line-height: 1.4; word-break: normal; mso-line-height-rule:exactly; color: #228800; font-size: 30px; line-height: 36px; margin-top: 11; margin-bottom: 11;">Hello <span style="font-weight: bold;">CANDANCE GIPSON</span>,</h1>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <p style="font-size: 16px; font-family: 'Arial', 'Helvetica', sans-serif; line-height: 24px; word-break: normal; color: #253338; font-weight: normal; margin-left: 0; margin-right: 0; margin-top: 16; margin-bottom: 16 color: #253338;">
+        Clover has enabled offline payments for your Mobiles and Minis to make sure you can take payments even if you experience network connectivity issues.
+      </p>
+
+      <p style="font-size: 16px; font-family: 'Arial', 'Helvetica', sans-serif; line-height: 24px; word-break: normal; color: #253338; font-weight: normal; margin-left: 0; margin-right: 0; margin-top: 16; margin-bottom: 16 color: #253338;">
+        GREEN TURTLE KAVA DAYTONA processed  offline payments after coming back online today.
+      </p>
+
+      <h2 style="font-weight: bold; padding: 0; margin-left: 0; margin-right: 0; font-family: 'Arial', 'Helvetica', sans-serif; line-height: 1.4; word-break: normal; mso-line-height-rule:exactly; color: #253338; font-size: 20px; line-height: 24px; margin-top: 13; margin-bottom: 13;">Offline Payments Summary</h2>
+
+      <table role="presentation" border="0" cellspacing="0" cellpadding="10" align="center" valign="top" width="100%" style="font-size: 16px; font-family: 'Arial', 'Helvetica', sans-serif; line-height: 24px; word-break: normal; color: #253338;">
+        <thead>
+          <tr style="background-color:#DEE0E1; color: #5C5C5C; text-align: left; font-weight: bold; line-height: 14px; font-size: 14px;">
+            <th align="left" valign="top" style="border-right: solid 1px #CCCCCC;">
+              Device
+            </th>
+            <th align="right" valign="top" style="border-left: solid 1px #CCCCCC; border-right: solid 1px #CCCCCC;">
+              Successful Payments
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr style="border-top: 1px solid #DEE0E1;">
+              <td>
+                Clover Flex 2nd WiFi <br/>
+                C143UQ22550172 <br/>
+                
+              </td>
+              <td align="right">
+                $107.34
+                <div style="white-space: nowrap; color: #B1B6B8; font-size: 14px; font-family: 'Arial', 'Helvetica', sans-serif; line-height: 14px;">
+                  5 payments
+                </div>
+              </td>
+            </tr>
+        </tbody>
+        <tfoot>
+        <tr style="font-weight: bold; border-top: 1px solid #DEE0E1;">
+          <td valign="top">
+            Total
+          </td>
+          <td align="right" valign="top">
+            $107.34
+            <div style="white-space: nowrap; color: #B1B6B8; font-size: 14px; font-family: 'Arial', 'Helvetica', sans-serif; line-height: 14px;">
+              5 payments
+            </div>
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+
+      <p style="font-size: 16px; font-family: 'Arial', 'Helvetica', sans-serif; line-height: 24px; word-break: normal; color: #253338; font-weight: normal; margin-left: 0; margin-right: 0; margin-top: 16; margin-bottom: 16 color: #253338;">
+        See full details of 12 Mar 2023 offline payments <a style="color: #3271ab; text-decoration: underline;" href="https://www.clover.com/transactions/m/8VZVAZ85CGR71/payments">here</a>.
+      </p>
+    </td>
+  </tr>
+
+  <tr class="hr-block"><td><table role="presentation" border="0" cellspacing="0" cellpadding="0" align="center" valign="top" width="100%"><tr><td aria-hidden="true" height=0 style="font-size: 0; padding-top:40; border-bottom: solid 1px #c8c9c7;">&nbsp;</td></tr><tr><td aria-hidden="true" height=0 style="font-size: 0; padding-bottom:25;">&nbsp;</td></tr></table></td></tr>
+
+  <tr>
+    <td>
+      <h2 style="font-weight: bold; padding: 0; margin-left: 0; margin-right: 0; font-family: 'Arial', 'Helvetica', sans-serif; line-height: 1.4; word-break: normal; mso-line-height-rule:exactly; color: #253338; font-size: 20px; line-height: 24px; margin-top: 13; margin-bottom: 13;">Confirm Offline Payments Feature</h2>
+
+      <p style="font-size: 16px; font-family: 'Arial', 'Helvetica', sans-serif; line-height: 24px; word-break: normal; color: #253338; font-weight: normal; margin-left: 0; margin-right: 0; margin-top: 16; margin-bottom: 16 color: #253338;">
+        To continue to take payments offline in the case of intermittent network connectivity and to stop receiving these emails, you can confirm that you want to keep the feature:
+      </p>
+    </td>
+  </tr>
+
+  <tr class="spacer-row" aria-hidden="true" style="font-size: 0; line-height: 0;"><td aria-hidden="true" height="40">&nbsp;</td></tr>
+
+  <tr>
+    <td align="center">
+      <div class="btn-link"><a href="https://www.clover.com/v3/merchants/8VZVAZ85CGR71/offlinepayments/optin?sourceEmail=GREENTURTLEKAVA%40GMAIL.com&amp;option=true&amp;code=18ed2fa2-1d73-d117-8b32-c045cb1ad4cf" class="button-a" data-test="button" style="background-color:#228800; border-top:15px solid #228800; border-bottom:15px solid #228800; border-left:40px solid #228800; border-right:40px solid #228800; border-radius:30px; -webkit-border-radius:30px; -moz-border-radius:30px; color:#ffffff; display:inline-block; font-family:sans-serif; font-size:14px; font-weight:500; line-height:24px; text-align:center; text-decoration:none; text-transform:none; -webkit-text-size-adjust:none; mso-hide:all;width:auto; height:auto;">Keep Offline Payments</a></div>
+    </td>
+  </tr>
+
+  <tr class="spacer-row" aria-hidden="true" style="font-size: 0; line-height: 0;"><td aria-hidden="true" height="40">&nbsp;</td></tr>
+
+  <tr>
+    <td>
+      <p style="font-size: 16px; font-family: 'Arial', 'Helvetica', sans-serif; line-height: 24px; word-break: normal; color: #253338; font-weight: normal; margin-left: 0; margin-right: 0; margin-top: 16; margin-bottom: 16 color: #253338; font-style: italic;">
+        By taking payments offline, you accept the risk that the credit cards may decline when they are processed after coming back online.
+      </p>
+
+      <p style="font-size: 16px; font-family: 'Arial', 'Helvetica', sans-serif; line-height: 24px; word-break: normal; color: #253338; font-weight: normal; margin-left: 0; margin-right: 0; margin-top: 16; margin-bottom: 16 color: #253338;">
+        If you are not comfortable taking payments offline and want  to block the ability to take payments when offline, you can disable the feature for all devices:
+      </p>
+
+      <p>
+        <a style="color: #3271ab; text-decoration: underline;" href="https://www.clover.com/v3/merchants/8VZVAZ85CGR71/offlinepayments/optin?sourceEmail=GREENTURTLEKAVA%40GMAIL.com&amp;option=false&amp;code=18ed2fa2-1d73-d117-8b32-c045cb1ad4cf">Disable Offline Payments for All 2 of My Devices</a>
+      </p>
+    </td>
+  </tr>
+
+  <tr class="hr-block"><td><table role="presentation" border="0" cellspacing="0" cellpadding="0" align="center" valign="top" width="100%"><tr><td aria-hidden="true" height=0 style="font-size: 0; padding-top:40; border-bottom: solid 1px #c8c9c7;">&nbsp;</td></tr><tr><td aria-hidden="true" height=0 style="font-size: 0; padding-bottom:25;">&nbsp;</td></tr></table></td></tr>
+
+  <tr>
+    <td>
+      <h2 style="font-weight: bold; padding: 0; margin-left: 0; margin-right: 0; font-family: 'Arial', 'Helvetica', sans-serif; line-height: 1.4; word-break: normal; mso-line-height-rule:exactly; color: #253338; font-size: 20px; line-height: 24px; margin-top: 13; margin-bottom: 13;">Offline Payment Limits</h2>
+
+      <p style="font-size: 16px; font-family: 'Arial', 'Helvetica', sans-serif; line-height: 24px; word-break: normal; color: #253338; font-weight: normal; margin-left: 0; margin-right: 0; margin-top: 16; margin-bottom: 16 color: #253338;">
+        Your current limits for offline payments are as follows. To adjust your limits, visit the <a style="color: #3271ab; text-decoration: underline;" href="https://www.clover.com/setupapp/m/8VZVAZ85CGR71/payments/offline-payments">Setup app</a>.
+      </p>
+
+      <ul>
+        <li>Limit each offline payment amount to $500.00</li>
+        <li>Limit total offline payments to $5,000.00</li>
+        <li>Require merchant approval for each offline payment over $5.00</li>
+      </ul>
+
+      <p style="font-size: 16px; font-family: 'Arial', 'Helvetica', sans-serif; line-height: 24px; word-break: normal; color: #253338; font-weight: normal; margin-left: 0; margin-right: 0; margin-top: 16; margin-bottom: 16 color: #253338;">
+        See the guide to the offline payments feature <a style="color: #3271ab; text-decoration: underline;" href="https://help.clover.com/release/us-release/2016-08-06-us/#take-payments-when-your-device-is-offline">here</a>.
+      </p>
+
+      <p style="font-size: 16px; font-family: 'Arial', 'Helvetica', sans-serif; line-height: 24px; word-break: normal; color: #253338; font-weight: normal; margin-left: 0; margin-right: 0; margin-top: 16; margin-bottom: 16 color: #253338;">
+        If you have any questions, please contact Clover Support at <a style="color: #3271ab; text-decoration: underline;" href="tel:+1 844-864-5449">+1 844-864-5449</a>. Please have your Merchant ID (MID) available for faster service. Your MID can be found on the upper right of the Home Screen.
+      </p>
+    </td>
+  </tr>
+
+  <tr class="spacer-row" aria-hidden="true" style="font-size: 0; line-height: 0;"><td aria-hidden="true" height="10">&nbsp;</td></tr>
+
+  <tr>
+    <td>
+      <p style="font-size: 16px; font-family: 'Arial', 'Helvetica', sans-serif; line-height: 24px; word-break: normal; color: #253338; font-weight: normal; margin-left: 0; margin-right: 0; margin-top: 16; margin-bottom: 16 color: #253338;">
+        Thanks,<br/>The Clover Team
+      </p>
+    </td>
+  </tr>
+
+
+
+        <tr class="spacer-row" aria-hidden="true" style="font-size: 0; line-height: 0;"><td aria-hidden="true" height="40">&nbsp;</td></tr>
+        </table>
+        
+
+        <!--[if mso]>
+        </td>
+        </tr>
+        </table>
+        <![endif]-->
+      </div>
+
+      
+          <table role="presentation" border="0" cellspacing="0" cellpadding="0" align="center" valign="top" width="100%" class="footer" >
+            <tr>
+              <td valign="top" align="center">
+                <div style="max-width: 680px; margin: auto;" class="email-container">
+                  <!--[if mso]>
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="680" align="center">
+                    <tr>
+                      <td>
+                  <![endif]-->
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 16px; font-family: 'Arial', 'Helvetica', sans-serif; line-height: 24px; word-break: normal; color: #253338;">
+                      <tr class="hr"><td aria-hidden="true" height="1px" style="font-size: 0; line-height: 0; border-bottom: solid 1px #c8c9c7;">&nbsp;</td></tr>
+                    
+
+
+<tr class="spacer-row" aria-hidden="true" style="font-size: 0; line-height: 0;"><td aria-hidden="true" height="40">&nbsp;</td></tr>
+
+
+<tr>
+  <td>
+    <p style="color: #727272; font-size: 10px; font-family: 'Arial', 'Helvetica', sans-serif; line-height: 14px; margin-bottom: 10; font-weight: normal;"></p>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <p style="color: #727272; font-size: 10px; font-family: 'Arial', 'Helvetica', sans-serif; line-height: 14px; margin-bottom: 10; font-weight: normal;">&#169; 2023 Clover Network, LLC. All rights reserved. The Clover mark is a trademark owned by Clover Network, LLC. and registered in the United States and many foreign countries. All other trademarks referenced are the property of their respective owners.</p>
+  </td>
+</tr>
+
+
+<tr>
+  <td>
+    <p style="color: #727272; font-size: 10px; font-family: 'Arial', 'Helvetica', sans-serif; line-height: 14px; margin-bottom: 10; font-weight: normal;">
+      This is an unmonitored email box. Please do not reply to this email.
+    </p>
+
+      <p style="color: #727272; font-size: 10px; font-family: 'Arial', 'Helvetica', sans-serif; line-height: 14px; margin-bottom: 10; font-weight: normal;">415 N Mathilda Ave, Sunnyvale, CA 94085</p>
+  </td>
+</tr>
+
+<tr class="spacer-row" aria-hidden="true" style="font-size: 0; line-height: 0;"><td aria-hidden="true" height="20">&nbsp;</td></tr>
+
+                  </table>
+                  <!--[if mso]>
+                  </td>
+                  </tr>
+                  </table>
+                  <![endif]-->
+                </div>
+              </td>
+            </tr>
+          </table>
+      
+    </td>
+  </tr>
+</table>
+<img src="https://u2450327.ct.sendgrid.net/wf/open?upn=y5Z0ux0tWJiluPF32dySRMOKO08NEIdVn-2F8Lbrs34RPNTHMxB0Vc2jlgOEAT-2FmAXy3pDNdN66hnd1MZ51ViMnit2dJ-2B7D2qEvKzt6yhPSZ2fCLwisMeTEsbkufrV9RbJoHGWzMhWSa9o1tL-2FzpH0gqZaMTNYQd-2BLYUH6EpU9PUIkqpvxR3c5-2FOBTDJG-2FSwQcHcy99RZNOHN60NoncJykhPle8sr1hNJ5IVuohmSUFhs-3D" alt="" width="1" height="1" border="0" style="height:1px !important;width:1px !important;border-width:0 !important;margin-top:0 !important;margin-bottom:0 !important;margin-right:0 !important;margin-left:0 !important;padding-top:0 !important;padding-bottom:0 !important;padding-right:0 !important;padding-left:0 !important;"/></body>
+</html>
+
+------=_Part_359649_563939349.1679135470713--
+

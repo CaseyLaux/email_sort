@@ -1,0 +1,233 @@
+Delivered-To: greenturtlekava@gmail.com
+Received: by 2002:a05:7208:8788:b0:64:a764:ea5d with SMTP id hc8csp3744825rbb;
+        Thu, 16 Mar 2023 08:28:25 -0700 (PDT)
+X-Google-Smtp-Source: AK7set/mNPnsEUdmPwuKrbmMLaB4P+FphKf3so6Ht7yoFspHMROrTBbHPHNw6BHWKagG7beSpbDb
+X-Received: by 2002:a05:6a20:3ca2:b0:cc:50de:a2be with SMTP id b34-20020a056a203ca200b000cc50dea2bemr4125439pzj.14.1678980505442;
+        Thu, 16 Mar 2023 08:28:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1678980505; cv=none;
+        d=google.com; s=arc-20160816;
+        b=fPPizlBCLpkpeOBDRJ/zaYqPWUVwslgZSFCRwTHQWplRliR0sXVK1r2hsZi6woNAg5
+         44bfV/n8wtY0a+pkwyBra/JR4EQRT64LLkp2Np99WNL2z0EyEHouhj4VhhvYMqQqSpCW
+         TE+KGjmH6ZauXAxDQHorPPbhnkVdc9iOYdTukN/9tXrolNPM5mgnwUaNqx9FvI/sgja+
+         kkisVBsXbfP0h5QWqM/OESkuxjCuihBckQpL7Tff/fLM18MnUz3XJQMw9kVYIf2HuhX6
+         P1SSsvZ/Zq19Rn4IWn9LOSUvip4PvH1D69wFnSGP0zWOFX7c7DTcYYASSZW9TlGTrrOY
+         o3RQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:subject:from:reply-to:mime-version:date:message-id:to
+         :dkim-signature;
+        bh=4qWSeIzz2YvCTcTEPzaf4aZh/jUygh3LYaqTJNiFzBg=;
+        b=KfuN3au/VqVf01du1R8WewBZfc7qLFHPDQh17mT6zbFlHfFv0n7gmNu0ONkw/zETsU
+         2VOOBybT+cQhgpCCRhwGOwmgCYnjsgZzAVUG2nNkAk0fh5CLjHfY4lc2Tk1DYhzfofOM
+         bz/yeXHJJwqvcEZrX1VloQ2yAq+BYsL+t7VNbGGDsAln8CD1NHGq5Kl5db+YdbM8mt/z
+         O4/1Nb1dCWMGKUBo46//Ebnl4zYbBOqvMh6eA9WwDMFoPRqIwt/C2f/zFacNYNyybg3R
+         0H4H2gZAYNuISW6GrHHk4DysLaoC7uDr8XQ+b7TRSxHr/7EDuKhvKQtmEnvTwvZEJgwH
+         9j1g==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@doordash.com header.s=scph0816 header.b="g/otBEXW";
+       spf=pass (google.com: domain of msprvs1=19439q-ompn0b=bounces-74232@bounces.doordash.com designates 156.70.72.94 as permitted sender) smtp.mailfrom="msprvs1=19439Q-OMpn0b=bounces-74232@bounces.doordash.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=doordash.com
+Return-Path: <msprvs1=19439Q-OMpn0b=bounces-74232@bounces.doordash.com>
+Received: from mta-70-72-94.doordash.sparkpostmail.com (mta-70-72-94.doordash.sparkpostmail.com. [156.70.72.94])
+        by mx.google.com with ESMTPS id bs187-20020a6328c4000000b0050aeadb53casi7740411pgb.596.2023.03.16.08.28.25
+        for <greenturtlekava@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 16 Mar 2023 08:28:25 -0700 (PDT)
+Received-SPF: pass (google.com: domain of msprvs1=19439q-ompn0b=bounces-74232@bounces.doordash.com designates 156.70.72.94 as permitted sender) client-ip=156.70.72.94;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@doordash.com header.s=scph0816 header.b="g/otBEXW";
+       spf=pass (google.com: domain of msprvs1=19439q-ompn0b=bounces-74232@bounces.doordash.com designates 156.70.72.94 as permitted sender) smtp.mailfrom="msprvs1=19439Q-OMpn0b=bounces-74232@bounces.doordash.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=doordash.com
+X-MSFBL: UzjzFgMRNRzkm3z9Dnl/2EQh8/d3CORafQnnE1SSSJo=|eyJyIjoiZ3JlZW50dXJ
+	0bGVrYXZhQGdtYWlsLmNvbSIsInN1YmFjY291bnRfaWQiOiIwIiwibWVzc2FnZV9
+	pZCI6IjY0MGE5ODM1MTM2NDJhN2IyMzI1IiwiY3VzdG9tZXJfaWQiOiI3NDIzMiI
+	sInRlbmFudF9pZCI6InNwYyJ9
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=doordash.com;
+	s=scph0816; t=1678980504; i=@doordash.com;
+	bh=4qWSeIzz2YvCTcTEPzaf4aZh/jUygh3LYaqTJNiFzBg=;
+	h=To:Message-ID:Date:Content-Type:From:Subject:From:To:Cc:Subject;
+	b=g/otBEXWmFT6CWscSmO6Vw06is3s1GKBwTOcNJqeYAjHM/aLu11C7V7ywR1qVXuOG
+	 ngOqf3GR8JO7IdHu5zSN4chfSmS92wl/MWxHkVlrG0ekmB6sA9o6tTBqBhGZYshupz
+	 jY8kLyKTf5HUJclUkhGPkAA5EDwnWrLjFsLMqNGE=
+To: "Candace Gibson" <greenturtlekava@gmail.com>
+Message-ID: <32.52.41226.89533146@jf.mta1vrest.cc.prd.sparkpost>
+Date: Thu, 16 Mar 2023 15:28:24 +0000
+Content-Type: multipart/alternative; boundary="_----pYF8qMXZe7l9TqvLd6yVMA===_F1/52-41226-89533146"
+MIME-Version: 1.0
+Reply-To: accounts@doordash.com
+X-Campaign-ID: 1896684
+From: "DoorDash" <accounts@doordash.com>
+Subject: DoorDash Payment to Green Turtle Kava (Beville Rd) (Daytona Beach) for 03/07/2023 to 03/12/2023
+X-Message-ID: 5ce94191173641d8acad9476ad6dbbab
+X-Feedback-ID: 2605229:1896684:22367:iterable
+Feedback-ID: 2605229:1896684:22367:iterable
+
+--_----pYF8qMXZe7l9TqvLd6yVMA===_F1/52-41226-89533146
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="UTF-8"
+
+DoorDash 
+
+
+Hi Green Turtle Kava (Beville Rd) (Daytona Beach)!
+
+You will receive a payment of $58.29*.
+
+You can view the full payment details and breakdown in the Financials Tab of 
+theMerchant Portal 
+<https://www.doordash.com/merchant/financials?store_id=23124183>.
+
+This payment covers transactions from  03/07/2023 through 03/12/2023.**
+
+*Could take up to 3-5 business days from today, depending upon your bank.
+ **May include adjustments and error charges for orders that happened prior to 
+this date range.
+--_----pYF8qMXZe7l9TqvLd6yVMA===_F1/52-41226-89533146
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="UTF-8"
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html xmlns=3D"http://www.w3=
+.org/1999/xhtml" style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helv=
+etica, Arial, sans-serif; font-size: 100%; line-height: 1.6;"> <head><meta =
+name=3D"viewport" content=3D"width=3Ddevice-width"><meta http-equiv=3D"Cont=
+ent-Type" content=3D"text/html; charset=3DUTF-8"> <title>DoorDash</title> <=
+style type=3D"text/css">*{font-family:"Helvetica Neue","Helvetica",Helvetic=
+a,Arial,sans-serif;font-size:100%;line-height:1.6}img{max-width:100%}body{-=
+webkit-text-size-adjust:none;width:100%!important;height:100%;margin:0;padd=
+ing:0}a{color:#348eda}.btn-primary{text-decoration:none;color:#FFF;backgrou=
+nd-color:#348eda;border:solid #348eda;border-width:10px 20px;line-height:2;=
+font-weight:bold;margin-right:10px;text-align:center;cursor:pointer;display=
+:inline-block;border-radius:25px}.btn-secondary{text-decoration:none;color:=
+#FFF;background-color:#aaa;border:solid #aaa;border-width:10px 20px;line-he=
+ight:2;font-weight:bold;margin-right:10px;text-align:center;cursor:pointer;=
+display:inline-block;border-radius:25px}.last{margin-bottom:0}.first{margin=
+-top:0}.padding{padding:10px 0}table.body-wrap{width:100%;padding:14px 12px=
+}table.body-wrap .container{border:1px solid #f0f0f0;padding:0}.header img{=
+max-width:100%;height:auto}.main-content-table{width:100%;border-collapse:c=
+ollapse}.main-content-wrap{padding:16px}table.footer-wrap{width:100%;clear:=
+both!important}.footer-wrap .container p{font-size:12px;color:#666}table.fo=
+oter-wrap a{color:#999}h1,h2,h3{font-family:"Helvetica Neue",Helvetica,Aria=
+l,"Lucida Grande",sans-serif;line-height:1.1;margin-bottom:15px;color:#000;=
+margin:40px 0 10px;line-height:1.2;font-weight:200}h1{font-size:36px}h2{fon=
+t-size:28px}h3{font-size:22px}p,ul,ol{font-weight:normal;font-size:14px;mar=
+gin-top:14px;margin-bottom:14px}ul li,ol li{margin-left:5px;list-style-posi=
+tion:inside}.nowrap{white-space:nowrap}.strong{font-weight:bold}hr{border:0=
+;height:1px;color:#e7e7e7;background-color:#e7e7e7;margin-top:16px;margin-b=
+ottom:16px}.container{display:block!important;max-width:600px!important;mar=
+gin:0 auto!important;clear:both!important}.footer-wrap .content{max-width:6=
+00px;margin:0 auto;display:block}</style> <style type=3D"text/css">.negativ=
+e{color:red}.positive{color:green}.payment-table-wrap{width:300px;padding:4=
+px 12px;background-color:#fdfdfd;border:1px solid #eee;margin-top:8px;margi=
+n-bottom:16px}.payment-table{width:100%;font-size:14px;border-collapse:coll=
+apse}.payment-table th,.payment-table td{padding:7px 0}.payment-table th{te=
+xt-align:left}.payment-table td{text-align:right}.second-to-last th,.second=
+-to-last td{padding-bottom:9px}.net-payout th,.net-payout td{border-top:1px=
+ solid #ddd;padding:8px 0}</style> <!--[if (gte mso 9)|(IE)]><style>.contai=
+ner{width:600px}</style><![endif]--> </head> <body bgcolor=3D"#f6f6f6" data=
+-new-gr-c-s-loaded=3D"14.1012.0" style=3D"font-family: 'Helvetica Neue', 'H=
+elvetica', Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6;=
+ -webkit-text-size-adjust: none; height: 100%; margin: 0; padding: 0; width=
+: 100%!important;"><span style=3D"color:transparent;visibility:hidden;displ=
+ay:none;opacity:0;height:0;width:0;font-size:0;"></span><img src=3D"https:/=
+/links.doordash.com/e/eo=3F_t=3D2ffc1d4117b3409ea4592b14a4460046&amp;_m=3D5=
+ce94191173641d8acad9476ad6dbbab&amp;_e=3D2I1_K6HdyjpudCoivreeVXPfDdVN4B4rjI=
+rzpH_vCpkpFOg8e2UT3eTE2rw6fXLYbWbuB2o_GHplGiIhXRT17uYndCTju1uJYDzTzK-NtSEEz=
+krqJbFrrQc32bGjw44SVQaIYlOPZtlCTLjyLYHWvA%3D%3D" style=3D"border:0;width:1p=
+x;height:1px;border-width:0px!important;display:none!important;line-height:=
+0!important;" width=3D"1" height=3D"1"/><!-- body --> <table class=3D"body-=
+wrap" bgcolor=3D"#f6f6f6" style=3D"font-family: 'Helvetica Neue', 'Helvetic=
+a', Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6; width:=
+ 100%; padding: 14px 12px;" width=3D"100%"> <tbody style=3D"font-family: 'H=
+elvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 100%;=
+ line-height: 1.6;"> <tr style=3D"font-family: 'Helvetica Neue', 'Helvetica=
+', Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6;"> <td s=
+tyle=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-=
+serif; font-size: 100%; line-height: 1.6;"></td> <td class=3D"container" bg=
+color=3D"#ffffff" style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helv=
+etica, Arial, sans-serif; font-size: 100%; line-height: 1.6; border: 1px so=
+lid #f0f0f0; padding: 0px; display: block!important; max-width: 600px!impor=
+tant; margin: 0 auto!important; clear: both!important;"> <div class=3D"head=
+er" style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, =
+sans-serif; font-size: 100%; line-height: 1.6;"><img alt src=3D"https://cdn=
+.doordash.com/static/img/email/doordash-email-header-600.png=3Fdd-nonce" s=
+tyle=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-=
+serif; font-size: 100%; line-height: 1.6; max-width: 100%; height: auto;"><=
+/div> <table class=3D"main-content-table" style=3D"font-family: 'Helvetica =
+Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 100%; line-hei=
+ght: 1.6; width: 100%; border-collapse: collapse;" width=3D"100%"> <tbody s=
+tyle=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-=
+serif; font-size: 100%; line-height: 1.6;"> <tr style=3D"font-family: 'Helv=
+etica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 100%; li=
+ne-height: 1.6;"> <td class=3D"main-content-wrap" style=3D"font-family: 'He=
+lvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 100%; =
+line-height: 1.6; padding: 16px;"> <div class=3D"main-content" style=3D"fon=
+t-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font=
+-size: 100%; line-height: 1.6;"> <p class=3D"first" style=3D"font-family: '=
+Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; line-height: 1.=
+6; font-weight: normal; font-size: 14px; margin-bottom: 14px; margin-top: 0=
+;">Hi Green Turtle Kava (Beville Rd) (Daytona Beach)!</p> <p style=3D"font-=
+family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; line-h=
+eight: 1.6; font-weight: normal; font-size: 14px; margin-top: 14px; margin-=
+bottom: 14px;">You will receive a payment of <strong style=3D"font-family: =
+'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 100=
+%; line-height: 1.6;">$58.29</strong>*.</p> <p style=3D"font-family: 'Helve=
+tica Neue', 'Helvetica', Helvetica, Arial, sans-serif; line-height: 1.6; fo=
+nt-weight: normal; font-size: 14px; margin-top: 14px; margin-bottom: 14px;"=
+>You can view the full payment details and breakdown in the Financials Tab =
+of the <a href=3D"https://links.doordash.com/u/click=3F_t=3D2ffc1d4117b3409=
+ea4592b14a4460046&_m=3D5ce94191173641d8acad9476ad6dbbab&_e=3DYyEXcte_mmlX3r=
+DZyzaDSolxr4FsUQUcHpd2l7gP3Z8YhVkuR-MxRA4O1OuW2C4RUoEEiwA1StaEREcZikUmy3mea=
+JARgiOiholfcVMtcX5j69rXWemtm05KzpfFYoGfWW2W9X00WZziFQ6RRkephc_bkOf6nk-UZIaE=
+uzBG_mEIoZEydpHNp4WXOZiXVY5bYNg7WLlYzgCPq286XgW7vIs0TmUo_rI3s_7ai0qxYDiPJxd=
+YgMws_gdMCbGxowVZ" style=3D"font-family: 'Helvetica Neue', 'Helvetica', Hel=
+vetica, Arial, sans-serif; font-size: 100%; line-height: 1.6; color: #348ed=
+a;">Merchant Portal</a>.</p> <p style=3D"font-family: 'Helvetica Neue', 'He=
+lvetica', Helvetica, Arial, sans-serif; line-height: 1.6; font-weight: norm=
+al; font-size: 14px; margin-top: 14px; margin-bottom: 14px;">This payment c=
+overs transactions from <strong class=3D"nowrap" style=3D"font-family: 'Hel=
+vetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 100%; l=
+ine-height: 1.6; white-space: nowrap;"> 03/07/2023</strong> through <strong=
+ class=3D"nowrap" style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helv=
+etica, Arial, sans-serif; font-size: 100%; line-height: 1.6; white-space: n=
+owrap;">03/12/2023</strong>.**</p> <p style=3D"font-family: 'Helvetica Neue=
+', 'Helvetica', Helvetica, Arial, sans-serif; line-height: 1.6; font-weight=
+: normal; margin-top: 14px; margin-bottom: 14px; font-size: 11px;"><i style=
+=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-seri=
+f; font-size: 100%; line-height: 1.6;">*Could take up to 3-5 business days =
+from today, depending upon your bank.<br style=3D"font-family: 'Helvetica N=
+eue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 100%; line-heig=
+ht: 1.6;"> **May include adjustments and error charges for orders that happ=
+ened prior to this date range. </i></p> </div> </td> </tr> </tbody> </table=
+> </td> <td style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica,=
+ Arial, sans-serif; font-size: 100%; line-height: 1.6;"></td> </tr> </tbody=
+> </table> <!-- /body --><!-- footer --> <table class=3D"footer-wrap" style=
+=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-seri=
+f; font-size: 100%; line-height: 1.6; width: 100%; clear: both!important;" =
+width=3D"100%"> <tbody style=3D"font-family: 'Helvetica Neue', 'Helvetica',=
+ Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6;"> <tr sty=
+le=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-se=
+rif; font-size: 100%; line-height: 1.6;"> <td style=3D"font-family: 'Helvet=
+ica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 100%; line=
+-height: 1.6;"></td> <td class=3D"container" style=3D"font-family: 'Helveti=
+ca Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 100%; line-=
+height: 1.6; display: block!important; max-width: 600px!important; margin: =
+0 auto!important; clear: both!important;"><!-- content --> <div class=3D"co=
+ntent" style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Aria=
+l, sans-serif; font-size: 100%; line-height: 1.6; max-width: 600px; margin:=
+ 0 auto; display: block;"> <table style=3D"font-family: 'Helvetica Neue', '=
+Helvetica', Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6=
+;"> <tbody style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, =
+Arial, sans-serif; font-size: 100%; line-height: 1.6;"> <tr style=3D"font-f=
+amily: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-si=
+ze: 100%; line-height: 1.6;"> <td align=3D"center" style=3D"font-family: 'H=
+elvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 100%;=
+ line-height: 1.6;"></td> </tr> </tbody> </table> </div> <!-- /content --><=
+/td> <td style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Ar=
+ial, sans-serif; font-size: 100%; line-height: 1.6;"></td> </tr> </tbody> <=
+/table> <!-- /footer -->=0D=0A<img border=3D"0" width=3D"1" height=3D"1" al=
+t=3D"" src=3D"http://post.spmailtechnolo.com/q/Le31P0-krCcLCgbSPpJphA~~/AAE=
+h-AA~/RgRl9bqYPlcDc3BjQgpkCpg1E2QqeyMlUhlncmVlbnR1cnRsZWthdmFAZ21haWwuY29tW=
+AQAAAAA">=0D=0A</body> </html>
+--_----pYF8qMXZe7l9TqvLd6yVMA===_F1/52-41226-89533146--
+
+

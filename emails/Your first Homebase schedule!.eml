@@ -1,0 +1,229 @@
+Delivered-To: greenturtlekava@gmail.com
+Received: by 2002:a05:7208:8788:b0:64:a764:ea5d with SMTP id hc8csp1821620rbb;
+        Mon, 20 Mar 2023 17:37:12 -0700 (PDT)
+X-Google-Smtp-Source: AK7set87/avR68meTSWHNmgNS1Fi+isakG3lMURzjc9ZN8REithWYMKnje2TT7lSYBfRqwuZFlvT
+X-Received: by 2002:a17:90a:1950:b0:23f:1210:cea4 with SMTP id 16-20020a17090a195000b0023f1210cea4mr564060pjh.18.1679359032143;
+        Mon, 20 Mar 2023 17:37:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1679359032; cv=none;
+        d=google.com; s=arc-20160816;
+        b=j7cmqHNWCIoGho8EcCiiOKsffMF2E/dcYe7TWGUKQTEzldzNfaksJxuzRbcoi7Ws15
+         FOoUX0Alq40EZmJiQ9f8JWO8mKxen3179ROGvjoXnNLsBVN4E65Tkmps9/Y+XNx2Gums
+         /5uHz2D43Z02054ETBwXUgiVuO4/5S7r8A9/Oc6+c94UC5FFzK4C2k2qGWEn8phP36ma
+         7bpOgXh5SevLqhR7EkG0g11LiiPXLXVUoIJ+xmwlI3Ry1j0kPo28o5e2+gLLXRKwRnS2
+         WorUkN4unS330TNajaSTPao3Cbjyr4DcH8qi/r842b/aUEP+2ltkKYtCoFMTj6qlh8KU
+         v17w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:to:mime-version:subject:message-id:from
+         :date:dkim-signature:dkim-signature;
+        bh=Mj2iH5YLxMfkcIpSIaeJWLsFRqAj7modedNxILQuqF4=;
+        b=obCbxEiBCQdMXP4UY8kYE8mPMwsL3DGCY4FKi1cXzCp25oG4YkNGx4DcUSYzQJgEff
+         Jx1OPZBq8cfVbQF+BoLQzU/N+YLGYLrXzoD2Oz93yUnq8XX9SqzcQy66bw+t6VfWrOsb
+         Tk0cl3xyBTbDi45HX6bnjCvKgnR98SAcC9m30knpHfDw6iGkV/fhVc0Oztvv5uljo5IF
+         Vj5hwo7/yp7jt3e9C2ACro9M0Pt+240QgWB0fwqmxsa+dTHnwSYmNs/1DT1mx+i9JoTb
+         43Gfq6R9vIRotsBnjrZCuUGKaW/YXVw+T6jjI8pUKmSJ47MtOlfXpqSRD5KlTL6VQMDG
+         cupQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@joinhomebase.com header.s=s1 header.b=pHLbCInj;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=C24J5pm+;
+       spf=pass (google.com: domain of bounces+2624565-d93d-greenturtlekava=gmail.com@email.joinhomebase.com designates 192.254.112.95 as permitted sender) smtp.mailfrom="bounces+2624565-d93d-greenturtlekava=gmail.com@email.joinhomebase.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=joinhomebase.com
+Return-Path: <bounces+2624565-d93d-greenturtlekava=gmail.com@email.joinhomebase.com>
+Received: from o1.email.joinhomebase.com ([192.254.112.95])
+        by mx.google.com with ESMTPS id kk17-20020a17090b4a1100b0023fda243370si1503382pjb.35.2023.03.20.17.37.11
+        for <greenturtlekava@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 20 Mar 2023 17:37:12 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+2624565-d93d-greenturtlekava=gmail.com@email.joinhomebase.com designates 192.254.112.95 as permitted sender) client-ip=192.254.112.95;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@joinhomebase.com header.s=s1 header.b=pHLbCInj;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=C24J5pm+;
+       spf=pass (google.com: domain of bounces+2624565-d93d-greenturtlekava=gmail.com@email.joinhomebase.com designates 192.254.112.95 as permitted sender) smtp.mailfrom="bounces+2624565-d93d-greenturtlekava=gmail.com@email.joinhomebase.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=joinhomebase.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=joinhomebase.com;
+	h=from:subject:mime-version:x-feedback-id:to:content-type:
+	content-transfer-encoding:cc:content-type:from:subject:to;
+	s=s1; bh=Mj2iH5YLxMfkcIpSIaeJWLsFRqAj7modedNxILQuqF4=;
+	b=pHLbCInj59cG3KlmshG5LyFAuIuC4UqQ8A0Vs/ACc8/ZKCTRmPyfcXmq105ZgqClVy+H
+	woLjvqdWjLyzz4w8YDc1VP7iVWve7IkSpYJwzW40go6Hul3yJshih3fZM1i4vh6KwJf1tF
+	sFFwKXtUWrAu3pKKzJkYq4Ouk12kQqTJHtw7bNndHtFsz/sGYyFxww2tYkbb43zt3O+YzX
+	LnlvnXuFP+ZUrvQVv9SV/54dQwqUkAcgM99rePdL9ajUEhVUcU3XFk79o4B7qYKhZcpvgv
+	5CRSwB/QL86bYPQZA/i5V+b8Gv53xHiQBcar1EVHz8MUI4GjBuwqdRwZ7CP8F8PA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=from:subject:mime-version:x-feedback-id:to:content-type:
+	content-transfer-encoding:cc:content-type:from:subject:to;
+	s=smtpapi; bh=Mj2iH5YLxMfkcIpSIaeJWLsFRqAj7modedNxILQuqF4=;
+	b=C24J5pm+uiHUZeKRbmhXBv3GdqaB6vuskVFD/WEGjPB6YROTtz4SZFFbTnU2uiZLtih9
+	fX7retdHbk9SwSawifxvx25HS/6wVG6O/oNIb3KBEmWRi+juTPUpc++L+2Dh3IzqDoNhTY
+	PDuz7LK4UjjbBqAneuXpYQXlkW9FPl/hk=
+Received: by filterdrecv-55c95cf7cc-tmvl7 with SMTP id filterdrecv-55c95cf7cc-tmvl7-1-6418FC37-1F
+        2023-03-21 00:37:11.403859025 +0000 UTC m=+2336676.816968753
+Received: from joinhomebase.com (unknown)
+	by geopod-ismtpd-5 (SG) with ESMTP
+	id apyG12HASmyOpwx9yAxCWA
+	for <greenturtlekava@gmail.com>;
+	Tue, 21 Mar 2023 00:37:11.341 +0000 (UTC)
+Date: Tue, 21 Mar 2023 00:37:11 +0000 (UTC)
+From: Homebase <info@joinhomebase.com>
+Message-ID: <6418fc36f14a1_11a9a1411879@ip-10-70-67-206.us-west-2.compute.internal.mail>
+Subject: Your first Homebase schedule!
+Mime-Version: 1.0
+X-Feedback-ID: 2624565:SG
+X-SG-EID: 
+ =?us-ascii?Q?gC3BLrNEGHruY1oXE0wIb5IOa6+7vSj8ZeSCGGZAg=2FSDkQrJM2MuXFiscAOq+G?=
+ =?us-ascii?Q?2LYe16kFbRwjf6ch5ZQhDDnXEXi7vy0x31xi8dO?=
+ =?us-ascii?Q?wUS00=2Fn5Y68LGZzDpL+qnxpKvUkTdKjI0FVMdY9?=
+ =?us-ascii?Q?o+H50FZhU=2FnE7SxMOTIp5JKs6StADWothXKF3Fd?=
+ =?us-ascii?Q?Oz0WPY6NyaZFpbHg9O11TDhTHMO881yXe+v61Qp?=
+ =?us-ascii?Q?UhJ+HCdDYEsq2XiKZN9Yo3xjVmxXarrVS3XKZO?=
+X-SG-ID: 
+ =?us-ascii?Q?N2C25iY2uzGMFz6rgvQsb9RSUyB3ulQmM+qUWzaIEKqyn0QI5dZi5ZJjvYlLUN?=
+ =?us-ascii?Q?TjzXCGCjBnzNKZqr3wW1iHZWM6LcObBMhdCo8FB?=
+ =?us-ascii?Q?fYj8zI=3D?=
+To: Candace <greenturtlekava@gmail.com>
+X-Entity-ID: hiSC/nnbmxG3LSqtTrlVKQ==
+Content-Type: text/html; charset=iso-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html xmlns=3D"http://www.w3.org/1999/xhtml">=0D
+<head>=0D
+<meta content=3D"width=3Ddevice-width, initial-scale=3D1.0, maximum-scale=
+=3D1.0" name=3D"viewport">=0D
+<meta content=3D"text/html; charset=3DUTF-8" http-equiv=3D"Content-Type">=0D
+</head>=0D
+<body style=3D"background-color: #F9F9FB; width: 100%; height: 100%; margin=
+:0; padding:0; font-family: Helvetica Neue, Helvetica, Arial, sans-serif;">=0D
+<table cellpadding=3D"0" cellspacing=3D"0" style=3D"width: 600px; height: 1=
+00%; margin: 15px auto 0px;">=0D
+<tr>=0D
+<td style=3D"text-align: center; vertical-align: top">=0D
+<table style=3D"width: 100%; background-color: white; margin-top: 10px;">=0D
+<tr style=3D"height: 65px;">=0D
+<td style=3D"text-align: center">=0D
+<a href=3D"http://links.joinhomebase.com/ls/click?upn=3DnY-2BS2bbBS2isu9wnt=
+9sYZnDmoJQuBp0V94Sv2jbgfoJDQE46JmPdEcxn8rrFB8QnMd2n_TUDo-2BBITdlVAPSUyyUbSU=
+eLF6fWHoyeXCPF9-2FJ384Gy7KQlSZrisOJtLJmkbKxNdvf2moTEuzHGHkXKb5-2BeNHqA2rKmO=
+VSCfNeUiazOrJKzgVhvzC-2B4-2FEEnBAVM7B4Kl3nFGM2B01wkvnupnZ-2FwUEAGCdLzpUu9OG=
+PAJv-2FSn0fI8s8XfCf3Y5BYBaPbBB8DCIUeM91BoOVA3uDuGzdVln2cEr-2Fdl5DG14kkMbFGJ=
+8VjfFrxgjRepzRJ2qZqId458EnzJM6Sv5cqdRaHT6WzcbZSVoHNvUZLZFFfjLojFGfP7UwKZRXv=
+I7qbRFMH8sBNw" target=3D"_blank">=0D
+<img src=3D"https://cdn.joinhomebase.com/assets/emails/homebase-logo-purple=
+.png" srcset=3D"https://cdn.joinhomebase.com/assets/emails/homebase-logo-pu=
+rple@2x.png 2x, https://cdn.joinhomebase.com/assets/emails/homebase-logo-pu=
+rple@3x.png 3x">=0D
+</a>=0D
+</td>=0D
+</tr>=0D
+</table>=0D
+</td>=0D
+</tr>=0D
+=0D
+<tr>=0D
+<td style=3D"text-align: center; vertical-align: top;">=0D
+<table style=3D"width: 100%; background-color: #ffffff; margin-bottom: 15px=
+;">=0D
+<tr>=0D
+<td style=3D"padding: 40px; color: #788292;">=0D
+<div style=3D"text-align: center; padding: 0 10px;">=0D
+<img src=3D"https://cdn.joinhomebase.com/assets/happy-schedule.png">=0D
+<h1 style=3D"font-size: 1.4rem; color: #8A5EA6; margin-top: 12px; margin-bo=
+ttom: 10px;">=0D
+Woo! You published your first schedule!=0D
+</h1>=0D
+<p style=3D"font-size: 1rem; padding: 0px; margin: 0px;">=0D
+Scheduled Employees:=0D
+<span style=3D"font-weight: 700;">5</span>=0D
+</p>=0D
+<p style=3D"font-size: 1rem; padding: 0px; margin: 0px;">=0D
+Scheduled Hours:=0D
+<span style=3D"font-weight: 700;">98.0</span>=0D
+</p>=0D
+<div style=3D"width: 90%; margin: 20px 0; background-color: #fff2eb; color:=
+ #fb9253; font-weight: 600; padding: 12px; font-size: 14px; font-weight: 30=
+0; letter-spacing: 0.3px;">=0D
+The schedule was sent to your team, but we noticed=0D
+<span style=3D"font-weight: 700">2 employees</span>=0D
+who don't have phone numbers or emails.=0D
+</div>=0D
+<p style=3D"margin: 25px 0 40px;">=0D
+<a href=3D"http://links.joinhomebase.com/ls/click?upn=3DnY-2BS2bbBS2isu9wnt=
+9sYZnDmoJQuBp0V94Sv2jbgfoLu9O-2FsOeRMrvQ67P07JKsGtfZK7eih10Qizrk0Z6emYBhgee=
+tARQ8icf5ocWL5s2DjZ4GA0dVCnrnX-2Fju-2BjeGuMsD0S-2FUF-2BWOi8uwMM73wuP8Mu-2FX=
+VhkQLwfrDt3eRirwZZKZrYAG0reNzL7VWW7Ku6Qsz-2BJdo8ouRX9RnMtoQv2RHhmPOxk2PCS0y=
+wcAg6pc2MKbknWGam35o5bC0w8wRYyk8MsinVgp5J8Da0igMaRduCyT-2FTzKbql8py-2Fa8pzV=
+JFc4kzY8GR-2F2PyfRhjU6uBuY72i3h8vPIq4FebYfHIq49FXR7D32P11daS3lfsVcgG-2BC29W=
+6KVDyadulgxzDu9QPaCZgxoFARtPP8dRwfYl2zGIUSqxpt3a-2BgIf4ZUOBvZizO6XelbO9BTE8=
+ArNNzQrFEcVZje3fppmLJz3H5NiuEedtal0XGms5SQZSn-2BR-2Fh1BgCGfScFzK5EmHZTUfi1y=
+DCLkSANCdlFvJanY4VpQ-3D-3DuK8r_TUDo-2BBITdlVAPSUyyUbSUeLF6fWHoyeXCPF9-2FJ38=
+4Gy7KQlSZrisOJtLJmkbKxNdvf2moTEuzHGHkXKb5-2BeNHqA2rKmOVSCfNeUiazOrJKzgVhvzC=
+-2B4-2FEEnBAVM7B4KlfLikmEDvNPM3OeFmhLfrBQuZ3t1vh10Ak92xe5xmiNYO6iliSHMfaGml=
+pYOn0aL4vHBJVUoYvpH8YF5v57BeAMUn58srxnM5cvjy0jNO853deQPG9wVmPzVfCgiWiAGg6-2=
+BiEIGVbaX11v5-2BZJ-2BQm-2BVb9OapOuBGUHZmgfKKpfTb2iYoevn5cQI59WNGSrHiV" styl=
+e=3D"color: #fff; background: #60b86b; text-decoration: none; padding: 11px=
+ 43px; border-radius: 3px;">=0D
+Update Your Employee Details=0D
+</a>=0D
+</p>=0D
+<p style=3D"text-align: center; font-weight: 300; margin: 40px 0 0 0;">=0D
+&lt;3 Homebase=0D
+</p>=0D
+=0D
+</div>=0D
+=0D
+</td>=0D
+</tr>=0D
+</table>=0D
+</td>=0D
+</tr>=0D
+=0D
+<tr>=0D
+<td style=3D"text-align: center; vertical-align: top">=0D
+<table style=3D"width: 100%; height: 100%; padding: 10px 30px;">=0D
+<tr>=0D
+<td style=3D"text-align: center">=0D
+<p style=3D"font-size: 11px; margin-bottom: 0; color: #999">=0D
+<a href=3D"http://links.joinhomebase.com/ls/click?upn=3DnY-2BS2bbBS2isu9wnt=
+9sYZnDmoJQuBp0V94Sv2jbgfoLIbMTwwRrBgahJZ4BlUHfG9ChELHyR5rKooRxI3xlpOZZazqG7=
+tqVs2mvqELfaXps-3Dr-eU_TUDo-2BBITdlVAPSUyyUbSUeLF6fWHoyeXCPF9-2FJ384Gy7KQlS=
+ZrisOJtLJmkbKxNdvf2moTEuzHGHkXKb5-2BeNHqA2rKmOVSCfNeUiazOrJKzgVhvzC-2B4-2FE=
+EnBAVM7B4KlNPBsRMraFrmkJb-2B2Fim7TIU5zRbliBXTXVsyBfPuj9qZNz6arePqYo0LalQ6Lf=
+yw-2FG7UVOrL6eROTJ3lDj9fEocWMVbyrXlXiu4Wba3TjQk-2BDl1ElF5Qied5Sf-2FONiYTCs-=
+2FDQJA9AxTX77ADmubC3a0bUHbEGLGv0SLeTHUHxPMyOV-2FEXxbaoCpDgNlUjV8a" style=3D=
+"color: #999; text-decoration: none;">=0D
+Change Your Notification Settings=0D
+</a>=0D
+|=0D
+<a href=3D"http://links.joinhomebase.com/ls/click?upn=3DnY-2BS2bbBS2isu9wnt=
+9sYZnDmoJQuBp0V94Sv2jbgfoKfxlWQ6YdO1-2F8DGuYehw5h8ihc_TUDo-2BBITdlVAPSUyyUb=
+SUeLF6fWHoyeXCPF9-2FJ384Gy7KQlSZrisOJtLJmkbKxNdvf2moTEuzHGHkXKb5-2BeNHqA2rK=
+mOVSCfNeUiazOrJKzgVhvzC-2B4-2FEEnBAVM7B4KlVhKnBLZom-2FnZVhOfjdadcrqqdD5UDKG=
+lamsg0EKLk2z-2F2494ghgQvAt53huAWzCw1UP5bxH-2FPXc3fc6HpzvZGw1jGFLl1ezCx-2FwZ=
+9NQ8niLb3Zn-2BaZZMxsmsGECufI8MBNFzUXKBwdCyNU8xYDDqm9wqw9e29Occ8NFToJrZedmRH=
+Ydq-2BkWO0O6JIkLt-2B8JW" style=3D"color: #999; text-decoration: none;">=0D
+Privacy Policy=0D
+</a>=0D
+|=0D
+<span style=3D"font-weight: 200">=0D
+=A9 Pioneer Works, Inc., 2023=0D
+</span>=0D
+</p>=0D
+</td>=0D
+</tr>=0D
+</table>=0D
+</td>=0D
+</tr>=0D
+=0D
+</table>=0D
+<img src=3D"http://links.joinhomebase.com/wf/open?upn=3Dy5Z0ux0tWJiluPF32dy=
+SRMOKO08NEIdVn-2F8Lbrs34RPvZFt9ofK0TGTAEl9QRcg3SMmjKfJdYwluTK26kdj8RuwXaGGb=
+MatQd1ur-2BGmnCf-2Baz5y9iLu1QTSM93T-2Bp1KLpEVnsTZuF-2Fxf-2FNQxjyETnlxK-2FbK=
+OCOEdfVOPJE26wkKQ68fN3-2B8-2FuIspvmVq46C8Isp1kJ1-2BrHMptAB50zCcjLLs3LVnXaUD=
+Y-2FL0Wqo3NT1Q2qQz7gLH-2BWM3BL-2BvOuLKgpvhwvuYTJszRydQ-2FA-2B3clo8Ct8ma0fej=
+SXgncDvRtzBxLvEyYBNuPAY3eBMkdGd" alt=3D"" width=3D"1" height=3D"1" border=
+=3D"0" style=3D"height:1px !important;width:1px !important;border-width:0 !=
+important;margin-top:0 !important;margin-bottom:0 !important;margin-right:0=
+ !important;margin-left:0 !important;padding-top:0 !important;padding-botto=
+m:0 !important;padding-right:0 !important;padding-left:0 !important;"/></bo=
+dy>=0D
+</html>=0D
+

@@ -1,0 +1,7 @@
+{
+  "prompt": "Subject: Your Biweekly payroll is due\nFrom:RunDoNotReply@adp.com\nTo:support@ourcompany.com\nDate:16 Apr 2023 07:59:16 -0400\nContent:Your Biweekly payroll for check date 04/21/2023 is ready for processing. Your payroll should be processed at least 2 days prior to your check date to ensure timely tax deposits and payroll delivery. If you offer direct deposit to your employees, this will also guarantee deposit of their funds by the check date.<br /><br />Company Name: GREEN TURTLE KAVA LLC<br />Client ID: 27650845<br><br>Important: Please be advised that calls to and from your Service Team may be monitored or recorded.<br /><br />Please do not respond to this message. It comes from an unattended mailbox.\r\n\r\n<HR>This message and any attachments are intended only for the use of the addressee and may contain information that is privileged and confidential. If the reader of the message is not the intended recipient or an authorized representative of the intended recipient, you are hereby notified that any dissemination of this communication is strictly prohibited. If you have received this communication in error, notify the sender immediately by return email and delete the message and any attachments from your system.<BR>\r\n\n###\n\n",
+  "completion": " ",
+  "email_subject": "Your Biweekly payroll is due",
+  "email_sender": "RunDoNotReply@adp.com",
+  "email_date": "16 Apr 2023 07:59:16 -0400"
+}

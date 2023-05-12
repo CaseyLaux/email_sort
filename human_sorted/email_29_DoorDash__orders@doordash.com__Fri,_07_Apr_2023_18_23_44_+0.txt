@@ -1,0 +1,4 @@
+{
+  "prompt": "Subject: Delivery order from Jamie D. for Green Turtle Kava (Beville Rd):\r\n Order # 7364a54e\nFrom:DoorDash <orders@doordash.com>\nTo:support@ourcompany.com\nDate:Fri, 07 Apr 2023 18:23:44 +0000 (UTC)\nContent: \n###\n\n",
+  "completion": "1 Doordash"
+}

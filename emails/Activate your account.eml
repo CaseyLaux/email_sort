@@ -1,0 +1,880 @@
+Delivered-To: greenturtlekava@gmail.com
+Received: by 2002:a05:7208:8788:b0:64:a764:ea5d with SMTP id hc8csp4004908rbb;
+        Thu, 16 Mar 2023 15:43:55 -0700 (PDT)
+X-Google-Smtp-Source: AK7set/agiHrpf4LaqVK0nHhvdFpyTUF5qsslWHHl9iZLd4iYwtWzFQGeTFSGLWV0N3BZvdpgEj0
+X-Received: by 2002:a81:75d5:0:b0:533:8eac:77c4 with SMTP id q204-20020a8175d5000000b005338eac77c4mr4452705ywc.6.1679006635577;
+        Thu, 16 Mar 2023 15:43:55 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1679006635; cv=none;
+        d=google.com; s=arc-20160816;
+        b=WNSFSf1sr/Mr7vaL/CcjVJrSIfcntao2ZvMC4F2pepRxkaHQGQ2zZYuqaXpDGTM5wa
+         V0g6eHmIJ+TYWHiIKERExVXdCK1saGUVpvnurHJ04mw4GbGrBp+kx8oVO676cj7ksgIr
+         fG71XtXtxxRZRL4xPrzvYljKsGo09zWq3CjA3FznrCeQCeh16/QNfaHpYEvyLwLxGy8L
+         8g0CWTS8VXuqDTC/eeblnZnCmyH44aU8k+4vIgNLZrDKWzHDj4MbTrWMWxgln7O1SD42
+         u0DA7IrBZ4bGCao5KVw8bOeFEoo5f9IfAcxkwUmYxMsFg/omPV55unsYfQdDSkw3yM+9
+         UVnA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:date:feedback-id:message-id:to:subject:from
+         :dkim-signature:dkim-signature;
+        bh=4nJJn7Ed/XunFdZzIexZXGWCfNCfsXbOA0U4+z/k/1s=;
+        b=HETMJuxsm8GOMN7F2QB32Ue5vOTR1elFH0aU2yDlOES1PEjBgHg//Cn/IXhYyhTy5i
+         QpT84T60/H46Bevm1nLLQnLQL0ROwd+De0v02YNIkNNjZFJbAbnhJ26yupCrtj+SB61t
+         u2S7UzSijG1i5jTLEy1hBHKIWdvfHxgFwAtxGRoItjstw5jbts9mkrMeTz7R0XrqkfYf
+         7scw/vKFvDKPMJTfjjUUDx91BIRsQc1S417B+ND1+5tgINX0g3Yz0D9kSbuIh3IEVYX+
+         rsQdyQnph05bp/zNu1XYiafIzX4xmgsOv48zjrt8XeXMVnioZB1DWJrJK2YcQlaMppoA
+         7TNA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@qr-code-generator.com header.s=mandrill header.b=NjXSImoK;
+       dkim=pass header.i=@mandrillapp.com header.s=mandrill header.b=P6MbLdGI;
+       spf=pass (google.com: domain of bounce-md_30218947.64139baa.v1-4996d14411af4cada7f16e1db716adaa@mandrillapp.com designates 198.2.186.138 as permitted sender) smtp.mailfrom=bounce-md_30218947.64139baa.v1-4996d14411af4cada7f16e1db716adaa@mandrillapp.com
+Return-Path: <bounce-md_30218947.64139baa.v1-4996d14411af4cada7f16e1db716adaa@mandrillapp.com>
+Received: from mail186-138.suw21.mandrillapp.com (mail186-138.suw21.mandrillapp.com. [198.2.186.138])
+        by mx.google.com with ESMTPS id a188-20020a818ac5000000b00534386bd39dsi426445ywg.256.2023.03.16.15.43.55
+        for <greenturtlekava@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 16 Mar 2023 15:43:55 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce-md_30218947.64139baa.v1-4996d14411af4cada7f16e1db716adaa@mandrillapp.com designates 198.2.186.138 as permitted sender) client-ip=198.2.186.138;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@qr-code-generator.com header.s=mandrill header.b=NjXSImoK;
+       dkim=pass header.i=@mandrillapp.com header.s=mandrill header.b=P6MbLdGI;
+       spf=pass (google.com: domain of bounce-md_30218947.64139baa.v1-4996d14411af4cada7f16e1db716adaa@mandrillapp.com designates 198.2.186.138 as permitted sender) smtp.mailfrom=bounce-md_30218947.64139baa.v1-4996d14411af4cada7f16e1db716adaa@mandrillapp.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=qr-code-generator.com; s=mandrill; t=1679006635; x=1679064235;
+	i=support@qr-code-generator.com;
+	bh=4nJJn7Ed/XunFdZzIexZXGWCfNCfsXbOA0U4+z/k/1s=;
+	h=From:Subject:To:Message-Id:Feedback-ID:Date:MIME-Version:
+	 Content-Type:CC:Date:Subject:From;
+	b=NjXSImoK0X7zSrV6gzfe9+DmWzmfXso+LTru0jPiQzR0/nk/UoXX1foO5rTnriuNf
+	 cVZYhRUsACnJIn9dpP7Km1nndOKV+Zer2lYVbUuxmod8hbTU5jm9AKsfpkbP+i+qTu
+	 xXldvCeUcofVuMoB/N6CxbKi7LGhMDdc70oOmlFQ=
+Received: from pmta10.mandrill.prod.suw01.rsglab.com (localhost [127.0.0.1])
+	by mail186-138.suw21.mandrillapp.com (Mailchimp) with ESMTP id 4Pd2P71jxZz5QkblM
+	for <greenturtlekava@gmail.com>; Thu, 16 Mar 2023 22:43:55 +0000 (GMT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandrillapp.com; 
+ i=@mandrillapp.com; q=dns/txt; s=mandrill; t=1679006635; h=From : 
+ Subject : To : Message-Id : Date : MIME-Version : Content-Type : From : 
+ Subject : Date : X-Mandrill-User : List-Unsubscribe; 
+ bh=4nJJn7Ed/XunFdZzIexZXGWCfNCfsXbOA0U4+z/k/1s=; 
+ b=P6MbLdGILtcR6VbN2FF+FTSMCUK7BajrCWjw22MBiB+GTvFRUz/E5TkMViVRZQ/wGVQ+oj
+ /Ra6MzENgH9cxqBJoBiAc4yQ+cmqqziDlqnp6TpbTY9TpYXqynu5iBt5hO+HECI/PBIasrmB
+ NpeIepVMCj3B61c6kEgJYssa0G3pk=
+From: QR Code Generator <support@qr-code-generator.com>
+Subject: Activate your account
+Received: from [54.170.192.250] by mandrillapp.com id 4996d14411af4cada7f16e1db716adaa; Thu, 16 Mar 2023 22:43:54 +0000
+To: greenturtlekava@gmail.com
+Message-Id: <815c0917-b799-e57e-5632-2f464d3a10b6@qr-code-generator.com>
+X-Native-Encoded: 0
+X-Report-Abuse: Please forward a copy of this message, including all headers, to abuse@mandrill.com
+X-Report-Abuse: You can also report abuse here: http://mandrillapp.com/contact/abuse?id=30218947.4996d14411af4cada7f16e1db716adaa
+X-Mandrill-User: md_30218947
+Feedback-ID: 30218947:30218947.20230316:md
+Date: Thu, 16 Mar 2023 22:43:55 +0000
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="_av-1Oi2xjY5JBGrqhcApoAPkw"
+
+--_av-1Oi2xjY5JBGrqhcApoAPkw
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+     Activate your account     Activate your account and verify your email
+address to start your free trial of QR Code Generator Pro.                 
+          
+                      Hi, 
+
+            You=E2=80=99re almost done! Simply click below to activate your
+account: 
+
+            Activate account
+<https://login.qr-code-generator.com/api/email/verify?email=3Dgreenturtleka=
+va%40gmail.com&industry=3Drestaurants-bars&material=3Dno-material&token=3D7=
+77881>
+ 
+              The commercial use of all QR Codes created during the trial
+is allowed. Static QR Codes have an unlimited lifetime. If you want to use
+Dynamic QR Codes beyond the trial, please make sure to upgrade your
+account. 
+
+           
+                     Cheers,    Your friends at QR Code Generator PRO 
+             Have any questions? Visit our Help Center
+<https://support.qr-code-generator.com/hc/en-us>.   Alternatively, you can
+contact our Support Team via the Contact Form
+<https://my.qr-code-generator.com/features-and-pricing?modal=3Dsupport> in
+your account.   Bitly Europe GmbH | Am Lenkwerk 13 | 33609 Bielefeld,
+Germany   Management: Steffen Hetzel; Local Court Bielefeld: HRB 43671  
+     You receive these emails because you signed up to QR Code Generator
+Pro.     
+                 
+      
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+--_av-1Oi2xjY5JBGrqhcApoAPkw
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns=3D"http://www.w3.org/1999/xhtml" lang=3D"en" xml:lang=3D"en">
+<head>
+  <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width">
+  <title>Activate your account</title>
+  <style> .small-0{width:0!important;display:none!important}.space-vertical=
+{padding-left:24px!important;padding-right:24px!important}body h1{font-size=
+:20px!important;font-weight:700!important;color:#1b294b!important}body h1,b=
+ody p{line-height:24px!important}body p{color:#294270;font-size:16px!import=
+ant;font-weight:400!important}body .bold{font-weight:600!important;font-siz=
+e:18px!important}body .email-table{width:100%;position:relative;max-width:5=
+52px;margin:0 auto;border:2px solid #f7f8f9;border-radius:6px;border-collap=
+se:separate;border-spacing:0}body .email-table tr{background-color:#f7f8f9}=
+@media (max-width:575px){body .email-table tr{display:grid!important}}body =
+.email-table td{display:inline-block;vertical-align:middle;color:#294270;li=
+ne-height:24px}body .email-table tr:nth-child(odd){background-color:#fdfeff=
+}body .email-table .left-child{font-weight:600;padding-left:8px;padding-top=
+:12px;padding-bottom:12px;min-width:185px}@media (max-width:575px){body .em=
+ail-table .left-child{padding-bottom:0!important;padding-top:8px!important;=
+padding-left:16px!important}}@media (max-width:575px){body .email-table .ri=
+ght-child{padding-left:16px!important;padding-bottom:8px!important}}body ul=
+{list-style:none;margin-left:1em}@media (max-width:360px){body ul{-webkit-p=
+adding-start:20px;padding-inline-start:20px}}body ul li{color:#294270;font-=
+size:16px!important;line-height:24px!important;font-weight:400!important;pa=
+dding-bottom:4px!important}body ul li:before{content:"\25CB"!important;disp=
+lay:inline-block!important;width:16px!important;color:#1e94f3!important;mar=
+gin-left:-1em}body .container{width:100%!important;max-width:600px!importan=
+t;border:2px solid #c0ced5;border-radius:12px;border-collapse:separate;marg=
+in-top:36px;margin-bottom:36px;background:#fdfeff!important}@media (max-wid=
+th:575px){body .container{border-radius:unset!important;border-right:none!i=
+mportant;border-left:none!important}}body .no-bg-color .container{backgroun=
+d-color:unset!important}body #qr-logo{text-align:center}body #qr-logo img{d=
+isplay:inline-block}body #signature span{color:#294270!important;font-size:=
+16px!important;font-weight:400}body footer{border-top:1px solid #d4d4d4}bod=
+y footer span{color:#53678c!important;font-size:12px!important;font-weight:=
+400;line-height:1.7}body footer .footer-section p{color:#53678c!important;l=
+ine-height:24px;font-size:16px!important}body #footer-short{border-top:0!im=
+portant}.row{margin-left:0;margin-right:0}.text-label{min-width:180px;displ=
+ay:inline-block;margin-right:10px}@media screen and (max-width:480px){.smal=
+l-0{width:0!important;display:none!important}}@media screen and (max-width:=
+599px){table[id=3Dspacer-600]{display:none!important}}.emails-menu{list-sty=
+le:none}.emails-menu li{margin-bottom:15px;text-align:left}#outlook a,body{=
+padding:0}body{width:100%!important;min-width:100%;-webkit-text-size-adjust=
+:100%;-ms-text-size-adjust:100%;margin:0;box-sizing:border-box}.ExternalCla=
+ss{width:100%}.ExternalClass,.ExternalClass div,.ExternalClass font,.Extern=
+alClass p,.ExternalClass span,.ExternalClass td{line-height:100%}#backgroun=
+dTable{margin:0;padding:0;width:100%!important;line-height:100%!important}i=
+mg{outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;width:a=
+uto;max-width:100%;clear:both;display:block}center{width:100%;min-width:580=
+px}a img{border:none}p{margin:0 0 0 10px}table{border-spacing:0;border-coll=
+apse:collapse}td{word-wrap:break-word;-webkit-hyphens:auto;-ms-hyphens:auto=
+;hyphens:auto;border-collapse:collapse!important}table,td,tr{padding:0;vert=
+ical-align:top;text-align:left}@media only screen and (max-width:596px){tab=
+le.body img{width:auto;height:auto}table.body center{min-width:0!important}=
+table.body .container{width:95%!important}table.body .column,table.body .co=
+lumns{height:auto!important;box-sizing:border-box;padding-left:16px!importa=
+nt;padding-right:16px!important}table.body .collapse .column,table.body .co=
+llapse .columns,table.body .column .column,table.body .column .columns,tabl=
+e.body .columns .column,table.body .columns .columns{padding-left:0!importa=
+nt;padding-right:0!important}td.small-1,th.small-1{display:inline-block!imp=
+ortant;width:8.333333%!important}td.small-2,th.small-2{display:inline-block=
+!important;width:16.666666%!important}td.small-3,th.small-3{display:inline-=
+block!important;width:25%!important}td.small-4,th.small-4{display:inline-bl=
+ock!important;width:33.333333%!important}td.small-5,th.small-5{display:inli=
+ne-block!important;width:41.666666%!important}td.small-6,th.small-6{display=
+:inline-block!important;width:50%!important}td.small-7,th.small-7{display:i=
+nline-block!important;width:58.333333%!important}td.small-8,th.small-8{disp=
+lay:inline-block!important;width:66.666666%!important}td.small-9,th.small-9=
+{display:inline-block!important;width:75%!important}td.small-10,th.small-10=
+{display:inline-block!important;width:83.333333%!important}td.small-11,th.s=
+mall-11{display:inline-block!important;width:91.666666%!important}td.small-=
+12,th.small-12{display:inline-block!important;width:100%!important}.columns=
+ td.small-12,.columns th.small-12,.column td.small-12,.column th.small-12{d=
+isplay:block!important;width:100%!important}table.body td.small-offset-1,ta=
+ble.body th.small-offset-1{margin-left:8.333333%!important;Margin-left:8.33=
+3333%!important}table.body td.small-offset-2,table.body th.small-offset-2{m=
+argin-left:16.666666%!important;Margin-left:16.666666%!important}table.body=
+ td.small-offset-3,table.body th.small-offset-3{margin-left:25%!important;M=
+argin-left:25%!important}table.body td.small-offset-4,table.body th.small-o=
+ffset-4{margin-left:33.333333%!important;Margin-left:33.333333%!important}t=
+able.body td.small-offset-5,table.body th.small-offset-5{margin-left:41.666=
+666%!important;Margin-left:41.666666%!important}table.body td.small-offset-=
+6,table.body th.small-offset-6{margin-left:50%!important;Margin-left:50%!im=
+portant}table.body td.small-offset-7,table.body th.small-offset-7{margin-le=
+ft:58.333333%!important;Margin-left:58.333333%!important}table.body td.smal=
+l-offset-8,table.body th.small-offset-8{margin-left:66.666666%!important;Ma=
+rgin-left:66.666666%!important}table.body td.small-offset-9,table.body th.s=
+mall-offset-9{margin-left:75%!important;Margin-left:75%!important}table.bod=
+y td.small-offset-10,table.body th.small-offset-10{margin-left:83.333333%!i=
+mportant;Margin-left:83.333333%!important}table.body td.small-offset-11,tab=
+le.body th.small-offset-11{margin-left:91.666666%!important;Margin-left:91.=
+666666%!important}table.body table.columns td.expander,table.body table.col=
+umns th.expander{display:none!important}table.body .right-text-pad,table.bo=
+dy .text-pad-right{padding-left:10px!important}table.body .left-text-pad,ta=
+ble.body .text-pad-left{padding-right:10px!important}table.menu{width:100%!=
+important}table.menu td,table.menu th{width:auto!important;display:inline-b=
+lock!important}table.menu.small-vertical td,table.menu.small-vertical th,ta=
+ble.menu.vertical td,table.menu.vertical th{display:block!important}table.m=
+enu[align=3Dcenter]{width:auto!important}table.button.small-expand,table.bu=
+tton.small-expanded{width:100%!important}table.button.small-expanded table,=
+table.button.small-expand table{width:100%}table.button.small-expanded tabl=
+e a,table.button.small-expand table a{text-align:center!important;width:100=
+%!important;padding-left:0!important;padding-right:0!important}table.button=
+.small-expand center,table.button.small-expanded center{min-width:0}}a,body=
+,h1,h2,h3,h4,h5,h6,p,table.body,td,th{color:#0a0a0a;font-family:Helvetica,A=
+rial,sans-serif;font-weight:400;padding:0;margin:0;text-align:left;line-hei=
+ght:1.3}h1,h2,h3,h4,h5,h6{color:inherit;word-wrap:normal;font-family:Helvet=
+ica,Arial,sans-serif;font-weight:400;margin-bottom:10px;Margin-bottom:10px}=
+h1{font-size:34px}h2{font-size:30px}h3{font-size:28px}h4{font-size:24px}h5{=
+font-size:20px}h6{font-size:18px}body,p,table.body,td,th{font-size:16px;lin=
+e-height:1.3}p{margin-bottom:10px;Margin-bottom:10px}p.lead{font-size:20px;=
+line-height:1.6}p.subheader{margin-top:4px;margin-bottom:8px;Margin-top:4px=
+;Margin-bottom:8px;font-weight:400;line-height:1.4;color:#8a8a8a}small{font=
+-size:80%;color:#cacaca}a{color:#2199e8;text-decoration:none}a:active,a:hov=
+er{color:#147dc2}a:visited,h1 a,h1 a:visited,h2 a,h2 a:visited,h3 a,h3 a:vi=
+sited,h4 a,h4 a:visited,h5 a,h5 a:visited,h6 a,h6 a:visited{color:#2199e8}p=
+re{background:#f3f3f3;margin:30px 0}pre code{color:#cacaca}pre code span.ca=
+llout{color:#8a8a8a;font-weight:700}pre code span.callout-strong{color:#ff6=
+908;font-weight:700}table.hr{width:100%}table.hr th{height:0;max-width:580p=
+x;border:0;border-bottom:1px solid #0a0a0a;margin:20px auto;clear:both}.sta=
+t{font-size:40px;line-height:1}p+.stat{margin-top:-16px;Margin-top:-16px}sp=
+an.preheader{display:none!important;visibility:hidden;mso-hide:all!importan=
+t;font-size:1px;color:#f3f3f3;line-height:1px;max-height:0;max-width:0;opac=
+ity:0;overflow:hidden}body.outlook p{display:inline!important}@media only s=
+creen{html{min-height:100%;background:#f3f3f3}}table.body{background:#f3f3f=
+3;height:100%;width:100%}table.bg-white{background:#fdfeff}table.container{=
+background:#fefefe;width:580px;margin:0 auto;text-align:inherit}table.row{p=
+adding:0;position:relative}table.row,table.spacer{width:100%}table.spacer t=
+d{mso-line-height-rule:exactly}table.container table.row{display:table}td.c=
+olumn,td.columns,th.column,th.columns{margin:0 auto;padding-left:16px;paddi=
+ng-bottom:16px}td.column .column,td.column .columns,td.columns .column,td.c=
+olumns .columns,th.column .column,th.column .columns,th.columns .column,th.=
+columns .columns{padding-left:0!important;padding-right:0!important}td.colu=
+mn .column center,td.column .columns center,td.columns .column center,td.co=
+lumns .columns center,th.column .column center,th.column .columns center,th=
+.columns .column center,th.columns .columns center{min-width:none!important=
+}td.column.last,td.columns.last,th.column.last,th.columns.last{padding-righ=
+t:16px}td.columns table:not(.button),td.column table:not(.button),th.column=
+s table:not(.button),th.column table:not(.button){width:100%}td.large-1,th.=
+large-1{width:32.3333333333px;padding-left:8px;padding-right:8px}td.large-1=
+.first,th.large-1.first{padding-left:16px}td.large-1.last,th.large-1.last{p=
+adding-right:16px}.collapse>tbody>tr>td.large-1,.collapse>tbody>tr>th.large=
+-1{padding-right:0;padding-left:0;width:48.3333333333px}.collapse td.large-=
+1.first,.collapse td.large-1.last,.collapse th.large-1.first,.collapse th.l=
+arge-1.last{width:56.3333333333px}td.large-1 center,th.large-1 center{min-w=
+idth:.3333333333px}.body .columns td.large-1,.body .columns th.large-1,.bod=
+y .column td.large-1,.body .column th.large-1{width:8.333333%}td.large-2,th=
+.large-2{width:80.6666666667px;padding-left:8px;padding-right:8px}td.large-=
+2.first,th.large-2.first{padding-left:16px}td.large-2.last,th.large-2.last{=
+padding-right:16px}.collapse>tbody>tr>td.large-2,.collapse>tbody>tr>th.larg=
+e-2{padding-right:0;padding-left:0;width:96.6666666667px}.collapse td.large=
+-2.first,.collapse td.large-2.last,.collapse th.large-2.first,.collapse th.=
+large-2.last{width:104.6666666667px}td.large-2 center,th.large-2 center{min=
+-width:48.6666666667px}.body .columns td.large-2,.body .columns th.large-2,=
+.body .column td.large-2,.body .column th.large-2{width:16.666666%}td.large=
+-3,th.large-3{width:129px;padding-left:8px;padding-right:8px}td.large-3.fir=
+st,th.large-3.first{padding-left:16px}td.large-3.last,th.large-3.last{paddi=
+ng-right:16px}.collapse>tbody>tr>td.large-3,.collapse>tbody>tr>th.large-3{p=
+adding-right:0;padding-left:0;width:145px}.collapse td.large-3.first,.colla=
+pse td.large-3.last,.collapse th.large-3.first,.collapse th.large-3.last{wi=
+dth:153px}td.large-3 center,th.large-3 center{min-width:97px}.body .columns=
+ td.large-3,.body .columns th.large-3,.body .column td.large-3,.body .colum=
+n th.large-3{width:25%}td.large-4,th.large-4{width:177.3333333333px;padding=
+-left:8px;padding-right:8px}td.large-4.first,th.large-4.first{padding-left:=
+16px}td.large-4.last,th.large-4.last{padding-right:16px}.collapse>tbody>tr>=
+td.large-4,.collapse>tbody>tr>th.large-4{padding-right:0;padding-left:0;wid=
+th:193.3333333333px}.collapse td.large-4.first,.collapse td.large-4.last,.c=
+ollapse th.large-4.first,.collapse th.large-4.last{width:201.3333333333px}t=
+d.large-4 center,th.large-4 center{min-width:145.3333333333px}.body .column=
+s td.large-4,.body .columns th.large-4,.body .column td.large-4,.body .colu=
+mn th.large-4{width:33.333333%}td.large-5,th.large-5{width:225.6666666667px=
+;padding-left:8px;padding-right:8px}td.large-5.first,th.large-5.first{paddi=
+ng-left:16px}td.large-5.last,th.large-5.last{padding-right:16px}.collapse>t=
+body>tr>td.large-5,.collapse>tbody>tr>th.large-5{padding-right:0;padding-le=
+ft:0;width:241.6666666667px}.collapse td.large-5.first,.collapse td.large-5=
+.last,.collapse th.large-5.first,.collapse th.large-5.last{width:249.666666=
+6667px}td.large-5 center,th.large-5 center{min-width:193.6666666667px}.body=
+ .columns td.large-5,.body .columns th.large-5,.body .column td.large-5,.bo=
+dy .column th.large-5{width:41.666666%}td.large-6,th.large-6{width:274px;pa=
+dding-left:8px;padding-right:8px}td.large-6.first,th.large-6.first{padding-=
+left:16px}td.large-6.last,th.large-6.last{padding-right:16px}.collapse>tbod=
+y>tr>td.large-6,.collapse>tbody>tr>th.large-6{padding-right:0;padding-left:=
+0;width:290px}.collapse td.large-6.first,.collapse td.large-6.last,.collaps=
+e th.large-6.first,.collapse th.large-6.last{width:298px}td.large-6 center,=
+th.large-6 center{min-width:242px}.body .columns td.large-6,.body .columns =
+th.large-6,.body .column td.large-6,.body .column th.large-6{width:50%}td.l=
+arge-7,th.large-7{width:322.3333333333px;padding-left:8px;padding-right:8px=
+}td.large-7.first,th.large-7.first{padding-left:16px}td.large-7.last,th.lar=
+ge-7.last{padding-right:16px}.collapse>tbody>tr>td.large-7,.collapse>tbody>=
+tr>th.large-7{padding-right:0;padding-left:0;width:338.3333333333px}.collap=
+se td.large-7.first,.collapse td.large-7.last,.collapse th.large-7.first,.c=
+ollapse th.large-7.last{width:346.3333333333px}td.large-7 center,th.large-7=
+ center{min-width:290.3333333333px}.body .columns td.large-7,.body .columns=
+ th.large-7,.body .column td.large-7,.body .column th.large-7{width:58.3333=
+33%}td.large-8,th.large-8{width:370.6666666667px;padding-left:8px;padding-r=
+ight:8px}td.large-8.first,th.large-8.first{padding-left:16px}td.large-8.las=
+t,th.large-8.last{padding-right:16px}.collapse>tbody>tr>td.large-8,.collaps=
+e>tbody>tr>th.large-8{padding-right:0;padding-left:0;width:386.6666666667px=
+}.collapse td.large-8.first,.collapse td.large-8.last,.collapse th.large-8.=
+first,.collapse th.large-8.last{width:394.6666666667px}td.large-8 center,th=
+.large-8 center{min-width:338.6666666667px}.body .columns td.large-8,.body =
+.columns th.large-8,.body .column td.large-8,.body .column th.large-8{width=
+:66.666666%}td.large-9,th.large-9{width:419px;padding-left:8px;padding-righ=
+t:8px}td.large-9.first,th.large-9.first{padding-left:16px}td.large-9.last,t=
+h.large-9.last{padding-right:16px}.collapse>tbody>tr>td.large-9,.collapse>t=
+body>tr>th.large-9{padding-right:0;padding-left:0;width:435px}.collapse td.=
+large-9.first,.collapse td.large-9.last,.collapse th.large-9.first,.collaps=
+e th.large-9.last{width:443px}td.large-9 center,th.large-9 center{min-width=
+:387px}.body .columns td.large-9,.body .columns th.large-9,.body .column td=
+.large-9,.body .column th.large-9{width:75%}td.large-10,th.large-10{width:4=
+67.3333333333px;padding-left:8px;padding-right:8px}td.large-10.first,th.lar=
+ge-10.first{padding-left:16px}td.large-10.last,th.large-10.last{padding-rig=
+ht:16px}.collapse>tbody>tr>td.large-10,.collapse>tbody>tr>th.large-10{paddi=
+ng-right:0;padding-left:0;width:483.3333333333px}.collapse td.large-10.firs=
+t,.collapse td.large-10.last,.collapse th.large-10.first,.collapse th.large=
+-10.last{width:491.3333333333px}td.large-10 center,th.large-10 center{min-w=
+idth:435.3333333333px}.body .columns td.large-10,.body .columns th.large-10=
+,.body .column td.large-10,.body .column th.large-10{width:83.333333%}td.la=
+rge-11,th.large-11{width:515.6666666667px;padding-left:8px;padding-right:8p=
+x}td.large-11.first,th.large-11.first{padding-left:16px}td.large-11.last,th=
+.large-11.last{padding-right:16px}.collapse>tbody>tr>td.large-11,.collapse>=
+tbody>tr>th.large-11{padding-right:0;padding-left:0;width:531.6666666667px}=
+.collapse td.large-11.first,.collapse td.large-11.last,.collapse th.large-1=
+1.first,.collapse th.large-11.last{width:539.6666666667px}td.large-11 cente=
+r,th.large-11 center{min-width:483.6666666667px}.body .columns td.large-11,=
+.body .columns th.large-11,.body .column td.large-11,.body .column th.large=
+-11{width:91.666666%}td.large-12,th.large-12{width:564px;padding-left:8px;p=
+adding-right:8px}td.large-12.first,th.large-12.first{padding-left:16px}td.l=
+arge-12.last,th.large-12.last{padding-right:16px}.collapse>tbody>tr>td.larg=
+e-12,.collapse>tbody>tr>th.large-12{padding-right:0;padding-left:0;width:58=
+0px}.collapse td.large-12.first,.collapse td.large-12.last,.collapse th.lar=
+ge-12.first,.collapse th.large-12.last{width:588px}td.large-12 center,th.la=
+rge-12 center{min-width:532px}.body .columns td.large-12,.body .columns th.=
+large-12,.body .column td.large-12,.body .column th.large-12{width:100%}td.=
+large-offset-1,td.large-offset-1.first,td.large-offset-1.last,th.large-offs=
+et-1,th.large-offset-1.first,th.large-offset-1.last{padding-left:64.3333333=
+333px}td.large-offset-2,td.large-offset-2.first,td.large-offset-2.last,th.l=
+arge-offset-2,th.large-offset-2.first,th.large-offset-2.last{padding-left:1=
+12.6666666667px}td.large-offset-3,td.large-offset-3.first,td.large-offset-3=
+.last,th.large-offset-3,th.large-offset-3.first,th.large-offset-3.last{padd=
+ing-left:161px}td.large-offset-4,td.large-offset-4.first,td.large-offset-4.=
+last,th.large-offset-4,th.large-offset-4.first,th.large-offset-4.last{paddi=
+ng-left:209.3333333333px}td.large-offset-5,td.large-offset-5.first,td.large=
+-offset-5.last,th.large-offset-5,th.large-offset-5.first,th.large-offset-5.=
+last{padding-left:257.6666666667px}td.large-offset-6,td.large-offset-6.firs=
+t,td.large-offset-6.last,th.large-offset-6,th.large-offset-6.first,th.large=
+-offset-6.last{padding-left:306px}td.large-offset-7,td.large-offset-7.first=
+,td.large-offset-7.last,th.large-offset-7,th.large-offset-7.first,th.large-=
+offset-7.last{padding-left:354.3333333333px}td.large-offset-8,td.large-offs=
+et-8.first,td.large-offset-8.last,th.large-offset-8,th.large-offset-8.first=
+,th.large-offset-8.last{padding-left:402.6666666667px}td.large-offset-9,td.=
+large-offset-9.first,td.large-offset-9.last,th.large-offset-9,th.large-offs=
+et-9.first,th.large-offset-9.last{padding-left:451px}td.large-offset-10,td.=
+large-offset-10.first,td.large-offset-10.last,th.large-offset-10,th.large-o=
+ffset-10.first,th.large-offset-10.last{padding-left:499.3333333333px}td.lar=
+ge-offset-11,td.large-offset-11.first,td.large-offset-11.last,th.large-offs=
+et-11,th.large-offset-11.first,th.large-offset-11.last{padding-left:547.666=
+6666667px}td.expander,th.expander{visibility:hidden;width:0;padding:0!impor=
+tant}table.container.radius{border-radius:0;border-collapse:separate}.block=
+-grid{width:100%;max-width:580px}.block-grid td{display:inline-block;paddin=
+g:8px}.up-2 td{width:274px!important}.up-3 td{width:177px!important}.up-4 t=
+d{width:129px!important}.up-5 td{width:100px!important}.up-6 td{width:80px!=
+important}.up-7 td{width:66px!important}.up-8 td{width:56px!important} </st=
+yle>
+
+</head>
+<body style=3D"-moz-box-sizing:border-box;-ms-text-size-adjust:100%;-webkit=
+-box-sizing:border-box;-webkit-text-size-adjust:100%;margin:0;box-sizing:bo=
+rder-box;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:16p=
+x;font-weight:400;line-height:1.3;min-width:100%;padding:0;text-align:left;=
+width:100%;">
+<!-- <style> -->
+  <span class=3D"preheader" style=3D"display:none;visibility:hidden;mso-hid=
+e:all;font-size:1px;color:#f3f3f3;line-height:1px;max-height:0;max-width:0;=
+opacity:0;overflow:hidden;">Activate your account and verify your email add=
+ress to start your free trial of QR Code Generator Pro.</span>
+
+  <div class=3D"email-container">
+    <table class=3D"body" style=3D"Margin:0;background:#f3f3f3;border-colla=
+pse:collapse;border-spacing:0;color:#0a0a0a;font-family:Helvetica,Arial,san=
+s-serif;font-size:16px;font-weight:400;height:100%;line-height:1.3;margin:0=
+;padding:0;text-align:left;vertical-align:top;width:100%">
+      <tr style=3D"padding:0;vertical-align:top;text-align:left;">
+        <td class=3D"center" align=3D"center" valign=3D"top" style=3D"word-=
+wrap:break-word;-webkit-hyphens:auto;-ms-hyphens:auto;hyphens:auto;border-c=
+ollapse:collapse;padding:0;vertical-align:top;text-align:left;color:#0a0a0a=
+;font-family:Helvetica,Arial,sans-serif;font-weight:400;margin:0;line-heigh=
+t:1.3;font-size:16px;">
+          <!-- remove_above_on_textmail -->
+          <center class=3D"bg-white float-center" align=3D"center" style=3D=
+"width:100%;min-width:580px;">
+            <div style=3D"Margin:0 auto;margin:0 auto;margin-bottom:36px;ma=
+rgin-top:36px;" align=3D"center" class=3D"float-center">
+              <table align=3D"center" class=3D"container" style=3D"width:10=
+0%;max-width:600px;border:2px solid #c0ced5;border-radius:12px;border-colla=
+pse:separate;margin-top:36px;margin-bottom:36px;background:#fdfeff;border-s=
+pacing:0;padding:0;vertical-align:top;text-align:inherit;margin:0 auto;">
+  <tbody>
+    <tr style=3D"padding:0;vertical-align:top;text-align:left;">
+      <td style=3D"word-wrap:break-word;-webkit-hyphens:auto;-ms-hyphens:au=
+to;hyphens:auto;border-collapse:collapse;padding:0;vertical-align:top;text-=
+align:left;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weight=
+:400;margin:0;line-height:1.3;font-size:16px;">
+        <table class=3D"row" style=3D"margin-left:0;margin-right:0;border-s=
+pacing:0;border-collapse:collapse;padding:0;vertical-align:top;text-align:l=
+eft;position:relative;width:100%;display:table;">
+          <tbody>
+            <tr style=3D"padding:0;vertical-align:top;text-align:left;">
+              <th class=3D"space-vertical small-12 large-8 columns first la=
+st" style=3D"padding-left:24px;padding-right:24px;color:#0a0a0a;font-family=
+:Helvetica,Arial,sans-serif;font-weight:400;padding:0;margin:0 auto;text-al=
+ign:left;line-height:1.3;font-size:16px;padding-bottom:16px;width:370.66666=
+66667px;">
+                <table style=3D"border-spacing:0;border-collapse:collapse;p=
+adding:0;vertical-align:top;text-align:left;">
+                  <tbody>
+                    <tr style=3D"padding:0;vertical-align:top;text-align:le=
+ft;">
+                      <th style=3D"color:#0a0a0a;font-family:Helvetica,Aria=
+l,sans-serif;font-weight:400;padding:0;margin:0;text-align:left;line-height=
+:1.3;font-size:16px;">
+                        <table class=3D"row" style=3D"margin-left:0;margin-=
+right:0;border-spacing:0;border-collapse:collapse;padding:0;vertical-align:=
+top;text-align:left;position:relative;width:100%;display:table;"><tbody><tr=
+ style=3D"padding:0;vertical-align:top;text-align:left;">
+                            <th class=3D"small-12 large-12 columns first la=
+st" style=3D"color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:400;padding:0;margin:0 auto;text-align:left;line-height:1.3;font-size:16=
+px;padding-left:0;padding-bottom:16px;padding-right:0;width:100%;"><table s=
+tyle=3D"border-spacing:0;border-collapse:collapse;padding:0;vertical-align:=
+top;text-align:left;"><tbody><tr style=3D"padding:0;vertical-align:top;text=
+-align:left;"><th style=3D"color:#0a0a0a;font-family:Helvetica,Arial,sans-s=
+erif;font-weight:400;padding:0;margin:0;text-align:left;line-height:1.3;fon=
+t-size:16px;">
+                                <div id=3D"qr-logo" style=3D"text-align:cen=
+ter;">
+                                    <table class=3D"spacer" style=3D"border=
+-spacing:0;border-collapse:collapse;padding:0;vertical-align:top;text-align=
+:left;width:100%;"><tbody><tr style=3D"padding:0;vertical-align:top;text-al=
+ign:left;"><td height=3D"40" style=3D"font-size:40px;line-height:40px;word-=
+wrap:break-word;-webkit-hyphens:auto;-ms-hyphens:auto;hyphens:auto;border-c=
+ollapse:collapse;padding:0;vertical-align:top;text-align:left;color:#0a0a0a=
+;font-family:Helvetica,Arial,sans-serif;font-weight:400;margin:0;mso-line-h=
+eight-rule:exactly;">&nbsp;</td></tr></tbody></table> 
+                                    <img src=3D"https://app.qr-code-generat=
+or.com/public/data/email/Logo-Pro-Normal.png" alt=3D"Logo" style=3D"display=
+:inline-block;outline:none;text-decoration:none;-ms-interpolation-mode:bicu=
+bic;width:auto;max-width:100%;clear:both;">
+                                    <table class=3D"spacer" style=3D"border=
+-spacing:0;border-collapse:collapse;padding:0;vertical-align:top;text-align=
+:left;width:100%;"><tbody><tr style=3D"padding:0;vertical-align:top;text-al=
+ign:left;"><td height=3D"12" style=3D"font-size:12px;line-height:12px;word-=
+wrap:break-word;-webkit-hyphens:auto;-ms-hyphens:auto;hyphens:auto;border-c=
+ollapse:collapse;padding:0;vertical-align:top;text-align:left;color:#0a0a0a=
+;font-family:Helvetica,Arial,sans-serif;font-weight:400;margin:0;mso-line-h=
+eight-rule:exactly;">&nbsp;</td></tr></tbody></table> 
+                                </div>
+                            </th>
+                        <th class=3D"expander" style=3D"color:#0a0a0a;font-=
+family:Helvetica,Arial,sans-serif;font-weight:400;padding:0;margin:0;text-a=
+lign:left;line-height:1.3;font-size:16px;visibility:hidden;width:0;"></th><=
+/tr></tbody></table></th>
+                        </tr></tbody></table>
+                      </th>
+                    </tr>
+                  </tbody>
+                </table>
+              </th>
+            </tr>
+          </tbody>
+        </table>
+        <table class=3D"row" style=3D"margin-left:0;margin-right:0;border-s=
+pacing:0;border-collapse:collapse;padding:0;vertical-align:top;text-align:l=
+eft;position:relative;width:100%;display:table;">
+          <tbody>
+            <tr style=3D"padding:0;vertical-align:top;text-align:left;">
+              <th class=3D"space-vertical small-12 large-8 columns first la=
+st" style=3D"padding-left:24px;padding-right:24px;color:#0a0a0a;font-family=
+:Helvetica,Arial,sans-serif;font-weight:400;padding:0;margin:0 auto;text-al=
+ign:left;line-height:1.3;font-size:16px;padding-bottom:16px;width:370.66666=
+66667px;">
+                <table style=3D"border-spacing:0;border-collapse:collapse;p=
+adding:0;vertical-align:top;text-align:left;">
+                  <tbody>
+                    <tr style=3D"padding:0;vertical-align:top;text-align:le=
+ft;">
+                      <th style=3D"color:#0a0a0a;font-family:Helvetica,Aria=
+l,sans-serif;font-weight:400;padding:0;margin:0;text-align:left;line-height=
+:1.3;font-size:16px;">
+                        <div id=3D"main-content">
+                          <p style=3D"margin:0;margin-bottom:10px;color:#29=
+4270;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;=
+line-height:24px;padding:0;text-align:left;">
+                            Hi, </p>
+                          <table class=3D"spacer" style=3D"border-collapse:=
+collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;widt=
+h:100%">
+                            <tbody>
+                              <tr style=3D"padding:0;text-align:left;vertic=
+al-align:top">
+                                <td height=3D"15" style=3D"-moz-hyphens:aut=
+o;-webkit-hyphens:auto;margin:0;border-collapse:collapse;color:#0a0a0a;font=
+-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;hyphens:a=
+uto;line-height:15px;mso-line-height-rule:exactly;padding:0;text-align:left=
+;vertical-align:top;word-wrap:break-word;-ms-hyphens:auto;">
+                                  &nbsp;
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <p style=3D"margin:0;margin-bottom:10px;color:#29=
+4270;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;=
+line-height:24px;padding:0;text-align:left;">
+                            You=E2=80=99re almost done! Simply click below =
+to activate your account: </p>
+                          <table class=3D"spacer" style=3D"border-collapse:=
+collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;widt=
+h:100%">
+                            <tbody>
+                              <tr style=3D"padding:0;text-align:left;vertic=
+al-align:top">
+                                <td height=3D"15" style=3D"-moz-hyphens:aut=
+o;-webkit-hyphens:auto;margin:0;border-collapse:collapse;color:#0a0a0a;font=
+-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;hyphens:a=
+uto;line-height:15px;mso-line-height-rule:exactly;padding:0;text-align:left=
+;vertical-align:top;word-wrap:break-word;-ms-hyphens:auto;">
+                                  &nbsp;
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <div class=3D"email-button">
+                            <!--[if mso]>
+                    <v:roundrect xmlns:v=3D"urn:schemas-microsoft-com:vml" =
+xmlns:w=3D"urn:schemas-microsoft-com:office:word" href=3D"https://login.qr-=
+code-generator.com/api/email/verify?email=3Dgreenturtlekava%40gmail.com&ind=
+ustry=3Drestaurants-bars&material=3Dno-material&token=3D777881" style=3D"he=
+ight:40px;v-text-anchor:middle;width:200px;" arcsize=3D"8%" stroke=3D"f" fi=
+llcolor=3D"#47bdef">
+                        <w:anchorlock/>
+                        <center>
+                    <![endif]--><a class=3D"button" href=3D"http://te.qr-co=
+de-generator.com/track/click/30218947/login.qr-code-generator.com?p=3DeyJzI=
+joiMGdHNVVFYzlLbWM3amxIamJvdXFyNEU4RGpjIiwidiI6MSwicCI6IntcInVcIjozMDIxODk0=
+NyxcInZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL2xvZ2luLnFyLWNvZGUtZ2VuZXJhdG9=
+yLmNvbVxcXC9hcGlcXFwvZW1haWxcXFwvdmVyaWZ5P2VtYWlsPWdyZWVudHVydGxla2F2YSU0MG=
+dtYWlsLmNvbSZpbmR1c3RyeT1yZXN0YXVyYW50cy1iYXJzJm1hdGVyaWFsPW5vLW1hdGVyaWFsJ=
+nRva2VuPTc3Nzg4MVwiLFwiaWRcIjpcIjQ5OTZkMTQ0MTFhZjRjYWRhN2YxNmUxZGI3MTZhZGFh=
+XCIsXCJ1cmxfaWRzXCI6W1wiM2Y3NjRiNzMyMTY3ZjZmOTg0ZTM5NDA5YTgyNjkxZDI5YTA0YmV=
+hYVwiXX0ifQ" target=3D"_blank" style=3D"margin:0;color:#fff ;font-family:He=
+lvetica,Arial,sans-serif;font-weight:600 ;line-height:0 ;padding:18px 20px =
+;text-align:left;text-decoration:none ;background-color:#00bfff;-webkit-bor=
+der-radius:100px;-moz-border-radius:100px;border-radius:100px ;text-transfo=
+rm:uppercase;font-size:16px ;display:inline-flex ;align-items:center ;borde=
+r-bottom:none ;">Activate account</a>
+                            <!--[if mso]>
+                    </center>
+                    </v:roundrect>
+                    <![endif]-->
+                          </div>
+                          <!--Styles for buttons-->
+                          <style>
+                            a.button {
+                              font-family: "Source Sans Pro", sans-serif;
+                              background-color:
+                                #00bfff;
+                              color: #fff !important;
+                              -webkit-border-radius: 100px;
+                              -moz-border-radius: 100px;
+                              border-radius: 100px !important;
+                              text-transform:
+                                uppercase;
+                              text-decoration: none;
+                              padding: 18px 20px !important;
+                              font-size:
+                                16px !important;
+                              font-weight: 600 !important;
+                              display: inline-flex !important;
+                              align-items: center !important;
+                              line-height: 0 !important;
+                              border-bottom: none !important
+                            }
+
+                            a.button:hover {
+                              color: #fdfeff !important;
+                              background-color:
+                                #00a5f1 !important;
+                              border-bottom: none !important
+                            }
+                          </style>
+                          <table class=3D"spacer" style=3D"border-collapse:=
+collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;widt=
+h:100%">
+                            <tbody>
+                              <tr style=3D"padding:0;text-align:left;vertic=
+al-align:top">
+                                <td height=3D"15" style=3D"-moz-hyphens:aut=
+o;-webkit-hyphens:auto;margin:0;border-collapse:collapse;color:#0a0a0a;font=
+-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;hyphens:a=
+uto;line-height:15px;mso-line-height-rule:exactly;padding:0;text-align:left=
+;vertical-align:top;word-wrap:break-word;-ms-hyphens:auto;">
+                                  &nbsp;
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <p style=3D"margin:0;margin-bottom:10px;color:#29=
+4270;font-family:Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;=
+line-height:24px;padding:0;text-align:left;">
+                            The commercial use of all QR Codes created duri=
+ng the trial is allowed. Static QR Codes have an unlimited lifetime. If you=
+ want to use Dynamic QR Codes beyond the trial, please make sure to upgrade=
+ your account.
+                          </p>
+                          <table class=3D"spacer" style=3D"border-collapse:=
+collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;widt=
+h:100%">
+                            <tbody>
+                              <tr style=3D"padding:0;text-align:left;vertic=
+al-align:top">
+                                <td height=3D"15" style=3D"-moz-hyphens:aut=
+o;-webkit-hyphens:auto;margin:0;border-collapse:collapse;color:#0a0a0a;font=
+-family:Helvetica,Arial,sans-serif;font-size:15px;font-weight:400;hyphens:a=
+uto;line-height:15px;mso-line-height-rule:exactly;padding:0;text-align:left=
+;vertical-align:top;word-wrap:break-word;-ms-hyphens:auto;">
+                                  &nbsp;
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </th>
+                    </tr>
+                  </tbody>
+                </table>
+              </th>
+            </tr>
+          </tbody>
+        </table>
+        <table class=3D"row" style=3D"margin-left:0;margin-right:0;border-s=
+pacing:0;border-collapse:collapse;padding:0;vertical-align:top;text-align:l=
+eft;position:relative;width:100%;display:table;">
+          <tbody>
+            <tr style=3D"padding:0;vertical-align:top;text-align:left;">
+              <th class=3D"space-vertical small-12 large-8 columns first la=
+st" style=3D"padding-left:24px;padding-right:24px;color:#0a0a0a;font-family=
+:Helvetica,Arial,sans-serif;font-weight:400;padding:0;margin:0 auto;text-al=
+ign:left;line-height:1.3;font-size:16px;padding-bottom:16px;width:370.66666=
+66667px;">
+                <table style=3D"border-spacing:0;border-collapse:collapse;p=
+adding:0;vertical-align:top;text-align:left;">
+                  <tbody>
+                    <tr style=3D"padding:0;vertical-align:top;text-align:le=
+ft;">
+                      <th style=3D"color:#0a0a0a;font-family:Helvetica,Aria=
+l,sans-serif;font-weight:400;padding:0;margin:0;text-align:left;line-height=
+:1.3;font-size:16px;">
+                        <table class=3D"row" style=3D"margin-left:0;margin-=
+right:0;border-spacing:0;border-collapse:collapse;padding:0;vertical-align:=
+top;text-align:left;position:relative;width:100%;display:table;"><tbody><tr=
+ style=3D"padding:0;vertical-align:top;text-align:left;">
+                            <th class=3D"small-12 large-12 columns first la=
+st" style=3D"color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:400;padding:0;margin:0 auto;text-align:left;line-height:1.3;font-size:16=
+px;padding-left:0;padding-bottom:16px;padding-right:0;width:100%;"><table s=
+tyle=3D"border-spacing:0;border-collapse:collapse;padding:0;vertical-align:=
+top;text-align:left;"><tbody><tr style=3D"padding:0;vertical-align:top;text=
+-align:left;"><th style=3D"color:#0a0a0a;font-family:Helvetica,Arial,sans-s=
+erif;font-weight:400;padding:0;margin:0;text-align:left;line-height:1.3;fon=
+t-size:16px;">
+                                <div id=3D"signature">
+                                    <span style=3D"color:#294270;font-size:=
+16px;font-weight:400;"> Cheers,</span>
+                                    <table class=3D"spacer" style=3D"border=
+-spacing:0;border-collapse:collapse;padding:0;vertical-align:top;text-align=
+:left;width:100%;"><tbody><tr style=3D"padding:0;vertical-align:top;text-al=
+ign:left;"><td height=3D"5" style=3D"font-size:5px;line-height:5px;word-wra=
+p:break-word;-webkit-hyphens:auto;-ms-hyphens:auto;hyphens:auto;border-coll=
+apse:collapse;padding:0;vertical-align:top;text-align:left;color:#0a0a0a;fo=
+nt-family:Helvetica,Arial,sans-serif;font-weight:400;margin:0;mso-line-heig=
+ht-rule:exactly;">&nbsp;</td></tr></tbody></table>
+                                    <span style=3D"color:#294270;font-size:=
+16px;font-weight:400;"> Your friends at QR Code Generator PRO</span>
+                                </div>
+                            </th>
+                        <th class=3D"expander" style=3D"color:#0a0a0a;font-=
+family:Helvetica,Arial,sans-serif;font-weight:400;padding:0;margin:0;text-a=
+lign:left;line-height:1.3;font-size:16px;visibility:hidden;width:0;"></th><=
+/tr></tbody></table></th>
+                        </tr></tbody></table>
+                        <table class=3D"row" style=3D"margin-left:0;margin-=
+right:0;border-spacing:0;border-collapse:collapse;padding:0;vertical-align:=
+top;text-align:left;position:relative;width:100%;display:table;"><tbody><tr=
+ style=3D"padding:0;vertical-align:top;text-align:left;">
+                            <th class=3D"small-12 large-12 columns first la=
+st" style=3D"color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weig=
+ht:400;padding:0;margin:0 auto;text-align:left;line-height:1.3;font-size:16=
+px;padding-left:0;padding-bottom:16px;padding-right:0;width:100%;"><table s=
+tyle=3D"border-spacing:0;border-collapse:collapse;padding:0;vertical-align:=
+top;text-align:left;"><tbody><tr style=3D"padding:0;vertical-align:top;text=
+-align:left;"><th style=3D"color:#0a0a0a;font-family:Helvetica,Arial,sans-s=
+erif;font-weight:400;padding:0;margin:0;text-align:left;line-height:1.3;fon=
+t-size:16px;">
+                                <table class=3D"spacer" style=3D"border-spa=
+cing:0;border-collapse:collapse;padding:0;vertical-align:top;text-align:lef=
+t;width:100%;"><tbody><tr style=3D"padding:0;vertical-align:top;text-align:=
+left;"><td height=3D"14" style=3D"font-size:14px;line-height:14px;word-wrap=
+:break-word;-webkit-hyphens:auto;-ms-hyphens:auto;hyphens:auto;border-colla=
+pse:collapse;padding:0;vertical-align:top;text-align:left;color:#0a0a0a;fon=
+t-family:Helvetica,Arial,sans-serif;font-weight:400;margin:0;mso-line-heigh=
+t-rule:exactly;">&nbsp;</td></tr></tbody></table>
+                                <footer style=3D"border-top:1px solid #d4d4=
+d4;">
+                                    <table class=3D"spacer" style=3D"border=
+-spacing:0;border-collapse:collapse;padding:0;vertical-align:top;text-align=
+:left;width:100%;"><tbody><tr style=3D"padding:0;vertical-align:top;text-al=
+ign:left;"><td height=3D"22" style=3D"font-size:22px;line-height:22px;word-=
+wrap:break-word;-webkit-hyphens:auto;-ms-hyphens:auto;hyphens:auto;border-c=
+ollapse:collapse;padding:0;vertical-align:top;text-align:left;color:#0a0a0a=
+;font-family:Helvetica,Arial,sans-serif;font-weight:400;margin:0;mso-line-h=
+eight-rule:exactly;">&nbsp;</td></tr></tbody></table>
+                                    <div class=3D"footer-section">
+                                        <span style=3D"color:#53678c;font-s=
+ize:12px;font-weight:400;line-height:1.7;">
+                                            Have any questions? Visit our <=
+a href=3D"http://te.qr-code-generator.com/track/click/30218947/support.qr-c=
+ode-generator.com?p=3DeyJzIjoiRkJPVkp4LTJvRXdkVE1sUzR2NTdKQUtGWHVNIiwidiI6M=
+SwicCI6IntcInVcIjozMDIxODk0NyxcInZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL3N1=
+cHBvcnQucXItY29kZS1nZW5lcmF0b3IuY29tXFxcL2hjXFxcL2VuLXVzXCIsXCJpZFwiOlwiNDk=
+5NmQxNDQxMWFmNGNhZGE3ZjE2ZTFkYjcxNmFkYWFcIixcInVybF9pZHNcIjpbXCJiMmIzZDFlZD=
+VhODdhYWE0OTA0NTgwNDdlYjBlZDdkNDEwNGEwOWVmXCJdfSJ9" style=3D"color:#1974D2;=
+font-family:Helvetica,Arial,sans-serif;font-weight:400;padding:0;margin:0;t=
+ext-align:left;line-height:1.3;text-decoration:none ;border-bottom:0.7px so=
+lid #00BFFF ;">Help Center</a>.
+                                            <table class=3D"spacer" style=
+=3D"border-spacing:0;border-collapse:collapse;padding:0;vertical-align:top;=
+text-align:left;width:100%;"><tbody><tr style=3D"padding:0;vertical-align:t=
+op;text-align:left;"><td height=3D"4" style=3D"font-size:4px;line-height:4p=
+x;word-wrap:break-word;-webkit-hyphens:auto;-ms-hyphens:auto;hyphens:auto;b=
+order-collapse:collapse;padding:0;vertical-align:top;text-align:left;color:=
+#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weight:400;margin:0;mso=
+-line-height-rule:exactly;">&nbsp;</td></tr></tbody></table>
+                                            Alternatively, you can contact =
+our Support Team via the <a href=3D"http://te.qr-code-generator.com/track/c=
+lick/30218947/my.qr-code-generator.com?p=3DeyJzIjoiQ2QxN2l5SEFPWnNodzA2SU5G=
+ZlhpTWs1dmpBIiwidiI6MSwicCI6IntcInVcIjozMDIxODk0NyxcInZcIjoxLFwidXJsXCI6XCJ=
+odHRwczpcXFwvXFxcL215LnFyLWNvZGUtZ2VuZXJhdG9yLmNvbVxcXC9mZWF0dXJlcy1hbmQtcH=
+JpY2luZz9tb2RhbD1zdXBwb3J0XCIsXCJpZFwiOlwiNDk5NmQxNDQxMWFmNGNhZGE3ZjE2ZTFkY=
+jcxNmFkYWFcIixcInVybF9pZHNcIjpbXCI4ZGMyZDlmYjVmOTczZTQ3Mjg3NzhiZDY1MTdlZjU2=
+M2M2YWU0NTQ5XCJdfSJ9" style=3D"color:#1974D2;font-family:Helvetica,Arial,sa=
+ns-serif;font-weight:400;padding:0;margin:0;text-align:left;line-height:1.3=
+;text-decoration:none ;border-bottom:0.7px solid #00BFFF ;">Contact Form</a=
+> in your account.
+                                            <table class=3D"spacer" style=
+=3D"border-spacing:0;border-collapse:collapse;padding:0;vertical-align:top;=
+text-align:left;width:100%;"><tbody><tr style=3D"padding:0;vertical-align:t=
+op;text-align:left;"><td height=3D"4" style=3D"font-size:4px;line-height:4p=
+x;word-wrap:break-word;-webkit-hyphens:auto;-ms-hyphens:auto;hyphens:auto;b=
+order-collapse:collapse;padding:0;vertical-align:top;text-align:left;color:=
+#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weight:400;margin:0;mso=
+-line-height-rule:exactly;">&nbsp;</td></tr></tbody></table>
+                                            Bitly Europe GmbH |  Am Lenkwer=
+k 13  |  33609 Bielefeld, Germany
+                                            <table class=3D"spacer" style=
+=3D"border-spacing:0;border-collapse:collapse;padding:0;vertical-align:top;=
+text-align:left;width:100%;"><tbody><tr style=3D"padding:0;vertical-align:t=
+op;text-align:left;"><td height=3D"4" style=3D"font-size:4px;line-height:4p=
+x;word-wrap:break-word;-webkit-hyphens:auto;-ms-hyphens:auto;hyphens:auto;b=
+order-collapse:collapse;padding:0;vertical-align:top;text-align:left;color:=
+#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weight:400;margin:0;mso=
+-line-height-rule:exactly;">&nbsp;</td></tr></tbody></table>
+                                           Management: Steffen Hetzel; Loca=
+l Court Bielefeld: HRB 43671
+                                        </span>
+                                    </div>
+                                    <table class=3D"spacer" style=3D"border=
+-spacing:0;border-collapse:collapse;padding:0;vertical-align:top;text-align=
+:left;width:100%;"><tbody><tr style=3D"padding:0;vertical-align:top;text-al=
+ign:left;"><td height=3D"29" style=3D"font-size:29px;line-height:29px;word-=
+wrap:break-word;-webkit-hyphens:auto;-ms-hyphens:auto;hyphens:auto;border-c=
+ollapse:collapse;padding:0;vertical-align:top;text-align:left;color:#0a0a0a=
+;font-family:Helvetica,Arial,sans-serif;font-weight:400;margin:0;mso-line-h=
+eight-rule:exactly;">&nbsp;</td></tr></tbody></table>
+                                    <div class=3D"footer-section">
+                                        <span style=3D"color:#53678c;font-s=
+ize:12px;font-weight:400;line-height:1.7;">
+                                            You receive these emails becaus=
+e you signed up to QR Code Generator Pro.
+                                            <table class=3D"spacer" style=
+=3D"border-spacing:0;border-collapse:collapse;padding:0;vertical-align:top;=
+text-align:left;width:100%;"><tbody><tr style=3D"padding:0;vertical-align:t=
+op;text-align:left;"><td height=3D"0" style=3D"font-size:0px;line-height:0p=
+x;word-wrap:break-word;-webkit-hyphens:auto;-ms-hyphens:auto;hyphens:auto;b=
+order-collapse:collapse;padding:0;vertical-align:top;text-align:left;color:=
+#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-weight:400;margin:0;mso=
+-line-height-rule:exactly;">&nbsp;</td></tr></tbody></table>
+                                            <!-- No interest?
+                                            <a href=3D"">
+                                                Unsubscribe
+                                            </a> -->
+                                        </span>
+                                    </div>
+                                </footer>
+                            </th>
+                        <th class=3D"expander" style=3D"color:#0a0a0a;font-=
+family:Helvetica,Arial,sans-serif;font-weight:400;padding:0;margin:0;text-a=
+lign:left;line-height:1.3;font-size:16px;visibility:hidden;width:0;"></th><=
+/tr></tbody></table></th>
+                        </tr></tbody></table>
+                      </th>
+                    </tr>
+                  </tbody>
+                </table>
+              </th>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+            </div>
+          </center>
+          <!-- remove_beyoned_on_textmail -->
+        </td>
+      </tr>
+    </table>
+  </div>
+
+<img src=3D"http://te.qr-code-generator.com/track/open.php?u=3D30218947&id=
+=3D4996d14411af4cada7f16e1db716adaa" height=3D"1" width=3D"1" alt=3D""></bo=
+dy>
+<!-- prevent Gmail on iOS font size manipulation -->
+<div style=3D"display: none; white-space: nowrap; line-height: 0; color: #f=
+fffff;">
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+</div>
+
+
+</html>
+
+
+<!--Styles for hyperlinks defined inline email template-->
+<style>
+  a
+  {
+    color: #1974D2;
+    border-bottom: 0.7px solid #00BFFF !important;
+    text-decoration: none !important;
+  }
+
+  a:hover
+  {
+    color: #0D45A1 !important;
+    border-bottom: 0.7px solid #80DBFF !important;
+    text-decoration: none !important;
+  }
+
+</style>
+
+--_av-1Oi2xjY5JBGrqhcApoAPkw--
+
+

@@ -1,0 +1,1093 @@
+Delivered-To: greenturtlekava@gmail.com
+Received: by 2002:a05:7208:8788:b0:64:a764:ea5d with SMTP id hc8csp1487072rbb;
+        Mon, 20 Mar 2023 07:41:37 -0700 (PDT)
+X-Google-Smtp-Source: AK7set+p+3Io8MIjIiHo8odfvaJPOxGAy14hdnhsCCH4vwtrEbj8NVzZ4LBEHHqvLPHrbBAfiVpO
+X-Received: by 2002:a05:6214:234a:b0:5a2:63a1:ecb2 with SMTP id hu10-20020a056214234a00b005a263a1ecb2mr49678766qvb.43.1679323297389;
+        Mon, 20 Mar 2023 07:41:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1679323297; cv=none;
+        d=google.com; s=arc-20160816;
+        b=pfFs0cXPEUb5iQQcfnpCcV4Q/WsPwUYgFm89rzQY5NWA9ytVFMWwBtoFbB7qfF39cc
+         SCxbKxzK1tIBKTHCv/iuWK7uwjH1i8EsHs+00fK7U+iUPvmJ71++tGkfHGarX5vvRfTH
+         4F5ENf4UGGOuw0b55Voo33NLquEJMBkZ09vcpk9pusjz1bz1wJ2baYg/YF6Bk1hnqjWZ
+         UTV1H+Dq8Qc/KH9/1GSROsg/7krtUF55kmweNbcKZfmwvGiTLXK6VhOxRZKw5ju1KihX
+         FC6Dxgv8QpjI9XeOk8v1409YreWQaqLbAz4iq2Mxrd6VOPTiuPXGldP+8Ewb930q4fXG
+         IO/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:date:verpid:mime-version:subject:message-id:to:reply-to
+         :from:dkim-signature:dkim-signature;
+        bh=4WzNBfDuHnVn4zbOrzNLxWa8Q6Q0xVq5aaiO487OGZ0=;
+        b=q0XaFaDMQ4pPU0TAUxiSyJkbMtbULz/KYIWjXFNots96/nHTXfKbeSfiQtpR/vKgeT
+         /CLQs3jz0It7VYfk79T6gJBMtXecza1bL76tfv6g4GpGZbreAU35uo1L9nHFRTV+tkCm
+         /GYrvnZmccylq15zhJkFXJ9Janq/gg37oQaBLIi80wyupeIberU6BfEMz82agLkwD280
+         c+FVyZyRNSVcLkvr/cKtGTQb0PcKjr5bq48uITneyifsGVr3PFd6+6U026VuzocWY8jm
+         8ZUe47eApAf9O1/CO3sBkHbK8NPQcwRnwW3xsjOoenSKDUMy5zFe10r70Sc7MELBb7lp
+         a0mg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@ecc.fpl.com header.s=6najbib5qogpc4vbtutagnalpcxvc6tx header.b=OVKt1l8M;
+       dkim=pass header.i=@amazonses.com header.s=224i4yxa5dv7c2xz3womw6peuasteono header.b=jIyGd1FS;
+       spf=pass (google.com: domain of 01000186ff77f36a-907f5aec-9d5c-4e5f-8167-23299dd14c39-000000@email.ecc.fpl.com designates 54.240.40.243 as permitted sender) smtp.mailfrom=01000186ff77f36a-907f5aec-9d5c-4e5f-8167-23299dd14c39-000000@email.ecc.fpl.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=fpl.com
+Return-Path: <01000186ff77f36a-907f5aec-9d5c-4e5f-8167-23299dd14c39-000000@email.ecc.fpl.com>
+Received: from a40-243.smtp-out.amazonses.com (a40-243.smtp-out.amazonses.com. [54.240.40.243])
+        by mx.google.com with ESMTPS id x18-20020a0ceb92000000b005ae8da38a87si6237315qvo.248.2023.03.20.07.41.37
+        for <GREENTURTLEKAVA@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 20 Mar 2023 07:41:37 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 01000186ff77f36a-907f5aec-9d5c-4e5f-8167-23299dd14c39-000000@email.ecc.fpl.com designates 54.240.40.243 as permitted sender) client-ip=54.240.40.243;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@ecc.fpl.com header.s=6najbib5qogpc4vbtutagnalpcxvc6tx header.b=OVKt1l8M;
+       dkim=pass header.i=@amazonses.com header.s=224i4yxa5dv7c2xz3womw6peuasteono header.b=jIyGd1FS;
+       spf=pass (google.com: domain of 01000186ff77f36a-907f5aec-9d5c-4e5f-8167-23299dd14c39-000000@email.ecc.fpl.com designates 54.240.40.243 as permitted sender) smtp.mailfrom=01000186ff77f36a-907f5aec-9d5c-4e5f-8167-23299dd14c39-000000@email.ecc.fpl.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=fpl.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=6najbib5qogpc4vbtutagnalpcxvc6tx; d=ecc.fpl.com; t=1679323296;
+	h=From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:Date;
+	bh=vheLQ3mtlURxaMkDXof8hcCEk4yDf3oSrRcdxWcnuvE=;
+	b=OVKt1l8M+FgQfKWS8OhgsTAljyaqrQiTLbIeJ4eI9bLKuWwgmsk7fOfwZCMkXveT
+	6lYWQptSJk2H0Rw1xoy6+8XJp3GTMd5zIJ9n3y3h0zBL/zy+JvLNhqYZ1V7R8Yt8aKj
+	Qj3ThXTZMXrV41nN/5uhnLQshWmUIYD+Qdrl9ltg=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=224i4yxa5dv7c2xz3womw6peuasteono; d=amazonses.com; t=1679323296;
+	h=From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:Date:Feedback-ID;
+	bh=vheLQ3mtlURxaMkDXof8hcCEk4yDf3oSrRcdxWcnuvE=;
+	b=jIyGd1FSbfywUAI3j+aPSKq8inNLD9rWoq/PNBaOusXgj+0ROEUoWK9lXFIq8pqF
+	Nn6uIHvB/xKKpP8KKTY6ZXFhXbW8838OzC+L7nD6gBDxgzrfJIz1+UQ2cK/zy4E7GmK
+	yrP+RfDmiLYhimH7Q3+mr78KZFcckdQYvbADdMyY=
+From: FPL Communications <FPL_Communications@ecc.fpl.com>
+Reply-To: no-reply@ndr.ecc.fpl.com
+To: GREENTURTLEKAVA@GMAIL.COM
+Message-ID: <01000186ff77f36a-907f5aec-9d5c-4e5f-8167-23299dd14c39-000000@email.amazonses.com>
+Subject: FPL: We have processed your payment
+MIME-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_163836_209412998.1679323296617"
+VerpId: FPLc0a274fda85b3e9e00155a9f467490bb-RB@ecc.fpl.com
+X-Priority: 3
+Date: Mon, 20 Mar 2023 14:41:36 +0000
+Feedback-ID: 1.us-east-1.Fo5tooipIdaihwnMQ1wwaKqcJlmUT4Aqblpks/gXoNk=:AmazonSES
+X-SES-Outgoing: 2023.03.20-54.240.40.243
+
+------=_Part_163836_209412998.1679323296617
+Content-Type: multipart/related; 
+	boundary="----=_Part_163837_138733265.1679323296617"
+
+------=_Part_163837_138733265.1679323296617
+Content-Type: text/html;charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+=EF=BB=BF<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "ht=
+tp://www.w3.org/TR/html4/loose.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+ <head>=20
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width">=20
+  <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">=
+=20
+  <meta name=3D"x-apple-disable-message-reformatting">     =20
+  <title>FPL: We have processed your payment</title>=20
+  <style source=3D"ecc-css-inliner">@media screen and (max-width: 480px) {.=
+FPL-WrapTo100pc { width: 100% !important; height: auto !important } .FPL-Wr=
+apTo100pcPaddingtop { width: 100% !important; height: auto !important; padd=
+ing-top: 15px !important } .FPL-WrapTo95pc { width: 95% !important; height:=
+ auto !important } .FPL-WrapTo90pc { width: 90% !important; height: auto !i=
+mportant } .FPL-Image100pc { width: 100% !important; height: auto !importan=
+t; min-width: 100% !important } .FPL-HiddenMobile { display: none !importan=
+t } .FPL-SplitColumn { width: 100% !important; float: left !important; disp=
+lay: block !important } td.FPL-SplitColumn.ecc-email-section-wrapper-small =
+{ padding-top: 5px } .FPL-SplitColumn3 { width: 100% !important; float: lef=
+t !important; display: block !important; padding-left: 0px !important; padd=
+ing-right: 0px !important; padding-top: 10px !important; padding-bottom: 5p=
+x !important } .FPL-SplitColumn6 { width: 100% !important; float: left !imp=
+ortant; display: block !important; border-top-width: 1px !important; border=
+-top-style: solid !important; border-top-color: rgb(204, 204, 204) !importa=
+nt; padding-top: 15px !important; padding-bottom: 15px !important } .FPL-Sp=
+litColumn7 { width: 100% !important; float: left !important; display: block=
+ !important; padding-top: 15px !important; padding-bottom: 5px !important }=
+ .FPL-ShowMobile-ParaGray-Trans { color: rgb(102, 102, 102) !important; fon=
+t-size: 15px !important; line-height: 18px !important; padding-top: 20px !i=
+mportant; padding-right: 10px !important; padding-bottom: 20px !important; =
+padding-left: 10px !important } .FPL-promo-top-bordertextcenter { border-to=
+p-color: rgb(204, 204, 204) !important; border-top-width: 1px !important; b=
+order-top-style: solid !important; text-align: center !important; padding-t=
+op: 20px !important } .FPL-promo-bottom-bordertextcenter { border-bottom-co=
+lor: rgb(204, 204, 204) !important; border-bottom-width: 1px !important; bo=
+rder-bottom-style: solid !important; text-align: center !important; padding=
+-bottom: 20px !important } .FPL-promo-bottom-borderpaddingbottom { border-b=
+ottom-color: rgb(204, 204, 204) !important; border-bottom-width: 1px !impor=
+tant; border-bottom-style: solid !important; padding-bottom: 20px !importan=
+t } .FPL-PaddingLeft20px { padding-left: 20px !important } .FPL-PaddingRigh=
+t20px { padding-right: 20px !important } .FPL-PaddingBottom10px { padding-b=
+ottom: 10px !important } .FPL-AlignCenter { text-align: center !important }=
+ .FPL-AlignCenterPaddingLeftRight10px { text-align: center !important; padd=
+ing-left: 10px !important; padding-right: 10px !important } .FPL-AlignCente=
+rPaddingBotttom0px { text-align: center !important; padding-bottom: 0px !im=
+portant } .FPL-NoPaddingLeftRight { padding-left: 0px !important; padding-r=
+ight: 0px !important } .show_for_mobile { display: block !important; width:=
+ auto !important; height: auto !important; overflow: visible !important; po=
+sition: static !important; min-height: 0px !important; line-height: normal =
+!important; font-size: 12px !important } .resize_banner { width: 100% !impo=
+rtant; height: auto !important } .FPL-ForceBreak:after { content: " "; whit=
+e-space: pre } .FPL-ForceBreak { color: rgb(255, 255, 255) } .FPL-ForceBrea=
+k:after { content: " "; white-space: pre } } @media screen and (max-width: =
+300px) {.FPL-PaddingLeft20px { padding-left: 7px !important } .FPL-PaddingR=
+ight20px { padding-right: 7px !important } } @media screen and (max-width: =
+480px) {#ecc-email--cons-table tr { display: table; width: 100% } #ecc-emai=
+l--cons-table .ecc-email--cons-table--hdr-col, #ecc-email--cons-table .ecc-=
+email--cons-table--dtl-col { display: block; font-size: 14px !important; ve=
+rtical-align: middle } #ecc-email--cons-table .ecc-email--cons-table--hdr-c=
+ol, #ecc-email--cons-table .ecc-email--cons-table--dtl-col { padding-top: 4=
+px !important; padding-bottom: 4px !important; border-bottom: none } #ecc-e=
+mail--cons-table .ecc-email--cons-table--hdr-col, #ecc-email--cons-table .e=
+cc-email--cons-table--dtl-col { text-align: right !important } #ecc-email--=
+cons-table .ecc-email--cons-table--dtl-col:before { content: attr(colname);=
+ font-weight: bold; text-transform: uppercase; color: rgb(103, 103, 103); f=
+ont-size: 10px; vertical-align: middle; float: left } #ecc-email--cons-tabl=
+e .ecc-email--cons-table--hdr-row, #ecc-email--cons-table .ecc-email--cons-=
+table--dtl-row { margin-bottom: 10px; border: 1px solid rgb(204, 204, 204) =
+} #ecc-email--cons-table .ecc-email--cons-table--dtl-col.col-1 { background=
+-color: rgb(240, 242, 244) !important; color: rgb(103, 103, 103) !important=
+ } #ecc-email--cons-table .ecc-email--cons-table--hdr-row, #ecc-email--cons=
+-table .ecc-email--cons-table--hdr-col { display: none !important; height: =
+0 !important } .ecc-email--cons-table--super { font-size: 10px !important }=
+ .hide-for-mobile { display: none; border: none; height: 0px; margin: 0px; =
+overflow: hidden; padding: 0px; max-width: 0px; max-height: 0px } }</style>
+  <style source=3D"ecc-css-inliner">#ecc-email--body p:last-child, #ecc-ema=
+il--body ul:last-child { margin-bottom: 0 } #ecc-email--body p:last-child, =
+#ecc-email--body ul:last-child { margin-bottom: 0 }</style>
+ </head>
+ <body atrrID=3D"0" style=3D"background-color:rgb(255, 255, 255);padding:0;=
+margin:0;color:rgb(102, 102, 102);-webkit-text-size-adjust:100%;-ms-text-si=
+ze-adjust:100%;min-width:100%;">=20
+  <!-- ///***///***///***///***/// ADD PREHEADER ///***///***///***///***//=
+/ -->=20
+  <!-- /// Start preheader (Required Snippet Text) /// -->=20
+  <span id=3D"ecc-email--preheader" atrrID=3D"1" style=3D"color:rgb(255, 25=
+5, 255);display:none;font-size:0px;line-height:0;"> $613.17 will be withdra=
+wn from your bank account within 1-2 business days. &nbsp; =E2=80=8C &nbsp;=
+ =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=
+=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nb=
+sp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=
+=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C =
+&nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =
+=E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=
+=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nb=
+sp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=
+=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C =
+&nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =
+=E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=
+=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nb=
+sp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=
+=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C =
+&nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =
+=E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=
+=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nb=
+sp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=
+=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C =
+&nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =
+=E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=
+=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nb=
+sp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C </span>=20
+  <!-- /// End preheader (Required Snippet Text)  /// -->=20
+  <!-- ///***///***///***///***/// ADD PREHEADER ///***///***///***///***//=
+/ -->=20
+  <!-- //////////////////////////////////////////
+=09/////////// START BASE outer-wrapper ////////////
+=09/////////////////////////////////////////////////-->=20
+  <table id=3D"ecc-email--top--outer-wrapper" width=3D"100%" border=3D"0" a=
+lign=3D"center" cellpadding=3D"0" cellspacing=3D"0" atrrID=3D"2" style=3D"-=
+webkit-text-size-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-=
+text-size-adjust:100%;">=20
+   <tbody atrrID=3D"3">=20
+    <tr atrrID=3D"4" style=3D"border-collapse:collapse;">=20
+     <td align=3D"center" style=3D"-webkit-text-size-adjust:100%;mso-table-=
+rspace:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100%;border-collapse:c=
+ollapse;padding-top: 10px;" atrrID=3D"5">
+      <!-- /*/*/*/*/*/*/*/*/ START CONTENT SECTION  /*/*/*/*/*/*/*/*/ -->=
+=20
+      <table class=3D"FPL-WrapTo95pc" width=3D"720" border=3D"0" align=3D"c=
+enter" cellpadding=3D"0" cellspacing=3D"0" atrrID=3D"6" style=3D"-webkit-te=
+xt-size-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-text-size=
+-adjust:100%;">=20
+       <tbody atrrID=3D"7">=20
+        <tr atrrID=3D"8" style=3D"border-collapse:collapse;">=20
+         <td align=3D"center" atrrID=3D"9" style=3D"-webkit-text-size-adjus=
+t:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100%;=
+border-collapse:collapse;">=20
+          <!--BEGIN: Teaser Section-->=20
+          <!-- ////////// Start OuterHeader_PromoBanner_Gray ////////// -->=
+=20
+          <div id=3D"ecc-email--outheader--promo-banner" atrrID=3D"10" styl=
+e=3D"padding-bottom:20px;">=20
+           <table width=3D"720" align=3D"center" class=3D"FPL-WrapTo100pc" =
+border=3D"0" cellspacing=3D"0" cellpadding=3D"0" atrrID=3D"11" style=3D"-we=
+bkit-text-size-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-te=
+xt-size-adjust:100%;">=20
+            <tbody atrrID=3D"12">=20
+             <tr id=3D"ecc-email-teaser--wrapper" atrrID=3D"13" style=3D"bo=
+rder-collapse:collapse;">=20
+              <td id=3D"ecc-email-teaser" class=3D"ecc-email-section-wrappe=
+r" align=3D"center" bgcolor=3D"#f0f2f4" atrrID=3D"14" style=3D"padding-top:=
+20px;-webkit-text-size-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0p=
+t;padding-bottom:20px;-ms-text-size-adjust:100%;border-collapse:collapse;">=
+=20
+               <table width=3D"570" align=3D"center" class=3D"FPL-WrapTo95p=
+c" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" atrrID=3D"15" style=3D"=
+-webkit-text-size-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms=
+-text-size-adjust:100%;">=20
+                <tbody atrrID=3D"16">=20
+                 <tr atrrID=3D"17" style=3D"border-collapse:collapse;">=20
+                  <td width=3D"350" class=3D"FPL-SplitColumn" align=3D"left=
+" valign=3D"middle" atrrID=3D"18" style=3D"-webkit-text-size-adjust:100%;ms=
+o-table-rspace:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100%;border-co=
+llapse:collapse;">=20
+                   <table width=3D"100%" border=3D"0" cellspacing=3D"0" cel=
+lpadding=3D"0" atrrID=3D"19" style=3D"-webkit-text-size-adjust:100%;mso-tab=
+le-rspace:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100%;">=20
+                    <tbody atrrID=3D"20">=20
+                     <tr atrrID=3D"21" style=3D"border-collapse:collapse;">=
+=20
+                      <td id=3D"ecc-email--outheader--promo-banner--message=
+" align=3D"left" class=3D"FPL-AlignCenterPaddingLeftRight10px" atrrID=3D"22=
+" style=3D"color:rgb(102, 102, 102);-webkit-text-size-adjust:100%;mso-table=
+-rspace:0pt;mso-table-lspace:0pt;font-size:15px;-ms-text-size-adjust:100%;f=
+ont-family:Arial, sans-serif;border-collapse:collapse;"> <p class=3D"ecc-em=
+ail-teaser--message--line1" atrrID=3D"23">The Florida Public Service Commis=
+sion approved new FPL rates to balance fuel and hurricane costs that will t=
+ake effect in April. State regulators are reviewing FPL=E2=80=99s plan to r=
+educe bills in May. </p></td>=20
+                     </tr>=20
+                    </tbody>=20
+                   </table> </td>=20
+                  <td width=3D"20" class=3D"FPL-HiddenMobile" atrrID=3D"24"=
+ style=3D"-webkit-text-size-adjust:100%;mso-table-rspace:0pt;mso-table-lspa=
+ce:0pt;-ms-text-size-adjust:100%;border-collapse:collapse;">&nbsp;</td>=20
+                  <td width=3D"200" class=3D"FPL-SplitColumn7" align=3D"cen=
+ter" valign=3D"middle" atrrID=3D"25" style=3D"-webkit-text-size-adjust:100%=
+;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100%;border=
+-collapse:collapse;">=20
+                   <table width=3D"200" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"0" atrrID=3D"26" style=3D"-webkit-text-size-adjust:100%;mso-tabl=
+e-rspace:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100%;">=20
+                    <tbody atrrID=3D"27">=20
+                     <tr atrrID=3D"28" style=3D"border-collapse:collapse;">=
+=20
+                      <td align=3D"center" width=3D"220" class=3D"FPL-Split=
+Column ecc-email--button--wrapper" atrrID=3D"29" style=3D"-webkit-text-size=
+-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;padding-bottom:15px;=
+-ms-text-size-adjust:100%;border-collapse:collapse;">=20
+                       <table width=3D"220" border=3D"0" cellspacing=3D"0" =
+cellpadding=3D"0" atrrID=3D"30" style=3D"-webkit-text-size-adjust:100%;mso-=
+table-rspace:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100%;">=20
+                        <tbody atrrID=3D"31">=20
+                         <tr atrrID=3D"32" style=3D"border-collapse:collaps=
+e;">=20
+                          <td class=3D"ecc-email--button ecc-email--button-=
+-secondary" width=3D"220" height=3D"45" align=3D"center" valign=3D"middle" =
+atrrID=3D"33" style=3D"-webkit-text-size-adjust:100%;font-weight:bold;font-=
+size:15px;-ms-text-size-adjust:100%;border-color:rgb(0, 150, 219);border-ra=
+dius:30px;background-color:rgb(0, 150, 219);text-transform:uppercase;mso-ta=
+ble-rspace:0pt;mso-table-lspace:0pt;-moz-border-radius:30px;font-family:Ari=
+al, sans-serif;-webkit-border-radius:30px;border-collapse:collapse;"> <a cl=
+ass=3D"ecc-email--button--link" target=3D"_blank" href=3D"https://v70z6cs.r=
+.us-east-1.awstrack.me/L0/https:%2F%2Fwww.fpl.com%2Frates/1/01000186ff77f36=
+a-907f5aec-9d5c-4e5f-8167-23299dd14c39-000000/uBLYYbYpGGsNqfb110lxsMuYijM=
+=3D313" xt=3D"SPCLICK" name=3D"Button_Trans_CTA1" atrrID=3D"34" style=3D"co=
+lor:rgb(255, 255, 255);-webkit-text-size-adjust:100%;display:block;text-dec=
+oration:none;vertical-align:middle;-ms-text-size-adjust:100%;"> Learn more =
+</a> </td>=20
+                         </tr>=20
+                        </tbody>=20
+                       </table> </td>=20
+                     </tr>=20
+                    </tbody>=20
+                   </table> </td>=20
+                 </tr>=20
+                </tbody>=20
+               </table> </td>=20
+             </tr>=20
+            </tbody>=20
+           </table>=20
+          </div>=20
+          <!-- ////////// END OuterHeader_PromoBanner_Gray ////////// -->=
+=20
+          <!-- //////////////////////////////////////////
+=09=09=09=09=09=09/////////// END BASE OUTHEADER outer-wrapper ////////////
+=09=09=09=09=09=09/////////////////////////////////////////////////--></td>=
+=20
+        </tr>=20
+       </tbody>=20
+      </table>=20
+      <!-- End outer-wrapper --></td>=20
+    </tr>=20
+   </tbody>=20
+  </table>=20
+  <!-- //////////////////////////////////////////
+=09/////////// END BASE outer-wrapper ////////////
+=09/////////////////////////////////////////////////-->=20
+  <!-- //////////////////////////////////////////
+=09=09=09=09=09/////////// START BASE CONTENT outer-wrapper ////////////
+=09=09=09=09=09/////////////////////////////////////////////////-->=20
+  <table id=3D"ecc-email--middle--outer-wrapper" width=3D"100%" border=3D"0=
+" align=3D"center" cellpadding=3D"0" cellspacing=3D"0" atrrID=3D"35" style=
+=3D"-webkit-text-size-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt=
+;-ms-text-size-adjust:100%;">=20
+   <tbody atrrID=3D"36">=20
+    <tr atrrID=3D"37" style=3D"border-collapse:collapse;">=20
+     <td align=3D"center" atrrID=3D"38" style=3D"-webkit-text-size-adjust:1=
+00%;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100%;bor=
+der-collapse:collapse;">
+      <!-- /*/*/*/*/*/*/*/*/ START CONTENT SECTION  /*/*/*/*/*/*/*/*/ -->=
+=20
+      <table class=3D"FPL-WrapTo95pc" width=3D"720" border=3D"0" align=3D"c=
+enter" cellpadding=3D"0" cellspacing=3D"0" atrrID=3D"39" style=3D"-webkit-t=
+ext-size-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-text-siz=
+e-adjust:100%;">=20
+       <tbody atrrID=3D"40">=20
+        <tr atrrID=3D"41" style=3D"border-collapse:collapse;">=20
+         <td id=3D"ecc-email--body--wrapper" align=3D"center" atrrID=3D"42"=
+ style=3D"border-right-style:solid;border-top-width:1px;border-bottom-color=
+:rgb(204, 204, 204);-webkit-text-size-adjust:100%;border-right-width:1px;bo=
+rder-left-color:rgb(204, 204, 204);-ms-text-size-adjust:100%;border-right-c=
+olor:rgb(204, 204, 204);border-left-width:1px;border-top-style:solid;mso-ta=
+ble-rspace:0pt;border-left-style:solid;border-bottom-width:1px;mso-table-ls=
+pace:0pt;border-top-color:rgb(204, 204, 204);border-bottom-style:solid;bord=
+er-collapse:collapse;">=20
+          <!-- /////////////////////////////////////////////////
+    //////////////BEGIN HEADER SECTION /////////////////
+    ///////////////////////////////////////////////////// -->=20
+          <!-- Insert "Content Modules Here -->=20
+          <!-- ////////// Start Header_Transactional_Bill ////////// -->=20
+          <!--FPL LOGO - PAY BTN---------------->=20
+          <div id=3D"ecc-email--header" atrrID=3D"43">=20
+           <table width=3D"720" align=3D"center" class=3D"FPL-WrapTo95pc" b=
+gcolor=3D"#ffffff" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" atrrID=
+=3D"44" style=3D"-webkit-text-size-adjust:100%;mso-table-rspace:0pt;mso-tab=
+le-lspace:0pt;-ms-text-size-adjust:100%;">=20
+            <tbody atrrID=3D"45">=20
+             <tr atrrID=3D"46" style=3D"border-collapse:collapse;">=20
+              <td id=3D"ecc-email--header--wrapper" class=3D"ecc-email-sect=
+ion-wrapper" align=3D"center" atrrID=3D"47" style=3D"padding-top:20px;-webk=
+it-text-size-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;padding-=
+bottom:20px;-ms-text-size-adjust:100%;border-collapse:collapse;">=20
+               <table align=3D"center" width=3D"570" height=3D"100" class=
+=3D"FPL-WrapTo95pc" bgcolor=3D"#ffffff" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"0" atrrID=3D"48" style=3D"-webkit-text-size-adjust:100%;mso-tabl=
+e-rspace:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100%;">=20
+                <tbody atrrID=3D"49">
+                 <tr atrrID=3D"50" style=3D"border-collapse:collapse;">=20
+                  <td width=3D"75" align=3D"center" class=3D"FPL-SplitColum=
+n" atrrID=3D"51" style=3D"-webkit-text-size-adjust:100%;mso-table-rspace:0p=
+t;mso-table-lspace:0pt;-ms-text-size-adjust:100%;border-collapse:collapse;"=
+>=20
+                   <table width=3D"75" class=3D"FPL-WrapTo100pc" border=3D"=
+0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center" atrrID=3D"52" style=
+=3D"-webkit-text-size-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt=
+;-ms-text-size-adjust:100%;">=20
+                    <tbody atrrID=3D"53">=20
+                     <tr atrrID=3D"54" style=3D"border-collapse:collapse;">=
+=20
+                      <td id=3D"ecc-email--header--logo-wrapper" class=3D"F=
+PL-PaddingBottom10px" align=3D"center" valign=3D"top" atrrID=3D"55" style=
+=3D"-webkit-text-size-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt=
+;padding-bottom:20px;-ms-text-size-adjust:100%;border-collapse:collapse;"> =
+<a id=3D"ecc-email--header--logo" href=3D"https://v70z6cs.r.us-east-1.awstr=
+ack.me/L0/https:%2F%2Fwww.FPL.com%3Fcid=3Decc/1/01000186ff77f36a-907f5aec-9=
+d5c-4e5f-8167-23299dd14c39-000000/WLvT-m4185pzjWfJWlZGsrnVem0=3D313" xt=3D"=
+SPCLICK" name=3D"FPL Website" target=3D"_blank" atrrID=3D"56" style=3D"colo=
+r:rgb(0, 150, 219);-webkit-text-size-adjust:100%;text-decoration:none;-ms-t=
+ext-size-adjust:100%;"> <img src=3D"https://www.fpl.com/email/template/imag=
+es/logo_fpl.png" width=3D"75" height=3D"66" border=3D"0" alt=3D"FPL" atrrID=
+=3D"57" style=3D"border:none;outline:none;-ms-interpolation-mode:bicubic;di=
+splay:block;text-decoration:none;"> </a> </td>=20
+                     </tr>=20
+                    </tbody>=20
+                   </table> </td>=20
+                  <td width=3D"505" class=3D"FPL-SplitColumn ecc-email--hea=
+der--split-col" align=3D"right" atrrID=3D"58" style=3D"-webkit-text-size-ad=
+just:100%;mso-table-rspace:0pt;vertical-align:top;mso-table-lspace:0pt;-ms-=
+text-size-adjust:100%;border-collapse:collapse;">=20
+                   <table width=3D"505" class=3D"FPL-WrapTo100pc" border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"right" atrrID=3D"59" style=
+=3D"-webkit-text-size-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt=
+;-ms-text-size-adjust:100%;">=20
+                    <tbody atrrID=3D"60">=20
+                     <tr atrrID=3D"61" style=3D"border-collapse:collapse;">=
+=20
+                      <td align=3D"center" atrrID=3D"62" style=3D"-webkit-t=
+ext-size-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-text-siz=
+e-adjust:100%;border-collapse:collapse;">=20
+                       <table width=3D"505" class=3D"FPL-WrapTo100pc" borde=
+r=3D"0" cellspacing=3D"0" cellpadding=3D"0" atrrID=3D"63" style=3D"-webkit-=
+text-size-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-text-si=
+ze-adjust:100%;">=20
+                        <tbody atrrID=3D"64">=20
+                         <tr atrrID=3D"65" style=3D"border-collapse:collaps=
+e;">=20
+                          <td width=3D"319" height=3D"45" class=3D"FPL-Hidd=
+enMobile" atrrID=3D"66" style=3D"-webkit-text-size-adjust:100%;mso-table-rs=
+pace:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100%;border-collapse:col=
+lapse;">&nbsp;</td>=20
+                          <td width=3D"186" align=3D"center" atrrID=3D"67" =
+style=3D"-webkit-text-size-adjust:100%;mso-table-rspace:0pt;mso-table-lspac=
+e:0pt;-ms-text-size-adjust:100%;border-collapse:collapse;">=20
+                           <table width=3D"186" align=3D"center" border=3D"=
+0" cellspacing=3D"0" cellpadding=3D"0" atrrID=3D"68" style=3D"-webkit-text-=
+size-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-text-size-ad=
+just:100%;">=20
+                            <tbody atrrID=3D"69">=20
+                             <tr atrrID=3D"70" style=3D"border-collapse:col=
+lapse;">=20
+                              <td width=3D"88" height=3D"45" align=3D"cente=
+r" valign=3D"middle" atrrID=3D"71" style=3D"-webkit-text-size-adjust:100%;m=
+so-table-rspace:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100%;border-c=
+ollapse:collapse;">=20
+                               <table width=3D"88" border=3D"0" cellspacing=
+=3D"0" cellpadding=3D"0" atrrID=3D"72" style=3D"-webkit-text-size-adjust:10=
+0%;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100%;">=
+=20
+                                <tbody atrrID=3D"73">=20
+                                 <tr atrrID=3D"74" style=3D"border-collapse=
+:collapse;">=20
+                                  <td width=3D"88" height=3D"45" align=3D"c=
+enter" valign=3D"middle" atrrID=3D"75" style=3D"-webkit-text-size-adjust:10=
+0%;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100%;bord=
+er-collapse:collapse;">=20
+                                   <table width=3D"88" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" atrrID=3D"76" style=3D"-webkit-text-size-adjus=
+t:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100%;=
+">=20
+                                    <tbody atrrID=3D"77">=20
+                                     <tr atrrID=3D"78" style=3D"border-coll=
+apse:collapse;">=20
+                                      <td class=3D"ecc-email--small-button =
+ecc-email--button--tertiary" align=3D"center" width=3D"88" height=3D"30" at=
+rrID=3D"79" style=3D"-webkit-text-size-adjust:100%;font-weight:bold;font-si=
+ze:13px;-ms-text-size-adjust:100%;border-color:rgb(0, 150, 219);border-radi=
+us:20px;background-color:rgb(255, 255, 255);text-transform:uppercase;mso-ta=
+ble-rspace:0pt;mso-table-lspace:0pt;-moz-border-radius:20px;border-width:1p=
+x;font-family:Arial, sans-serif;-webkit-border-radius:20px;border-style:sol=
+id;border-collapse:collapse;"> <a class=3D"ecc-email--button--link" href=3D=
+"https://v70z6cs.r.us-east-1.awstrack.me/L0/https:%2F%2Fwww.FPL.com%2Fmy-ac=
+count%2Faccount-summary.html%3Fcid=3Decc/1/01000186ff77f36a-907f5aec-9d5c-4=
+e5f-8167-23299dd14c39-000000/NT1Bp3RXviZCF1yNTNnpNRofBaQ=3D313" xt=3D"SPCLI=
+CK" name=3D"Outheader_Btn2" target=3D"_blank" atrrID=3D"80" style=3D"color:=
+rgb(0, 150, 219);-webkit-text-size-adjust:100%;display:block;text-decoratio=
+n:none;vertical-align:middle;-ms-text-size-adjust:100%;"> LOG IN </a> </td>=
+=20
+                                     </tr>=20
+                                    </tbody>=20
+                                   </table> </td>=20
+                                 </tr>=20
+                                </tbody>=20
+                               </table> </td>=20
+                              <td width=3D"10" height=3D"45" align=3D"right=
+" atrrID=3D"81" style=3D"-webkit-text-size-adjust:100%;mso-table-rspace:0pt=
+;mso-table-lspace:0pt;-ms-text-size-adjust:100%;border-collapse:collapse;">=
+&nbsp;</td>=20
+                              <td width=3D"88" height=3D"45" align=3D"right=
+" atrrID=3D"82" style=3D"-webkit-text-size-adjust:100%;mso-table-rspace:0pt=
+;mso-table-lspace:0pt;-ms-text-size-adjust:100%;border-collapse:collapse;">=
+=20
+                               <table width=3D"88" border=3D"0" cellspacing=
+=3D"0" cellpadding=3D"0" atrrID=3D"83" style=3D"-webkit-text-size-adjust:10=
+0%;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100%;">=
+=20
+                                <tbody atrrID=3D"84">=20
+                                 <tr atrrID=3D"85" style=3D"border-collapse=
+:collapse;">=20
+                                  <td width=3D"88" height=3D"45" align=3D"c=
+enter" valign=3D"middle" atrrID=3D"86" style=3D"-webkit-text-size-adjust:10=
+0%;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100%;bord=
+er-collapse:collapse;">=20
+                                   <table width=3D"88" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" atrrID=3D"87" style=3D"-webkit-text-size-adjus=
+t:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100%;=
+">=20
+                                    <tbody atrrID=3D"88">=20
+                                     <tr atrrID=3D"89" style=3D"border-coll=
+apse:collapse;">=20
+                                      <td class=3D"ecc-email--small-button =
+ecc-email--button--primary" align=3D"center" width=3D"88" height=3D"30" atr=
+rID=3D"90" style=3D"-webkit-text-size-adjust:100%;font-weight:bold;font-siz=
+e:13px;-ms-text-size-adjust:100%;border-color:rgb(195, 214, 46);border-radi=
+us:20px;background-color:rgb(195, 214, 46);text-transform:uppercase;mso-tab=
+le-rspace:0pt;mso-table-lspace:0pt;-moz-border-radius:20px;border-width:1px=
+;font-family:Arial, sans-serif;-webkit-border-radius:20px;border-style:soli=
+d;border-collapse:collapse;"> <a class=3D"ecc-email--button--link" href=3D"=
+https://v70z6cs.r.us-east-1.awstrack.me/L0/https:%2F%2Fwww.FPL.com%2Fmy-acc=
+ount%2Fpay-online.html%3Fcid=3Decc/1/01000186ff77f36a-907f5aec-9d5c-4e5f-81=
+67-23299dd14c39-000000/Iy62DdKnt-rHnt1k_z05w1yTM3o=3D313" xt=3D"SPCLICK" na=
+me=3D"Outheader_Btn2" target=3D"_blank" atrrID=3D"91" style=3D"color:rgb(97=
+, 107, 0);-webkit-text-size-adjust:100%;display:block;text-decoration:none;=
+vertical-align:middle;-ms-text-size-adjust:100%;"> PAY BILL </a> </td>=20
+                                     </tr>=20
+                                    </tbody>=20
+                                   </table> </td>=20
+                                 </tr>=20
+                                </tbody>=20
+                               </table> </td>=20
+                             </tr>=20
+                            </tbody>=20
+                           </table> </td>=20
+                         </tr>=20
+                        </tbody>=20
+                       </table> </td>=20
+                     </tr>=20
+                     <tr atrrID=3D"92" style=3D"border-collapse:collapse;">=
+=20
+                      <td id=3D"ecc-email--header--info-wrapper" width=3D"5=
+05" class=3D"FPL-AlignCenter" align=3D"right" atrrID=3D"93" style=3D"color:=
+rgb(102, 102, 102);-webkit-text-size-adjust:100%;mso-table-rspace:0pt;mso-t=
+able-lspace:0pt;font-size:12px;-ms-text-size-adjust:100%;font-family:Arial,=
+ &quot;sans-serif&quot;;line-height:normal;border-collapse:collapse;"> <str=
+ong atrrID=3D"94">GREEN TURTLE KAVA</strong><br atrrID=3D"95"> Account #: *=
+******3497 <br atrrID=3D"96"> <a href=3D"https://v70z6cs.r.us-east-1.awstra=
+ck.me/L0/https:%2F%2Fwww.FPL.com%2Fmy-account%2Fprofile-account-settings.ht=
+ml%3Fcid=3Decc%23profile/1/01000186ff77f36a-907f5aec-9d5c-4e5f-8167-23299dd=
+14c39-000000/cRvvFG_4ANmWJYbIjnnLgqZRVqg=3D313" xt=3D"SPCLICK" name=3D"Upda=
+te_Email" target=3D"_blank" atrrID=3D"97" style=3D"color:rgb(0, 150, 219);-=
+webkit-text-size-adjust:100%;text-decoration:none;-ms-text-size-adjust:100%=
+;">Update Email</a><br atrrID=3D"98"> </td>=20
+                     </tr>=20
+                    </tbody>=20
+                   </table> </td>=20
+                 </tr>=20
+                </tbody>
+               </table> </td>=20
+             </tr>=20
+            </tbody>=20
+           </table>=20
+          </div>=20
+          <!--FPL LOGO - PAY BTN-->=20
+          <!-- ////////// END Header_Transactional_Bill ////////// -->=20
+          <!-- /////////////////////////////////////////////////
+=09=09=09=09=09=09//////////////BEGIN CONTENT SECTION /////////////////
+=09=09=09=09=09=09///////////////////////////////////////////////////// -->=
+=20
+          <!-- ////////// Start TitleBar_NoLinks ////////// -->=20
+          <!--FEATURE CONTENT---------------->=20
+          <div id=3D"ecc-email--banner" atrrID=3D"99">=20
+           <table width=3D"720" bgcolor=3D"#0096db" align=3D"center" class=
+=3D"FPL-WrapTo100pc" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" atrrI=
+D=3D"100" style=3D"-webkit-text-size-adjust:100%;mso-table-rspace:0pt;mso-t=
+able-lspace:0pt;-ms-text-size-adjust:100%;">=20
+            <tbody atrrID=3D"101">
+             <tr atrrID=3D"102" style=3D"border-collapse:collapse;">=20
+              <td class=3D"ecc-email-section-wrapper" align=3D"center" bgco=
+lor=3D"#0096db" atrrID=3D"103" style=3D"padding-top:20px;-webkit-text-size-=
+adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;padding-bottom:20px;-=
+ms-text-size-adjust:100%;border-collapse:collapse;">=20
+               <table width=3D"570" class=3D"FPL-WrapTo95pc" border=3D"0" c=
+ellspacing=3D"0" cellpadding=3D"0" align=3D"center" atrrID=3D"104" style=3D=
+"-webkit-text-size-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;-m=
+s-text-size-adjust:100%;">=20
+                <tbody atrrID=3D"105">=20
+                 <tr atrrID=3D"106" style=3D"border-collapse:collapse;">=20
+                  <td id=3D"ecc-email--banner--message" width=3D"570" heigh=
+t=3D"40" class=3D"FPL-WrapTo95pc" align=3D"center" style=3D"-webkit-text-si=
+ze-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-text-size-adju=
+st:100%;border-collapse:collapse;font-family: Rockwell,'Bitter',Georgia,Tim=
+es,serif; font-size:28px; color: #ffffff;" atrrID=3D"107"> We have processe=
+d your FPL Automatic Bill Pay<sup atrrID=3D"108" style=3D"top:-0.4em;vertic=
+al-align:baseline;font-size:0.7em;position:relative;">=C2=AE</sup> payment =
+</td>=20
+                 </tr>=20
+                </tbody>=20
+               </table> </td>=20
+             </tr>=20
+            </tbody>
+           </table>=20
+          </div>=20
+          <!--FEATURE CONTENT---------------->=20
+          <!-- ////////// END TitleBar_NoLinks ////////// -->=20
+          <!-- ////////// Start MainMessage_Transactional ////////// -->=20
+          <!--FEATURE CONTENT---------------->=20
+          <div id=3D"ecc-email--body" class=3D"ecc-email--section-outer-div=
+" atrrID=3D"109">=20
+           <table width=3D"720" class=3D"FPL-WrapTo90pc" align=3D"center" b=
+order=3D"0" cellspacing=3D"0" cellpadding=3D"0" atrrID=3D"110" style=3D"-we=
+bkit-text-size-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-te=
+xt-size-adjust:100%;">=20
+            <tbody atrrID=3D"111">=20
+             <tr atrrID=3D"112" style=3D"border-collapse:collapse;">=20
+              <td class=3D"ecc-email-section-wrapper" align=3D"center" atrr=
+ID=3D"113" style=3D"padding-top:20px;-webkit-text-size-adjust:100%;mso-tabl=
+e-rspace:0pt;mso-table-lspace:0pt;padding-bottom:20px;-ms-text-size-adjust:=
+100%;border-collapse:collapse;">=20
+               <table width=3D"570" align=3D"center" class=3D"FPL-WrapTo100=
+pc" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" atrrID=3D"114" style=
+=3D"-webkit-text-size-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt=
+;-ms-text-size-adjust:100%;">=20
+                <tbody atrrID=3D"115">=20
+                 <!--MAIN MESSAGE PARA---------->=20
+                 <tr atrrID=3D"116" style=3D"border-collapse:collapse;">=20
+                  <td id=3D"ecc-email--body--inner-wrapper" width=3D"570" c=
+lass=3D"FPL-WrapTo100pc" align=3D"left" atrrID=3D"117" style=3D"color:rgb(1=
+03, 103, 103);-webkit-text-size-adjust:100%;mso-table-rspace:0pt;mso-table-=
+lspace:0pt;font-size:17px;-ms-text-size-adjust:100%;font-family:Arial, sans=
+-serif;border-collapse:collapse;">=20
+                   <!--BODYEDITABLE START--> <p class=3D"ecc-main-body--abp=
+-withdrawal-message" style=3D"margin-top:0;margin-bottom: 1em;" atrrID=3D"1=
+18">Here are the details of your payment for account #52934-13497:=20
+                    <!--BODYEDITABLE END--> </p></td>=20
+                 </tr>=20
+                </tbody>=20
+               </table> </td>=20
+             </tr>=20
+            </tbody>=20
+           </table>=20
+          </div>=20
+          <!--FEATURE CONTENT---------------->=20
+          <!-- ////////// END MainMessage_Transactional ////////// -->=20
+          <!-- ////////// Start Table_Transactional_Balance ////////// -->=
+=20
+          <!--FEATURE CONTENT- 2COLUMN---------------->=20
+          <div id=3D"ecc-email--trans-table" class=3D"ecc-email--section-ou=
+ter-div" atrrID=3D"119">=20
+           <table width=3D"720" align=3D"center" class=3D"FPL-WrapTo95pc" b=
+order=3D"0" cellspacing=3D"0" cellpadding=3D"0" atrrID=3D"120" style=3D"-we=
+bkit-text-size-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-te=
+xt-size-adjust:100%;">=20
+            <tbody atrrID=3D"121">=20
+             <tr atrrID=3D"122" style=3D"border-collapse:collapse;">=20
+              <td class=3D"ecc-email-section-wrapper" align=3D"center" atrr=
+ID=3D"123" style=3D"padding-top:20px;-webkit-text-size-adjust:100%;mso-tabl=
+e-rspace:0pt;mso-table-lspace:0pt;padding-bottom:20px;-ms-text-size-adjust:=
+100%;border-collapse:collapse;">=20
+               <table id=3D"ecc-email--trans-table--table" width=3D"570" al=
+ign=3D"center" class=3D"FPL-WrapTo90pc" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"0" atrrID=3D"124" style=3D"-webkit-text-size-adjust:100%;mso-tab=
+le-rspace:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100%;">=20
+                <tbody atrrID=3D"125">=20
+                 <tr class=3D"ecc-email--trans-table--row   ecc-email--tran=
+s-table--first-row" atrrID=3D"126" style=3D"border-collapse:collapse;">=20
+                  <td class=3D"ecc-email--trans-table--row--item-descr" ali=
+gn=3D"left" valign=3D"bottom" width=3D"50%" atrrID=3D"127" style=3D"padding=
+-top:10px;border-top-width:1px;color:rgb(103, 103, 103);border-bottom-color=
+:rgb(204, 204, 204);-webkit-text-size-adjust:100%;padding-left:10px;padding=
+-bottom:10px;font-size:17px;-ms-text-size-adjust:100%;border-top-style:soli=
+d;mso-table-rspace:0pt;border-bottom-width:1px;mso-table-lspace:0pt;border-=
+top-color:rgb(204, 204, 204);font-family:Arial, sans-serif;border-bottom-st=
+yle:solid;border-collapse:collapse;"> Payment Amount </td>=20
+                  <td class=3D"ecc-email--trans-table--row--item-value" ali=
+gn=3D"right" valign=3D"bottom" width=3D"50%" atrrID=3D"128" style=3D"paddin=
+g-top:10px;border-top-width:1px;color:rgb(103, 103, 103);border-bottom-colo=
+r:rgb(204, 204, 204);-webkit-text-size-adjust:100%;padding-bottom:10px;font=
+-size:17px;-ms-text-size-adjust:100%;border-top-style:solid;mso-table-rspac=
+e:0pt;border-bottom-width:1px;mso-table-lspace:0pt;border-top-color:rgb(204=
+, 204, 204);font-family:Arial, sans-serif;border-bottom-style:solid;border-=
+collapse:collapse;padding-right:10px;"> $613.17 </td>=20
+                 </tr>=20
+                 <tr class=3D"ecc-email--trans-table--row   ecc-email--tran=
+s-table--last-row" atrrID=3D"129" style=3D"border-collapse:collapse;">=20
+                  <td class=3D"ecc-email--trans-table--row--item-descr" ali=
+gn=3D"left" valign=3D"bottom" width=3D"50%" atrrID=3D"130" style=3D"padding=
+-top:10px;color:rgb(103, 103, 103);border-bottom-color:rgb(204, 204, 204);-=
+webkit-text-size-adjust:100%;padding-left:10px;padding-bottom:10px;font-siz=
+e:17px;-ms-text-size-adjust:100%;mso-table-rspace:0pt;border-bottom-width:1=
+px;mso-table-lspace:0pt;font-family:Arial, sans-serif;border-bottom-style:s=
+olid;border-collapse:collapse;"> Bank Account Number </td>=20
+                  <td class=3D"ecc-email--trans-table--row--item-value" ali=
+gn=3D"right" valign=3D"bottom" width=3D"50%" atrrID=3D"131" style=3D"paddin=
+g-top:10px;color:rgb(103, 103, 103);border-bottom-color:rgb(204, 204, 204);=
+-webkit-text-size-adjust:100%;padding-bottom:10px;font-size:17px;-ms-text-s=
+ize-adjust:100%;mso-table-rspace:0pt;border-bottom-width:1px;mso-table-lspa=
+ce:0pt;font-family:Arial, sans-serif;border-bottom-style:solid;border-colla=
+pse:collapse;padding-right:10px;"> *****7807 </td>=20
+                 </tr>=20
+                </tbody>=20
+               </table> </td>=20
+             </tr>=20
+            </tbody>=20
+           </table>=20
+          </div>=20
+          <!--FEATURE CONTENT- 2 COLUMN---------------->=20
+          <!-- ////////// END Table_Transactional_Balance ////////// -->=20
+          <!-- ////////// Start MainMessage_Transactional ////////// -->=20
+          <!--FEATURE CONTENT---------------->=20
+          <div id=3D"ecc-email--postfix" class=3D"ecc-email--section-outer-=
+div" atrrID=3D"132">=20
+           <table width=3D"720" class=3D"FPL-WrapTo90pc" align=3D"center" b=
+order=3D"0" cellspacing=3D"0" cellpadding=3D"0" atrrID=3D"133" style=3D"-we=
+bkit-text-size-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-te=
+xt-size-adjust:100%;">=20
+            <tbody atrrID=3D"134">=20
+             <tr atrrID=3D"135" style=3D"border-collapse:collapse;">=20
+              <td class=3D"ecc-email-section-wrapper" align=3D"center" atrr=
+ID=3D"136" style=3D"padding-top:20px;-webkit-text-size-adjust:100%;mso-tabl=
+e-rspace:0pt;mso-table-lspace:0pt;padding-bottom:20px;-ms-text-size-adjust:=
+100%;border-collapse:collapse;">=20
+               <table width=3D"570" align=3D"center" class=3D"FPL-WrapTo100=
+pc" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" atrrID=3D"137" style=
+=3D"-webkit-text-size-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt=
+;-ms-text-size-adjust:100%;">=20
+                <tbody atrrID=3D"138">=20
+                 <!--MAIN MESSAGE PARA---------->=20
+                 <tr atrrID=3D"139" style=3D"border-collapse:collapse;">=20
+                  <td id=3D"ecc-email--postfix--inner-wrapper" width=3D"570=
+" class=3D"FPL-WrapTo100pc" align=3D"left" atrrID=3D"140" style=3D"color:rg=
+b(103, 103, 103);-webkit-text-size-adjust:100%;mso-table-rspace:0pt;mso-tab=
+le-lspace:0pt;font-size:17px;-ms-text-size-adjust:100%;font-family:Arial, s=
+ans-serif;border-collapse:collapse;"> <p class=3D"ecc-email-main-body--para=
+graph" atrrID=3D"141">Thank you for your payment. The amount above will be =
+drafted from your bank account within 1-2 business days. </p></td>=20
+                 </tr>=20
+                </tbody>=20
+               </table> </td>=20
+             </tr>=20
+            </tbody>=20
+           </table>=20
+          </div>=20
+          <!--FEATURE CONTENT---------------->=20
+          <!-- ////////// END MainMessage_Transactional ////////// -->=20
+          <!-- ////////// Start CrossPromotion_Transactional ////////// -->=
+=20
+          <div id=3D"ecc-email--promos" atrrID=3D"142">=20
+           <table width=3D"720" class=3D"FPL-WrapTo100pc" align=3D"center" =
+border=3D"0" cellspacing=3D"0" cellpadding=3D"0" atrrID=3D"143" style=3D"-w=
+ebkit-text-size-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-t=
+ext-size-adjust:100%;">=20
+            <tbody atrrID=3D"144">=20
+             <tr atrrID=3D"145" style=3D"border-collapse:collapse;">=20
+              <td class=3D"ecc-email-section-wrapper" align=3D"center" atrr=
+ID=3D"146" style=3D"padding-top:20px;-webkit-text-size-adjust:100%;mso-tabl=
+e-rspace:0pt;mso-table-lspace:0pt;padding-bottom:20px;-ms-text-size-adjust:=
+100%;border-collapse:collapse;">=20
+               <table width=3D"570" align=3D"center" class=3D"FPL-WrapTo100=
+pc" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" atrrID=3D"147" style=
+=3D"-webkit-text-size-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt=
+;-ms-text-size-adjust:100%;">=20
+                <tbody atrrID=3D"148">=20
+                 <tr id=3D"ecc-email--promos--divider" atrrID=3D"149" style=
+=3D"border-collapse:collapse;">=20
+                  <td atrrID=3D"150" style=3D"-webkit-text-size-adjust:100%=
+;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100%;border=
+-collapse:collapse;">=20
+                   <!-- ////////// START HorizontalLine_Transactional /////=
+///// -->=20
+                   <!--START White BG Ligthning---------------> <img class=
+=3D"ecc-email--callout--horizontal-line FPL-Image100pc hide-for-mobile" src=
+=3D"https://www.fpl.com/content/dam/fplgp/us/en/northwest/email/2019_templa=
+tes/hortiz-whitebg-lightning.jpg" width=3D"570" height=3D"21" alt=3D"" bord=
+er=3D"0" atrrID=3D"151" style=3D"border:0px;padding-top:20px;outline:none;-=
+ms-interpolation-mode:bicubic;display:block;text-decoration:none;padding-bo=
+ttom:20px;">=20
+                   <!--END White BG Ligthning--------------->=20
+                   <!-- ////////// End HorizontalLine_Transactional ///////=
+/// --> </td>=20
+                 </tr>=20
+                </tbody>=20
+               </table>=20
+               <table width=3D"570" align=3D"center" class=3D"FPL-WrapTo100=
+pc" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" atrrID=3D"152" style=
+=3D"-webkit-text-size-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt=
+;-ms-text-size-adjust:100%;">=20
+                <tbody atrrID=3D"153">=20
+                 <tr id=3D"ecc-email--promos--messages" atrrID=3D"154" styl=
+e=3D"border-collapse:collapse;">=20
+                  <!--1st Column-->=20
+                  <td width=3D"570" align=3D"center" valign=3D"top" class=
+=3D"FPL-SplitColumn" atrrID=3D"155" style=3D"-webkit-text-size-adjust:100%;=
+mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100%;border-=
+collapse:collapse;">=20
+                   <table width=3D"100%" border=3D"0" cellspacing=3D"0" cel=
+lpadding=3D"0" atrrID=3D"156" style=3D"-webkit-text-size-adjust:100%;mso-ta=
+ble-rspace:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100%;">=20
+                    <tbody atrrID=3D"157">=20
+                     <tr atrrID=3D"158" style=3D"border-collapse:collapse;"=
+>=20
+                      <td class=3D"ecc-email--promos--headline FPL-promo-to=
+p-bordertextcenter" atrrID=3D"159" style=3D"color:rgb(0, 0, 0);-webkit-text=
+-size-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;padding-bottom:=
+20px;-ms-text-size-adjust:100%;font-family:Rockwell, &quot;Bitter&quot;, Ge=
+orgia, Times, serif;border-collapse:collapse;text-align:left;"> <strong atr=
+rID=3D"160"> Outstanding reliability </strong> </td>=20
+                     </tr>=20
+                     <tr atrrID=3D"161" style=3D"border-collapse:collapse;"=
+>=20
+                      <td class=3D"ecc-email--promos--message FPL-AlignCent=
+erPaddingLeftRight10px" atrrID=3D"162" style=3D"color:rgb(102, 102, 102);-w=
+ebkit-text-size-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;font-=
+size:15px;-ms-text-size-adjust:100%;font-family:Arial, sans-serif;line-heig=
+ht:20px;border-collapse:collapse;text-align:left;"> For the seventh time in=
+ eight years, FPL earned top national honors for service reliability. </td>=
+=20
+                     </tr>=20
+                     <tr atrrID=3D"163" style=3D"border-collapse:collapse;"=
+>=20
+                      <td class=3D"ecc-email--promos--link FPL-AlignCenter"=
+ align=3D"left" atrrID=3D"164" style=3D"padding-top:20px;-webkit-text-size-=
+adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;padding-bottom:20px;-=
+ms-text-size-adjust:100%;border-collapse:collapse;text-align:left;"> <a hre=
+f=3D"https://v70z6cs.r.us-east-1.awstrack.me/L0/https:%2F%2Fwww.fpl.com%2Fr=
+eliability.html/1/01000186ff77f36a-907f5aec-9d5c-4e5f-8167-23299dd14c39-000=
+000/S_TwS7GfTKIAzQDIKcT68ylnQew=3D313" xt=3D"SPCLICK" name=3D"CrossPromo_li=
+nk1" target=3D"_blank" atrrID=3D"165" style=3D"color:rgb(0, 150, 219);-webk=
+it-text-size-adjust:100%;text-decoration:none;-ms-text-size-adjust:100%;fon=
+t-family:Arial, sans-serif;"> See more&nbsp;&nbsp;=E2=80=BA </a> </td>=20
+                     </tr>=20
+                    </tbody>=20
+                   </table> </td>=20
+                 </tr>=20
+                </tbody>=20
+               </table> </td>=20
+             </tr>=20
+            </tbody>=20
+           </table>=20
+          </div>=20
+          <!-- ////////// End CrossPromotion_Transactional ////////// -->=
+=20
+          <!-- //////////////////////////////////////////
+=09=09=09=09=09=09=09=09=09/////////// END BASE CONTENT outer-wrapper /////=
+///////
+=09=09=09=09=09=09=09=09=09////////////////////////////////////////////////=
+/--> </td>=20
+        </tr>=20
+       </tbody>=20
+      </table>=20
+      <!-- End outer-wrapper --></td>=20
+    </tr>=20
+   </tbody>=20
+  </table>=20
+  <!-- //////////////////////////////////////////
+=09=09=09=09/////////// END BASE CONTENT outer-wrapper ////////////
+=09=09=09=09/////////////////////////////////////////////////-->=20
+  <!-- //////////////////////////////////////////
+=09=09=09=09/////////// START BASE FOOTER outer-wrapper ////////////
+=09=09=09=09/////////////////////////////////////////////////-->=20
+  <table id=3D"ecc-email--bottom--outer-wrapper" width=3D"100%" border=3D"0=
+" align=3D"center" cellpadding=3D"0" cellspacing=3D"0" atrrID=3D"166" style=
+=3D"-webkit-text-size-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt=
+;-ms-text-size-adjust:100%;">=20
+   <tbody atrrID=3D"167">=20
+    <tr atrrID=3D"168" style=3D"border-collapse:collapse;">=20
+     <td align=3D"center" atrrID=3D"169" style=3D"-webkit-text-size-adjust:=
+100%;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100%;bo=
+rder-collapse:collapse;">
+      <!-- /*/*/*/*/*/*/*/*/ START CONTENT SECTION  /*/*/*/*/*/*/*/*/ -->=
+=20
+      <table class=3D"FPL-WrapTo95pc" width=3D"720" border=3D"0" align=3D"c=
+enter" cellpadding=3D"0" cellspacing=3D"0" atrrID=3D"170" style=3D"-webkit-=
+text-size-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-text-si=
+ze-adjust:100%;">=20
+       <tbody atrrID=3D"171">=20
+        <tr atrrID=3D"172" style=3D"border-collapse:collapse;">=20
+         <td align=3D"center" atrrID=3D"173" style=3D"-webkit-text-size-adj=
+ust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100=
+%;border-collapse:collapse;">=20
+          <!-- //////////////////////////////////////////
+=09=09=09=09=09=09=09=09=09=09=09=09/////////// START BASE FOOTER outer-wra=
+pper ////////////
+=09=09=09=09=09=09=09=09=09=09=09=09///////////////////////////////////////=
+//////////-->=20
+          <!-- /////////////////////////////////////////////////
+=09=09=09=09=09=09=09=09=09=09=09=09//////////////BEGIN FOOTER SECTION ////=
+/////////////
+=09=09=09=09=09=09=09=09=09=09=09=09///////////////////////////////////////=
+////////////// -->=20
+          <!-- ////////// START Footer_Transactional_Bill_Residential /////=
+///// -->=20
+          <div id=3D"ecc-email--footer" atrrID=3D"174">=20
+           <table width=3D"720" align=3D"center" bgcolor=3D"#ffffff" class=
+=3D"FPL-WrapTo100pc" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" atrrI=
+D=3D"175" style=3D"-webkit-text-size-adjust:100%;mso-table-rspace:0pt;mso-t=
+able-lspace:0pt;-ms-text-size-adjust:100%;">=20
+            <tbody atrrID=3D"176">=20
+             <tr atrrID=3D"177" style=3D"border-collapse:collapse;">=20
+              <td class=3D"ecc-email-section-wrapper" align=3D"center" atrr=
+ID=3D"178" style=3D"padding-top:20px;-webkit-text-size-adjust:100%;mso-tabl=
+e-rspace:0pt;mso-table-lspace:0pt;padding-bottom:20px;-ms-text-size-adjust:=
+100%;border-collapse:collapse;">=20
+               <table width=3D"680" align=3D"center" bgcolor=3D"#ffffff" cl=
+ass=3D"FPL-WrapTo90pc" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" atr=
+rID=3D"179" style=3D"-webkit-text-size-adjust:100%;mso-table-rspace:0pt;mso=
+-table-lspace:0pt;-ms-text-size-adjust:100%;">=20
+                <tbody atrrID=3D"180">=20
+                 <!--FOR HELP-->=20
+                 <tr atrrID=3D"181" style=3D"border-collapse:collapse;">=20
+                  <td id=3D"ecc-email--footer--prefix" height=3D"16" align=
+=3D"center" atrrID=3D"182" style=3D"color:rgb(165, 165, 165);-webkit-text-s=
+ize-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;font-size:12px;pa=
+dding-bottom:20px;-ms-text-size-adjust:100%;font-family:Arial, sans-serif;b=
+order-collapse:collapse;"> <strong atrrID=3D"183">Please do not reply to th=
+is email, this address is not monitored.</strong> For help, visit <a href=
+=3D"https://v70z6cs.r.us-east-1.awstrack.me/L0/https:%2F%2Fwww.FPL.com%2Fsu=
+pport%2Ffaq.html%3Fcid=3Decc/1/01000186ff77f36a-907f5aec-9d5c-4e5f-8167-232=
+99dd14c39-000000/KEfpCh7cbWMVW4LybWuqVElq3n8=3D313" xt=3D"SPCLICK" name=3D"=
+FPL_Website_Footer" target=3D"_blank" atrrID=3D"184" style=3D"color:rgb(0, =
+150, 219);-webkit-text-size-adjust:100%;text-decoration:none;-ms-text-size-=
+adjust:100%;">FPL.com</a> </td>=20
+                 </tr>=20
+                 <!--FPL LINKS-->=20
+                 <tr atrrID=3D"185" style=3D"border-collapse:collapse;">=20
+                  <td align=3D"center" atrrID=3D"186" style=3D"-webkit-text=
+-size-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-text-size-a=
+djust:100%;border-collapse:collapse;">=20
+                   <table width=3D"650" class=3D"FPL-WrapTo100pc" align=3D"=
+center" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" atrrID=3D"187" sty=
+le=3D"-webkit-text-size-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0=
+pt;-ms-text-size-adjust:100%;">=20
+                    <tbody atrrID=3D"188">=20
+                     <tr atrrID=3D"189" style=3D"border-collapse:collapse;"=
+>=20
+                      <td atrrID=3D"190" style=3D"-webkit-text-size-adjust:=
+100%;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100%;bo=
+rder-collapse:collapse;">=20
+                       <table width=3D"100%" align=3D"center" border=3D"0" =
+cellspacing=3D"0" cellpadding=3D"0" atrrID=3D"191" style=3D"-webkit-text-si=
+ze-adjust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-text-size-adju=
+st:100%;">=20
+                        <tbody atrrID=3D"192">=20
+                         <tr atrrID=3D"193" style=3D"border-collapse:collap=
+se;">=20
+                          <td class=3D"FPL-SplitColumn3" width=3D"100" heig=
+ht=3D"20" align=3D"center" valign=3D"middle" style=3D"-webkit-text-size-adj=
+ust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100=
+%;border-collapse:collapse;padding-left: 5px; padding-right: 5px; font-size=
+: 12px; line-height:20px; font-family:Arial,sans-serif;" atrrID=3D"194"> <a=
+ style=3D"color:rgb(0, 150, 219);-webkit-text-size-adjust:100%;text-decorat=
+ion:none;-ms-text-size-adjust:100%;text-decoration: none; color: #5fb0e7;" =
+href=3D"https://v70z6cs.r.us-east-1.awstrack.me/L0/https:%2F%2Fwww.FPL.com%=
+2Fmy-account%2Fprofile-account-settings.html%3Fcid=3Decc%23profile/2/010001=
+86ff77f36a-907f5aec-9d5c-4e5f-8167-23299dd14c39-000000/eFnvg4nRXNNLRaMacAiZ=
+O8awcLg=3D313" xt=3D"SPCLICK" name=3D"Update_Profile_Link" target=3D"_blank=
+" atrrID=3D"195"> Update Profile </a> </td>=20
+                          <td class=3D"FPL-HiddenMobile" width=3D"5" height=
+=3D"20" align=3D"center" style=3D"-webkit-text-size-adjust:100%;mso-table-r=
+space:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100%;border-collapse:co=
+llapse;color: #cccccc;" atrrID=3D"196"><span atrrID=3D"197">|</span></td>=
+=20
+                          <td class=3D"FPL-SplitColumn3" width=3D"165" heig=
+ht=3D"20" align=3D"center" valign=3D"middle" style=3D"-webkit-text-size-adj=
+ust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100=
+%;border-collapse:collapse;padding-left: 5px; padding-right: 5px;  font-siz=
+e: 12px; line-height:20px; font-family:Arial,sans-serif;" atrrID=3D"198"> <=
+a style=3D"color:rgb(0, 150, 219);-webkit-text-size-adjust:100%;text-decora=
+tion:none;-ms-text-size-adjust:100%;text-decoration: none; color: #5fb0e7;"=
+ href=3D"https://v70z6cs.r.us-east-1.awstrack.me/L0/https:%2F%2Fwww.FPL.com=
+%2Fmy-account%2Fprofile-account-settings.html%3Fcid=3Decc%23preferences/1/0=
+1000186ff77f36a-907f5aec-9d5c-4e5f-8167-23299dd14c39-000000/FVeOv9D_vO7fgWm=
+5celzHaA6zuc=3D313" xt=3D"SPCLICK" name=3D"Customize_Preferences_Link" targ=
+et=3D"_blank" atrrID=3D"199"> Customize Preferences </a> </td>=20
+                          <td class=3D"FPL-HiddenMobile" width=3D"5" height=
+=3D"20" align=3D"center" style=3D"-webkit-text-size-adjust:100%;mso-table-r=
+space:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100%;border-collapse:co=
+llapse;color: #cccccc;" atrrID=3D"200"><span atrrID=3D"201">|</span></td>=
+=20
+                          <td class=3D"FPL-SplitColumn3" width=3D"135" heig=
+ht=3D"20" align=3D"center" valign=3D"middle" style=3D"-webkit-text-size-adj=
+ust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100=
+%;border-collapse:collapse;padding-left: 5px; padding-right: 5px; font-size=
+: 12px; line-height:20px; color: #5fb0e7; font-family:Arial,sans-serif;" at=
+rrID=3D"202"> <a style=3D"color:rgb(0, 150, 219);-webkit-text-size-adjust:1=
+00%;text-decoration:none;-ms-text-size-adjust:100%;text-decoration: none; c=
+olor: #5fb0e7;" href=3D"https://v70z6cs.r.us-east-1.awstrack.me/L0/https:%2=
+F%2Fwww.nexteraenergy.com%2Felectronic-terms-and-conditions.html%3Fcid=3Dec=
+c/1/01000186ff77f36a-907f5aec-9d5c-4e5f-8167-23299dd14c39-000000/7yQwKK9yHn=
+Cn1F7tTUg8cA_brHM=3D313" xt=3D"SPCLICK" name=3D"Terms_Link" target=3D"_blan=
+k" atrrID=3D"203"> Terms &amp; Conditions </a> </td>=20
+                          <td class=3D"FPL-HiddenMobile" width=3D"5" height=
+=3D"20" align=3D"center" style=3D"-webkit-text-size-adjust:100%;mso-table-r=
+space:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100%;border-collapse:co=
+llapse;color: #cccccc;" atrrID=3D"204"><span atrrID=3D"205">|</span></td>=
+=20
+                          <td class=3D"FPL-SplitColumn3" width=3D"100" heig=
+ht=3D"20" align=3D"center" valign=3D"middle" style=3D"-webkit-text-size-adj=
+ust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100=
+%;border-collapse:collapse;padding-left: 5px; padding-right: 5px; font-size=
+: 12px; line-height:20px; color: #5fb0e7; font-family:Arial,sans-serif;" at=
+rrID=3D"206"> <a style=3D"color:rgb(0, 150, 219);-webkit-text-size-adjust:1=
+00%;text-decoration:none;-ms-text-size-adjust:100%;text-decoration: none; c=
+olor: #5fb0e7;" href=3D"http://v70z6cs.r.us-east-1.awstrack.me/L0/http:%2F%=
+2Fwww.nexteraenergy.com%2Fprivacy_policy.shtml%3Fcid=3Decc/1/01000186ff77f3=
+6a-907f5aec-9d5c-4e5f-8167-23299dd14c39-000000/EPwuqsj8auVw8uH46kAnyQwjPJE=
+=3D313" xt=3D"SPCLICK" name=3D"Privacy_Policy_Link" target=3D"_blank" atrrI=
+D=3D"207"> Privacy Policy </a> </td>=20
+                          <td class=3D"FPL-HiddenMobile" width=3D"5" height=
+=3D"20" align=3D"center" style=3D"-webkit-text-size-adjust:100%;mso-table-r=
+space:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100%;border-collapse:co=
+llapse;color: #cccccc;" atrrID=3D"208"><span atrrID=3D"209">|</span></td>=
+=20
+                          <td class=3D"FPL-SplitColumn3" width=3D"100" heig=
+ht=3D"20" align=3D"center" valign=3D"middle" style=3D"-webkit-text-size-adj=
+ust:100%;mso-table-rspace:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100=
+%;border-collapse:collapse;padding-left: 5px; padding-right: 5px; font-size=
+: 12px; line-height:20px; color: #5fb0e7; font-family:Arial,sans-serif;" at=
+rrID=3D"210"> <a style=3D"color:rgb(0, 150, 219);-webkit-text-size-adjust:1=
+00%;text-decoration:none;-ms-text-size-adjust:100%;text-decoration: none; c=
+olor: #5fb0e7;" href=3D"https://v70z6cs.r.us-east-1.awstrack.me/L0/https:%2=
+F%2Fwww.FPL.com%2Fsupport%2Fcontact.html%3Fcid=3Decc/1/01000186ff77f36a-907=
+f5aec-9d5c-4e5f-8167-23299dd14c39-000000/YSg5HXrXJygPWbz7t-ENOFL-9Sw=3D313"=
+ xt=3D"SPCLICK" name=3D"Contact_Us_Link" target=3D"_blank" atrrID=3D"211"> =
+Contact Us </a> </td>=20
+                         </tr>=20
+                        </tbody>=20
+                       </table> </td>=20
+                     </tr>=20
+                    </tbody>=20
+                   </table> </td>=20
+                 </tr>=20
+                 <!--FPL BOTTOM MESSAGES-->=20
+                 <!--FPL COPYRIGHT-->=20
+                 <tr atrrID=3D"212" style=3D"border-collapse:collapse;">=20
+                  <td id=3D"ecc-email--footer--suffix" class=3D"ecc-email-s=
+ection-wrapper" align=3D"center" atrrID=3D"213" style=3D"padding-top:20px;c=
+olor:rgb(165, 165, 165);-webkit-text-size-adjust:100%;mso-table-rspace:0pt;=
+mso-table-lspace:0pt;font-size:12px;padding-bottom:20px;-ms-text-size-adjus=
+t:100%;font-family:Arial, sans-serif;border-collapse:collapse;"> <p atrrID=
+=3D"214">Copyright =C2=A9 2023 Florida Power &amp; Light Company.<span clas=
+s=3D"FPL-ForceBreak" atrrID=3D"215">&nbsp;</span>All rights reserved.</p>=
+=20
+                   <!--ECC DOCUMENT INFO--> <p class=3D"ultra-fine-print ec=
+c-email-bottom--document-id" atrrID=3D"216"> E011 - 5C74BF17EA54B145D69A8D8=
+1E69F9F05 </p>=20
+                   <!--ECC DEBUG INFO--> </td>=20
+                 </tr>=20
+                </tbody>=20
+               </table> </td>=20
+             </tr>=20
+            </tbody>=20
+           </table>=20
+          </div>=20
+          <!-- ////////// End Footer_Transactional_Bill_Residential ///////=
+/// -->=20
+          <!-- //////////////////////////////////////////
+=09=09=09=09=09=09=09=09/////////// END BASE FOOTER outer-wrapper /////////=
+///
+=09=09=09=09=09=09=09=09/////////////////////////////////////////////////--=
+>=20
+          <!--Start Pixel Image for 720px-->=20
+          <table width=3D"720" class=3D"FPL-HiddenMobile" height=3D"5" alig=
+n=3D"center" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" atrrID=3D"217=
+" style=3D"-webkit-text-size-adjust:100%;mso-table-rspace:0pt;mso-table-lsp=
+ace:0pt;-ms-text-size-adjust:100%;">=20
+           <tbody atrrID=3D"218">=20
+            <tr atrrID=3D"219" style=3D"border-collapse:collapse;">=20
+             <td atrrID=3D"220" style=3D"-webkit-text-size-adjust:100%;mso-=
+table-rspace:0pt;mso-table-lspace:0pt;-ms-text-size-adjust:100%;border-coll=
+apse:collapse;"><img src=3D"https://www.fpl.com/email/template/images/pixel=
+.gif" alt=3D"" width=3D"720" height=3D"5" border=3D"0" style=3D"outline:non=
+e;-ms-interpolation-mode:bicubic;text-decoration:none;display: block; borde=
+r: 0px; min-width: 720px; min-height: 5px;" atrrID=3D"221"></td>=20
+            </tr>=20
+           </tbody>=20
+          </table>=20
+          <!--END Pixel Image for 720px--></td>=20
+        </tr>=20
+       </tbody>=20
+      </table>=20
+      <!-- End outer-wrapper --></td>=20
+    </tr>=20
+   </tbody>=20
+  </table>=20
+  <!-- //////////////////////////////////////////
+/////////// END BASE outer-wrapper ////////////
+/////////////////////////////////////////////////-->  =20
+ <img alt=3D"" src=3D"https://v70z6cs.r.us-east-1.awstrack.me/I0/01000186ff=
+77f36a-907f5aec-9d5c-4e5f-8167-23299dd14c39-000000/kn9DF1xhO9MXjWr6JXPKUaUl=
+nos=3D313" style=3D"display: none; width: 1px; height: 1px;">
+</body>
+</html>
+------=_Part_163837_138733265.1679323296617--
+
+------=_Part_163836_209412998.1679323296617--
+

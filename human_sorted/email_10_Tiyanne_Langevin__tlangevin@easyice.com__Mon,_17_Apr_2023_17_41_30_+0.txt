@@ -1,0 +1,4 @@
+{
+  "prompt": "Subject: Easy Ice Quote for Green Turtle Kava - DAYTONA - Upgrade\nFrom:Tiyanne Langevin <tlangevin@easyice.com>\nTo:support@ourcompany.com\nDate:Mon, 17 Apr 2023 17:41:30 +0000 (GMT)\nContent:Hi Colin,\r\nPlease see the attached quote to upgrade your current machine.\r\nIf you have any questions, please don't hesitate to reach out to Shawn 407.308.5162\r\n\r\n\r\nThank you\r\nTL Langevin\r\n321.616.4911\r\nSales Coordinator | Easy Ice\r\nOffice 866-easyice\r\nNo Capital. No Hassle. Just Ice.\r\n_________________________________\r\nStay up to date with Easy Ice\r\neasyice.com | Facebook  | Twitter\n###\n\n",
+  "completion": "9 quotes"
+}

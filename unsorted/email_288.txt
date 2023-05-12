@@ -1,0 +1,7 @@
+{
+  "prompt": "Subject: =?utf-8?B?WW91ciByZXN0YXVyYW50IG1lbnUganVzdCBnb3QgYSBodW5kcmVk?=\r\n\t=?utf-8?B?IHRpbWVzIGJldHRlciDwn5Kv?=\nFrom:\"No-Reply at QR Code Generator\" <noreply@qr-code-generator.com>\nTo:support@ourcompany.com\nDate:Sat, 25 Mar 2023 00:04:54 +0000\nContent:Update your menu as many times as you want \r\n [Image \"email-marketing_restaurants_changed-mind_banner.png\"] We know it can be costly and time-consuming to keep replacing your menu with new ones every season. That’s why our PDF QR Code is the perfect ingredient for your menu because you can keep changing it without printing a new QR Code. There is no limit as to how many times you can change your menu and you can even edit it in real-time in case one or more dishes are sold out on the day. \r\nLearn how Cheers, Your friends at QR Code Generator PRO \r\n \r\n Have any questions? Visit our Help Center. Alternatively, you can contact our Support Team via the Contact Form in your account.\n###\n\n",
+  "completion": " ",
+  "email_subject": "=?utf-8?B?WW91ciByZXN0YXVyYW50IG1lbnUganVzdCBnb3QgYSBodW5kcmVk?=\r\n\t=?utf-8?B?IHRpbWVzIGJldHRlciDwn5Kv?=",
+  "email_sender": "\"No-Reply at QR Code Generator\" <noreply@qr-code-generator.com>",
+  "email_date": "Sat, 25 Mar 2023 00:04:54 +0000"
+}

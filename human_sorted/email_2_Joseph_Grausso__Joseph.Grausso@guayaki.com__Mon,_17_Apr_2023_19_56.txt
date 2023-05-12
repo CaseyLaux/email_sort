@@ -1,0 +1,4 @@
+{
+  "prompt": "Subject: \nFrom:Joseph Grausso <Joseph.Grausso@guayaki.com>\nTo:support@ourcompany.com\nDate:Mon, 17 Apr 2023 19:56:27 +0000\nContent:Whose name would you like under your account, first and last name\r\n\r\nGet Outlook for Android<https://aka.ms/AAb9ysg>\r\n\n###\n\n",
+  "completion": "7 Response"
+}

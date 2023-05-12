@@ -1,0 +1,7 @@
+{
+  "prompt": "Subject: =?utf-8?B?SXQncyB0aW1lIHRvIHNheSBnb29kYnllIHRvIHlvdXIgbWVudSBm?=\r\n\t=?utf-8?B?b3IgZ29vZCDwn5GL?=\nFrom:\"No-Reply at QR Code Generator\" <noreply@qr-code-generator.com>\nTo:support@ourcompany.com\nDate:Mon, 20 Mar 2023 23:25:08 +0000\nContent:Restaurants have replaced menus with QR Codes \n [Image \"email-marketing_restaurants_inspiration_banner_v2.png\"] Coronavirus pandemic has brought a new era of dining altogether. Restaurants like yours are replacing their physical menus with QR Codes so customers can stay safe while ordering. From restaurants in the USA to cafes in France, use these examples as inspirations for you to turn your menu into a QR Code today. \nSee examples Cheers, Your friends at QR Code Generator PRO \n \n Have any questions? Visit our Help Center. Alternatively, you can contact our Support Team via the Contact Form in your account.\n###\n\n",
+  "completion": " ",
+  "email_subject": "=?utf-8?B?SXQncyB0aW1lIHRvIHNheSBnb29kYnllIHRvIHlvdXIgbWVudSBm?=\r\n\t=?utf-8?B?b3IgZ29vZCDwn5GL?=",
+  "email_sender": "\"No-Reply at QR Code Generator\" <noreply@qr-code-generator.com>",
+  "email_date": "Mon, 20 Mar 2023 23:25:08 +0000"
+}

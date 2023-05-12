@@ -1,0 +1,501 @@
+Delivered-To: greenturtlekava@gmail.com
+Received: by 2002:a05:7208:8788:b0:64:a764:ea5d with SMTP id hc8csp3427735rbb;
+        Wed, 22 Mar 2023 23:05:53 -0700 (PDT)
+X-Google-Smtp-Source: AK7set93wICBuyYVJqJ409KgVOKra4VuenEJDVsgmAtKGhFDQi/6uxTU9Bo3NnNbexpXhPuzKIu+
+X-Received: by 2002:a05:6a20:17aa:b0:db:f682:65ed with SMTP id bl42-20020a056a2017aa00b000dbf68265edmr1837155pzb.61.1679551552848;
+        Wed, 22 Mar 2023 23:05:52 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1679551552; cv=none;
+        d=google.com; s=arc-20160816;
+        b=xV7IfQmhjN2S8rfMPMSlhBKh8GC2z6jT2/JWFh3tpxk8IihESViPVphmzztr4IbSU0
+         jKToGfB/65FjH+pK5V4HwgaBIzCAoMTrnMBSGp9nmRzy2MUGcyQxC9uzSrQMDkF8avc3
+         kJl/eRjjJirzcsQyM3vWi7jMED3EmunrUgw2Zp/u+Me4Ly0NWcfqaju0SsyX47mnUAr0
+         YHh8dsBmYDOPF5So7tuIvrQPLTs4xwP+uzar5Ef6l70tRwh6CdqblOBKSyy9krUPaAve
+         sQ0iZkKtTpbbkTc3TdiQQi/0KKehCmohErK9RZm7C08Bpi0H7n1ijixWyrv+s+SYnJqd
+         myIQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:to:reply-to:mime-version:subject
+         :message-id:from:date:dkim-signature:dkim-signature;
+        bh=HW5RLOggSZD3UhucNCA2s9TaS948abFUpf10Xjudg6E=;
+        b=HJV5/EADcRWgriZrR9kzZZokI1dDzeS+EGnJ80dusOzQaPSpVzL9IWgiL7ZHkwqsDl
+         L/TpC2OZis5004pZ3/8FJoc6hC1JtFQc3wVJJaVbr/k6PPJG7Ddp482Z9ys9xGbdAITO
+         ubtb1l/kEbmTkKO2EOsPQfZHzB4Nk507Hs86R/MuRHvi+1h/wEhjQBRl23VNFAUH6iVV
+         9l5FxS+Salqi+uGu4GbaQSD/ltc5zqH/j9XBIAnLlBeWei0eht9s+Bp0mEMHKBDo+nuQ
+         ep4h26xr2qCCaCjwzV5o3fCwRW3MmMuIDZ0BPzBFoiy69eieXth73PmG8j/sJXk4dzkQ
+         KGQw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@joinhomebase.com header.s=s1 header.b=BXPI5aZu;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=rbMxeasu;
+       spf=pass (google.com: domain of bounces+2624565-d93d-greenturtlekava=gmail.com@email.joinhomebase.com designates 192.254.112.95 as permitted sender) smtp.mailfrom="bounces+2624565-d93d-greenturtlekava=gmail.com@email.joinhomebase.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=joinhomebase.com
+Return-Path: <bounces+2624565-d93d-greenturtlekava=gmail.com@email.joinhomebase.com>
+Received: from o1.email.joinhomebase.com ([192.254.112.95])
+        by mx.google.com with ESMTPS id j190-20020a6380c7000000b0050bcbcaf7d6si17869215pgd.49.2023.03.22.23.05.52
+        for <greenturtlekava@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 22 Mar 2023 23:05:52 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+2624565-d93d-greenturtlekava=gmail.com@email.joinhomebase.com designates 192.254.112.95 as permitted sender) client-ip=192.254.112.95;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@joinhomebase.com header.s=s1 header.b=BXPI5aZu;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=rbMxeasu;
+       spf=pass (google.com: domain of bounces+2624565-d93d-greenturtlekava=gmail.com@email.joinhomebase.com designates 192.254.112.95 as permitted sender) smtp.mailfrom="bounces+2624565-d93d-greenturtlekava=gmail.com@email.joinhomebase.com";
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=joinhomebase.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=joinhomebase.com;
+	h=from:subject:mime-version:reply-to:x-feedback-id:to:content-type:
+	content-transfer-encoding:cc:content-type:from:subject:to;
+	s=s1; bh=HW5RLOggSZD3UhucNCA2s9TaS948abFUpf10Xjudg6E=;
+	b=BXPI5aZutlMBdISCexd/IVwFNCAEB6E5D+FASYLsI2j0kyL55ngUX3YCE7VbUaWhC7Ur
+	VHOndvzIT86PhLGqmhAec9LGoRSk9czgF2kol56vfgTqhHGT4oYf/HKH1jnOG80CGxsras
+	mqje1jVuYuZrC/QWcdHRvHqhIiIVerQFb+O9ZS8aLPQbhJ0WW0YFMgPBOMv6Wic6KtlALI
+	I1j1p1Jnqf914+ksq7801uStt5OAyqe3EfE1V1DwGsGdRZ8Imn7D8gzaTzcYDWkseEI+ZD
+	9YlS1CDXXn9oewSxtpYhUp4WcZhM55rvku9KwChF2Vi6kvoNdkOjU8Tu6blxvmSg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=from:subject:mime-version:reply-to:x-feedback-id:to:content-type:
+	content-transfer-encoding:cc:content-type:from:subject:to;
+	s=smtpapi; bh=HW5RLOggSZD3UhucNCA2s9TaS948abFUpf10Xjudg6E=;
+	b=rbMxeasuM1Yl0VPolIwtriUKCrFiWn/VkMbg7f5U5RD7+Zv3qiiGiv6Pbgg+p7U4nBP2
+	ERTTErVLUk+ATIbIF9hPK+G2Lza4P3Snspz4D8sJawK8tiq2EFTioGhsqnaN6gR2xgnZ9I
+	CttQcT0OBOqi0+SwjaX/mCmpVCDGRPLwg=
+Received: by filterdrecv-7596567b79-nrkjl with SMTP id filterdrecv-7596567b79-nrkjl-1-641BEC3F-5F
+        2023-03-23 06:05:51.946447015 +0000 UTC m=+2529124.575402060
+Received: from joinhomebase.com (unknown)
+	by geopod-ismtpd-canary-0 (SG)
+	with ESMTP id gL_pdqrBS3-jSDSoXhb3qw
+	for <greenturtlekava@gmail.com>;
+	Thu, 23 Mar 2023 06:05:51.817 +0000 (UTC)
+Date: Thu, 23 Mar 2023 06:05:51 +0000 (UTC)
+From: no-reply@joinhomebase.com
+Message-ID: <641bec3f59d4b_14bcb982713dd@ip-10-70-96-77.us-west-2.compute.internal.mail>
+Subject: Daily Report for Green Turtle Kava Daytona Beach on 03/23/2023
+Mime-Version: 1.0
+Reply-To: no-reply@joinhomebase.com
+X-Feedback-ID: 2624565:SG
+X-SG-EID: 
+ =?us-ascii?Q?nNFctdm0BWd6iTjLSzehWYtfrj7lkH3SW0bdp4QaL8KfbjX1Pg0K1sUsWGuwif?=
+ =?us-ascii?Q?CRpZy1LBV0yNeuXeVqj1RE9TAJmG7qWvtbz1de9?=
+ =?us-ascii?Q?WaWw6oO27NPfhwKhKzA+92FGnso1f3If92fz6zr?=
+ =?us-ascii?Q?ivNyriIABCRabO460lisGhZK3tPVnZdyAmPFyl6?=
+ =?us-ascii?Q?N+Sw9izw6OBbwfzRmMTdj+PVTKOadIxBTjAkHHb?=
+ =?us-ascii?Q?=2FM6rixJVZV8BjYrvs=3D?=
+X-SG-ID: 
+ =?us-ascii?Q?N2C25iY2uzGMFz6rgvQsb7zxjwCrDqqIyZKGU0Kf9FGi1n2qDBmwSzJbIFDBtx?=
+ =?us-ascii?Q?XjUgwigTq98eVD5U7=2FRAh6IPolyUeUFEImgCwTT?=
+ =?us-ascii?Q?JDBjOPctGcKmlMlb6P=2FXnQHiXTT?=
+To: Candace <greenturtlekava@gmail.com>
+X-Entity-ID: hiSC/nnbmxG3LSqtTrlVKQ==
+Content-Type: text/html; charset=iso-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html xmlns=3D"http://www.w3.org/1999/xhtml">=0D
+<head>=0D
+<meta name=3D"x-apple-disable-message-reformatting">=0D
+<meta content=3D"width=3Ddevice-width, initial-scale=3D1.0, maximum-scale=
+=3D1.0" name=3D"viewport">=0D
+<meta content=3D"text/html; charset=3DUTF-8" http-equiv=3D"Content-Type">=0D
+=0D
+=0D
+<style>@media only screen and (max-width: 350px) and (max-device-width: 350=
+px) {=0D
+.logo-link{padding-left:15px}=0D
+.reviews-link{font-size:12px}=0D
+}=0D
+@media only screen and (min-width: 351px) and (min-device-width: 351px) {=0D
+.logo-link{padding-left:0px}=0D
+.reviews-link{font-size:14px;font-weight:500}=0D
+}=0D
+@media only screen and (max-width: 768px) and (max-device-width: 768px) {=0D
+.logo{width:150px;max-width:150px}=0D
+.summary-wrapper__tile{display:block;margin-left:1em;margin-right:1em}=0D
+.summary-wrapper{width:100%}=0D
+.summary-wrapper__column-2{margin-top:15px;margin-left:15px;margin-right:15=
+px;display:block}=0D
+.summary-wrapper__header-description{display:block}=0D
+.first-labor-block{width:98%;margin-top:20px}=0D
+.middle-labor-block{width:98%;margin-top:20px}=0D
+.last-labor-block{width:98%;margin-top:20px}=0D
+.support-block-lg{width:100%;font-size:14px;display:block}=0D
+.support-block-sm{width:100%;text-align:left;display:block}=0D
+.shifts-column{padding-right:5px;width:98%;vertical-align:top}=0D
+.table-responsive-2{width:99%;display:block}=0D
+.trial-totals-container{width:98%}=0D
+.trial-banner-content-cell{padding-left:10px;font-size:18px;font-weight:300=
+}=0D
+}=0D
+@media only screen and (min-width: 769px) and (min-device-width: 769px) {=0D
+.summary-wrapper__tile{display:inline-block;margin-left:1em;margin-right:0;=
+width:45%}=0D
+.summary-wrapper{width:768px;margin:15px auto}=0D
+.summary-wrapper__column-2{margin-top:15px;margin-left:15px;margin-right:0p=
+x;display:inline-block;width:48%}=0D
+.summary-wrapper__header-description{display:inline-block}=0D
+.first-labor-block{width:35%;display:inline-block}=0D
+.middle-labor-block{width:45%;display:inline-block}=0D
+.last-labor-block{width:17%;display:inline-block}=0D
+.support-block-lg{width:58%;font-size:22px;display:inline-block;height:40px=
+}=0D
+.support-block-sm{width:38%;text-align:right;display:inline-block;height:40=
+px}=0D
+.shifts-column{display:inline-block;padding-right:10px;width:32%;vertical-a=
+lign:top}=0D
+.table-responsive-2{width:49%;display:inline-block}=0D
+.trial-totals-container{width:48%;display:inline-block}=0D
+.trial-banner-content-cell{padding-left:20px;font-size:24px;font-weight:400=
+}=0D
+}</style></head>=0D
+<body style=3D"background-color: #f3f3f4; font-family: Inter, Helvetica Neu=
+e, Helvetica, Arial, sans-serif; margin: 20px 0 0 0;">=0D
+<div class=3D"summary-wrapper">=0D
+<div class=3D"summary-wrapper__row">=0D
+<div class=3D"summary-wrapper__column-1" style=3D"margin-top:15px;margin-le=
+ft:15px;margin-right:15px;max-width:736px">=0D
+<a class=3D"logo-link" href=3D"http://links.joinhomebase.com/ls/click?upn=
+=3DnY-2BS2bbBS2isu9wnt9sYZnDmoJQuBp0V94Sv2jbgfoJDQE46JmPdEcxn8rrFB8QnlnJu_T=
+UDo-2BBITdlVAPSUyyUbSUeLF6fWHoyeXCPF9-2FJ384Gy7KQlSZrisOJtLJmkbKxNdYt80HfhX=
+wmdz339EaSISC3nourpfHREiOjJRcfr3XdRBzdq-2BuGG6fe5-2FfZ-2Fi1dCZ4fjOiTXy-2Byp=
+hNgCZWiI-2BidYqPdMV5nnrq2P0OX7r8JlUalzWOTeOWC63iD8QV2GiZeoSJO0P3r5ctLHmUto0=
+683o-2F1EnK2q-2FC028CDK4VUx-2FlP1Qnb-2BdPr0kDxEwHuhtKtNjSecmA6OzP-2Fj-2BEjM=
+xNjUdPa9F9Lo7c5OGv3blVYnOecCa6PdxbqSDkP7tRb9U86oI5o1CYNOQtj75g77ndA-3D-3D" =
+target=3D"_blank">=0D
+<img class=3D"logo" src=3D"https://cdn.joinhomebase.com/assets/emails/homeb=
+ase-logo-purple.png" srcset=3D"https://cdn.joinhomebase.com/assets/emails/h=
+omebase-logo-purple@2x.png 2x, https://cdn.joinhomebase.com/assets/emails/h=
+omebase-logo-purple@3x.png 3x">=0D
+</a>=0D
+<hr style=3D"height: 5px; background-color: #8a5ea6; margin-bottom: 0px;">=0D
+</div>=0D
+</div>=0D
+<div class=3D"summary-wrapper__row">=0D
+<div class=3D"summary-wrapper__column-1" style=3D"margin-top:15px;margin-le=
+ft:15px;margin-right:15px;max-width:736px">=0D
+=0D
+<div class=3D"summary-wrapper__header" style=3D"background-color:white;padd=
+ing-top:18px;padding-left:12px;padding-bottom:20px;max-width:736px">=0D
+<div style=3D"font-weight: 500; color: #616161; font-size: 16px; padding-bo=
+ttom: 10px; height: 16px; line-height: normal;">=0D
+March 23, 2023=0D
+</div>=0D
+<div style=3D"color: #313f47; font-size: 20px;">=0D
+Daily Report for=0D
+<b class=3D"summary-wrapper__header-description">=0D
+Green Turtle Kava Daytona Beach=0D
+</b>=0D
+</div>=0D
+=0D
+</div>=0D
+=0D
+</div>=0D
+</div>=0D
+<div class=3D"summary-wrapper__title" style=3D"font-size:14px;font-weight:5=
+00;font-style:normal;font-stretch:normal;line-height:1.18;letter-spacing:2p=
+x;color:#616161;margin-top:24px;text-transform:uppercase;margin-bottom:20px=
+;margin-left:15px">=0D
+What's happening today=0D
+</div>=0D
+<div class=3D"summary-wrapper__row">=0D
+<div class=3D"summary-wrapper__column-1" style=3D"margin-top:15px;margin-le=
+ft:15px;margin-right:15px;max-width:736px">=0D
+=0D
+<div class=3D"summary-wrapper__white-column" style=3D"background-color:whit=
+e;padding:16px;max-width:736px">=0D
+<table style=3D"width: 100%;">=0D
+<tr>=0D
+<td style=3D"width: 15px;">=0D
+<img src=3D"https://s3-us-west-2.amazonaws.com/homebase-public/images/email=
+s/2019/2019-10-07.payrollicon.png" style=3D"margin-right: 8px;">=0D
+</td>=0D
+<td style=3D"text-align: left; font-size: 18px; line-height: 1.22; color: #=
+313a43">=0D
+Payroll period ends in 3 days=0D
+</td>=0D
+<td style=3D"text-align: right;">=0D
+<a href=3D"http://links.joinhomebase.com/ls/click?upn=3DnY-2BS2bbBS2isu9wnt=
+9sYZnDmoJQuBp0V94Sv2jbgfoKttDSN210wsdfgxSrhpjOgagHLl7naQxhYP5SPlKgoZyvbp3dP=
+uphWGeKF8-2B94yuKs7vp2sSXdiadT2hFrv1p8pvtBK4EHABMkGki5kpSQir5m2g9O2FWb9xz2e=
+VjMIwEgysFo4VjMlSFuZe2ZEXrzJ7Auv4UV-2FIkvs-2FmCF4MQ8EZYiyF-2F-2BK3ijzC0EElq=
+MKvTQuUAYYzHbArsczPE1jK-2B9ouqsKz0f19K0qprtGH6F20LRKPTheQ7VaptwbjGfJI-3DbCA=
+a_TUDo-2BBITdlVAPSUyyUbSUeLF6fWHoyeXCPF9-2FJ384Gy7KQlSZrisOJtLJmkbKxNdYt80H=
+fhXwmdz339EaSISC3nourpfHREiOjJRcfr3XdRBzdq-2BuGG6fe5-2FfZ-2Fi1dCZon5j55JS3T=
+QHfYanih9oSUqUwXGG71sKT4GLsfwXp9dUsUqgqQXuEKNzb9zKlUzgRhRrREp4JElseuLw1ZIS4=
+EewmMdFGtNiKa1F3ie3WGI-2BFqZ8ngrMXNcFPT7tI2U6wrrawK72TIA-2F34rn15C2pjkTeYGm=
+YpcclrzLgfZon658-2FrmrQfZbuLVdiIZ4DjiXq68E8b0HlQSo6sni5QI4wA-3D-3D" style=
+=3D"color: #04a2bd; text-align: right; font-size: 14px; font-weight: 500; l=
+etter-spacing: 0.1px; text-decoration: none;" target=3D"_blank">=0D
+Remind Team=0D
+</a>=0D
+</td>=0D
+</tr>=0D
+</table>=0D
+=0D
+</div>=0D
+=0D
+</div>=0D
+</div>=0D
+<div class=3D"summary-wrapper__row">=0D
+<div class=3D"summary-wrapper__column-1" style=3D"margin-top:15px;margin-le=
+ft:15px;margin-right:15px;max-width:736px">=0D
+=0D
+<div class=3D"summary-wrapper__white-column" style=3D"background-color:whit=
+e;padding:16px;max-width:736px">=0D
+<table style=3D"width: 100%;">=0D
+<tbody>=0D
+<tr>=0D
+<td style=3D"color:#8A5EA6; line-height: 1.05; font-weight: 500; width: 75%=
+;">=0D
+2 People Scheduled Today=0D
+</td>=0D
+<td style=3D"color:#8A5EA6; line-height: 1.05; font-weight: 500; width: 25%=
+; text-align: right;">=0D
+<a href=3D"http://links.joinhomebase.com/ls/click?upn=3DnY-2BS2bbBS2isu9wnt=
+9sYZnDmoJQuBp0V94Sv2jbgfoKJrSYdPqWC8AdIKgquOZtW1hGpQQo2JhH6EY0HLvAs5Q-3D-3D=
+h8zR_TUDo-2BBITdlVAPSUyyUbSUeLF6fWHoyeXCPF9-2FJ384Gy7KQlSZrisOJtLJmkbKxNdYt=
+80HfhXwmdz339EaSISC3nourpfHREiOjJRcfr3XdRBzdq-2BuGG6fe5-2FfZ-2Fi1dCZ6D-2Fxd=
+3elmGMlgG0d-2FI-2FRIiEcTLfviUzoJn-2Bb-2FvNV71XV-2BUSdY8eiVpgMMT-2FpDAdYmOKV=
+UpK2A3BOemiNrMFTRlvWRW4R0e85OieHuMC-2BSn0nU5uxqSN7fCYZha5bDHkXeeEuGu1oSHRLI=
+-2BxgX8V7wio9hFKmzcfJP5pPcnJCjQA1FEVzklsx3y-2BWjov6Oj05OS2Moybk6kvTm9ifFu0O=
+HQ-3D-3D" style=3D"color: #39ACBF; text-decoration: none; font-size: 14px; =
+letter-spacing: 0.1px;" target=3D"_blank">=0D
+View=0D
+</a>=0D
+</td>=0D
+</tr>=0D
+</tbody>=0D
+</table>=0D
+<div class=3D"shifts-column">=0D
+<p style=3D"font-size: 14px; font-weight: normal; color: #7c8288; margin-bo=
+ttom: 5px;">=0D
+Daytime Shifts=0D
+</p>=0D
+<hr style=3D"margin-top: 0;">=0D
+<p style=3D"font-size: 14px; font-weight: 500; margin-top: 0;">=0D
+Grace W.=0D
+<span style=3D"float: right; color: #283f48; font-weight: normal; ">=0D
+11:00AM - 6:00PM=0D
+</span>=0D
+</p>=0D
+</div>=0D
+=0D
+<div class=3D"shifts-column">=0D
+<p style=3D"font-size: 14px; font-weight: normal; color: #7c8288; margin-bo=
+ttom: 5px;">=0D
+Evening Shifts=0D
+</p>=0D
+<hr style=3D"margin-top: 0;">=0D
+<p style=3D"font-size: 14px; font-weight: 500; margin-top: 0;">=0D
+Chad M.=0D
+<span style=3D"float: right; color: #283f48; font-weight: normal; ">=0D
+6:00PM - 1:00AM=0D
+</span>=0D
+</p>=0D
+</div>=0D
+=0D
+=0D
+</div>=0D
+=0D
+</div>=0D
+</div>=0D
+<div class=3D"summary-wrapper__title" style=3D"font-size:14px;font-weight:5=
+00;font-style:normal;font-stretch:normal;line-height:1.18;letter-spacing:2p=
+x;color:#616161;margin-top:24px;text-transform:uppercase;margin-bottom:20px=
+;margin-left:15px">=0D
+Needs Review=0D
+</div>=0D
+<div class=3D"summary-wrapper__row">=0D
+<div class=3D"summary-wrapper__column-1" style=3D"margin-top:15px;margin-le=
+ft:15px;margin-right:15px;max-width:736px">=0D
+=0D
+<div class=3D"summary-wrapper__white-column" style=3D"background-color:whit=
+e;padding:16px;max-width:736px">=0D
+<div class=3D"table-responsive-2">=0D
+<table style=3D"width: 100%; vertical-align: top;">=0D
+</table>=0D
+</div>=0D
+=0D
+</div>=0D
+=0D
+</div>=0D
+</div>=0D
+<div class=3D"summary-wrapper__title" style=3D"font-size:14px;font-weight:5=
+00;font-style:normal;font-stretch:normal;line-height:1.18;letter-spacing:2p=
+x;color:#616161;margin-top:24px;text-transform:uppercase;margin-bottom:20px=
+;margin-left:15px">=0D
+Yesterday's Summary=0D
+</div>=0D
+<div class=3D"summary-wrapper__row">=0D
+<div class=3D"summary-wrapper__column-1" style=3D"margin-top:15px;margin-le=
+ft:15px;margin-right:15px;max-width:736px">=0D
+=0D
+<div class=3D"summary-wrapper__white-column" style=3D"background-color:whit=
+e;padding:16px;max-width:736px">=0D
+<div style=3D"float: left; min-width: 50%; color: #8a5ea6; font-size: 16px;=
+ margin-bottom: 10px; font-weight: 500;">=0D
+Totals=0D
+</div>=0D
+<div style=3D"float: right; min-width: 50%; text-align: right;">=0D
+<a href=3D"http://links.joinhomebase.com/ls/click?upn=3DnY-2BS2bbBS2isu9wnt=
+9sYZnDmoJQuBp0V94Sv2jbgfoJJapXFD8cg9BpvsHe3aEO5hG2bWBkK5TULKGdt0KdBog-3D-3D=
+qHMB_TUDo-2BBITdlVAPSUyyUbSUeLF6fWHoyeXCPF9-2FJ384Gy7KQlSZrisOJtLJmkbKxNdYt=
+80HfhXwmdz339EaSISC3nourpfHREiOjJRcfr3XdRBzdq-2BuGG6fe5-2FfZ-2Fi1dCZeWLhWWy=
+Awc5Sus5B1RGT-2FjeeCAu4X3gKgqySjr5Iwz-2BpOGu2HdOdYBYMEFQtDE6QrQEr1-2FFeqA9J=
+GMzgU0FSh-2F-2BckRaYFcr6R4FPhtpeRiJ0nHc6n68-2FRdvuVq5e1jn1ytl5ZUzkLUBQAjcnI=
+2pxeQaNl21-2FSt5PtE96Wn1Nazn8j6N9H7L-2BPLZOyE453cB-2BOtz6h2Ipa5DiZOYIEw9RyQ=
+-3D-3D" style=3D"color: #04a2bd; text-align: right; font-size: 14px; font-w=
+eight: 500; letter-spacing: 0.1px; text-decoration: none;" target=3D"_blank=
+">=0D
+View Dashboard=0D
+</a>=0D
+</div>=0D
+<div style=3D"clear: both;"></div>=0D
+<div class=3D"first-labor-block">=0D
+<table style=3D"width: 100%;">=0D
+<tbody>=0D
+<tr>=0D
+<td style=3D"width: 50%;">=0D
+<p style=3D"font-size: 24px; font-weight: bold; color: #313f47; margin: 0px=
+;">=0D
+<a href=3D"http://links.joinhomebase.com/ls/click?upn=3DnY-2BS2bbBS2isu9wnt=
+9sYZnDmoJQuBp0V94Sv2jbgfoLhcn4mb2PEtpF8fDpZCGOANNZeuBX88ChxwI2n-2Bgc8fQ-3D-=
+3DZUf5_TUDo-2BBITdlVAPSUyyUbSUeLF6fWHoyeXCPF9-2FJ384Gy7KQlSZrisOJtLJmkbKxNd=
+Yt80HfhXwmdz339EaSISC3nourpfHREiOjJRcfr3XdRBzdq-2BuGG6fe5-2FfZ-2Fi1dCZ-2Fmr=
+lgAgVz4fYzj1uNsHgQktT-2FhRSFl7tfA7IDWoIcbXnAFoXUu-2BbZJtvjheJfE43nahY6o7AYJ=
+L0ZcKg-2F-2F204gryc-2FmDSeUik-2F4xeG-2FxnydffiG3yTI5vs6L-2BA5xJ3KzQMCIkEPsr=
+xZ1VP1qsIQlAhGmZTKU-2BLpQ-2BTLP5-2F9kRohofTD7fQ-2BrlZ-2FsPgQzF15rwVI-2FnlaH=
+8gHE4kI0UpWiPg-3D-3D" style=3D"color: #04a2bd; text-align: center; font-siz=
+e: 14px; font-weight: 500; letter-spacing: 0.1px; text-decoration: none;" t=
+arget=3D"_blank">=0D
+Add POS=0D
+</a>=0D
+</p>=0D
+<p style=3D"font-size: 14px; color: #959eac; margin: 0px; margin-top: 8px">=0D
+Sales Amount=0D
+</p>=0D
+</td>=0D
+<td style=3D"width: 50%;">=0D
+<p style=3D"font-size: 24px; font-weight: bold; color: #313f47; margin: 0px=
+;">=0D
+14.0 hrs=0D
+</p>=0D
+<p style=3D"font-size: 14px; color: #959eac; margin: 0px; margin-top: 8px">=0D
+Sched. Labor (hrs.)=0D
+</p>=0D
+</td>=0D
+</tr>=0D
+</tbody>=0D
+</table>=0D
+</div>=0D
+<div class=3D"middle-labor-block">=0D
+<table style=3D"width: 100%;">=0D
+<tbody>=0D
+<tr>=0D
+<td style=3D"width: 50%;">=0D
+<p style=3D"font-size: 24px; font-weight: bold; color: #313f47; margin: 0px=
+;">=0D
+<a href=3D"http://links.joinhomebase.com/ls/click?upn=3DnY-2BS2bbBS2isu9wnt=
+9sYZnDmoJQuBp0V94Sv2jbgfoL1zjvoIFfO1YmhieFxGrP0sQxv_TUDo-2BBITdlVAPSUyyUbSU=
+eLF6fWHoyeXCPF9-2FJ384Gy7KQlSZrisOJtLJmkbKxNdYt80HfhXwmdz339EaSISC3nourpfHR=
+EiOjJRcfr3XdRBzdq-2BuGG6fe5-2FfZ-2Fi1dCZ9N-2BnhejKSIUJybmSk7DSRywdVUz-2Fxwk=
+HFeqjwDNZaV-2FuPhQT8wW78UehHnUdSeSgScDUtwNCbPhIsg7AMKAlBjGah2eaihnm-2BSBoPu=
+OtMUBlK0wCjvWUhDgjVgocVXNYYt-2FTYyx-2FC4vg2syhY8YSiTxZ7v56D4WPPVRM4dYywB23Z=
+IfBOywIGYAJnw9BIJA1wDf1dS4sxapT4-2FzcFo4uJQ-3D-3D" style=3D"color: #04a2bd;=
+ text-align: center; font-size: 14px; font-weight: 500; letter-spacing: 0.1=
+px; text-decoration: none;" target=3D"_blank">=0D
+Add Wage Rate=0D
+</a>=0D
+</p>=0D
+<p style=3D"font-size: 14px; color: #959eac; margin: 0px; margin-top: 8px">=0D
+Sched. Labor $=0D
+</p>=0D
+</td>=0D
+<td style=3D"width: 50%;">=0D
+<p style=3D"font-size: 24px; font-weight: bold; color: #313f47; margin: 0px=
+;">=0D
+<a href=3D"http://links.joinhomebase.com/ls/click?upn=3DnY-2BS2bbBS2isu9wnt=
+9sYZnDmoJQuBp0V94Sv2jbgfoLhcn4mb2PEtpF8fDpZCGOANNZeuBX88ChxwI2n-2Bgc8fQ-3D-=
+3Dukwz_TUDo-2BBITdlVAPSUyyUbSUeLF6fWHoyeXCPF9-2FJ384Gy7KQlSZrisOJtLJmkbKxNd=
+Yt80HfhXwmdz339EaSISC3nourpfHREiOjJRcfr3XdRBzdq-2BuGG6fe5-2FfZ-2Fi1dCZhsdAP=
+t-2B0qNXQnTVe-2FI02ZyvPU5bmEyB00WJ1tZAdZVrcjcfHZq51Uu1ez2aArFz1ELICFP7J3FiL=
+ZWVa5hZ-2BD6BS31nMBGjoju9SzeyoG-2FRCKOrG4LD26UMzN1cQJE2c-2BeToe7NrSKUKtXEMZ=
+dhANdgZtDVwIkQguXRf6PLFuuddhZj65dss1315nItaqXOsYKrWGRBZfVhbVmRCLJchNw-3D-3D=
+" style=3D"color: #04a2bd; text-align: center; font-size: 14px; font-weight=
+: 500; letter-spacing: 0.1px; text-decoration: none;" target=3D"_blank">=0D
+Add POS &amp; Wage=0D
+</a>=0D
+</p>=0D
+<p style=3D"font-size: 14px; color: #959eac; margin: 0px; margin-top: 8px">=0D
+Sched. Labor %=0D
+</p>=0D
+</td>=0D
+</tr>=0D
+</tbody>=0D
+</table>=0D
+</div>=0D
+<div class=3D"last-labor-block">=0D
+<table style=3D"width: 100%;">=0D
+<tbody>=0D
+<tr>=0D
+<td style=3D"width: 100%;">=0D
+<p style=3D"font-size: 24px; font-weight: bold; color: #313f47; margin: 0px=
+;">=0D
+0 hrs=0D
+</p>=0D
+<p style=3D"font-size: 14px; color: #959eac; margin: 0px; margin-top: 8px">=0D
+Overtime (hrs.)=0D
+</p>=0D
+</td>=0D
+</tr>=0D
+</tbody>=0D
+</table>=0D
+</div>=0D
+=0D
+</div>=0D
+=0D
+</div>=0D
+</div>=0D
+=0D
+<table style=3D"width: 100%; padding: 10px 30px;">=0D
+<tr>=0D
+<td style=3D"text-align: center">=0D
+<p style=3D"font-size: 11px; margin-bottom: 0; color: #999">=0D
+<a href=3D"http://links.joinhomebase.com/ls/click?upn=3DnY-2BS2bbBS2isu9wnt=
+9sYZnDmoJQuBp0V94Sv2jbgfoLIbMTwwRrBgahJZ4BlUHfG9ChELHyR5rKooRxI3xlpOZZazqG7=
+tqVs2mvqELfaXps-3DMsQc_TUDo-2BBITdlVAPSUyyUbSUeLF6fWHoyeXCPF9-2FJ384Gy7KQlS=
+ZrisOJtLJmkbKxNdYt80HfhXwmdz339EaSISC3nourpfHREiOjJRcfr3XdRBzdq-2BuGG6fe5-2=
+FfZ-2Fi1dCZqMIK9uoitdfv1lP46gVmx4j3LB4G5G55OVjUa-2Bq4YVYRhrsE4FUAAfydbl-2BO=
+9kuVTE5bVFpYLZTHi51DjiSmzP8X8iu0LXkpjpo0ufnHCvXCiZ8ZOINKMobbrqloWQWyv5J-2F2=
+9IalX6QAidtTK-2FpxoMm8KakkRm9yIKWwgjwZu6zdN9YvUF54P9Ldfj-2B3xWu7zCXAw-2FVsJ=
+OTkZalGfHxTQ-3D-3D" style=3D"color: #999; text-decoration: none;">=0D
+Change Your Notification Settings=0D
+</a>=0D
+|=0D
+<a href=3D"http://links.joinhomebase.com/ls/click?upn=3DnY-2BS2bbBS2isu9wnt=
+9sYZnDmoJQuBp0V94Sv2jbgfoKfxlWQ6YdO1-2F8DGuYehw5hYb5z_TUDo-2BBITdlVAPSUyyUb=
+SUeLF6fWHoyeXCPF9-2FJ384Gy7KQlSZrisOJtLJmkbKxNdYt80HfhXwmdz339EaSISC3nourpf=
+HREiOjJRcfr3XdRBzdq-2BuGG6fe5-2FfZ-2Fi1dCZssfG2n7rEk3b9UNSYwfM2Vykh3Juqk4I8=
+FYvnjiZRF8db0N4nXX2ggvknrhq2Q7crHo-2BGk0-2FUutgy1bBfY26epdHho0VwveJXtgwHLzy=
+Knkl8vH5LjXIjtg-2B9zjTLrI8pX9TgyLnKII1df39cb8e6CEyTanwF0ugw4lU09OihjjzT3ZTA=
+KYYSL9XOedq3nFJZh1yCWnpD5rbbPDTKWzIQg-3D-3D" style=3D"color: #999; text-dec=
+oration: none;">=0D
+Privacy Policy=0D
+</a>=0D
+|=0D
+<span style=3D"font-weight: 200">=0D
+=A9 Pioneer Works, Inc., 2023=0D
+</span>=0D
+</p>=0D
+</td>=0D
+</tr>=0D
+</table>=0D
+=0D
+</div>=0D
+<img src=3D"http://links.joinhomebase.com/wf/open?upn=3Dy5Z0ux0tWJiluPF32dy=
+SRMOKO08NEIdVn-2F8Lbrs34RPvZFt9ofK0TGTAEl9QRcg3beyUTsjv4UI56QD6Di-2Bok-2B9E=
+TBvW23CxS2qCG-2BPSzCy7UJ6mHiSD9WM-2F55gtfgpMkepfpPGWkK90oRYpPqyhX2E3jBLW-2B=
+7aG0icfIf9BO9ch5uma-2FHLV9QgvpEBZphkuzDL1dzb5wcc803dFg-2ByEgfpNoGoyknV72S0S=
+UFmGT-2FANWkissTo-2B08k8DAfUEswiwH8JYgcczVBVm23aT6dwxwhrs-2FhVIx-2BU3-2BuKZ=
+alHGiKy0o3bn29NLxuMDINOx0fk8MEYNU6ZcmJ2GiefNnQIDw-3D-3D" alt=3D"" width=3D"=
+1" height=3D"1" border=3D"0" style=3D"height:1px !important;width:1px !impo=
+rtant;border-width:0 !important;margin-top:0 !important;margin-bottom:0 !im=
+portant;margin-right:0 !important;margin-left:0 !important;padding-top:0 !i=
+mportant;padding-bottom:0 !important;padding-right:0 !important;padding-lef=
+t:0 !important;"/></body>=0D
+</html>=0D
+

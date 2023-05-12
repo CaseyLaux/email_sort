@@ -1,0 +1,7 @@
+{
+  "prompt": "Subject: How to make an online friend an IRL one =?UTF-8?B?8J+knQ==?=\nFrom:Meetup <info@email.meetup.com>\nTo:support@ourcompany.com\nDate:Thu, 13 Apr 2023 14:01:53 +0000 (UTC)\nContent:\r\n\n###\n\n",
+  "completion": " ",
+  "email_subject": "How to make an online friend an IRL one =?UTF-8?B?8J+knQ==?=",
+  "email_sender": "Meetup <info@email.meetup.com>",
+  "email_date": "Thu, 13 Apr 2023 14:01:53 +0000 (UTC)"
+}

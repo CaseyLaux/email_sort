@@ -1,0 +1,182 @@
+Delivered-To: greenturtlekava@gmail.com
+Received: by 2002:a05:7208:8788:b0:64:a764:ea5d with SMTP id hc8csp2832046rbb;
+        Wed, 22 Mar 2023 04:12:35 -0700 (PDT)
+X-Google-Smtp-Source: AK7set98XuhiYvArYMe8cuyuSQAqN97K3wv6a647IHQXPYI0YV9oclUPsXYmbaWI9/RVrm4qkd1c
+X-Received: by 2002:a17:906:2548:b0:933:46a7:c3af with SMTP id j8-20020a170906254800b0093346a7c3afmr5795572ejb.72.1679483555799;
+        Wed, 22 Mar 2023 04:12:35 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1679483555; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=GeZOgYzwrEHLJuI7VmTYhXo7Dlz7GUHVT7XEEvNLk3z9xKzX3u+mpLm5F3YUAN1Umr
+         o8zNkb2RNBamrjiPHQkT0FJnjbprQxMKl2XMgu3GOgg4mioyBHCklyrR8Hni9Jn4QNw6
+         zrPXfS2vkqRpyADuPV2s0NCWptoEwllPrJMEz6iQpLhnnJLFsjQvdMvXMF1Rs5AaNOPV
+         bzt8exWnjgywOI5Q7mEWYSACzA0bnbhMe0jAAz3FaMraaRVuljAzKq6zs8ujmd3d+gyb
+         yJyn9476raYDf5Qi1i40E3TRBkknQj5dYYnmCZD8aoSeC14S/oF4oH37CHVSwmPLi37e
+         Xkgg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:subject:to:from:date:message-id:dkim-signature;
+        bh=PuviGAvopGFEXSBB91WqYO/tnkUNgZeWCVskRRmVSpg=;
+        b=ktmU+chFGfFZhJcNxHu75ALrRrZZbBUUQl4rPZnoUXiCvQYzdgxjyvBCXtGlcP6cNX
+         87tVBBnAb8QGXcCgHEPBynDXUpralT3XDq/bfKrdnP9Vjls/+xX7See9m+K/Z+3/+j5n
+         xE08lvkwbb1v4fqQZK/dTMfHMEP4x/TFBgLzUMVv1Qyg7osXUbtRyZixCbWLNDj5X4vQ
+         LSXzOEtlq34ksUuFXI+eozG7q1ZfPeXq+nNYzuBYUKCuKXPL/HeePtKY/Ew54voLF8iF
+         3oEOgYyHcNxiK3q5feLNR6qfpwGh8oiUzdjoj4MA0N2Sf70CD52NJZJr4IbjDqM7N9E/
+         v2Wg==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@Deluxe.onmicrosoft.com header.s=selector1-Deluxe-onmicrosoft-com header.b="v1/pHebT";
+       arc=pass (i=1);
+       spf=pass (google.com: domain of bounces+srs=b+ze0=7o@deluxe.onmicrosoft.com designates 2a01:111:f403:c101::3 as permitted sender) smtp.mailfrom="bounces+SRS=B+ZE0=7O@deluxe.onmicrosoft.com"
+Return-Path: <bounces+SRS=B+ZE0=7O@deluxe.onmicrosoft.com>
+Received: from BL0PR02CU006-vft-obe.outbound.protection.outlook.com (mail-eastusazlp170130003.outbound.protection.outlook.com. [2a01:111:f403:c101::3])
+        by mx.google.com with ESMTPS id ke27-20020a17090798fb00b008b1785971dcsi15523773ejc.630.2023.03.22.04.12.35
+        for <GREENTURTLEKAVA@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 22 Mar 2023 04:12:35 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+srs=b+ze0=7o@deluxe.onmicrosoft.com designates 2a01:111:f403:c101::3 as permitted sender) client-ip=2a01:111:f403:c101::3;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@Deluxe.onmicrosoft.com header.s=selector1-Deluxe-onmicrosoft-com header.b="v1/pHebT";
+       arc=pass (i=1);
+       spf=pass (google.com: domain of bounces+srs=b+ze0=7o@deluxe.onmicrosoft.com designates 2a01:111:f403:c101::3 as permitted sender) smtp.mailfrom="bounces+SRS=B+ZE0=7O@deluxe.onmicrosoft.com"
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=j9DhU/VDd2Ho0FJDaZtoaRgq9bMHyRT5+GpFTYeaDi08USNUMnOOP3TBi4/MqJX7NDWiOVL7ZSOgzkD/V58ygM1sW/QI7Jw65BFaYdZSs2q3xDLYksQPcs5l7nCuVbblZQXbaOqbH0/0M1kFUZ78Kx9LJweC1p91PC3l4VgKxS64Eq1OtBmJnQf9AACYBT4Iify0w/NcIgnlsbkamI2wMzjw/ny7SZ30lGbu5vo4S55Z/zO1A2c5o+ERcj3zJjjgrQ8Ith4YfArTRHfu/R9fny8DQfNT8iuhKJqp9KUNnsJjSxzner98bsA7rRcShIQBTORTyY5mi6dP7IYNUTv6QA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PuviGAvopGFEXSBB91WqYO/tnkUNgZeWCVskRRmVSpg=;
+ b=LQh4SzZ13Bs/ZDuPuLD72aEn4MQY2M4SOR1JU+/wCDMCCC0rrrsE2tZdU02qyqV5KCFACSn5LLrmhHuih2hoSfHhDWNfZzwI0IH20JpOkT/ZA1vCJ7ZzEtL3ULyY6E8OOP+gfh1eSLTJR9OcSCm5HZGH5etCw2Dw/+PMZ5ZwE0LmDPk8gh9hST6bP7s/cPgLSfYrQHF+FJu01aaoOJBmt9MusvwLxkR+14RM0fzXsvoHXIeLnLtsvPbyqXACNTztdN3rauxDGhiYjayI2onvT47W/rvwAZGno3dCJPW218QVs/URB0cs8ZSlXa/p3w3I7yv8eWdWsfujDPjD2JmWlQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
+ is 168.135.115.243) smtp.rcpttodomain=gmail.com smtp.mailfrom=shopdeluxe.com;
+ dmarc=none action=none header.from=shopdeluxe.com; dkim=none (message not
+ signed); arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=Deluxe.onmicrosoft.com; s=selector1-Deluxe-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PuviGAvopGFEXSBB91WqYO/tnkUNgZeWCVskRRmVSpg=;
+ b=v1/pHebTlMVo9xTn0ocbRtkzb8I05nnMaCpNrXQ2bHT5h43Z1WftRDtM20RaOEHG7251xigtr8TqQwk5xNwJ4dRUhuSzEDzPUPbn1Sz3L4bN/fB3qecoVhAvFxCZWTHDahTrSJg13cZIVjPHTO8aOKOGVAZpUlA0U2IiK8HLIAY=
+Received: from DS7PR05CA0046.namprd05.prod.outlook.com (2603:10b6:8:2f::14) by
+ PH0PR05MB7994.namprd05.prod.outlook.com (2603:10b6:510:79::10) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.6178.37; Wed, 22 Mar 2023 11:06:23 +0000
+Received: from DM6NAM12FT101.eop-nam12.prod.protection.outlook.com
+ (2603:10b6:8:2f:cafe::c0) by DS7PR05CA0046.outlook.office365.com
+ (2603:10b6:8:2f::14) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6222.17 via Frontend
+ Transport; Wed, 22 Mar 2023 11:06:23 +0000
+X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is
+ 168.135.115.243) smtp.mailfrom=shopdeluxe.com; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=shopdeluxe.com;
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ shopdeluxe.com discourages use of 168.135.115.243 as permitted sender)
+Received: from email.deluxe.com (168.135.115.243) by
+ DM6NAM12FT101.mail.protection.outlook.com (10.13.179.127) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.6222.15 via Frontend Transport; Wed, 22 Mar 2023 11:06:23 +0000
+Received: from AWB03366.deluxe.com (161.211.68.86) by AWB03366.deluxe.com
+ (161.211.68.86) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.6; Wed, 22 Mar
+ 2023 11:06:09 +0000
+Received: from ALA01598.deluxe.com (161.211.226.98) by email.deluxe.com
+ (161.211.68.86) with Microsoft SMTP Server id 15.1.2507.6 via Frontend
+ Transport; Wed, 22 Mar 2023 11:06:08 +0000
+Received: from ALA01598.deluxe.com (localhost [127.0.0.1])
+	by ALA01598.deluxe.com (Postfix) with ESMTP id E88A14081711
+	for <GREENTURTLEKAVA@GMAIL.COM>; Wed, 22 Mar 2023 11:06:08 +0000 (UTC)
+Message-ID: <808862230.1679483168950.JavaMail.mfauto@ALA01598.deluxe.com>
+Date: Wed, 22 Mar 2023 11:06:08 +0000
+From: Deluxe Corporation <customerservice@shopdeluxe.com>
+To: <GREENTURTLEKAVA@GMAIL.COM>
+Subject: Your Deluxe Order Has Shipped
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="672777312.1679483168950.JavaMail.mfauto.ALA01598.deluxe.com"
+Return-Path: customerservice@shopdeluxe.com
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6NAM12FT101:EE_|PH0PR05MB7994:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6ff64450-9a5a-4796-ed7d-08db2ac57981
+X-MS-Exchange-SenderADCheck: 2
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info:
+	aBxpW7MVPAOzSbHq+P0E0MJDYe9QGDokA7dQ58jZ5FEDG9z+MImvDsR7KblBivDHJuyNw1AeTG0/kFgMcq5YPQ1OFZtdFiTp9Gnc2CJXmMcSyaZHF+cTBvuMT7dd4bQPS0V/aEFuSHuhA4SCO0XMeJlDP+dbXIYhInt2cUCDiCkM1H9XNXE1R0gqz3lBvRrSIFuMNNeXhDUVfIL/MShz7nLbnCU1sEEfO7CToordt71IlAPLg+a7a/r6Mm1sTp0GBE97bUfsZzb7UivWG6RfpuUD54QOW4R0cfugPFQPP32uawmwb1N7sOGokg7qgfFV0D9x+P0yh3YTZTSrM0eWY/QgrfqW+e2oDUHOIHwHObGYdvJXg8t8XVAwOc808dSJCslbYkgRKaKcKzK8PouiHb124pokcDm8k1g5UHly0ntwzG3C/QQrzvYERvg0acWkRPgVV+BCIV/MZbsJ2ZK2F5kieIoUsboQ93FzzuoRrI5nq/mafx5aRFGpPQtkVM6usHS8er6egZPA1LawAaM5MPAMuDdxQ1BQpCthKBIWWCWzAFHiOKI3SjKh5S8s6re3F5gabCncPo+3dCCgdd94auCH7ss5WSpn8A/GPaVkYNLvd+j6tC1bnCGDd4veE+DRPtcN6aqOqFYqRWroerJlqADV3hj3ore3GIzU5r2ZojhZ8XySCFerreiu428jE28JyvCWFqb8O4TrwootuAbGUcaQSJXeytXhyYJk0pQIWATwrslcypUrTi5ILPjLCT5noyd3BHpL+NP+FhBDLJGI5qYzSxIx7NxEy0HeugV33lldxiz+b5UE03nfm2jXSKSf
+X-Forefront-Antispam-Report:
+	CIP:168.135.115.243;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:email.deluxe.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230025)(4636009)(136003)(376002)(396003)(346002)(39860400002)(451199018)(1690799011)(7200799011)(46966006)(40470700004)(7126003)(35950700001)(7696005)(6266002)(966005)(47076005)(498600001)(336012)(83380400001)(316002)(6916009)(70206006)(70586007)(26005)(8400799011)(9686003)(8676002)(33964004)(81166007)(41300700001)(8936002)(5660300002)(40460700003)(55016003)(82740400003)(2906002)(166002)(40480700001)(356005)(82310400005)(86362001)(40140700001);DIR:OUT;SFP:1102;
+X-OriginatorOrg: Deluxe.onmicrosoft.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Mar 2023 11:06:23.7445
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6ff64450-9a5a-4796-ed7d-08db2ac57981
+X-MS-Exchange-CrossTenant-Id: 1f7c1878-7408-4f86-b429-cf17f96a717c
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=1f7c1878-7408-4f86-b429-cf17f96a717c;Ip=[168.135.115.243];Helo=[email.deluxe.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	DM6NAM12FT101.eop-nam12.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR05MB7994
+
+--672777312.1679483168950.JavaMail.mfauto.ALA01598.deluxe.com
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+
+
+Your Deluxe order #2053218273 is now being shipped.
+
+Any ordered products not shown below will be shipped separately and confirmed by separate e-mail.
+Not all products ship the same day, so please allow time for e-mail notification and delivery.
+
+PRODUCTS SHIPPED
+
+CH3UP1-1, CHASE MANUAL 3ON INTROPACK
+     Shipped:  3/21/23
+CH3UP1-1, CHASE MANUAL 3ON INTROPACK
+     Shipped:  3/21/23
+     Tracking #:  1Z0150781383560351
+     To track your order's progress online, visit:
+     https://wwwapps.ups.com/tracking/tracking.cgi?&tracknum=1Z0150781383560351
+
+If you have questions about your order, please contact us toll-free at 800-328-0304. 
+
+Thank you again for ordering from Deluxe!
+
+Deluxe | P.O. Box 419059 Rancho Cordova, CA 95741-9059 
+(c) 2023 Deluxe Corporation
+--672777312.1679483168950.JavaMail.mfauto.ALA01598.deluxe.com
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head><title></title></head><body><table width=3D"600" border=3D"1" c=
+ellspacing=3D"0" cellpadding=3D"0"><tr><td style=3D"padding:10px 10px 10px =
+10px;"><img src=3D"https://www.deluxe.com/webasset/sd/128/images/deluxe_log=
+o.png" width=3D"139"  style=3D"padding:10px 10px 10px 10px;"/><br/><br/>
+ <p style=3D"padding:20px 0px 0px 0px; margin:0px; font-family:Arial,Helvet=
+ica,sans-serif; font-size:12px;">Your Deluxe order <b>#2053218273</b> is no=
+w being shipped. </p><p style=3D"padding:10px 0px 15px 0px; margin:0px; fon=
+t-family:Arial,Helvetica,sans-serif; font-size:12px;">Any ordered products =
+not shown below will be shipped separately and confirmed by separate <nobr>=
+e-mail</nobr>.<br/>Not all products ship the same day, so please allow time=
+ for <nobr>e-mail</nobr> notification and delivery.</p><table width=3D"100%=
+" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" bgcolor=3D"ECFAFF"><tr><=
+td><p style=3D"padding:5px 0px 0px 10px; margin:0px; font-family:Arial,Helv=
+etica,sans-serif; font-size:12px;">PRODUCTS SHIPPED</p><p style=3D"padding:=
+10px 0px 0px 10px; margin:0px; font-family:Arial,Helvetica,sans-serif; font=
+-size:12px;">CH3UP1-1, CHASE MANUAL 3ON INTROPACK</p><p style=3D"padding:0p=
+x 0px 0px 25px; margin:0px; font-family:Arial,Helvetica,sans-serif; font-si=
+ze:12px;">Shipped:&nbsp;&nbsp;3/21/23</p><p style=3D"padding:0px 0px 0px 25=
+px; margin:0px; font-family:Arial,Helvetica,sans-serif; font-size:12px;">Sh=
+ipping Information:&nbsp;&nbsp;Next Day Delvry (Next Bus Day By 3pm)</p><p =
+style=3D"padding:0px 0px 0px 25px; margin:0px; font-family:Arial,Helvetica,=
+sans-serif; font-size:12px;">Tracking #:&nbsp;&nbsp;1Z0150781383560351</p><=
+p style=3D"padding:0px 0px 0px 25px; margin:0px; font-family:Arial,Helvetic=
+a,sans-serif; font-size:12px;">To track your order's progress online, visit=
+:&nbsp;&nbsp;<a href=3D"https://wwwapps.ups.com/tracking/tracking.cgi?&trac=
+knum=3D1Z0150781383560351">http://wwwapps.ups.com</a></p></td></tr><tr><td =
+height=3D"5"></td></tr></table><p style=3D"padding:15px 0px 0px 0px; margin=
+:0px; font-family:Arial,Helvetica,sans-serif; font-size:12px;">If you have =
+questions about your order, please contact us toll-free at 800-878-9443.<p =
+style=3D"padding:10px 0px 0px 0px; margin:0px; font-family:Arial,Helvetica,=
+sans-serif; font-size:12px;">Thank you again for ordering from Deluxe!</p><=
+p align=3D"center" style=3D"font-family:Arial,Helvetica,sans-serif; font-si=
+ze:11px; padding:10px 0px 0px 0px;">Deluxe | P.O. Box 419059 Rancho Cordova=
+, CA 95741-9059 <br/>(c) 2023 Deluxe Corporation</p></td></tr></table></bod=
+y></html>
+--672777312.1679483168950.JavaMail.mfauto.ALA01598.deluxe.com--
+

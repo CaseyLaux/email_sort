@@ -1,0 +1,7 @@
+{
+  "prompt": "Subject: Delivery order from Jamie D. for Green Turtle Kava (Beville Rd):\r\n Order # e6d68595\nFrom:DoorDash <orders@doordash.com>\nTo:support@ourcompany.com\nDate:Fri, 31 Mar 2023 18:13:20 +0000 (UTC)\nContent: \n###\n\n",
+  "completion": " ",
+  "email_subject": "Delivery order from Jamie D. for Green Turtle Kava (Beville Rd):\r\n Order # e6d68595",
+  "email_sender": "DoorDash <orders@doordash.com>",
+  "email_date": "Fri, 31 Mar 2023 18:13:20 +0000 (UTC)"
+}

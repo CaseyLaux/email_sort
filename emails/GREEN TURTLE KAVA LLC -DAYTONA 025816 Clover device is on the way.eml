@@ -1,0 +1,251 @@
+Delivered-To: greenturtlekava@gmail.com
+Received: by 2002:a05:7208:8788:b0:64:a764:ea5d with SMTP id hc8csp1505803rbb;
+        Mon, 20 Mar 2023 08:05:37 -0700 (PDT)
+X-Received: by 2002:ac2:4439:0:b0:4dc:823c:8127 with SMTP id w25-20020ac24439000000b004dc823c8127mr69385lfl.57.1679324737164;
+        Mon, 20 Mar 2023 08:05:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1679324737; cv=none;
+        d=google.com; s=arc-20160816;
+        b=ApqVGmYXRf7Drv4sb4pWO1Bj1KTg8XCbtgYpvoQYG0Ck5/HU3vaIojKDag6+DWdrQz
+         1+Vb+WlYX91ejQsGPN3mpVrDL5NDaVwS+kjfdhmGmdlyD1LYspKBxy31575hMZUQYXCR
+         4v0Vhd2ZoFnpR2aoti35q+ujgVVGu2vUrRq8CSNqmj5jLVYn02XKlfnGF9Dt7wIGbDrP
+         6l8hK+nyDcIdQf7Rb+rm2wd5ktPxt/zglUfgZxlYO6Jl7dm9JciPrCtDIRw/wdiAL7fk
+         SatUUvNlC6Ol8DsR88JsXh1j/47+x4VFtUuUXvozm9+JB2B6ffBVb5AVGKEaS6udkfHs
+         vmCQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=cc:to:subject:message-id:date:mime-version:from:dkim-signature;
+        bh=Dj9slxC3LDV7xWo3IFk0quCMvK6OYHTA1Tc+lOb5IU4=;
+        b=Ryb8C7PvUmO1ro90eTLwsqDSxxEwny4X5udUrhFvsgL1pl+f3nk9LVy2zEOzeHxNeB
+         RQGfytJSpucgl21Ce+9GzFmkSWLlJTduhS+VxAor+rOuj+azZIbUJA/97jUJilMtrGeF
+         yObBmr0wSym4xwx/RAR1eKaNTPlQZjvgmPsDGMrnK+hYvbuKU/NohslAWyAVQFy8z/Au
+         Sfl379OndLzxnUSG8t2JWGmI4R7lxEApPPw4ri6QaCMgFt9IxQYAZwuF2E2brv0X6uHh
+         870ZqdQZuqX53VoDi0wHl3mxc5HqGja2qFEbe1Uork5hzKFOHloqpgH7ydNkSQoVAT56
+         eHCQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@wholesalepayments-com.20210112.gappssmtp.com header.s=20210112 header.b=6ds3iYhp;
+       spf=softfail (google.com: domain of transitioning clover@wholesalepayments.com does not designate 209.85.220.41 as permitted sender) smtp.mailfrom=clover@wholesalepayments.com
+Return-Path: <clover@wholesalepayments.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id b11-20020a056512024b00b004b4645fff05sor1820872lfo.1.2023.03.20.08.05.37
+        for <greenturtlekava@gmail.com>
+        (Google Transport Security);
+        Mon, 20 Mar 2023 08:05:37 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning clover@wholesalepayments.com does not designate 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@wholesalepayments-com.20210112.gappssmtp.com header.s=20210112 header.b=6ds3iYhp;
+       spf=softfail (google.com: domain of transitioning clover@wholesalepayments.com does not designate 209.85.220.41 as permitted sender) smtp.mailfrom=clover@wholesalepayments.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=wholesalepayments-com.20210112.gappssmtp.com; s=20210112; t=1679324736;
+        h=cc:to:subject:message-id:date:mime-version:from:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=Dj9slxC3LDV7xWo3IFk0quCMvK6OYHTA1Tc+lOb5IU4=;
+        b=6ds3iYhpxXJZEHCkg7rCGk2Rqvx8Ee/YpoSul0M/njYQoGzLV/wneRtXZ2hlvWxAjG
+         DbvoWVWHHAPm9EXE9AbXtlFm45Tr22QXb/m3GgtaqSSoKQf6Lv5CeG8DeQSSbWzkG2lZ
+         Gufadrag/yQt486WoVovr16IG8y0KW28LD6aXF4T3ur0qyl0vuxbAr9Gcq0AaTw5Wa10
+         MEWt0egBTdw7yw3N4mk+v+Y6eYmYQ4O86l8t4irxYIEXGpgAHmlHb4qJpS8RX/Ih82M7
+         q3S/UzyZ97M0el/hmJp2btEEH+mhNVnMs6+KcxfdcEz+SLxZ2l5h30ejqSvk/PBcMTX3
+         Qquw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1679324736;
+        h=cc:to:subject:message-id:date:mime-version:from:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Dj9slxC3LDV7xWo3IFk0quCMvK6OYHTA1Tc+lOb5IU4=;
+        b=pGYs8xKBLt6BmU7EZknlhd2fdBJh3AcEa3u85mmcJ/xHzthsNmkaZKeNuJUgVaGLuu
+         X9Mz8Xzx+z9ifq0Z5+s2+5/LF3zbfw673AFyco7Xm1fuCPY8lNpUbdpPSEJ7pzA4y3Od
+         d3zPz0S+HcrTE8GcJmDVuv7j1O3jxSPghl2aJEvtHEOHTqD2b8hzE3id87OpVEuabtFo
+         SteXd+QDFEW23OM4obmIDWui0c3ilCVGILdWS2l2h8l+ml6RnaIsodCbBtYFwpIwD4GF
+         gwpLr6cnvb+cKp040nE0MioW/ERIA4W7YDoWpGwKSBV484P305qF9iD1Rx+BT3S69gMo
+         fC4Q==
+X-Gm-Message-State: AO0yUKUHgGvmeJETq6P6XLl/oc4DkpVfz3ppUqcV4U9AL1fxB//KfInF
+	JklKXOvRSElwOpAAuktTKJrILsPSA8HT+QrA1m+yU+qSk3I3yt8E
+X-Google-Smtp-Source: AK7set9TLg0XPfh+uRzC6WLrZzigB5Me/mv2emuU86w8K+mZXTFV8qil+0Fq9t3blNI2LYmKOpEkapCWn4KFLXeR0+M=
+X-Received: by 2002:a05:6512:3b92:b0:4e8:3ee1:db14 with SMTP id
+ g18-20020a0565123b9200b004e83ee1db14mr144831lfv.6.1679324736218; Mon, 20 Mar
+ 2023 08:05:36 -0700 (PDT)
+Received: from 466680526474 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 20 Mar 2023 11:05:35 -0400
+From: "Sherry Lin from Wholesale Payments, Inc." <clover@wholesalepayments.com>
+MIME-Version: 1.0
+X-HS-Fax-Cid: 1crncsgctziorjyig61ds7mov9q75cl5lwbq694kkq8k6otbmssxb8vx400haqmqe54mf7qs7k9wxneqp8q7xba5scrqg78lgvbn30xfo482rc9ybznc1004lyqef2q2p11i5bvihf5i
+Date: Mon, 20 Mar 2023 11:05:35 -0400
+Message-ID: <CAKMtuHWuJj5-yRtjukTHSH9Y+z3-LMVryeV4WWs9Yqa3reGCMQ@mail.gmail.com>
+Subject: GREEN TURTLE KAVA LLC -DAYTONA 025816 Clover device is on the way
+To: greenturtlekava@gmail.com
+Cc: Ricky Hoffman <ricky.hoffman@wholesalepayments.com>
+Content-Type: multipart/alternative; boundary="0000000000005d98d105f7564297"
+
+--0000000000005d98d105f7564297
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+ CANDANCE GIPSON,
+
+Your Clover devices are on the way. You can check out the device setup page
+at https://www.clover.com/setup prior to their arrival where you can find
+videos and other helpful information.
+
+24/7 tech support is available at 844-864-5449. Have the following
+information available when you call:
+
+*MID: 554402050025816 *=E2=80=8B
+
+Once your clover order arrives, if you run into a question that the tech
+desk cannot assist with, please feel free to call us at 806-855-0210.
+
+*Model:* Clover Mini Hub
+*Device ID:* H032UQ01620869
+
+*Tracking: 771600721094*
+
+*Items in Shipment: *
+*Clover Mini Hub*
+
+***In the box will be a return label for the Clover Flex Cradle***
+
+Thank you
+
+*Sherry Lin*
+*Clover Specialist *
+
+ 806-698-0625 Ext: 9000  <806-698-0625%20Ext:101>   wholesalepayments.com
+
+ sherry.lin@wholesalepayments.com
+
+ 7602 University Ave, Lubbock, TX 79423
+<https://maps.google.com/?q=3D7602%20University%20Ave,%20Lubbock,%20TX%2079=
+423>
+
+       [image: Data Society Ranks in Top Half of 2021 Inc. 5000 List - Data
+Society]
+
+--0000000000005d98d105f7564297
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head></head><body><div>
+   CANDANCE GIPSON,
+  </div>
+  <br>
+  <div>
+   Your Clover devices are on the way. You can check out the device setup p=
+age at <a href=3D"https://www.clover.com/setup">https://www.clover.com/setu=
+p</a> prior to their arrival where you can find videos and other helpful in=
+formation.=20
+  </div>
+  <br>
+  <div>
+   24/7 tech support is available at 844-864-5449. Have the following infor=
+mation available when you call:=20
+  </div>
+  <br>
+  <div>
+   <strong>MID: 554402050025816 </strong>=E2=80=8B
+  </div>
+  <br>
+  <div>
+   Once your clover order arrives, if you run into a question that the tech=
+ desk cannot assist with, please feel free to call us at 806-855-0210.=20
+  </div>
+  <br>
+  <div>
+   <strong>Model:</strong> Clover Mini Hub
+  </div>
+  <div>
+   <strong>Device ID:</strong> H032UQ01620869
+  </div>
+  <br>
+  <div>
+   <strong><span style=3D"background-color:#ffffff">Tracking: 771600721094<=
+/span></strong>
+  </div>
+  <br>
+  <div>
+   <strong><span style=3D"background-color:#ffffff">Items in Shipment: </sp=
+an></strong>
+  </div>
+  <div>
+   <strong><span style=3D"background-color:#ffffff">Clover Mini Hub</span><=
+/strong>
+  </div>
+  <br>
+  <div>
+   <strong><span style=3D"background-color:#ffffff">**In the box will be a =
+return label for the Clover Flex Cradle**</span></strong>
+  </div>
+  <br>
+  <div>
+   Thank you
+   <br>=20
+   <br>=20
+   <div dir=3D"ltr">=20
+    <div dir=3D"ltr">=20
+     <table cellspacing=3D"0" cellpadding=3D"0">=20
+      <tbody>=20
+       <tr>=20
+        <td valign=3D"top" nowrap>=20
+         <table cellspacing=3D"0" cellpadding=3D"0">=20
+          <tbody>=20
+           <tr>=20
+            <td nowrap> <p><span style=3D"font-size:medium"><strong><span s=
+tyle=3D"color:#646464">Sherry Lin</span></strong></span><br><span style=3D"=
+font-size:small"><strong><span style=3D"color:#646464">Clover Specialist </=
+span></strong></span></p> </td>=20
+           </tr>=20
+           <tr>=20
+            <td nowrap width=3D"378"> <p><span><img src=3D"https://cdn.gifo=
+.wisestamp.com/s/rfm1/35B45E/26/trans.png" alt=3D"" width=3D"13">=C2=A0<a h=
+ref=3D"tel:806-698-0625%20Ext:101" target=3D"_blank"><span>806-698-0625 Ext=
+: 9000=C2=A0</span></a>=C2=A0=C2=A0<img src=3D"https://cdn.gifo.wisestamp.c=
+om/s/rfw1/35B45E/26/trans.png" alt=3D"" width=3D"13">=C2=A0<a href=3D"http:=
+//wholesalepayments.com/" target=3D"_blank"><span>wholesalepayments.com</sp=
+an></a></span></p> </td>=20
+           </tr>=20
+           <tr>=20
+            <td nowrap width=3D"324"> <p><span><img src=3D"https://cdn.gifo=
+.wisestamp.com/s/rfem1/35B45E/26/trans.png" alt=3D"" width=3D"13">=C2=A0<a =
+href=3D"mailto:sherry.lin@wholesalepayments.com">sherry.lin@wholesalepaymen=
+ts.com</a></span></p> </td>=20
+           </tr>=20
+           <tr>=20
+            <td nowrap width=3D"332"> <p><span><img src=3D"https://cdn.gifo=
+.wisestamp.com/s/rfa2/35B45E/26/trans.png" alt=3D"" width=3D"13">=C2=A0<a h=
+ref=3D"https://maps.google.com/?q=3D7602%20University%20Ave,%20Lubbock,%20T=
+X%2079423" target=3D"_blank"><span>7602 University Ave, Lubbock, TX 79423</=
+span></a></span></p> </td>=20
+           </tr>=20
+          </tbody>=20
+         </table> </td>=20
+       </tr>=20
+      </tbody>=20
+     </table>=20
+     <table style=3D"width:100%" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0">=20
+      <tbody>=20
+       <tr>=20
+        <td height=3D"16px"><br>=20
+         <table cellspacing=3D"0" cellpadding=3D"0">=20
+          <tbody>=20
+           <tr>=20
+            <td><em><img src=3D"https://drive.google.com/uc?id=3D147SljlVrz=
+iE77L05ShmPMz7cRMody1y0" alt=3D"" width=3D"250" height=3D"79">=C2=A0</em>=
+=C2=A0 =C2=A0 =C2=A0=C2=A0<img src=3D"https://datasociety.com/wp-content/up=
+loads/2021/08/Inc.-5000-Color-Medallion-Logo.png" alt=3D"Data Society Ranks=
+ in Top Half of 2021 Inc. 5000 List - Data Society" width=3D"70" height=3D"=
+70"></td>=20
+           </tr>=20
+          </tbody>=20
+         </table> </td>=20
+       </tr>=20
+      </tbody>=20
+     </table>=20
+    </div>=20
+   </div>
+  </div>
+  <br>
+=20
+<img width=3D"1" height=3D"1" style=3D"display:none" alt=3D"" src=3D"https:=
+//t.sidekickopen10.com/Cto/ZU+23284/d10Fq604/R5R8b40pCN58f5mL2fDxpW1X1QfG1N=
+vMzhW3H4lcm1W-tj2W1GyxJT1-WpmfW3z9xYg3z9CZBW20Yy241-YQDzn1Q3H7C4W1"></body>=
+</html>
+
+--0000000000005d98d105f7564297--
+

@@ -1,0 +1,436 @@
+Delivered-To: greenturtlekava@gmail.com
+Received: by 2002:a05:7208:8788:b0:64:a764:ea5d with SMTP id hc8csp393265rbb;
+        Fri, 17 Mar 2023 07:00:04 -0700 (PDT)
+X-Google-Smtp-Source: AK7set+3d8xtD9H2gZZwLjAV6FyyHmqDklGaP+VfbxHFgLmPtQVrah/r6yTjxjwLQMg4bE169tPv
+X-Received: by 2002:a05:622a:44f:b0:3bf:9f6e:a383 with SMTP id o15-20020a05622a044f00b003bf9f6ea383mr12162370qtx.20.1679061604458;
+        Fri, 17 Mar 2023 07:00:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1679061604; cv=none;
+        d=google.com; s=arc-20160816;
+        b=p0y58lu4TnNb/bzQPU62CMD81Z3YzVjT+ZeQem4Avi5tPMDrrT6uWA9inIWx1AN9sm
+         8rpI4L74UVfHthWkydy/z4updLyPOWj1bKTDyPipmuWT27k3MMbTtgnMSqHG9umk6tsT
+         ZmXchzYT6/Z1e27Hrj4ouFt1F9dJ7AW+BoE6EMFvNyt4sigsJudfvK08w2UKD9MNQYjf
+         tBPBspiOMkjFntFGIhoziME4gTWl6KerBHLDgWF/OETn/J77rGf+BllgJarj9zPYrMCE
+         aNgCG6WjnmgcNo2fTjtcmVh2yVQ7QILYDCjAUhhu4MkuFGCQvDKr/gtCCO6n4Nn323r/
+         PAzQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:mime-version:from:date:dkim-signature
+         :dkim-signature;
+        bh=dAMBQanm9x7qDfiDf6zZnqqIbIKpfvTE6wN7D7JinK0=;
+        b=lsEXS/2Q6j9pW5GYXWxcDi7hpStqrNj0yOJtzt0xy+c7kevXBn4K5aR5Fmh4doJdRp
+         9dziEl/I01CORcD8Qo1R45+Xq8tdelMbDdhgJ5TMeqpuwOSzL/ff/sUkPbnhu82g1sD2
+         gkE5FqhBehuUo6XlG3FQDG7IFh5kPLDIzfEV/PdcrHCj65Vn3o175rPeuCkKz48419EY
+         dJ3FCIWQtfmMBIo1QlOFUE2l2uOIC7XNvV2eBVLawHzlgGcGwM7dtPP6AlNGzao8OlE3
+         n4HmXb+NpL4CXgzQpc9XEdiu6X9dBNi1Pet1iJMr+udhUVonswYQSdwXvdQ41Jk8ra++
+         coAQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@spotify.com header.s=s1 header.b=cSf6O5fV;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=i6qHK3gZ;
+       spf=pass (google.com: domain of bounces+54769-73f2-greenturtlekava=gmail.com@em.spotify.com designates 149.72.130.211 as permitted sender) smtp.mailfrom="bounces+54769-73f2-greenturtlekava=gmail.com@em.spotify.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=spotify.com
+Return-Path: <bounces+54769-73f2-greenturtlekava=gmail.com@em.spotify.com>
+Received: from o23.em.spotify.com (o23.em.spotify.com. [149.72.130.211])
+        by mx.google.com with ESMTPS id e5-20020a05622a110500b003bfef95515asi1886617qty.43.2023.03.17.07.00.04
+        for <greenturtlekava@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 17 Mar 2023 07:00:04 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+54769-73f2-greenturtlekava=gmail.com@em.spotify.com designates 149.72.130.211 as permitted sender) client-ip=149.72.130.211;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@spotify.com header.s=s1 header.b=cSf6O5fV;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=i6qHK3gZ;
+       spf=pass (google.com: domain of bounces+54769-73f2-greenturtlekava=gmail.com@em.spotify.com designates 149.72.130.211 as permitted sender) smtp.mailfrom="bounces+54769-73f2-greenturtlekava=gmail.com@em.spotify.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=spotify.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=spotify.com;
+	h=content-type:from:mime-version:subject:x-feedback-id:to:cc:
+	content-type:from:subject:to;
+	s=s1; bh=dAMBQanm9x7qDfiDf6zZnqqIbIKpfvTE6wN7D7JinK0=;
+	b=cSf6O5fV7+TjfL+66mDmMaFiMEOmTUUaL/Rm0RDfGq95AXwsh2b6JZmmJ4+Pxs5GnL4d
+	9vpIoMXZAKXLpOvCuuo2ERqMUwHVwuwmVxXZtLg2T21csbPX2yMCTS4FEqb5spTQIE8ypI
+	0ZLCJIiwRuWKMnF8AAKZkIxX9GM3IyiUlmoTpuCv60NUJNmJLnYRY948JDBUmQiY3VuYX8
+	Edr06MMP/sBLJzF5nEj2LiqCesFgvNdIkhpXhFKbrEjW5dRS58aIKIQpOYKsPzzxFlEa8t
+	fd6lrJGaaZ7hCnh13Ml4NNbbO4NtOaxj/mU5H0oafBs4+jx0Z/1l6KIaeFrgZTNg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-type:from:mime-version:subject:x-feedback-id:to:cc:
+	content-type:from:subject:to;
+	s=smtpapi; bh=dAMBQanm9x7qDfiDf6zZnqqIbIKpfvTE6wN7D7JinK0=;
+	b=i6qHK3gZ6hGT3LiG1JR4d3kTd/H/G8zq0f4v5Cj5c0bjD+AygBnOG5avqKaimTMDZ3AD
+	3zS/VsGpN0v9J2JQgpfXh8kWAyrxaTAX0Q7KWwfbXMYXj6d9lVKiOTZdErhKkVQ8JWEMO7
+	rHsbnP1cOuoObj4oi+bgNobZF26qhO0D4=
+Received: by filterdrecv-d9db7ddb8-ps7tj with SMTP id filterdrecv-d9db7ddb8-ps7tj-1-64138A9A-78
+        2023-03-16 21:31:06.357845361 +0000 UTC m=+1979893.725520667
+Received: from NTQ3Njk (unknown)
+	by geopod-ismtpd-1 (SG) with HTTP
+	id HBadVB58Rz-7lf2Y6w_U3g
+	Thu, 16 Mar 2023 21:31:06.242 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=f048d448e70633edc8d23b3328816baa5f6bc4e210128952a3b602004879
+Date: Fri, 17 Mar 2023 14:00:00 +0000 (UTC)
+From: Spotify <no-reply@spotify.com>
+Mime-Version: 1.0
+Message-ID: <HBadVB58Rz-7lf2Y6w_U3g@geopod-ismtpd-1>
+Subject: Papa Roach made you something special
+X-Feedback-ID: 54769:SG
+X-SG-EID: 
+ =?us-ascii?Q?0C9L=2FeBRtgYa=2FF8y6aOTnwpGIngFWQ11NoR8o2fvCVMN9thUS8ZNdG1JBR+Ynp?=
+ =?us-ascii?Q?5TqR0Hpm2LFUl=2FBnY7BDTNZZV9yf8oWnc5kkzXl?=
+ =?us-ascii?Q?=2Fi19SQQx3IMryk6XaQKKnwss30PsoS16azJ0tDE?=
+ =?us-ascii?Q?5D252NYzrf6Dkr1XnhW477JOoo7pfIHYYWnHJzh?=
+ =?us-ascii?Q?Gjot6Wgia6b78=2Feok+B6JAaNZph6lBD6arxHlcW?=
+ =?us-ascii?Q?2Tx4Wx=2F4LRcO5XgDb0ga3rWdJaJhxUY6cwb1io?=
+X-SG-ID: 
+ =?us-ascii?Q?N2C25iY2uzGMFz6rgvQsb5OH=2FE2oUR2xeLwSOMUqSmNxNLo+73ENaBnmrVXWZa?=
+ =?us-ascii?Q?V8O=2FHSYKOXxfEdBjDAlb7PLIreqwR8DA5AvHpGv?=
+ =?us-ascii?Q?+4Sj9oHWNrk6FyqnPgRL26RLuuN6eMVnhSzlTun?=
+ =?us-ascii?Q?8mz0PgRp8fOv6IRVZ+9TIXzmuyQIDieJVVi3WJr?=
+ =?us-ascii?Q?WhanRRkpaVHGZSUBlzLGNNXVemCLJDm0l2PxvzF?=
+ =?us-ascii?Q?3RCwwtCbyVUA6zLWpeKPIRIYN+JhQyktyVWcDkI?=
+ =?us-ascii?Q?E6XYqBo+yhQ39+cuQ12z4AmK1vAtq6aU2fwgpt9?=
+ =?us-ascii?Q?+D07dobThqTcJcNNNTfmGxvkhNqU0CASUBZ+6m5?=
+ =?us-ascii?Q?eNYLtfAE8EzFyQ7JmkrCodnN5ojqqoOWvFjeu2G?=
+ =?us-ascii?Q?sWTd3GE6UfPZqxWD9CgPjc5nm1vYgEGw5q84leS?=
+ =?us-ascii?Q?6wO3K1iXuysAbEh=2F4IGc5q+rMUF0NhMSEwhvd5K?=
+ =?us-ascii?Q?1855I2KcJkm5p=2F=2F8SQ=3D=3D?=
+To: greenturtlekava@gmail.com
+X-Entity-ID: 2vxnRJdGdooKCfSUhf9vyA==
+
+--f048d448e70633edc8d23b3328816baa5f6bc4e210128952a3b602004879
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+Papa Roach https://open.spotify.com/artist/4RddZ3iHvSpGV4dvATac9X?si=3DRdDY=
+6Ha2TgyBjQgPhGwdoQ
+
+A message from Papa Roach:
+
+
+Thank you for streaming our music and rocking out with us! Just in time for=
+ March Madness and St. Patrick's day, we are dropping this Spotify Fans Fir=
+st exclusive Lime Green vinyl edition of Ego Trip. Fans First! =E2=9D=A4=EF=
+=B8=8F Jacoby, Jerry, Tobin, Tony Only *500 units* are available for this o=
+ffer, until *March 31st at 12AM ET* or while supplies last, so act quickly!
+
+
+BUY VINYL ( https://shop.spotify.com/en/artist/4RddZ3iHvSpGV4dvATac9X/produ=
+ct/papa-roach-ego-trip-lp-spotify-lime-green?ls=3D251rzX37PWT51N-1xfZ76?utm=
+_medium=3Dfansfirst&utm_source=3Dspotify )
+
+PapaRoach-Vinyl https://shop.spotify.com/en/artist/4RddZ3iHvSpGV4dvATac9X/p=
+roduct/papa-roach-ego-trip-lp-spotify-lime-green?ls=3D251rzX37PWT51N-1xfZ76=
+?utm_medium=3Dfansfirst&utm_source=3Dspotify
+
+-------------
+
+Get Spotify for:
+  * iPhone (https://itunes.apple.com/app/spotify-music/id324684580)
+  * iPad (https://itunes.apple.com/app/spotify-music/id324684580)
+  * Android (https://play.google.com/store/apps/details?id=3Dcom.spotify.mu=
+sic)
+  * Other (https://www.spotify.com/download/)
+
+This message was sent to greenturtlekava@gmail.com.
+If you don't want to receive these emails from Spotify in the future, you c=
+an edit your profile ( https://www.spotify.com/accounts/profile ) or unsubs=
+cribe ( https://www.spotify.com/account/unsubscribe?t=3DBcEBCoAgDADAr%2FQBw=
+VzOfM5kG47AKNPo993BikehsNVpg622a9o74owI3ZZ2Pqafa%2FJ2R43dqSp3XwKXBAS6a2DgDT=
+0REnEUgpR8zqmsIuzxBw%3D%3D&a=3Dunsubscribe ).
+
+  * Terms of Use https://www.spotify.com/legal/end-user-agreement/
+  * Privacy Policy https://www.spotify.com/legal/privacy-policy/
+  * Contact Us https://www.spotify.com/about-us/contact/
+
+
+Spotify USA Inc, 4 World Trade Center, 150 Greenwich Street, 62nd Floor, Ne=
+w York, NY 10007, USA
+
+--f048d448e70633edc8d23b3328816baa5f6bc4e210128952a3b602004879
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html><html xmlns=3D"http://www.w3.org/1999/xhtml" style=3D"margin=
+: 0; padding: 0"><head><meta charset=3D"utf-8" /><meta name=3D"viewport" co=
+ntent=3D"width=3Ddevice-width, initial-scale=3D1" /><title>Papa Roach made =
+you something special</title><style type=3D"text/css">@media only screen an=
+d (min-device-width: 481px) {div[id=3D"main"] {width: 480px !important;}}</=
+style><!--[if mso]><style>body, table, tr, td, h1, h2, h3, h4, h5, h6, cent=
+er p, a, span, table.MsoNormalTable {font-family: "Helvetica Neue", "Helvet=
+ica", "Arial", sans-serif !important}</style><![endif]--></head><body topma=
+rgin=3D"0" leftmargin=3D"0" rightmargin=3D"0" bottommargin=3D"0" marginheig=
+ht=3D"0" marginwidth=3D"0" style=3D"-webkit-font-smoothing: antialiased; wi=
+dth: 100% !important; -webkit-text-size-adjust: none; margin: 0; padding: 0=
+"><!--TEST-FORM--><span style=3D"border:none;padding:0;margin:0;display:non=
+e;font-size:1px">A message from Papa Roach: Thank you for streaming our mus=
+ic and rocking out with us! Just in time for March Madness and St. Patrick'=
+s day, we are dropping this Spotify Fans First exclusive Lime Green vinyl e=
+dition of Ego Trip. Fans First! =E2=9D=A4=EF=B8=8F Jacoby, Jerry, Tobin, To=
+ny Only 500 units are available for this offer, until March 31st at 12AM ET=
+ or while supplies last, so act quickly!</span>
+<!--[if (mso) | (IE)]><table cellpadding=3D"0" cellspacing=3D"0" border=3D"=
+0" valign=3D"top" width=3D"480" align=3D"center"><tr><td valign=3D"top" ali=
+gn=3D"left" style=3D" word-break:normal; border-collapse:collapse; font-fam=
+ily:'Circular', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:1=
+2px; line-height:18px; color:#555555;"><![endif]--><table style=3D"border-c=
+ollapse:collapse;padding:0;max-width:480px;width:100%;border:0;background-c=
+olor:#ffffff;margin:0 auto;word-break:break-word" cellpadding=3D"0" cellspa=
+cing=3D"0"><tbody style=3D"border:none;padding:0;margin:0"><tr style=3D"bor=
+der:none;margin:0px;padding:0px"><td style=3D"border:none;padding:0;margin:=
+0"><div id=3D"main" style=3D"border:none;padding:0;margin:0"><table class=
+=3D"hero-image-root" style=3D"border-collapse:collapse;padding:0;background=
+-color:#ffffff;width:100%" dir=3D"auto"><tbody style=3D"border:none;padding=
+:0;margin:0"><tr style=3D"border:none;margin:0px;padding:0px"><td data-test=
+=3D"image-fragment-td" style=3D"border:none;padding:0;margin:0;padding-top:=
+0px;padding-bottom:0px"><table style=3D"border-collapse:collapse;padding:0;=
+width:100%" data-test=3D"alignment-container"><tbody style=3D"border:none;p=
+adding:0;margin:0"><tr style=3D"border:none;margin:0px;padding:0px"><td sty=
+le=3D"border:none;padding:0;margin:0;width:100%" data-test=3D"alignment-con=
+tainer-content"><a href=3D"https://wl.spotify.com/ss/c/jB8Q9cVeEn3mlrUL0ylO=
+yXNlzjNGY9Gpn9VJHbrpOJET85woB8Y9H2QX27_COAJy_yQirG2oBJijgcy8C1Gy-XAq0k0mgFa=
+PmltgcqMqBfq00lfrj-4MdlT3v_OvSF8O/3uj/YDr5XjBRRTC-8aJmnmrogw/h0/JxHqvqg8HD7=
+BAFc-57qRPCWvrtYRaTvH1kG3q5UyYqo" clicktracking=3D"on" universal=3D"false" =
+style=3D"text-decoration:none;color:#1ed760">
+<!--[if mso]><img alt=3D"Papa Roach" style=3D"width: 100%; display: block" =
+width=3D"100%" src=3Dhttps://message-editor.scdn.co/c2c6efcf-ef3f-4e80-82b7=
+-c56e092eb278" /><![endif]-->
+<!--[if mso]><div style=3D"mso-hide: all"><![endif]--><div data-test=3D"ima=
+ge-container" style=3D"border:none;padding:0;margin:0;padding-right:0px;pad=
+ding-left:0px;height:inherit;overflow:inherit"><img data-test=3D"image-frag=
+ment-image" alt=3D"Papa Roach" class=3D"hero-image-image" style=3D"display:=
+block;max-width:100%;width:100%;height:inherit;margin-bottom:-1px" src=3D"h=
+ttps://message-editor.scdn.co/c2c6efcf-ef3f-4e80-82b7-c56e092eb278"></div>
+<!--[if mso]></div><![endif]--></a></td></tr></tbody></table></td></tr></tb=
+ody></table><table style=3D"border-collapse:collapse;padding:0;width:100%;b=
+ackground-color:#ffffff;font-family:helvetica;font-size:28px" dir=3D"auto">=
+<tbody style=3D"border:none;padding:0;margin:0"><tr style=3D"border:none;ma=
+rgin:0px;padding:0px;height:24px" data-test=3D"table-padding-top"><td colsp=
+an=3D"3" style=3D"border:none;padding:0;margin:0;height:24px"></td></tr><tr=
+ style=3D"border:none;margin:0px;padding:0px"><td data-test=3D"table-paddin=
+g-left" style=3D"border:none;padding:0;margin:0;width:24px"></td><td style=
+=3D"border:none;padding:0;margin:0"><p style=3D"border:none;padding:0;margi=
+n:0;background-color:#ffffff;color:#000000;font-size:28px;font-weight:400;t=
+ext-align:center"><b style=3D"border:none;padding:0;margin:0">A message fro=
+m Papa Roach:<b style=3D"border:none;padding:0;margin:0"></b></b></p></td><=
+td data-test=3D"table-padding-right" style=3D"border:none;padding:0;margin:=
+0;width:24px"></td></tr><tr style=3D"border:none;margin:0px;padding:0px;hei=
+ght:8px" data-test=3D"table-padding-bottom"><td colspan=3D"3" style=3D"bord=
+er:none;padding:0;margin:0;height:8px"></td></tr></tbody></table><table sty=
+le=3D"border-collapse:collapse;padding:0;width:100%;background-color:#fffff=
+f;font-family:helvetica;font-size:16px" dir=3D"auto"><tbody style=3D"border=
+:none;padding:0;margin:0"><tr style=3D"border:none;margin:0px;padding:0px;h=
+eight:8px" data-test=3D"table-padding-top"><td colspan=3D"3" style=3D"borde=
+r:none;padding:0;margin:0;height:8px"></td></tr><tr style=3D"border:none;ma=
+rgin:0px;padding:0px"><td data-test=3D"table-padding-left" style=3D"border:=
+none;padding:0;margin:0;width:24px"></td><td style=3D"border:none;padding:0=
+;margin:0"><p style=3D"border:none;padding:0;margin:0;background-color:#fff=
+fff;color:#000000;font-size:16px;font-weight:400;text-align:center"><i styl=
+e=3D"border:none;padding:0;margin:0">Thank you for streaming our music and =
+rocking out with us! Just in time for March Madness and St. Patrick's day, =
+we are dropping this Spotify Fans First exclusive Lime Green vinyl edition =
+of </i>Ego Trip<i style=3D"border:none;padding:0;margin:0">. <br style=3D"b=
+order:none;padding:0;margin:0"><br style=3D"border:none;padding:0;margin:0"=
+>Fans First! =E2=9D=A4=EF=B8=8F Jacoby, Jerry, Tobin, Tony</i><br style=3D"=
+border:none;padding:0;margin:0"><br style=3D"border:none;padding:0;margin:0=
+"><br style=3D"border:none;padding:0;margin:0"> Only <b style=3D"border:non=
+e;padding:0;margin:0">500 units</b> are available for this offer, until <b =
+style=3D"border:none;padding:0;margin:0">March 31st at 12AM ET</b> or while=
+ supplies last, so act quickly!</p></td><td data-test=3D"table-padding-righ=
+t" style=3D"border:none;padding:0;margin:0;width:24px"></td></tr><tr style=
+=3D"border:none;margin:0px;padding:0px;height:16px" data-test=3D"table-padd=
+ing-bottom"><td colspan=3D"3" style=3D"border:none;padding:0;margin:0;heigh=
+t:16px"></td></tr></tbody></table><table class=3D"call-to-action-root" data=
+-test=3D"call-to-action-root" style=3D"border-collapse:collapse;padding:0;w=
+idth:100%;background-color:#ffffff;text-align:center"><tbody style=3D"borde=
+r:none;padding:0;margin:0"><tr style=3D"border:none;margin:0px;padding:0px;=
+height:16px" data-test=3D"table-padding-top"><td colspan=3D"3" style=3D"bor=
+der:none;padding:0;margin:0;height:16px"></td></tr><tr style=3D"border:none=
+;margin:0px;padding:0px"><td style=3D"border:none;padding:0;margin:0"><tabl=
+e style=3D"border-collapse:collapse;padding:0;width:100%"><tbody style=3D"b=
+order:none;padding:0;margin:0"><tr style=3D"border:none;margin:0px;padding:=
+0px"><td class=3D"font" style=3D"border:none;padding:0;margin:0;font-family=
+:&quot;circular&quot;, &quot;helvetica neue&quot;, &quot;helvetica&quot;, &=
+quot;arial&quot;, sans-serif;font-weight:700;line-height:1.1em;letter-spaci=
+ng:0.15px;font-size:14px;text-decoration:none;text-align:center;text-transf=
+orm:uppercase"><div style=3D"border:none;padding:0;margin:0;text-align:cent=
+er;line-height:0">
+<!--[if mso]><div style=3D"line-height:1em;"><v:roundrect xmlns:v=3D"urn:sc=
+hemas-microsoft-com:vml" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+href=3D"https://shop.spotify.com/en/artist/4RddZ3iHvSpGV4dvATac9X/product/p=
+apa-roach-ego-trip-lp-spotify-lime-green?ls=3D251rzX37PWT51N-1xfZ76?utm_med=
+ium=3Dfansfirst&utm_source=3Dspotify" style=3D"v-text-anchor: middle; width=
+: 240px; max-width: 240px; height: 48px; text-decoration: none; color: '#ff=
+ffff'; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif; fon=
+t-size: 13px; font-weight: bold; line-height: 48px" arcsize=3D"50%" fillcol=
+or=3D"#000000" strokecolor=3D"#000000"><w:anchorlock /><center style=3D"col=
+or: #ffffff; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-seri=
+f; font-size: 13px; font-weight: bold; line-height: 16px; text-transform:up=
+percase">BUY VINYL</center></v:roundrect></div><![endif]-->
+<!--[if mso]><div style=3D"mso-hide: all"><![endif]--><a href=3D"https://wl=
+.spotify.com/ss/c/R9QFZHv8085zlWG9jKRaRKzUHvO1cBPFmfr6elC9_U4_ltbFJLbnvcnrT=
+S4DmV0-NzgY4i1YQKc3JRRuODOAh9ZlJBAdHtCR3z8fQirLt4FIAwm9JF_N407fr4btHg6h_Nyl=
+cYVK8ODpqnAyfCIPQenwxLJ2uWSCzagIEtP2J2xwD02QDdMNu0WZt-M6m01FtbrDzeUyuM-79Yy=
+WkBXgOHvNRuBBc7A5qo7loVFBpV5K_H4Oqx-I1EcbFUd1cfhY/3uj/YDr5XjBRRTC-8aJmnmrog=
+w/h1/wCzpt5FOWeQYU57BmblYSWHpiT62f4lEnhxOyE7nvwU" clicktracking=3D"on" univ=
+ersal=3D"false" class=3D"call-to-action-button" style=3D"text-decoration:no=
+ne;color:#ffffff;margin-left:auto;margin-right:auto;max-width:240px;backgro=
+und-color:#000000;border-radius:24px;display:block" data-test=3D"call-to-ac=
+tion-button"><table class=3D"call-to-action-container" style=3D"border-coll=
+apse:collapse;padding:0;mso-hide:all;width:100%;max-width:240px;height:48px=
+"><tbody style=3D"border:none;padding:0;margin:0"><tr style=3D"border:none;=
+margin:0px;padding:0px"><td class=3D"call-to-action-inner-padding" style=3D=
+"border:none;padding:0;margin:0;width:24px"></td><td style=3D"border:none;p=
+adding:0;margin:0;font-family:&quot;circular&quot;, &quot;helvetica neue&qu=
+ot;, &quot;helvetica&quot;, &quot;arial&quot;, sans-serif;font-weight:700;l=
+ine-height:1.1em;letter-spacing:0.15px;font-size:14px;text-decoration:none;=
+text-align:center;text-transform:uppercase;color:#ffffff" class=3D"font cal=
+l-to-action-cell">BUY VINYL</td><td class=3D"call-to-action-inner-padding" =
+style=3D"border:none;padding:0;margin:0;width:24px"></td></tr></tbody></tab=
+le></a>
+<!--[if mso]></div><![endif]--></div></td></tr></tbody></table></td></tr></=
+tbody></table><table class=3D"hero-image-root" style=3D"border-collapse:col=
+lapse;padding:0;background-color:#ffffff;width:100%" dir=3D"auto"><tbody st=
+yle=3D"border:none;padding:0;margin:0"><tr style=3D"border:none;margin:0px;=
+padding:0px"><td data-test=3D"image-fragment-td" style=3D"border:none;paddi=
+ng:0;margin:0;padding-top:24px;padding-bottom:32px"><table style=3D"border-=
+collapse:collapse;padding:0;width:100%" data-test=3D"alignment-container"><=
+tbody style=3D"border:none;padding:0;margin:0"><tr style=3D"border:none;mar=
+gin:0px;padding:0px"><td style=3D"border:none;padding:1px;margin:0;white-sp=
+ace:nowrap"> </td><td style=3D"border:none;padding:0;margin:0;width:80%" da=
+ta-test=3D"alignment-container-content"><a href=3D"https://wl.spotify.com/s=
+s/c/R9QFZHv8085zlWG9jKRaRKzUHvO1cBPFmfr6elC9_U4_ltbFJLbnvcnrTS4DmV0-NzgY4i1=
+YQKc3JRRuODOAh9ZlJBAdHtCR3z8fQirLt4FIAwm9JF_N407fr4btHg6h_NylcYVK8ODpqnAyfC=
+IPQenwxLJ2uWSCzagIEtP2J2xwD02QDdMNu0WZt-M6m01FtbrDzeUyuM-79YyWkBXgOHvNRuBBc=
+7A5qo7loVFBpV5K_H4Oqx-I1EcbFUd1cfhY/3uj/YDr5XjBRRTC-8aJmnmrogw/h2/6Ej__OoKj=
+7NYYPSuaLrl8BOxLaScPJkAIX-5-okQrVY" clicktracking=3D"on" universal=3D"false=
+" style=3D"text-decoration:none;color:#1ed760">
+<!--[if mso]><img alt=3D"PapaRoach-Vinyl" style=3D"width: 100%; display: bl=
+ock" width=3D"100%" src=3Dhttps://message-editor.scdn.co/679e329d-b24b-4a29=
+-8724-28c84520ca76" /><![endif]-->
+<!--[if mso]><div style=3D"mso-hide: all"><![endif]--><div data-test=3D"ima=
+ge-container" style=3D"border:none;padding:0;margin:0;padding-right:0px;pad=
+ding-left:0px;height:inherit;overflow:inherit"><img data-test=3D"image-frag=
+ment-image" alt=3D"PapaRoach-Vinyl" class=3D"hero-image-image" style=3D"dis=
+play:block;max-width:100%;width:100%;height:inherit;margin-bottom:-1px" src=
+=3D"https://message-editor.scdn.co/679e329d-b24b-4a29-8724-28c84520ca76"></=
+div>
+<!--[if mso]></div><![endif]--></a></td><td style=3D"border:none;padding:1p=
+x;margin:0;white-space:nowrap"> </td></tr></tbody></table></td></tr></tbody=
+></table><table style=3D"border-collapse:collapse;padding:0;background-colo=
+r:#f7f7f7;width:100%" class=3D"footer-root" dir=3D"auto"><tbody style=3D"bo=
+rder:none;padding:0;margin:0"><tr style=3D"border:none;margin:0px;padding:0=
+px;height:25px"><td colspan=3D"3" style=3D"border:none;padding:6.25px;margi=
+n:0;height:25px"></td></tr><tr style=3D"border:none;margin:0px;padding:0px"=
+><td style=3D"border:none;padding:0;margin:0;width:6.25%"></td><td style=3D=
+"border:none;padding:0;margin:0"><img height=3D"23" style=3D"display:block;=
+max-width:100%;height:23px" src=3D"http://message-editor.scdn.co/newsletter=
+/images/logo_footer.png"></td><td style=3D"border:none;padding:0;margin:0;w=
+idth:6.25%"></td></tr><tr style=3D"border:none;margin:0px;padding:0px;heigh=
+t:25px"><td colspan=3D"3" style=3D"border:none;padding:6.25px;margin:0;heig=
+ht:25px"></td></tr><tr style=3D"border:none;margin:0px;padding:0px"><td sty=
+le=3D"border:none;padding:0;margin:0;width:6.25%"></td><td style=3D"border:=
+none;padding:0;margin:0"><hr style=3D"height:1px;background-color:#d1d5d9;b=
+order:none;margin:0px;padding:0px"></td><td style=3D"border:none;padding:0;=
+margin:0;width:6.25%"></td></tr><tr style=3D"border:none;margin:0px;padding=
+:0px;height:12px"><td colspan=3D"3" style=3D"border:none;padding:3px;margin=
+:0;height:12px"></td></tr><tr style=3D"border:none;margin:0px;padding:0px">=
+<td style=3D"border:none;padding:0;margin:0;width:6.25%"></td><td class=3D"=
+font" style=3D"border:none;padding:0;margin:0;font-family:&quot;circular&qu=
+ot;, &quot;helvetica neue&quot;, &quot;helvetica&quot;, &quot;arial&quot;, =
+sans-serif;font-weight:400;line-height:1.65em;letter-spacing:0.15px;font-si=
+ze:11px;text-decoration:none;color:#88898c">Get Spotify for: &nbsp;<a class=
+=3D"footer-separated-text" style=3D"text-decoration:none;color:#6d6d6d;disp=
+lay:inline-block;font-weight:700" href=3D"https://wl.spotify.com/ss/c/LamQ6=
+0llzuDczOYk0tvsVVb_SVJdGTIfQ_1t3ZEqsocA89S5jCd9p0IlNqMwxH3JqzQnktd1uTGceMdF=
+7hhGNw/3uj/YDr5XjBRRTC-8aJmnmrogw/h3/tng1FT6x8N8HxAlWE5DkRgRQ-0PCl6GkMYjLcw=
+X7Hn4">iPhone</a><span style=3D"border:none;padding:4px 0;margin:0 7px;widt=
+h:1px;border-left:solid 1px #c3c3c3;border-right:solid 1px transparent">&nb=
+sp;</span><a class=3D"footer-separated-text" style=3D"text-decoration:none;=
+color:#6d6d6d;display:inline-block;font-weight:700" href=3D"https://wl.spot=
+ify.com/ss/c/LamQ60llzuDczOYk0tvsVVb_SVJdGTIfQ_1t3ZEqsocA89S5jCd9p0IlNqMwxH=
+3JqzQnktd1uTGceMdF7hhGNw/3uj/YDr5XjBRRTC-8aJmnmrogw/h4/iaphtzQtQ1P1V1ESl3mB=
+xUeAxBCvZ8KReYwkbVQ5OEI">iPad</a><span style=3D"border:none;padding:4px 0;m=
+argin:0 7px;width:1px;border-left:solid 1px #c3c3c3;border-right:solid 1px =
+transparent">&nbsp;</span><a class=3D"footer-separated-text" style=3D"text-=
+decoration:none;color:#6d6d6d;display:inline-block;font-weight:700" href=3D=
+"https://wl.spotify.com/ss/c/LSBBlYVQQ_VCiEyN29qgQnMlOf9Jt7hsFVsIAtx2fduVQ-=
+RD06uqH_MglQiwpeh4yz3YFY9r5mVv70uX9UksCPAlDPpkTad4_quXpiIygHA/3uj/YDr5XjBRR=
+TC-8aJmnmrogw/h5/7UjmnzP3TUaJAVOOPZka7_xfPXxqxvjLEL_bzExKAOU">Android</a><s=
+pan style=3D"border:none;padding:4px 0;margin:0 7px;width:1px;border-left:s=
+olid 1px #c3c3c3;border-right:solid 1px transparent">&nbsp;</span><a class=
+=3D"footer-separated-text" style=3D"text-decoration:none;color:#6d6d6d;disp=
+lay:inline-block;font-weight:700" href=3D"https://wl.spotify.com/ss/c/NcOg9=
+etoQJvwfdKhGmCY2X7wwCLpJpAe5ncSaY1irojI3pkk08KAuyLzK6h-UxjZ/3uj/YDr5XjBRRTC=
+-8aJmnmrogw/h6/OsAgLM65lLv-W14BuUK51lY6VA6lOQdnlMO0SNuH9Hw">Other</a></td><=
+td style=3D"border:none;padding:0;margin:0;width:6.25%"></td></tr><tr style=
+=3D"border:none;margin:0px;padding:0px;height:12px"><td colspan=3D"3" style=
+=3D"border:none;padding:3px;margin:0;height:12px"></td></tr><tr style=3D"bo=
+rder:none;margin:0px;padding:0px"><td style=3D"border:none;padding:0;margin=
+:0;width:6.25%"></td><td style=3D"border:none;padding:0;margin:0"><hr style=
+=3D"height:1px;background-color:#d1d5d9;border:none;margin:0px;padding:0px"=
+></td><td style=3D"border:none;padding:0;margin:0;width:6.25%"></td></tr><t=
+r style=3D"border:none;margin:0px;padding:0px;height:25px"><td colspan=3D"3=
+" style=3D"border:none;padding:6.25px;margin:0;height:25px"></td></tr><tr s=
+tyle=3D"border:none;margin:0px;padding:0px"><td style=3D"border:none;paddin=
+g:0;margin:0;width:6.25%"></td><td class=3D"font" style=3D"border:none;padd=
+ing:0;margin:0;font-family:&quot;circular&quot;, &quot;helvetica neue&quot;=
+, &quot;helvetica&quot;, &quot;arial&quot;, sans-serif;font-weight:400;line=
+-height:1.65em;letter-spacing:0.15px;font-size:11px;text-decoration:none;co=
+lor:#88898c"> <span style=3D"border:none;padding:0;margin:0">This message w=
+as sent to greenturtlekava@gmail.com.</span> If you don't want to receive t=
+hese emails from Spotify in the future, you can <a class=3D"footer-link" hr=
+ef=3D"https://wl.spotify.com/ss/c/NcOg9etoQJvwfdKhGmCY2Tg4LW1ey7esc5l6X6-eq=
+GF-QyfLxArYtrRWBbbxnK85/3uj/YDr5XjBRRTC-8aJmnmrogw/h7/K_v_EYDSj-VdNb8vzmHm7=
+NK-x8gaJ9rRVmAZRByQMGg" style=3D"text-decoration:none;color:rgb(109, 109, 1=
+09);border:none;margin:0px;padding:0px;font-weight:bold">edit your profile<=
+/a> or <a class=3D"footer-link" href=3D"https://wl.spotify.com/ss/c/NcOg9et=
+oQJvwfdKhGmCY2Tg4LW1ey7esc5l6X6-eqGEqmIL0iCiYfb2sP410pYkvg2Jrkj2SE48BlijkRm=
+H7AqK620Mnfhl0COl14IOGUhxwdvmcIsKeN-c14UrFzt6UcHkyHGBxlRF0qAPS1DSfJ3A1b2r65=
+VZogfj9NFsFB6CbU5beRssXTSoo0LUgAEbdbzCObZZ8XFu8eeaPGJlf-hWWjn1zevLnvb_aXVil=
+HwUmTjoA_TlBA33oqu69tx2K/3uj/YDr5XjBRRTC-8aJmnmrogw/h8/98_4fvGGAWZvNzWzc4rF=
+8wF7IfvsNQXv5xcs6ka5Jgw" style=3D"text-decoration:none;color:rgb(109, 109, =
+109);border:none;margin:0px;padding:0px;font-weight:bold">unsubscribe</a>.<=
+/td><td style=3D"border:none;padding:0;margin:0;width:6.25%"></td></tr><tr =
+style=3D"border:none;margin:0px;padding:0px;height:33px"><td colspan=3D"3" =
+style=3D"border:none;padding:8.25px;margin:0;height:33px"></td></tr><tr sty=
+le=3D"border:none;margin:0px;padding:0px"><td style=3D"border:none;padding:=
+0;margin:0;width:6.25%"></td><td class=3D"font font-small" style=3D"border:=
+none;padding:0;margin:0;font-family:&quot;circular&quot;, &quot;helvetica n=
+eue&quot;, &quot;helvetica&quot;, &quot;arial&quot;, sans-serif;font-weight=
+:400;line-height:1.65em;letter-spacing:0.15px;font-size:11px;text-decoratio=
+n:none;color:#88898c"><a class=3D"footer-separated-text" style=3D"text-deco=
+ration:none;color:#6d6d6d;display:inline-block;font-weight:700" href=3D"htt=
+ps://wl.spotify.com/ss/c/NcOg9etoQJvwfdKhGmCY2fcBnoxmjKsVnFK97F3n2xpfrSiLOB=
+mqYfyUpU7EqHEhY3m2JdYYxb7oVoLbzu-jlQ/3uj/YDr5XjBRRTC-8aJmnmrogw/h9/itXaTdbK=
+K3vuLds887L0Lk8F7-8BI7Q3A21PqXchzNY">Terms of Use</a><span style=3D"border:=
+none;padding:4px 0;margin:0 7px;width:1px;border-left:solid 1px #c3c3c3;bor=
+der-right:solid 1px transparent">&nbsp;</span><a class=3D"footer-separated-=
+text" style=3D"text-decoration:none;color:#6d6d6d;display:inline-block;font=
+-weight:700" href=3D"https://wl.spotify.com/ss/c/NcOg9etoQJvwfdKhGmCY2fcBno=
+xmjKsVnFK97F3n2xrJwED8Ww28_ARd9o75w0L3P54amTh-3KUFl3nQvHsy8A/3uj/YDr5XjBRRT=
+C-8aJmnmrogw/h10/eQI-vdV5veM0y0a71NgUuJVcSfqrlXLdQJdXDpe96z8">Privacy Polic=
+y</a><span style=3D"border:none;padding:4px 0;margin:0 7px;width:1px;border=
+-left:solid 1px #c3c3c3;border-right:solid 1px transparent">&nbsp;</span><a=
+ class=3D"footer-separated-text" style=3D"text-decoration:none;color:#6d6d6=
+d;display:inline-block;font-weight:700" href=3D"https://wl.spotify.com/ss/c=
+/NcOg9etoQJvwfdKhGmCY2SM2WHtDeWpixSGNnLCcXfuP7mNHsv5L3zy1pG5dDltl/3uj/YDr5X=
+jBRRTC-8aJmnmrogw/h11/QMxAKbfK8Szz6Ei4glCvZTCmsrgAZcvnroS9QR1dIRc">Contact =
+Us</a></td><td style=3D"border:none;padding:0;margin:0;width:6.25%"></td></=
+tr><tr style=3D"border:none;margin:0px;padding:0px;height:12px"><td colspan=
+=3D"3" style=3D"border:none;padding:3px;margin:0;height:12px"></td></tr><tr=
+ style=3D"border:none;margin:0px;padding:0px"><td style=3D"border:none;padd=
+ing:0;margin:0;width:6.25%"></td><td class=3D"font font-small" style=3D"bor=
+der:none;padding:0;margin:0;font-family:&quot;circular&quot;, &quot;helveti=
+ca neue&quot;, &quot;helvetica&quot;, &quot;arial&quot;, sans-serif;font-we=
+ight:400;line-height:1.65em;letter-spacing:0.15px;font-size:11px;text-decor=
+ation:none;color:#88898c">Spotify USA Inc, 4 World Trade Center, 150 Greenw=
+ich Street, 62nd Floor, New York, NY 10007, USA</td><td style=3D"border:non=
+e;padding:0;margin:0;width:6.25%"></td></tr><tr style=3D"border:none;margin=
+:0px;padding:0px;height:25px"><td colspan=3D"3" style=3D"border:none;paddin=
+g:6.25px;margin:0;height:25px"></td></tr></tbody></table></div></td></tr></=
+tbody></table>
+<!--[if (mso) | (IE)]></td></tr></table><![endif]--><img src=3D"https://wl.=
+spotify.com/ss/o/BIFIEceKwRrl2okIkGwAPQ/3uj/YDr5XjBRRTC-8aJmnmrogw/ho.gif" =
+alt=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"height:1px !importa=
+nt;width:1px !important;border-width:0 !important;margin-top:0 !important;m=
+argin-bottom:0 !important;margin-right:0 !important;margin-left:0 !importan=
+t;padding-top:0 !important;padding-bottom:0 !important;padding-right:0 !imp=
+ortant;padding-left:0 !important;"/></body></html>
+--f048d448e70633edc8d23b3328816baa5f6bc4e210128952a3b602004879--
+

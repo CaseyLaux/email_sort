@@ -1,0 +1,1395 @@
+Delivered-To: greenturtlekava@gmail.com
+Received: by 2002:a05:7208:8788:b0:64:a764:ea5d with SMTP id hc8csp3681559rbb;
+        Thu, 16 Mar 2023 07:05:27 -0700 (PDT)
+X-Google-Smtp-Source: AK7set/nQbho1Lh/wW8/52TUVIR1/j4OfxD47nq0GK6CPzltatARTRFkQ0Yc0pzYaKy7fledA+TR
+X-Received: by 2002:a6b:5b08:0:b0:74c:822c:a6ac with SMTP id v8-20020a6b5b08000000b0074c822ca6acmr18978894ioh.15.1678975527689;
+        Thu, 16 Mar 2023 07:05:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1678975527; cv=none;
+        d=google.com; s=arc-20160816;
+        b=tlJH4E8aKHv2XE49/XHHjONjJOpuAdtivXLxflX9hfzqlYeRtkHEQUf1MvaefUXRgt
+         Z1gUT9na4Yd8a+4va7C/opSIGTKGM9T+r/r49kJZVVJB9OoJvoxgj+3TAe/aFWeEW+Cj
+         /Obco56bhp09UgLzn/AXPL5K0b5Fhf112U+dAoepi45YktWPGMJF+Dd+gySmCoVtuTbi
+         yFwW+oH9+738QDcMgDi2m49OWzdhANnzFFO/nPyXlNmtTnX++5Jji0arGQjz4TvFYmag
+         RDwZchZgxmBoSbcf9Ztq/nGpku5+y++a39dDHGLjYFzj7MQkuyuphif8PtAH4YEeDaWX
+         S/4w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:reply-to:subject:message-id:mime-version:from:date
+         :dkim-signature:dkim-signature;
+        bh=aNsOyNf4zL+CQHr6Hn4IUGd7ys2HtdS0dbJhKf67fEU=;
+        b=N5+oIGgwFGHr7GENq16uYAPnr8hJKXkO/+auY76WkdW7AQFkhMSyufez2FHiulRuZZ
+         TI2d6t+nfZYCTgIAzg+2nSdjSgyoK9U4ujNue9LTyDiz3BBqaJSeOyTtwBOJ7a5+cFdW
+         kDMv5JwwWjUS6A6v0v9o642Sw4MPJmcCuq9OczRPTSmSgJ1E4oANU5dXYFRkroX4iItM
+         v+xds1iWgvuLXuVn9I2X+mcmUhft4IgDV7N84RNjYndQ+DAOFWnuVzn318q4and7j9q0
+         /g0EHjfzOsbzxA8dTQJtNgxwkLA2O1hZAWyMBN1rtPlJRb8iN28ooEhwKp4wiYckrjvS
+         Rllg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@email.meetup.com header.s=s1 header.b=eQwePHqx;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=M3l26h8P;
+       spf=pass (google.com: domain of bounces+28368967-f942-greenturtlekava=gmail.com@e.email.meetup.com designates 167.89.55.135 as permitted sender) smtp.mailfrom="bounces+28368967-f942-greenturtlekava=gmail.com@e.email.meetup.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=meetup.com
+Return-Path: <bounces+28368967-f942-greenturtlekava=gmail.com@e.email.meetup.com>
+Received: from o4244.e.email.meetup.com (o4244.e.email.meetup.com. [167.89.55.135])
+        by mx.google.com with ESMTPS id r2-20020a5e8e42000000b0074ca143866esi1019423ioo.41.2023.03.16.07.05.27
+        for <greenturtlekava@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 16 Mar 2023 07:05:27 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+28368967-f942-greenturtlekava=gmail.com@e.email.meetup.com designates 167.89.55.135 as permitted sender) client-ip=167.89.55.135;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@email.meetup.com header.s=s1 header.b=eQwePHqx;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=M3l26h8P;
+       spf=pass (google.com: domain of bounces+28368967-f942-greenturtlekava=gmail.com@e.email.meetup.com designates 167.89.55.135 as permitted sender) smtp.mailfrom="bounces+28368967-f942-greenturtlekava=gmail.com@e.email.meetup.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=meetup.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=email.meetup.com;
+	h=content-type:from:mime-version:subject:reply-to:x-feedback-id:to:cc:
+	content-type:from:subject:to;
+	s=s1; bh=aNsOyNf4zL+CQHr6Hn4IUGd7ys2HtdS0dbJhKf67fEU=;
+	b=eQwePHqxzkuA4+Y4ATpVJLWK4zs762Q8s6KTYsuEWwaSUGsZAFs8xJMm8S1rdueEXz5e
+	j5L2kkk5l5+W6es/k/15BFxFpz32lEB9T9Q10L+Z4j9dwXz4vj6V3GdZiWLARrQ5hy5Ls4
+	FgWaKGyuvBZ8HaYNDbLTe2pW5nFNtTnabPN1ZRPYAx+8Fejkxi/4qbILRBGahxD/zNbOe9
+	4g+aBSHhVls4tLo9ulWxT80t+M2hmFERqwo72haChI8geWzzHF4xaQS0B897If0vl4uKd1
+	c59QlzjWtPYzTNxNNvd+z48JLGmNZz8MhQSzGR5WLtlpajWQ+nITUqf7xJ8UziGQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-type:from:mime-version:subject:reply-to:x-feedback-id:to:cc:
+	content-type:from:subject:to;
+	s=smtpapi; bh=aNsOyNf4zL+CQHr6Hn4IUGd7ys2HtdS0dbJhKf67fEU=;
+	b=M3l26h8PhcaJCZoFEUsawpJkqFJ421AK5BpbovF7W1qjV1bITJANZpaKIifaK6C83JxJ
+	LKo8lpFAS9Gv8PxGnAxynU2UhLldubEErnr0aAzeI8gC8NA5prsAfbyLOeIzmx+91FhgvH
+	RyxHyZkFoHOPrt0aYpnm37vrI6jUBpytc=
+Received: by filterdrecv-74fcd66dcc-4b24r with SMTP id filterdrecv-74fcd66dcc-4b24r-1-64132226-10B
+        2023-03-16 14:05:26.817492194 +0000 UTC m=+1953100.911373282
+Received: from MjgzNjg5Njc (unknown)
+	by geopod-ismtpd-4 (SG) with HTTP
+	id lEH5Hi3dSJWCia2jhoWULg
+	Thu, 16 Mar 2023 14:05:26.720 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=c618f413e6d4bf02553d33f935b484656e5682dad64f0010170d47e6b201
+Date: Thu, 16 Mar 2023 14:05:26 +0000 (UTC)
+From: Meetup <info@email.meetup.com>
+Mime-Version: 1.0
+Message-ID: <lEH5Hi3dSJWCia2jhoWULg@geopod-ismtpd-4>
+Subject: How to start a side hustle =?UTF-8?B?8J+SuA==?=
+Reply-To: info@meetup.com
+X-Feedback-ID: 28368967:SG
+X-SG-EID: 
+ =?us-ascii?Q?QQ1756K=2F6gu3J6t7wkhDeurl=2FOmKEsAvU4+H3Rl7hcX1cthy01oyk7wXJk+iH1?=
+ =?us-ascii?Q?JTcrg7t78V2+d5Ud4s7dnYSiYzl4I+A5iVOygvS?=
+ =?us-ascii?Q?IZYubDsP9uUvLD6O8mlepIjdVTQ4TMnYvdzdchm?=
+ =?us-ascii?Q?vjT0SBOCClBikZqbLD=2FYgJ4+wF9wghEhhFcjZFM?=
+ =?us-ascii?Q?ox23kI7oImLdFc=2FSr1T=2F+YN2nRew92hUULGCY1Y?=
+ =?us-ascii?Q?REV92rmvJPEdsov0v2TyU6eSmhUaJP4nxIhXIF?=
+X-SG-ID: 
+ =?us-ascii?Q?N2C25iY2uzGMFz6rgvQsb8raWjw0ZPf1VmjsCkspi=2FKvUYPFb2vwyNNeBc9bJi?=
+ =?us-ascii?Q?Ch33piLP9mn+Q813x14Y=2FvKH61rTuogawWaVfqT?=
+ =?us-ascii?Q?jNNMfXUkmNS5ukfu=2FGIB+2xs3P6BOoha5bFB2Hd?=
+ =?us-ascii?Q?NxioXndK=2FkaS+nlxbR=2FrvZAxlmUhyj3e4EP4tmM?=
+ =?us-ascii?Q?CoZHcVqM9Bs0E01NjvquKJeGhChBUJVhC8W43+s?=
+ =?us-ascii?Q?mC8yGuh9SN=2FMg6atHgSrwfi0UXeICrL2m35WlGW?=
+ =?us-ascii?Q?atpOJVJOg54ByQkbob=2FiGzaNIUiXu46s6Ptc9Mc?=
+ =?us-ascii?Q?VT9teSBstSUaKmcDJYoCf=2FW2cZZMfaW3vf+velE?=
+ =?us-ascii?Q?QEIdpVXJwT5fZrq11k4yNCE14nYDV+27e=2Fnh4p5?=
+ =?us-ascii?Q?6jHGxP+y67Jbr30N4CndYX6Lk2eKpdt2IVH89L8?=
+ =?us-ascii?Q?MXGi9lO9dmZ6eFpAk7hXfYLAIF5CMWWY28i1dn2?=
+ =?us-ascii?Q?G6IMFvlsJhPdjVH=2F9mtlUtW7KxgzuHoM2tBCTtM?= =?us-ascii?Q?=3D?=
+To: greenturtlekava@gmail.com
+X-Entity-ID: yQyHiGYXYurLHzVm/MhzzQ==
+
+--c618f413e6d4bf02553d33f935b484656e5682dad64f0010170d47e6b201
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Mime-Version: 1.0
+
+
+
+--c618f413e6d4bf02553d33f935b484656e5682dad64f0010170d47e6b201
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:o=3D"urn:schemas-microso=
+ft-com:office:office" xmlns:v=3D"urn:schemas-microsoft-com:vml" style=3D"ba=
+ckground-color: #ffffff;">
+<head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF=
+-8">
+<style>@media only screen and (max-width:640px) {
+  .v3-body {
+    min-width: 100vw !important;
+  }
+  .layout-body-content {
+    padding: 0 16px !important;
+  }
+  .layout-body-over {
+    padding-top: 6.3% !important;
+  }
+  .body-title {
+    line-height: 37.6px !important;
+  }
+  x .hero-title-layout {
+    padding: 0 !important;
+  }
+  .body-signature {
+    width: 100% !important; max-width: 148px !important;
+  }
+  .space-section {
+    padding-top: 16% !important;
+  }
+  .hero-image {
+    background-size: contain !important; background-repeat: no-repeat !impo=
+rtant; background-position: bottom !important; border-radius: 0 !important;
+  }
+  .footer-below {
+    padding: 20px 0 !important;
+  }
+  .space-footer {
+    padding: 30px !important; padding-top: 60px !important;
+  }
+  .layout-body-bellow {
+    padding-bottom: 30px !important;
+  }
+  .bg-mobile {
+    background-color: #ffffff !important;
+  }
+}
+@media only screen and (min-width:641px) {
+  .background-content {
+    background-color: #ffffff !important;
+  }
+  .background-over-footer {
+    background-color: #ffffff !important;
+  }
+  html {
+    background-color: #ffffff !important;
+  }
+  .hero-image {
+    border-top-left-radius: 8px !important; border-top-right-radius: 8px !i=
+mportant;
+  }
+  .layout-body-content {
+    padding-left: 5% !important; padding-right: 5% !important; margin: 0 au=
+to;
+  }
+  .bg-mobile {
+    background-color: #ffffff !important;
+  }
+  .space-footer {
+    padding-top: 10% !important;
+  }
+  .space-1 {
+    padding-top: 5% !important;
+  }
+  .space-hero-line {
+    padding: 4% 0 !important;
+  }
+}
+</style></head>
+<body class=3D"background-content" style=3D"font-family: helvetica,Neue; wi=
+dth: 100% !important; margin: 0; padding: 0;" width=3D"100%" bgcolor=3D"#ff=
+ffff"> <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUT=
+F-8"><meta name=3D"viewport" content=3D"width=3Ddevice-width"><img src=3D"h=
+ttp://clicks.meetup.com/wf/open?upn=3Dy5Z0ux0tWJiluPF32dySRMOKO08NEIdVn-2F8=
+Lbrs34RPvZFt9ofK0TGTAEl9QRcg3TNJBJ6jfyia4nnmZo3qB76tEUgcSrfDD2mLfBP-2F2OdiE=
+Og2p3y8tzqKheeU5o7nWcS6BkUvx6L8iTZZVQaJAkgN7ELqokWm5YxCCCeoS-2FMIccG4s9eVGY=
+qPGtJGUbVNF5NHSWiVKZyTIb8WoWgwjsQqa-2FiQsRXTSzYAl97y7VVeG-2FX7IiJo8IW3tudPa=
+GqGnr-2BSgHd9a4i-2B373m097j1XUPTyjLZrElzPFYO0LZKAonfn1T2s51HUHpglvddNLGeNm6=
+kKiUGMyEq8oSeHBj-2B3I1QmTbPgccB9KHEEuVTd0nEHq7UXSraFXDlpKrAbUYlkHNn0cnpJKeb=
+J8AiZ1pm3nvR0EmIWpsUs8xokGTeF-2FhivMlEBzTRcp4g-2Fzl9gx7shqNX1d4W9qMyj-2BaJu=
+e2gEJPZBtWX-2FU1NcHhtI2A90nMA6cQFjysSgNqDNVpWdk06IFgZ5nPU3hU0J5v-2FWdC7s0wu=
+cVemL3cCRvHohQrOEs1WNtBojPudKIJ8Dic5kqaTd-2F-2F9kxZa3fXumFRFDGrym9vAsggdD-2=
+F0HbZAULumbB4wvunrxXM2QgPZSlurPApRcDFqgYiYlNyEmqV-2Fnxo1uhExrO5NFN18x69X2lR=
+B3yzc-3D" alt=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"height:1p=
+x !important;width:1px !important;border-width:0 !important;margin-top:0 !i=
+mportant;margin-bottom:0 !important;margin-right:0 !important;margin-left:0=
+ !important;padding-top:0 !important;padding-bottom:0 !important;padding-ri=
+ght:0 !important;padding-left:0 !important;"/></body>
+</html><html xmlns=3D"http://www.w3.org/1999/xhtml" style=3D"background-col=
+or: #ffffff;">
+<!--[if mso]>
+  <style>
+    .hero-title {
+      margin: 0 30px !important;
+      margin-top: 20px !important;
+    }
+
+    .hero-desc {
+      margin: 0 15px !important;
+    }
+  </style>
+  <![endif]--><!--[if (mso) | (IE)]>
+      <style type=3D"text/css">
+        .img-logo {
+          height: 40px !important;
+          width: 109px !important;
+        }
+        .bg-mobile {
+          background-color: #ffffff !important;
+        }
+
+        .layout-body-content {
+          padding-left: 60px !important;
+          padding-right: 60px !important;
+        }
+
+        .layout-body-over {
+          padding-top: 40px !important;
+        }
+
+        .layout-body-bellow {
+          padding-bottom: 40px !important;
+        }
+
+        .button-learn-more {
+          padding: 10px 31px !important;
+        }
+       =20
+        .button-learn-more {
+          padding: 10px 31px !important;
+        }
+
+        .body-signature-layout {
+          padding-top: 15px;
+        }
+
+        .body-signature {
+          width: 128px !important;
+        }
+
+        .hero-layout {
+          padding: 45px !important;
+        }
+
+        .hero-text-layout {
+          padding-top: 20px !important;
+        }
+
+        .space {
+          padding-top: 60px !important;
+        }
+
+        .space-1 {
+          padding-top: 40px !important;
+        }
+
+        .space-2 {
+          padding-top: 20px !important;
+        }
+
+        .space-3 {
+          padding-top: 30px !important;
+        }
+       =20
+        .space-hero-line {
+          padding:  20px 0 !important;
+        }
+       =20
+        .space-footer {
+          padding-top: 60px !important;
+        }
+
+        .social {
+          padding: 60px 0 !important;
+        }
+
+        .footer-below {
+          padding: 50px 0 !important;
+        }
+
+        .space-header {
+          padding: 30px 0 !important;
+        }
+
+        .space-caption {
+          padding-top: 15px !important;
+        }
+
+        .space-button {
+          padding-top: 20px !important;
+        }
+
+        .space-quote {
+          padding: 40px 0 0 25px !important;
+        }
+
+        .space-quote-text {
+          padding-left: 25px !important;
+        }
+
+        .background-content {
+          background-color: #ffffff !important;
+        }
+      </style>
+  <![endif]--><!--[if mso]>
+    <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    </xml>
+  <![endif]-->
+<table class=3D"background-content v3-body" style=3D"height: 100%; width: 1=
+00%; text-align: center; border-spacing: none; border-collapse: collapse; m=
+argin: 0px 0 0; padding: 0; border: none;" width=3D"100%" bgcolor=3D"#fffff=
+f">
+  <tbody style=3D"border-spacing: none; border-collapse: collapse; margin: =
+0; padding: 0; border: none;">
+    <tr style=3D"border-spacing: none; border-collapse: collapse; margin: 0=
+; padding: 0; border: none;">
+      <td align=3D"center" style=3D"border-spacing: none; border-collapse: =
+collapse; margin: 0; padding: 0; border: none;">
+      <table align=3D"center" style=3D"border-spacing: none; border-collaps=
+e: collapse; margin: 0; padding: 0; border: none;"><!-- START CONTENT LOGO =
+BLOCK -->
+        <tbody style=3D"border-spacing: none; border-collapse: collapse; ma=
+rgin: 0; padding: 0; border: none;">
+
+          <tr style=3D"border-spacing: none; border-collapse: collapse; mar=
+gin: 0; padding: 0; border: none;">
+            <td style=3D"border-spacing: none; border-collapse: collapse; m=
+argin: 0; padding: 0; border: none;"><!--[if (mso) | (IE)]>
+              <center>
+              <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0">
+              <tr><td width=3D"640">
+            <![endif]-->
+            <table align=3D"center" bgcolor=3D"#ffffff" class=3D"container =
+border-content" width=3D"100%" style=3D"border-spacing: none; border-collap=
+se: collapse; max-width: 640px; width: 100%; border-radius: 8px; margin: 0;=
+ padding: 0; border: none;">
+              <tbody style=3D"border-spacing: none; border-collapse: collap=
+se; margin: 0; padding: 0; border: none;">
+                <tr style=3D"border-spacing: none; border-collapse: collaps=
+e; margin: 0; padding: 0; border: none;">
+                </tr>
+                <tr style=3D"border-spacing: none; border-collapse: collaps=
+e; margin: 0; padding: 0; border: none;">
+                  <td class=3D"layout-body-content layout-body-over" style=
+=3D"border-spacing: none; border-collapse: collapse; margin: 0 auto; paddin=
+g: 6.3% 16px 0; border: none;"><!-- START CONTENT HERO BLOCK --><!--[if (ms=
+o) | (IE)]>
+                        <center>
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0">
+                        <tr><td width=3D"430">
+                      <![endif]-->
+                  <table width=3D"100%" style=3D"border-spacing: none; bord=
+er-collapse: collapse; margin: 0; padding: 0; border: none;">
+                  <div style=3D"display: none; max-height: 0px; overflow: h=
+idden;">This week in the Community Matters newsletter=20
+                 =20
+                  </div>
+                  <!-- Insert &zwnj;&nbsp; hack after hidden preview text -=
+->
+                  <div style=3D"display: none; max-height: 0px; overflow: h=
+idden;">&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;&nbsp;=E2=80=8C=
+&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C=
+&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C=
+&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;&nbsp;=E2=80=
+=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=
+=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=
+=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C=
+&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C=
+&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=
+=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=
+=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;&nbsp;=E2=80=8C&nbsp;=E2=80=8C=
+&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C=
+&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C=
+&nbsp;=E2=80=8C&nbsp;&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;
+                  </div>
+                  <tbody style=3D"border-spacing: none; border-collapse: co=
+llapse; margin: 0; padding: 0; border: none;">
+                      <tr style=3D"border-spacing: none; border-collapse: c=
+ollapse; margin: 0; padding: 0; border: none;">
+                        <td align=3D"left" style=3D"border-spacing: none; b=
+order-collapse: collapse; margin: 0; padding: 0; border: none;">
+                        <table width=3D"100%" style=3D"border-spacing: none=
+; border-collapse: collapse; margin: 0; padding: 0; border: none;">
+                          <tbody style=3D"border-spacing: none; border-coll=
+apse: collapse; margin: 0; padding: 0; border: none;">
+                                      <tr style=3D"border-spacing: none; bo=
+rder-collapse: collapse; margin: 0; padding: 0; border: none;">
+                                      <td style=3D"border-spacing: none; bo=
+rder-collapse: collapse; margin: 0; padding: 0; border: none;"><!--[if (mso=
+) | (IE)]>
+                                          <center>
+                                          <table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" >
+                                          <tr><td width=3D"640">
+                                        <![endif]-->
+                                      <table align=3D"center" class=3D"cont=
+ainer" width=3D"100%" style=3D"border-spacing: none; border-collapse: colla=
+pse; max-width: 640px; width: 100%; margin: 0; padding: 0; border: none;">
+                                        <tbody style=3D"border-spacing: non=
+e; border-collapse: collapse; margin: 0; padding: 0; border: none;">
+                                          <tr style=3D"border-spacing: none=
+; border-collapse: collapse; margin: 0; padding: 0; border: none;">
+                                            <td align=3D"center" style=3D"b=
+order-spacing: none; border-collapse: collapse; margin: 0; padding: 0; bord=
+er: none;">
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                      <!--[if (mso) | (IE)]>
+                                          </td></tr>
+                                          </table>
+                                          </center>
+                                        <![endif]-->
+                                      </td>
+                                    </tr>
+                                    <!-- END CONTENT LOGO BLOCK --><!-- STA=
+RT CONTENT BODY BLOCK -->
+                            <tr style=3D"border-spacing: none; border-colla=
+pse: collapse; margin: 0; padding: 0; border: none;">
+                              <td height=3D"5px" style=3D"border-spacing: n=
+one; border-collapse: collapse; margin: 0; padding: 0; border: none;">
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                 =20
+                   =20
+                   =20
+                      =20
+                 =20
+                 =20
+                  <!--[if (mso) | (IE)]>
+                        </td></tr>
+                        </table>
+                        </center>
+                      <![endif]--><!-- END CONTENT HERO BLOCK --></td>
+                </tr>
+                <tr style=3D"border-spacing: none; border-collapse: collaps=
+e; margin: 0; padding: 0; border: none;">
+                  <td class=3D"layout-body-content layout-body-bellow" styl=
+e=3D"border-spacing: none; border-collapse: collapse; margin: 0 auto; paddi=
+ng: 0 16px 3.1%; border: none;">
+                  <div><!-- START CONTENT BLOCK  UPDATE--><!--[if (mso) | (=
+IE)]>
+                          <center>
+                          <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0">
+                          <tr><td width=3D"430">
+                        <![endif]-->
+                  <table width=3D"100%" style=3D"border-spacing: none; bord=
+er-collapse: collapse; margin: 0; padding: 0; border: none;">
+                    <tbody style=3D"border-spacing: none; border-collapse: =
+collapse; margin: 0; padding: 0; border: none;">
+                      <tr style=3D"border-spacing: none; border-collapse: c=
+ollapse; margin: 0; padding: 0; border: none;">
+                       <td align=3D"center" class=3D"space-1" style=3D"bord=
+er-spacing: none; border-collapse: collapse; margin: 0; padding: 40px 0 0; =
+border: none;">
+                        <a href=3D"http://clicks.meetup.com/ls/click?upn=3D=
+XbaZ37larFA-2FuV5MohrYpdrra25MtI4CzodbRR1Rd1lucdvIwHwxpqyRpUJ2cLgrPLLnSqvMo=
+aWLrZ4R3vcvapcEHe-2FNftLxTZqF0Xtyab9rbUczF3mzzvL56T0KR6f8pjji7rnohLaWocCSxQ=
+b0rXS-2Bt5ymQK8lR-2Fra-2FI9ZCqD7cGre-2BbRNUu6-2BuUCexZQQtuVY9bUNqA8nGxKfO9F=
+9Fy38cC1N72Hvaq-2BF9R9FsQo-3DcaRJ_TUDo-2BBITdlVAPSUyyUbSUeLF6fWHoyeXCPF9-2F=
+J384Gy7KQlSZrisOJtLJmkbKxNdzjfHMx0rJa6ughNje-2BSC7CXPqHWdfH9YdExUDPjUM5MFFn=
+a4ZG4QgPIT5yTpOf-2B-2BxU1H3uV6McyZE-2F531mrA-2Fmj-2FK0xSdZ5a-2FzroBR0TWFrck=
+A-2BBST8A-2BnSe0MdPFnd5rahF3V-2FMFTDqpQcJ81lWCW8Qui93Z5aeSVekYHinF2S7aatvTJ=
+qNFqkrXx44VO62z8m0DkaDTQEtnGAmcx7pQvLBBdBHl2VRfizCwFktghHMoI7roIrqnUBECijKt=
+zYj5MLX7Uv8uQoAiEfYbw3yG6q-2Be-2BySY0lx-2BfxTxSp56mh8iO-2BWCRufkYOr-2F57kiY=
+IfS6zGObXjXA8xiWbjy5Y2e-2FvZAjaO8VcWglcG0QKX7f2UfOyuQi0yU2W79a3l7baLDtQbhD4=
+GuG-2Bk0IxVHbsoU2fvEV1XVXK-2BcjWJoG9OQcTqAf9dY3SN0TiXVAppKIMruHr0YkddBPT9bw=
+MAb-2BkTxB8we1-2FwKaUth-2FIYLgSoXGykpu7Thnqvk5ZXxgO07j-2B7ouJ5Rc3QX8v3qVGwL=
+GUT6wdNTh-2B24RthI2cBCkTu-2BBdlj1ZGT0orrnhncEzqp8X2aCLWzkoL-2F6hLwFjW8i8MN2=
+GzuUTusTiT4vVyEhBq8qc-3D">
+                        <img src=3D"https://braze-images.com/appboy/communi=
+cation/assets/image_assets/images/63fcf9f7d9a9694e95f6425d/original.jpg?167=
+7523447" style=3D"width: 100%;"></a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!--[if (mso) | (IE)]>
+                          </td></tr>
+                          </table>
+                          </center>
+                        <![endif]--><!-- START CONTENT BLOCK  BUTTON--><!--=
+[if (mso) | (IE)]>
+                          <center>
+                          <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0">
+                          <tr><td width=3D"430">
+                        <![endif]-->
+                  <!--[if (mso) | (IE)]>
+                          </td></tr>
+                          </table>
+                          </center>
+                        <![endif]--><!-- END CONTENT BLOCK  BUTTON--><!-- E=
+ND CONTENT BLOCK  UPDATE--></div>
+                  </td>
+                </tr>
+                <tr style=3D"border-spacing: none; border-collapse: collaps=
+e; margin: 0; padding: 0; border: none;">
+                  <td class=3D"layout-body-content layout-body-bellow" styl=
+e=3D"border-spacing: none; border-collapse: collapse; margin: 0 auto; paddi=
+ng: 0 16px 3.1%; border: none;">
+                  <div><!-- START CONTENT BLOCK  UPDATE--><!--[if (mso) | (=
+IE)]>
+                          <center>
+                          <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0">
+                          <tr><td width=3D"430">
+                        <![endif]-->
+                  <table width=3D"100%" style=3D"border-spacing: none; bord=
+er-collapse: collapse; margin: 0; padding: 0; border: none;">
+                    <tbody style=3D"border-spacing: none; border-collapse: =
+collapse; margin: 0; padding: 0; border: none;">
+                      <tr style=3D"border-spacing: none; border-collapse: c=
+ollapse; margin: 0; padding: 0; border: none;">
+                        <td style=3D"border-spacing: none; border-collapse:=
+ collapse; margin: 0; padding: 0; border: none;">
+                          <h2 class=3D"body-title" style=3D"border-spacing:=
+ none; border-collapse: collapse; color: #2a414a; font-family: helvetica,Ne=
+ue,Bold; font-size: 36px; line-height: 37px; margin: 0 0 20px; padding: 0; =
+border: none;" align=3D"center"><span style=3D"font-size: 36px; text-align:=
+ left; font-weight: bold;">A World of Community</span></h2>
+                          <p class=3D"body-text" style=3D"border-spacing: n=
+one; border-collapse: collapse; color: #697a80; font-family: helvetica,Neue=
+,Medium; font-size: 16px; line-height: 28px; margin: 0; padding: 0; border:=
+ none;" align=3D"center">Sharing inspiration and advice from the Meetup com=
+munity, for every community.
+                          </p><br>
+                        </td>
+                       =20
+                        </tr><tr style=3D"border-spacing: none; border-coll=
+apse: collapse; margin: 0; padding: 0; border: none;"><td height=3D"20px" s=
+tyle=3D"border-spacing: none; border-collapse: collapse; margin: 0; padding=
+: 0; border: none;"></td></tr>
+                    =20
+                     <tr style=3D"border-spacing: none; border-collapse: co=
+llapse; margin: 0; padding: 0; border: none;">
+                        <td style=3D"border-spacing: none; border-collapse:=
+ collapse; margin: 0; padding: 0; border: none;">
+                         <a href=3D"http://clicks.meetup.com/ls/click?upn=
+=3DXbaZ37larFA-2FuV5MohrYpdrra25MtI4CzodbRR1Rd1lC2EwncraijF5QKzwGUOlzOkZ9f9=
+7MQ5D4DCcCKNN5t2riyqhYwrMa20VbSSDtxxvCKjAPK6gZvu08fkS0sdEIVPKF4HUnAHpS-2F7W=
+yUqk0heF-2Fy6vEhoD8cm-2FurwScW2X5olJgSj3TS6ADXjiJzyVJE4g3SY4ydocSxzFxv-2BNm=
+cocb4Of9M-2FuXwdRnjYPFV9tK29jH3-2BP4Dk-2BhrAJrf5YvJ8Q2KihtX3ktmwdscGWEmv2XY=
+RpCf-2BbGbTZ25COOp68-3D_pGu_TUDo-2BBITdlVAPSUyyUbSUeLF6fWHoyeXCPF9-2FJ384Gy=
+7KQlSZrisOJtLJmkbKxNdzjfHMx0rJa6ughNje-2BSC7CXPqHWdfH9YdExUDPjUM5MFFna4ZG4Q=
+gPIT5yTpOf-2B-2BxU1H3uV6McyZE-2F531mrA-2Fmj-2FK0xSdZ5a-2FzroBR0TWFrckA-2BBS=
+T8A-2BnSe0MdPFnd5rahF3V-2FMFTDqpQcJ81lWCW8Qui93Z5aeSVekYHinF2S7aatvTJqNFqkr=
+Xx44VO62z8m0DkaDTQEtnGAmcx7pQvLBBdBHl2VRfizCwFktghHMoI7roIrqnUBECijKtzYj5ML=
+X7Uv8uQoAiEfYbw3yG6q-2Be-2BySY0lx-2BfxTxSp56mh8iO-2BWCRufkYOr-2F57kiYIfS6zG=
+ObXjXA8xiWbjy5Y2e-2FvZAjaO8VcWglcG0QKX7f2UfOyuQi0yU2W79a3l7baLDtQbhD4GuG-2B=
+k0IxVHbsoU2fvEV1XVXK-2BcjWJoG9OQcTqAf9dY3SN0TiXVAppKIMruHr0YkddBPT9bwMAb-2B=
+kTxDDHzo8T38o-2FYzhYfZh-2BNnWNRvtTQd6kXRUt2hYnOl1O-2Fgqg-2ByNj3RibslQn0NBlC=
+UV0GozR4wIpASE-2F4O8kOUEjOO6KC-2BRHRDv-2Bth98qUnCYaWIe8M0LCn8bD-2FZr068dCaC=
+cUrKz8orIn8PjhZyknE-3D">
+                        <img src=3D"https://braze-images.com/appboy/communi=
+cation/assets/image_assets/images/6410a76769305e4c7b03e781/original.jpeg?16=
+78813031" style=3D"width: 100%;"></a>
+                        <br>
+                        <br><h3 class=3D"body-title" style=3D"border-spacin=
+g: none; border-collapse: collapse; color: #2a414a; font-family: helvetica,=
+Neue,Bold; font-size: 36px; line-height: 37px; margin: 0 0 5px; padding: 0;=
+ border: none;" align=3D"left"><span style=3D"font-size: 26px; text-align: =
+left; font-weight: bold;"><a href=3D"http://clicks.meetup.com/ls/click?upn=
+=3DXbaZ37larFA-2FuV5MohrYpdrra25MtI4CzodbRR1Rd1lC2EwncraijF5QKzwGUOlzOkZ9f9=
+7MQ5D4DCcCKNN5t2riyqhYwrMa20VbSSDtxxvCKjAPK6gZvu08fkS0sdEIVPKF4HUnAHpS-2F7W=
+yUqk0heF-2Fy6vEhoD8cm-2FurwScW2X5olJgSj3TS6ADXjiJzyVJE4g3SY4ydocSxzFxv-2BNm=
+cocb4Of9M-2FuXwdRnjYPFV9tK29jH3-2BP4Dk-2BhrAJrf5YvJ8Q2KihtX3ktmwdscGWEmv2XY=
+RpCf-2BbGbTZ25COOp68-3D8I9N_TUDo-2BBITdlVAPSUyyUbSUeLF6fWHoyeXCPF9-2FJ384Gy=
+7KQlSZrisOJtLJmkbKxNdzjfHMx0rJa6ughNje-2BSC7CXPqHWdfH9YdExUDPjUM5MFFna4ZG4Q=
+gPIT5yTpOf-2B-2BxU1H3uV6McyZE-2F531mrA-2Fmj-2FK0xSdZ5a-2FzroBR0TWFrckA-2BBS=
+T8A-2BnSe0MdPFnd5rahF3V-2FMFTDqpQcJ81lWCW8Qui93Z5aeSVekYHinF2S7aatvTJqNFqkr=
+Xx44VO62z8m0DkaDTQEtnGAmcx7pQvLBBdBHl2VRfizCwFktghHMoI7roIrqnUBECijKtzYj5ML=
+X7Uv8uQoAiEfYbw3yG6q-2Be-2BySY0lx-2BfxTxSp56mh8iO-2BWCRufkYOr-2F57kiYIfS6zG=
+ObXjXA8xiWbjy5Y2e-2FvZAjaO8VcWglcG0QKX7f2UfOyuQi0yU2W79a3l7baLDtQbhD4GuG-2B=
+k0IxVHbsoU2fvEV1XVXK-2BcjWJoG9OQcTqAf9dY3SN0TiXVAppKIMruHr0YkddBPT9bwMAb-2B=
+kTxLgCC6tJ7zAB-2F29zFrsclu-2FBr8CUw-2FkiCZnr-2B6AFrM4SelXpCAlpr8L51p-2Bmczo=
+SR8IK8zzJ-2BUzFqKWiOuJ9cPTp-2BM8AxcMnSwiK6bGTVuOIS5qYnx72Nemil9I8Q3npQBjRvv=
+8SWYu0HIDUJh4qfIc-3D" style=3D"text-decoration: none; color: black;">How to=
+ Find Your Side Hustle and Start Earning More</a></span></h3>
+                        <p class=3D"body-text" style=3D"border-spacing: non=
+e; border-collapse: collapse; color: #697a80; font-family: helvetica,Neue,M=
+edium; font-size: 16px; line-height: 28px; margin: 0; padding: 0; border: n=
+one;" align=3D"left">Another revenue stream is always a good thing, especia=
+lly during uncertain economic times. Learn how to launch a side hustle that=
+ plays to your strengths.</p>
+                          <br><div><a class=3D"button-learn-more" href=3D"h=
+ttp://clicks.meetup.com/ls/click?upn=3DXbaZ37larFA-2FuV5MohrYpdrra25MtI4Czo=
+dbRR1Rd1lC2EwncraijF5QKzwGUOlzOkZ9f97MQ5D4DCcCKNN5t2riyqhYwrMa20VbSSDtxxvCK=
+jAPK6gZvu08fkS0sdEIVPKF4HUnAHpS-2F7WyUqk0heF-2Fy6vEhoD8cm-2FurwScW2X5olJgSj=
+3TS6ADXjiJzyVJE4g3SY4ydocSxzFxv-2BNmcocb4Of9M-2FuXwdRnjYPFV9tK29jH3-2BP4Dk-=
+2BhrAJrf5YvJ8Q2KihtX3ktmwdscGWEmv2XYRpCf-2BbGbTZ25COOp68-3DSmeY_TUDo-2BBITd=
+lVAPSUyyUbSUeLF6fWHoyeXCPF9-2FJ384Gy7KQlSZrisOJtLJmkbKxNdzjfHMx0rJa6ughNje-=
+2BSC7CXPqHWdfH9YdExUDPjUM5MFFna4ZG4QgPIT5yTpOf-2B-2BxU1H3uV6McyZE-2F531mrA-=
+2Fmj-2FK0xSdZ5a-2FzroBR0TWFrckA-2BBST8A-2BnSe0MdPFnd5rahF3V-2FMFTDqpQcJ81lW=
+CW8Qui93Z5aeSVekYHinF2S7aatvTJqNFqkrXx44VO62z8m0DkaDTQEtnGAmcx7pQvLBBdBHl2V=
+RfizCwFktghHMoI7roIrqnUBECijKtzYj5MLX7Uv8uQoAiEfYbw3yG6q-2Be-2BySY0lx-2BfxT=
+xSp56mh8iO-2BWCRufkYOr-2F57kiYIfS6zGObXjXA8xiWbjy5Y2e-2FvZAjaO8VcWglcG0QKX7=
+f2UfOyuQi0yU2W79a3l7baLDtQbhD4GuG-2Bk0IxVHbsoU2fvEV1XVXK-2BcjWJoG9OQcTqAf9d=
+Y3SN0TiXVAppKIMruHr0YkddBPT9bwMAb-2BkTxJE6AFlouNdIfB5bmxW7L5VReLiWlBYLfehul=
+6ovQJ5Lp6fnZjBtIPJ4YfQ-2BaYBj3yeslZ1cLck6AfOmrrlsmJZykxmPyQso7IgYkeBQKtn9dv=
+5rwuttrBTnQGb-2BJEvvynJUsv3KDdi6tRYKFcaSEKY-3D" style=3D"background-color: =
+#ffffff; border-radius: 8px; color: #000000; display: inline-block; font-fa=
+mily: helvetica, regular; font-size: 16px; line-height: 25px; text-align: c=
+enter; text-decoration: none; -webkit-text-size-adjust: none; padding: 1% 5=
+%; border: 2px solid black;"><strong>Read more</strong></a></div>
+                        <br><br>
+                      </td></tr>
+                     =20
+                      <tr style=3D"border-spacing: none; border-collapse: c=
+ollapse; margin: 0; padding: 0; border: none;"><td height=3D"20px" style=3D=
+"border-spacing: none; border-collapse: collapse; margin: 0; padding: 0; bo=
+rder: none;"></td></tr>
+                     <tr style=3D"border-spacing: none; border-collapse: co=
+llapse; margin: 0; padding: 0; border: none;">
+                        <td style=3D"border-spacing: none; border-collapse:=
+ collapse; margin: 0; padding: 0; border: none;">
+                          <a href=3D"http://clicks.meetup.com/ls/click?upn=
+=3DXbaZ37larFA-2FuV5MohrYpdrO0iqroOY2r-2FFzpX8AGhrim9m6eXOgoGny2v6ggwVypV8h=
+BISOn7qFVgW6mKcYX0iLZn3vGKPZqqe7xh2nYgkWx5N2HGZ4GONeVsqC89ZIyJkBVz5ZSosohpR=
+-2B9Z4g8wXi-2Fcno23yUZyWVFbZY0tSQAJTuAirT0d7fhrf4N4E6P-2BAHYRrmcRd9Nj5ze-2F=
+qXxgK-2FoxpOdxAt-2FFl-2BrvfOJQ4-3DXDqd_TUDo-2BBITdlVAPSUyyUbSUeLF6fWHoyeXCP=
+F9-2FJ384Gy7KQlSZrisOJtLJmkbKxNdzjfHMx0rJa6ughNje-2BSC7CXPqHWdfH9YdExUDPjUM=
+5MFFna4ZG4QgPIT5yTpOf-2B-2BxU1H3uV6McyZE-2F531mrA-2Fmj-2FK0xSdZ5a-2FzroBR0T=
+WFrckA-2BBST8A-2BnSe0MdPFnd5rahF3V-2FMFTDqpQcJ81lWCW8Qui93Z5aeSVekYHinF2S7a=
+atvTJqNFqkrXx44VO62z8m0DkaDTQEtnGAmcx7pQvLBBdBHl2VRfizCwFktghHMoI7roIrqnUBE=
+CijKtzYj5MLX7Uv8uQoAiEfYbw3yG6q-2Be-2BySY0lx-2BfxTxSp56mh8iO-2BWCRufkYOr-2F=
+57kiYIfS6zGObXjXA8xiWbjy5Y2e-2FvZAjaO8VcWglcG0QKX7f2UfOyuQi0yU2W79a3l7baLDt=
+QbhD4GuG-2Bk0IxVHbsoU2fvEV1XVXK-2BcjWJoG9OQcTqAf9dY3SN0TiXVAppKIMruHr0YkddB=
+PT9bwMAb-2BkTxFnRz8dxDFe58Tr3127vEkaShSICdc4MKkbq0BpzXbb4RhetwFB4gXpEJi8HDu=
+7Tm2TEKQBIMg9OQg44LYYgTCZF3XrxEmJFj5iQVcRPqa18pcdITniPVdrLrBPEiTUeX7kc4eVnN=
+-2BxFNigjQg2vz3Y-3D">
+                        <img src=3D"https://braze-images.com/appboy/communi=
+cation/assets/image_assets/images/6410a806f6613033f61290f9/original.jpeg?16=
+78813190" style=3D"width: 100%;"></a>
+                        <br>
+                        <br><h3 class=3D"body-title" style=3D"border-spacin=
+g: none; border-collapse: collapse; color: #2a414a; font-family: helvetica,=
+Neue,Bold; font-size: 36px; line-height: 37px; margin: 0 0 5px; padding: 0;=
+ border: none;" align=3D"left"><span style=3D"font-size: 26px; text-align: =
+left; font-weight: bold;"><a href=3D"http://clicks.meetup.com/ls/click?upn=
+=3DXbaZ37larFA-2FuV5MohrYpdrO0iqroOY2r-2FFzpX8AGhrim9m6eXOgoGny2v6ggwVypV8h=
+BISOn7qFVgW6mKcYX0iLZn3vGKPZqqe7xh2nYgkWx5N2HGZ4GONeVsqC89ZIyJkBVz5ZSosohpR=
+-2B9Z4g8wXi-2Fcno23yUZyWVFbZY0tSQAJTuAirT0d7fhrf4N4E6P-2BAHYRrmcRd9Nj5ze-2F=
+qXxgK-2FoxpOdxAt-2FFl-2BrvfOJQ4-3D_adu_TUDo-2BBITdlVAPSUyyUbSUeLF6fWHoyeXCP=
+F9-2FJ384Gy7KQlSZrisOJtLJmkbKxNdzjfHMx0rJa6ughNje-2BSC7CXPqHWdfH9YdExUDPjUM=
+5MFFna4ZG4QgPIT5yTpOf-2B-2BxU1H3uV6McyZE-2F531mrA-2Fmj-2FK0xSdZ5a-2FzroBR0T=
+WFrckA-2BBST8A-2BnSe0MdPFnd5rahF3V-2FMFTDqpQcJ81lWCW8Qui93Z5aeSVekYHinF2S7a=
+atvTJqNFqkrXx44VO62z8m0DkaDTQEtnGAmcx7pQvLBBdBHl2VRfizCwFktghHMoI7roIrqnUBE=
+CijKtzYj5MLX7Uv8uQoAiEfYbw3yG6q-2Be-2BySY0lx-2BfxTxSp56mh8iO-2BWCRufkYOr-2F=
+57kiYIfS6zGObXjXA8xiWbjy5Y2e-2FvZAjaO8VcWglcG0QKX7f2UfOyuQi0yU2W79a3l7baLDt=
+QbhD4GuG-2Bk0IxVHbsoU2fvEV1XVXK-2BcjWJoG9OQcTqAf9dY3SN0TiXVAppKIMruHr0YkddB=
+PT9bwMAb-2BkTxGz0fevtr9c9nkAtvqNJXxjikl3eTbzghDrk-2FPMmaBgW-2BHKXohz2umt9Ti=
+qn0BVfG0SreL4N5ibwT-2B-2FOtFF2jlhKaqaTyHiX4KGGt24nz-2Bp9pzb5Xc8UgokRNdrEekl=
+2f9cxZdTsymlFRl6eO-2BTpByM-3D" style=3D"text-decoration: none; color: black=
+;">Get Unsplash+ Free for 3 Months</a></span></h3>
+                        <p class=3D"body-text" style=3D"border-spacing: non=
+e; border-collapse: collapse; color: #697a80; font-family: helvetica,Neue,M=
+edium; font-size: 16px; line-height: 28px; margin: 0; padding: 0; border: n=
+one;" align=3D"left">Gain access to exclusive, royalty-free images with an =
+Unsplash+ subscription, free for three months. Use as many images as many t=
+imes as you want, all model- and property-released for use in any commercia=
+l project.</p>
+                          <br><div><a class=3D"button-learn-more" href=3D"h=
+ttp://clicks.meetup.com/ls/click?upn=3DXbaZ37larFA-2FuV5MohrYpdrO0iqroOY2r-=
+2FFzpX8AGhrim9m6eXOgoGny2v6ggwVypV8hBISOn7qFVgW6mKcYX0iLZn3vGKPZqqe7xh2nYgk=
+Wx5N2HGZ4GONeVsqC89ZIyJkBVz5ZSosohpR-2B9Z4g8wXi-2Fcno23yUZyWVFbZY0tSQAJTuAi=
+rT0d7fhrf4N4E6P-2BAHYRrmcRd9Nj5ze-2FqXxgK-2FoxpOdxAt-2FFl-2BrvfOJQ4-3DlXsX_=
+TUDo-2BBITdlVAPSUyyUbSUeLF6fWHoyeXCPF9-2FJ384Gy7KQlSZrisOJtLJmkbKxNdzjfHMx0=
+rJa6ughNje-2BSC7CXPqHWdfH9YdExUDPjUM5MFFna4ZG4QgPIT5yTpOf-2B-2BxU1H3uV6McyZ=
+E-2F531mrA-2Fmj-2FK0xSdZ5a-2FzroBR0TWFrckA-2BBST8A-2BnSe0MdPFnd5rahF3V-2FMF=
+TDqpQcJ81lWCW8Qui93Z5aeSVekYHinF2S7aatvTJqNFqkrXx44VO62z8m0DkaDTQEtnGAmcx7p=
+QvLBBdBHl2VRfizCwFktghHMoI7roIrqnUBECijKtzYj5MLX7Uv8uQoAiEfYbw3yG6q-2Be-2By=
+SY0lx-2BfxTxSp56mh8iO-2BWCRufkYOr-2F57kiYIfS6zGObXjXA8xiWbjy5Y2e-2FvZAjaO8V=
+cWglcG0QKX7f2UfOyuQi0yU2W79a3l7baLDtQbhD4GuG-2Bk0IxVHbsoU2fvEV1XVXK-2BcjWJo=
+G9OQcTqAf9dY3SN0TiXVAppKIMruHr0YkddBPT9bwMAb-2BkTxNGU-2FFeV29voXmkbUAeh5t0e=
+PmSrQzHIt-2FwGk8nyHcvw3qc-2F5s6Csxwk6XQUkydDDji9CdYPtUE2BH8-2FSG9jXEnb7uuAi=
+IDj2T-2B8jgf2-2B6hnce83hvOtAXM-2FMQSvh4tWFs-2Bn26EGc7lXNYc2o2lD-2BN8-3D" st=
+yle=3D"background-color: #ffffff; border-radius: 8px; color: #000000; displ=
+ay: inline-block; font-family: helvetica, regular; font-size: 16px; line-he=
+ight: 25px; text-align: center; text-decoration: none; -webkit-text-size-ad=
+just: none; padding: 1% 5%; border: 2px solid black;"><strong>Redeem now</s=
+trong></a></div>
+                        <br><br>
+                      </td></tr>
+                     =20
+
+                       <tr style=3D"border-spacing: none; border-collapse: =
+collapse; margin: 0; padding: 0; border: none;"><td height=3D"20px" style=
+=3D"border-spacing: none; border-collapse: collapse; margin: 0; padding: 0;=
+ border: none;"></td></tr>
+                     <tr style=3D"border-spacing: none; border-collapse: co=
+llapse; margin: 0; padding: 0; border: none;">
+                        <td style=3D"border-spacing: none; border-collapse:=
+ collapse; margin: 0; padding: 0; border: none;">
+                          <a href=3D"http://clicks.meetup.com/ls/click?upn=
+=3DXbaZ37larFA-2FuV5MohrYpdrra25MtI4CzodbRR1Rd1naGDrTRUnsuHcmYlGWhxJCgLXscV=
+Cn647X-2FAyHm7fSrvFlO4wlfzAIvfsy2D7hfbIt-2BnTTM8AmVvLEknk-2BZQcDKf9Pn10m0f2=
+7oyK6Xgauzz9VTEh2CCoM1MVKEurMHFNBURRo-2BdtyRtmwAt8NNOs4bnY7y56Ehsvx3jl6YmLm=
+qCje6Pe4FpeCeIBNl7CX2C-2FEPMEUqRtld0wz-2BiCNJuOJM6BARP5-2B6VU4lYuPtW296w-3D=
+-3D0Cv8_TUDo-2BBITdlVAPSUyyUbSUeLF6fWHoyeXCPF9-2FJ384Gy7KQlSZrisOJtLJmkbKxN=
+dzjfHMx0rJa6ughNje-2BSC7CXPqHWdfH9YdExUDPjUM5MFFna4ZG4QgPIT5yTpOf-2B-2BxU1H=
+3uV6McyZE-2F531mrA-2Fmj-2FK0xSdZ5a-2FzroBR0TWFrckA-2BBST8A-2BnSe0MdPFnd5rah=
+F3V-2FMFTDqpQcJ81lWCW8Qui93Z5aeSVekYHinF2S7aatvTJqNFqkrXx44VO62z8m0DkaDTQEt=
+nGAmcx7pQvLBBdBHl2VRfizCwFktghHMoI7roIrqnUBECijKtzYj5MLX7Uv8uQoAiEfYbw3yG6q=
+-2Be-2BySY0lx-2BfxTxSp56mh8iO-2BWCRufkYOr-2F57kiYIfS6zGObXjXA8xiWbjy5Y2e-2F=
+vZAjaO8VcWglcG0QKX7f2UfOyuQi0yU2W79a3l7baLDtQbhD4GuG-2Bk0IxVHbsoU2fvEV1XVXK=
+-2BcjWJoG9OQcTqAf9dY3SN0TiXVAppKIMruHr0YkddBPT9bwMAb-2BkTxM-2FW903zH8RbLsPq=
+N6HROI7Xi4ObdtBq4sgNLlCD2jYTvWpP0eW9MqFnXeLe38z1A3kWpr-2FMt7sXvFa0YV8F53oME=
+W6KzURz4zgtQvl89az6acxMf3qQrbFHu9h9kL7MdBpaex-2BXuq6GQTJktBnO41o-3D">
+                        <img src=3D"https://braze-images.com/appboy/communi=
+cation/assets/image_assets/images/6410a9fc41a20f489b8e08f1/original.jpeg?16=
+78813692" style=3D"width: 100%;"></a>
+                        <br><br>
+                      </td></tr>
+
+                       <tr style=3D"border-spacing: none; border-collapse: =
+collapse; margin: 0; padding: 0; border: none;"><td height=3D"20px" style=
+=3D"border-spacing: none; border-collapse: collapse; margin: 0; padding: 0;=
+ border: none;"></td></tr>
+                     <tr style=3D"border-spacing: none; border-collapse: co=
+llapse; margin: 0; padding: 0; border: none;">
+                        <td style=3D"border-spacing: none; border-collapse:=
+ collapse; margin: 0; padding: 0; border: none;">
+                          <a href=3D"http://clicks.meetup.com/ls/click?upn=
+=3DXbaZ37larFA-2FuV5MohrYpdrra25MtI4CzodbRR1Rd1kM07ClxzQKI6zPuglWSSa7tm7q-2=
+F9yRLboecVw2sdI0FQbHd02hqkHKkcrBvl1WqhgBVLFdhurXrxAHVn7raI4ElxqKpCPykz6yj-2=
+FLj6PdBIa2VTAGaoWA-2Frsqz70jlIoNW6-2Fo-2FStqHEylH4kwuZMJxddnoVyC-2F5ogDcQlc=
+FQVDwyZ-2B3MP9tUcxsAM2toaAxBzzOsyzdJNzSEqnwnWS3zyICpwNrPHKOLvEH5NyWJr-2BP-2=
+FlaO3qqKQ6LthXy6dpos1g-3DiQv__TUDo-2BBITdlVAPSUyyUbSUeLF6fWHoyeXCPF9-2FJ384=
+Gy7KQlSZrisOJtLJmkbKxNdzjfHMx0rJa6ughNje-2BSC7CXPqHWdfH9YdExUDPjUM5MFFna4ZG=
+4QgPIT5yTpOf-2B-2BxU1H3uV6McyZE-2F531mrA-2Fmj-2FK0xSdZ5a-2FzroBR0TWFrckA-2B=
+BST8A-2BnSe0MdPFnd5rahF3V-2FMFTDqpQcJ81lWCW8Qui93Z5aeSVekYHinF2S7aatvTJqNFq=
+krXx44VO62z8m0DkaDTQEtnGAmcx7pQvLBBdBHl2VRfizCwFktghHMoI7roIrqnUBECijKtzYj5=
+MLX7Uv8uQoAiEfYbw3yG6q-2Be-2BySY0lx-2BfxTxSp56mh8iO-2BWCRufkYOr-2F57kiYIfS6=
+zGObXjXA8xiWbjy5Y2e-2FvZAjaO8VcWglcG0QKX7f2UfOyuQi0yU2W79a3l7baLDtQbhD4GuG-=
+2Bk0IxVHbsoU2fvEV1XVXK-2BcjWJoG9OQcTqAf9dY3SN0TiXVAppKIMruHr0YkddBPT9bwMAb-=
+2BkTxNkQ0tI-2Bpa7YMPtsF7c2H3BgsSuG7OhceNGYuGx1WBfVoqn6l6ue0sQZp3VQVpkfkKBEj=
+MArjihJ7YVuOMtrtkgA5bsUq-2FyvJaAwQF4S3mYZ1W3QzmoluxEoJHzh-2FlPKTHv61QihfWXo=
+L8GxGdX-2FxP8-3D">
+                        <img src=3D"https://braze-images.com/appboy/communi=
+cation/assets/image_assets/images/6410aaa669c1ab344dd7b44f/original.jpeg?16=
+78813862" style=3D"width: 100%;"></a>
+                        <br>
+                        <br><h3 class=3D"body-title" style=3D"border-spacin=
+g: none; border-collapse: collapse; color: #2a414a; font-family: helvetica,=
+Neue,Bold; font-size: 36px; line-height: 37px; margin: 0 0 5px; padding: 0;=
+ border: none;" align=3D"left"><span style=3D"font-size: 26px; text-align: =
+left; font-weight: bold;"><a href=3D"http://clicks.meetup.com/ls/click?upn=
+=3DXbaZ37larFA-2FuV5MohrYpdrra25MtI4CzodbRR1Rd1kM07ClxzQKI6zPuglWSSa7tm7q-2=
+F9yRLboecVw2sdI0FQbHd02hqkHKkcrBvl1WqhgBVLFdhurXrxAHVn7raI4ElxqKpCPykz6yj-2=
+FLj6PdBIa2VTAGaoWA-2Frsqz70jlIoNW6-2Fo-2FStqHEylH4kwuZMJxddnoVyC-2F5ogDcQlc=
+FQVDwyZ-2B3MP9tUcxsAM2toaAxBzzOsyzdJNzSEqnwnWS3zyICpwNrPHKOLvEH5NyWJr-2BP-2=
+FlaO3qqKQ6LthXy6dpos1g-3DRSC7_TUDo-2BBITdlVAPSUyyUbSUeLF6fWHoyeXCPF9-2FJ384=
+Gy7KQlSZrisOJtLJmkbKxNdzjfHMx0rJa6ughNje-2BSC7CXPqHWdfH9YdExUDPjUM5MFFna4ZG=
+4QgPIT5yTpOf-2B-2BxU1H3uV6McyZE-2F531mrA-2Fmj-2FK0xSdZ5a-2FzroBR0TWFrckA-2B=
+BST8A-2BnSe0MdPFnd5rahF3V-2FMFTDqpQcJ81lWCW8Qui93Z5aeSVekYHinF2S7aatvTJqNFq=
+krXx44VO62z8m0DkaDTQEtnGAmcx7pQvLBBdBHl2VRfizCwFktghHMoI7roIrqnUBECijKtzYj5=
+MLX7Uv8uQoAiEfYbw3yG6q-2Be-2BySY0lx-2BfxTxSp56mh8iO-2BWCRufkYOr-2F57kiYIfS6=
+zGObXjXA8xiWbjy5Y2e-2FvZAjaO8VcWglcG0QKX7f2UfOyuQi0yU2W79a3l7baLDtQbhD4GuG-=
+2Bk0IxVHbsoU2fvEV1XVXK-2BcjWJoG9OQcTqAf9dY3SN0TiXVAppKIMruHr0YkddBPT9bwMAb-=
+2BkTxHyMhN638BCyMDW5Cf9aeEjdpMX2a0oMPYMh051-2BdArpSMIzmR8bVbDLOdX5RE-2BU8AP=
+HVtu33IBLhRiTR6PWmdeCA-2Fd5fra762fNV4srW2-2FVnaAZeez3E-2FhLU6WH-2FM-2F7P6TZ=
+Lrg6X7yjTkBchWlMk1U-3D" style=3D"text-decoration: none; color: black;">Epis=
+ode 58 | Listen Up: How to Build Rapport</a></span></h3>
+                        <p class=3D"body-text" style=3D"border-spacing: non=
+e; border-collapse: collapse; color: #697a80; font-family: helvetica,Neue,M=
+edium; font-size: 16px; line-height: 28px; margin: 0; padding: 0; border: n=
+one;" align=3D"left">An expert UX researcher explains the art of listening =
+on the Keep Connected podcast. Learn how to stay engaged and ask the right =
+questions to build trust in conversations.</p>
+                          <br><div><a class=3D"button-learn-more" href=3D"h=
+ttp://clicks.meetup.com/ls/click?upn=3DXbaZ37larFA-2FuV5MohrYpdrra25MtI4Czo=
+dbRR1Rd1kM07ClxzQKI6zPuglWSSa7tm7q-2F9yRLboecVw2sdI0FQbHd02hqkHKkcrBvl1Wqhg=
+BVLFdhurXrxAHVn7raI4ElxqKpCPykz6yj-2FLj6PdBIa2VTAGaoWA-2Frsqz70jlIoNW6-2Fo-=
+2FStqHEylH4kwuZMJxddnoVyC-2F5ogDcQlcFQVDwyZ-2B3MP9tUcxsAM2toaAxBzzOsyzdJNzS=
+EqnwnWS3zyICpwNrPHKOLvEH5NyWJr-2BP-2FlaO3qqKQ6LthXy6dpos1g-3Duir1_TUDo-2BBI=
+TdlVAPSUyyUbSUeLF6fWHoyeXCPF9-2FJ384Gy7KQlSZrisOJtLJmkbKxNdzjfHMx0rJa6ughNj=
+e-2BSC7CXPqHWdfH9YdExUDPjUM5MFFna4ZG4QgPIT5yTpOf-2B-2BxU1H3uV6McyZE-2F531mr=
+A-2Fmj-2FK0xSdZ5a-2FzroBR0TWFrckA-2BBST8A-2BnSe0MdPFnd5rahF3V-2FMFTDqpQcJ81=
+lWCW8Qui93Z5aeSVekYHinF2S7aatvTJqNFqkrXx44VO62z8m0DkaDTQEtnGAmcx7pQvLBBdBHl=
+2VRfizCwFktghHMoI7roIrqnUBECijKtzYj5MLX7Uv8uQoAiEfYbw3yG6q-2Be-2BySY0lx-2Bf=
+xTxSp56mh8iO-2BWCRufkYOr-2F57kiYIfS6zGObXjXA8xiWbjy5Y2e-2FvZAjaO8VcWglcG0QK=
+X7f2UfOyuQi0yU2W79a3l7baLDtQbhD4GuG-2Bk0IxVHbsoU2fvEV1XVXK-2BcjWJoG9OQcTqAf=
+9dY3SN0TiXVAppKIMruHr0YkddBPT9bwMAb-2BkTxEiTpBmDV3lOHERfr1mkFbzKp-2Bn3gcvUg=
+SRfX4XfihNIkOj-2BZg92rvcmuia5uyrGjduENWhhhvIYRJu5nYAplCU3u09EqVJjjuJg8beRJJ=
+nvnSvM8WgtHoZK-2FiFIPr5XtW47iDu35lV9wjRB84Qg8no-3D" style=3D"background-col=
+or: #ffffff; border-radius: 8px; color: #000000; display: inline-block; fon=
+t-family: helvetica, regular; font-size: 16px; line-height: 25px; text-alig=
+n: center; text-decoration: none; -webkit-text-size-adjust: none; padding: =
+1% 5%; border: 2px solid black;"><strong>Read more</strong></a></div>
+                        <br><br>
+                      </td></tr>
+                     =20
+                      <tr style=3D"border-spacing: none; border-collapse: c=
+ollapse; margin: 0; padding: 0; border: none;"><td height=3D"20px" style=3D=
+"border-spacing: none; border-collapse: collapse; margin: 0; padding: 0; bo=
+rder: none;"></td></tr>
+                     <tr style=3D"border-spacing: none; border-collapse: co=
+llapse; margin: 0; padding: 0; border: none;">
+                        <td style=3D"border-spacing: none; border-collapse:=
+ collapse; margin: 0; padding: 0; border: none;">
+                          <a href=3D"http://clicks.meetup.com/ls/click?upn=
+=3DXbaZ37larFA-2FuV5MohrYpdrra25MtI4CzodbRR1Rd1n3XuqoA4CWN3xd8s2qpccW0h4dI9=
+OcwTVlxQk3xb5k6ilLuppuhVmb-2F9Iu8ylij-2BrfMBCIoG5BUprcA43n2TdLgeUQPKLlNqiR0=
+G3UlJb8nwNA6E-2F7-2BxzLRPXcEIvwGZKyo56mBJ7FaIYKnGLAT8YnYezpt27PO6efMD0AgxU7=
+puBBhWHC0lkdrUtC0xbtxzC5-2B-2FGIytEqXaeCsQe5TpD1PYkzvA5e-2FV31bxULYpEzsphJB=
+MQyveHsO1Ez4UQ5mgA-3DStin_TUDo-2BBITdlVAPSUyyUbSUeLF6fWHoyeXCPF9-2FJ384Gy7K=
+QlSZrisOJtLJmkbKxNdzjfHMx0rJa6ughNje-2BSC7CXPqHWdfH9YdExUDPjUM5MFFna4ZG4QgP=
+IT5yTpOf-2B-2BxU1H3uV6McyZE-2F531mrA-2Fmj-2FK0xSdZ5a-2FzroBR0TWFrckA-2BBST8=
+A-2BnSe0MdPFnd5rahF3V-2FMFTDqpQcJ81lWCW8Qui93Z5aeSVekYHinF2S7aatvTJqNFqkrXx=
+44VO62z8m0DkaDTQEtnGAmcx7pQvLBBdBHl2VRfizCwFktghHMoI7roIrqnUBECijKtzYj5MLX7=
+Uv8uQoAiEfYbw3yG6q-2Be-2BySY0lx-2BfxTxSp56mh8iO-2BWCRufkYOr-2F57kiYIfS6zGOb=
+XjXA8xiWbjy5Y2e-2FvZAjaO8VcWglcG0QKX7f2UfOyuQi0yU2W79a3l7baLDtQbhD4GuG-2Bk0=
+IxVHbsoU2fvEV1XVXK-2BcjWJoG9OQcTqAf9dY3SN0TiXVAppKIMruHr0YkddBPT9bwMAb-2BkT=
+xLb-2BlExmQlS35AAT92gTUjCaYIt-2B2I5f-2FxQw2n7Ib-2F-2Bd6U3fXQYFxXCJ3KpyuxjHp=
+3pn9wmbW2WtN-2FedjC-2BJ2BTR1vC95moeFU-2FNUCd-2F2XYF-2FF5-2BBXdxxfL2Od4E-2Fb=
+dFy3Fx75p-2F-2FBe9vd0L928gJEY-3D">
+                        <img src=3D"https://braze-images.com/appboy/communi=
+cation/assets/image_assets/images/6410ae8dc2e1e35d9587679d/original.jpeg?16=
+78814861" style=3D"width: 100%;"></a>
+                        <br>
+                        <br><h3 class=3D"body-title" style=3D"border-spacin=
+g: none; border-collapse: collapse; color: #2a414a; font-family: helvetica,=
+Neue,Bold; font-size: 36px; line-height: 37px; margin: 0 0 5px; padding: 0;=
+ border: none;" align=3D"left"><span style=3D"font-size: 26px; text-align: =
+left; font-weight: bold;"><a href=3D"http://clicks.meetup.com/ls/click?upn=
+=3DXbaZ37larFA-2FuV5MohrYpdrra25MtI4CzodbRR1Rd1n3XuqoA4CWN3xd8s2qpccW0h4dI9=
+OcwTVlxQk3xb5k6ilLuppuhVmb-2F9Iu8ylij-2BrfMBCIoG5BUprcA43n2TdLgeUQPKLlNqiR0=
+G3UlJb8nwNA6E-2F7-2BxzLRPXcEIvwGZKyo56mBJ7FaIYKnGLAT8YnYezpt27PO6efMD0AgxU7=
+puBBhWHC0lkdrUtC0xbtxzC5-2B-2FGIytEqXaeCsQe5TpD1PYkzvA5e-2FV31bxULYpEzsphJB=
+MQyveHsO1Ez4UQ5mgA-3DBm0U_TUDo-2BBITdlVAPSUyyUbSUeLF6fWHoyeXCPF9-2FJ384Gy7K=
+QlSZrisOJtLJmkbKxNdzjfHMx0rJa6ughNje-2BSC7CXPqHWdfH9YdExUDPjUM5MFFna4ZG4QgP=
+IT5yTpOf-2B-2BxU1H3uV6McyZE-2F531mrA-2Fmj-2FK0xSdZ5a-2FzroBR0TWFrckA-2BBST8=
+A-2BnSe0MdPFnd5rahF3V-2FMFTDqpQcJ81lWCW8Qui93Z5aeSVekYHinF2S7aatvTJqNFqkrXx=
+44VO62z8m0DkaDTQEtnGAmcx7pQvLBBdBHl2VRfizCwFktghHMoI7roIrqnUBECijKtzYj5MLX7=
+Uv8uQoAiEfYbw3yG6q-2Be-2BySY0lx-2BfxTxSp56mh8iO-2BWCRufkYOr-2F57kiYIfS6zGOb=
+XjXA8xiWbjy5Y2e-2FvZAjaO8VcWglcG0QKX7f2UfOyuQi0yU2W79a3l7baLDtQbhD4GuG-2Bk0=
+IxVHbsoU2fvEV1XVXK-2BcjWJoG9OQcTqAf9dY3SN0TiXVAppKIMruHr0YkddBPT9bwMAb-2BkT=
+xIiVfZK077IHtUWsd0iSNHs8-2BS12AaB9c-2B-2BmELP-2BxCvHlrtFo9-2Ff7-2FYYy4uSMcN=
+OItohQ7BvhdpbEi7guQYsR48P014Rw5G-2FXKHCpudS81s8CEq6iaU62hEgG0O4M-2F785-2FcL=
+a0d0A4ntVfdGepGfAPk-3D" style=3D"text-decoration: none; color: black;">Reco=
+rding | Beyond Salary: Negotiating Your Next Tech Offer</a></span></h3>
+                        <p class=3D"body-text" style=3D"border-spacing: non=
+e; border-collapse: collapse; color: #697a80; font-family: helvetica,Neue,M=
+edium; font-size: 16px; line-height: 28px; margin: 0; padding: 0; border: n=
+one;" align=3D"left">Learn how to research salary trends and make the case =
+to your future employer to get the compensation you deserve.</p>
+                          <br><div><a class=3D"button-learn-more" href=3D"h=
+ttp://clicks.meetup.com/ls/click?upn=3DXbaZ37larFA-2FuV5MohrYpdrra25MtI4Czo=
+dbRR1Rd1n3XuqoA4CWN3xd8s2qpccW0h4dI9OcwTVlxQk3xb5k6ilLuppuhVmb-2F9Iu8ylij-2=
+BrfMBCIoG5BUprcA43n2TdLgeUQPKLlNqiR0G3UlJb8nwNA6E-2F7-2BxzLRPXcEIvwGZKyo56m=
+BJ7FaIYKnGLAT8YnYezpt27PO6efMD0AgxU7puBBhWHC0lkdrUtC0xbtxzC5-2B-2FGIytEqXae=
+CsQe5TpD1PYkzvA5e-2FV31bxULYpEzsphJBMQyveHsO1Ez4UQ5mgA-3D9OnN_TUDo-2BBITdlV=
+APSUyyUbSUeLF6fWHoyeXCPF9-2FJ384Gy7KQlSZrisOJtLJmkbKxNdzjfHMx0rJa6ughNje-2B=
+SC7CXPqHWdfH9YdExUDPjUM5MFFna4ZG4QgPIT5yTpOf-2B-2BxU1H3uV6McyZE-2F531mrA-2F=
+mj-2FK0xSdZ5a-2FzroBR0TWFrckA-2BBST8A-2BnSe0MdPFnd5rahF3V-2FMFTDqpQcJ81lWCW=
+8Qui93Z5aeSVekYHinF2S7aatvTJqNFqkrXx44VO62z8m0DkaDTQEtnGAmcx7pQvLBBdBHl2VRf=
+izCwFktghHMoI7roIrqnUBECijKtzYj5MLX7Uv8uQoAiEfYbw3yG6q-2Be-2BySY0lx-2BfxTxS=
+p56mh8iO-2BWCRufkYOr-2F57kiYIfS6zGObXjXA8xiWbjy5Y2e-2FvZAjaO8VcWglcG0QKX7f2=
+UfOyuQi0yU2W79a3l7baLDtQbhD4GuG-2Bk0IxVHbsoU2fvEV1XVXK-2BcjWJoG9OQcTqAf9dY3=
+SN0TiXVAppKIMruHr0YkddBPT9bwMAb-2BkTxMxI8nyoPgusBtPlx-2BLTE-2BGkK-2By43waxU=
+LxXI3XWbBA-2FQ1t1PbujKAg8bHTDl-2BLcGmOFXNRCvPiW79YLeaYaPPtKczvP9cXN5H-2BLdC=
+GehAP1HGsWESkzMaXEgUmBRpWTDQjrVx9dWdhq1WZcDUgCpJ0-3D" style=3D"background-c=
+olor: #ffffff; border-radius: 8px; color: #000000; display: inline-block; f=
+ont-family: helvetica, regular; font-size: 16px; line-height: 25px; text-al=
+ign: center; text-decoration: none; -webkit-text-size-adjust: none; padding=
+: 1% 5%; border: 2px solid black;"><strong>Read more</strong></a></div>
+                        <br><br>
+                      </td></tr>
+                     =20
+                      <tr style=3D"border-spacing: none; border-collapse: c=
+ollapse; margin: 0; padding: 0; border: none;"><td height=3D"20px" style=3D=
+"border-spacing: none; border-collapse: collapse; margin: 0; padding: 0; bo=
+rder: none;"></td></tr>
+                     <tr style=3D"border-spacing: none; border-collapse: co=
+llapse; margin: 0; padding: 0; border: none;">
+                        <td style=3D"border-spacing: none; border-collapse:=
+ collapse; margin: 0; padding: 0; border: none;">
+                          <a href=3D"http://clicks.meetup.com/ls/click?upn=
+=3DXbaZ37larFA-2FuV5MohrYpdrra25MtI4CzodbRR1Rd1kJKbrc4FxdqRbSoWGgUX54UFt5NS=
+CeAQByKKMGhZ7qCAi2gMiGsUhcZblA8f5-2BC8iBqpPOamygFC1Ee5gxDDqwx8P-2F1rR-2BhLc=
+LEwn1vk32FqR8CR8XN2xD8RlwyzHNyWJgBHj3h4OIT-2BkAxB3BjRJjBzFJq-2BdG0G0Ym8Ejjt=
+UPhweweyY7hbl8T-2F-2BmPMxQKeycGuH40Gam8Vz134Q1OVSJjpIQIAoSSaL4lAKNtfxqR1CwY=
+eVAwHXaJaVhEgojcFaGhZxnyY9ygpq180XLFdRPFN0E_TUDo-2BBITdlVAPSUyyUbSUeLF6fWHo=
+yeXCPF9-2FJ384Gy7KQlSZrisOJtLJmkbKxNdzjfHMx0rJa6ughNje-2BSC7CXPqHWdfH9YdExU=
+DPjUM5MFFna4ZG4QgPIT5yTpOf-2B-2BxU1H3uV6McyZE-2F531mrA-2Fmj-2FK0xSdZ5a-2Fzr=
+oBR0TWFrckA-2BBST8A-2BnSe0MdPFnd5rahF3V-2FMFTDqpQcJ81lWCW8Qui93Z5aeSVekYHin=
+F2S7aatvTJqNFqkrXx44VO62z8m0DkaDTQEtnGAmcx7pQvLBBdBHl2VRfizCwFktghHMoI7roIr=
+qnUBECijKtzYj5MLX7Uv8uQoAiEfYbw3yG6q-2Be-2BySY0lx-2BfxTxSp56mh8iO-2BWCRufkY=
+Or-2F57kiYIfS6zGObXjXA8xiWbjy5Y2e-2FvZAjaO8VcWglcG0QKX7f2UfOyuQi0yU2W79a3l7=
+baLDtQbhD4GuG-2Bk0IxVHbsoU2fvEV1XVXK-2BcjWJoG9OQcTqAf9dY3SN0TiXVAppKIMruHr0=
+YkddBPT9bwMAb-2BkTxNRhf4B2zFazb4HtB7VIOeU-2BW76fdYVBMtqGLtoV8F-2BgtGe3bCASU=
+FWW2Do6E0-2B5uyvjnx7T-2BfxU4Q3SHGS2-2FSwmMXqC881jQWuVrE2SqXniPHbaAwyIiiXaoD=
+qcXEuKGOY19QAFUWwc4gCTg77G7D8-3D">
+                        <img src=3D"https://braze-images.com/appboy/communi=
+cation/assets/image_assets/images/6410ab3e69305e4cbb03e64c/original.jpeg?16=
+78814014" style=3D"width: 100%;"></a>
+                        <br>
+                        <br><h3 class=3D"body-title" style=3D"border-spacin=
+g: none; border-collapse: collapse; color: #2a414a; font-family: helvetica,=
+Neue,Bold; font-size: 36px; line-height: 37px; margin: 0 0 5px; padding: 0;=
+ border: none;" align=3D"left"><span style=3D"font-size: 26px; text-align: =
+left; font-weight: bold;"><a href=3D"http://clicks.meetup.com/ls/click?upn=
+=3DXbaZ37larFA-2FuV5MohrYpdrra25MtI4CzodbRR1Rd1kJKbrc4FxdqRbSoWGgUX54UFt5NS=
+CeAQByKKMGhZ7qCAi2gMiGsUhcZblA8f5-2BC8iBqpPOamygFC1Ee5gxDDqwx8P-2F1rR-2BhLc=
+LEwn1vk32FqR8CR8XN2xD8RlwyzHNyWJgBHj3h4OIT-2BkAxB3BjRJjBzFJq-2BdG0G0Ym8Ejjt=
+UPhweweyY7hbl8T-2F-2BmPMxQKeycGuH40Gam8Vz134Q1OVSJjpIQIAoSSaL4lAKNtfxqR1CwY=
+eVAwHXaJaVhEgojcFaGhZxnyY9ygpq180XLFdRPLbIw_TUDo-2BBITdlVAPSUyyUbSUeLF6fWHo=
+yeXCPF9-2FJ384Gy7KQlSZrisOJtLJmkbKxNdzjfHMx0rJa6ughNje-2BSC7CXPqHWdfH9YdExU=
+DPjUM5MFFna4ZG4QgPIT5yTpOf-2B-2BxU1H3uV6McyZE-2F531mrA-2Fmj-2FK0xSdZ5a-2Fzr=
+oBR0TWFrckA-2BBST8A-2BnSe0MdPFnd5rahF3V-2FMFTDqpQcJ81lWCW8Qui93Z5aeSVekYHin=
+F2S7aatvTJqNFqkrXx44VO62z8m0DkaDTQEtnGAmcx7pQvLBBdBHl2VRfizCwFktghHMoI7roIr=
+qnUBECijKtzYj5MLX7Uv8uQoAiEfYbw3yG6q-2Be-2BySY0lx-2BfxTxSp56mh8iO-2BWCRufkY=
+Or-2F57kiYIfS6zGObXjXA8xiWbjy5Y2e-2FvZAjaO8VcWglcG0QKX7f2UfOyuQi0yU2W79a3l7=
+baLDtQbhD4GuG-2Bk0IxVHbsoU2fvEV1XVXK-2BcjWJoG9OQcTqAf9dY3SN0TiXVAppKIMruHr0=
+YkddBPT9bwMAb-2BkTxG1u8BxFExggPT7CQMh5RiDpcWpqAtVPS0Pnc6wv3nUtQIHq-2BBmlkHc=
+Ot30G-2BHdEVL3OuxGUwDmwfVSWpkNy8825BeassSeck7gmsJXdzHHHRR9Hfa9hYq3ZFiXolIYx=
+dy80-2FPqthbPoVU29tflv6I4-3D" style=3D"text-decoration: none; color: black;=
+">March 2023 Meetup Community Building Office Hours</a></span></h3>
+                        <p class=3D"body-text" style=3D"border-spacing: non=
+e; border-collapse: collapse; color: #697a80; font-family: helvetica,Neue,M=
+edium; font-size: 16px; line-height: 28px; margin: 0; padding: 0; border: n=
+one;" align=3D"left">Discover the essentials you need to know about managin=
+g your group, hosting events, and making the most out of Meetup=E2=80=99s f=
+eatures.</p>
+                          <br><div><a class=3D"button-learn-more" href=3D"h=
+ttp://clicks.meetup.com/ls/click?upn=3DXbaZ37larFA-2FuV5MohrYpdrra25MtI4Czo=
+dbRR1Rd1kJKbrc4FxdqRbSoWGgUX54UFt5NSCeAQByKKMGhZ7qCAi2gMiGsUhcZblA8f5-2BC8i=
+BqpPOamygFC1Ee5gxDDqwx8P-2F1rR-2BhLcLEwn1vk32FqR8CR8XN2xD8RlwyzHNyWJgBHj3h4=
+OIT-2BkAxB3BjRJjBzFJq-2BdG0G0Ym8EjjtUPhweweyY7hbl8T-2F-2BmPMxQKeycGuH40Gam8=
+Vz134Q1OVSJjpIQIAoSSaL4lAKNtfxqR1CwYeVAwHXaJaVhEgojcFaGhZxnyY9ygpq180XLFdRP=
+AZ6v_TUDo-2BBITdlVAPSUyyUbSUeLF6fWHoyeXCPF9-2FJ384Gy7KQlSZrisOJtLJmkbKxNdzj=
+fHMx0rJa6ughNje-2BSC7CXPqHWdfH9YdExUDPjUM5MFFna4ZG4QgPIT5yTpOf-2B-2BxU1H3uV=
+6McyZE-2F531mrA-2Fmj-2FK0xSdZ5a-2FzroBR0TWFrckA-2BBST8A-2BnSe0MdPFnd5rahF3V=
+-2FMFTDqpQcJ81lWCW8Qui93Z5aeSVekYHinF2S7aatvTJqNFqkrXx44VO62z8m0DkaDTQEtnGA=
+mcx7pQvLBBdBHl2VRfizCwFktghHMoI7roIrqnUBECijKtzYj5MLX7Uv8uQoAiEfYbw3yG6q-2B=
+e-2BySY0lx-2BfxTxSp56mh8iO-2BWCRufkYOr-2F57kiYIfS6zGObXjXA8xiWbjy5Y2e-2FvZA=
+jaO8VcWglcG0QKX7f2UfOyuQi0yU2W79a3l7baLDtQbhD4GuG-2Bk0IxVHbsoU2fvEV1XVXK-2B=
+cjWJoG9OQcTqAf9dY3SN0TiXVAppKIMruHr0YkddBPT9bwMAb-2BkTxEFjmLdYLboRHl7mP5gPj=
+aGd2yUMwUG8vAcpVG0ky9z1wF8nL5dLO2vS5DFRBetbetOone-2BW53O6R9ghx2YrVHup8IxEBj=
+hhlVUCogZ9ahoz8ISXIm0Be1gT8eb65fsyQPDNVt4N-2FmTAp2LL1USZqik-3D" style=3D"ba=
+ckground-color: #ffffff; border-radius: 8px; color: #000000; display: inlin=
+e-block; font-family: helvetica, regular; font-size: 16px; line-height: 25p=
+x; text-align: center; text-decoration: none; -webkit-text-size-adjust: non=
+e; padding: 1% 5%; border: 2px solid black;"><strong>Read more</strong></a>=
+</div>
+                        <br><br>
+                      </td></tr>
+                      =20
+                    </tbody>
+                  </table>
+                  <!--[if (mso) | (IE)]>
+                          </td></tr>
+                          </table>
+                          </center>
+                        <![endif]--><!-- START CONTENT BLOCK  BUTTON--><!--=
+[if (mso) | (IE)]>
+                          <center>
+                          <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0">
+                          <tr><td width=3D"430">
+                        <![endif]-->
+                  <table width=3D"100%" style=3D"border-spacing: none; bord=
+er-collapse: collapse; margin: 0; padding: 0; border: none;">
+                    <tbody style=3D"border-spacing: none; border-collapse: =
+collapse; margin: 0; padding: 0; border: none;">
+                     <tr style=3D"border-spacing: none; border-collapse: co=
+llapse; margin: 0; padding: 0; border: none;">
+                              <td height=3D"10px" style=3D"border-spacing: =
+none; border-collapse: collapse; margin: 0; padding: 0; border: none;">
+                              </td>
+                            </tr>
+                       <tr style=3D"border-spacing: none; border-collapse: =
+collapse; margin: 0; padding: 0; border: none;"><td height=3D"20px" style=
+=3D"border-spacing: none; border-collapse: collapse; margin: 0; padding: 0;=
+ border: none;"></td></tr>
+                     =20
+                     <tr style=3D"border-spacing: none; border-collapse: co=
+llapse; margin: 0; padding: 0; border: none;">
+                         <td align=3D"center" class=3D"space-1" style=3D"bo=
+rder-spacing: none; border-collapse: collapse; margin: 0; padding: 40px 0 0=
+; border: none;" bgcolor=3D"#F6F7F9">
+                         <h4 class=3D"body-title" style=3D"border-spacing: =
+none; border-collapse: collapse; color: #2a414a; font-family: helvetica,Neu=
+e,Bold; font-size: 36px; line-height: 37px; margin: 0 0 5px; padding: 0; bo=
+rder: none;" align=3D"center"><span style=3D"font-size: 26px; text-align: c=
+enter; font-weight: bold;">Last Week's Articles</span></h4>
+                            <hr style=3D"height: 2px; color: #000; backgrou=
+nd-color: #787F8C; width: 15%; border-spacing: none; border-collapse: colla=
+pse; margin: 0; padding: 0; border: none;">
+                            <p class=3D"body-text" style=3D"color: #000000;=
+ border-spacing: none; border-collapse: collapse; font-family: helvetica,Ne=
+ue,Medium; font-size: 16px; line-height: 28px; margin: 20px; padding: 0; bo=
+rder: none;" align=3D"left"><a href=3D"http://clicks.meetup.com/ls/click?up=
+n=3DXbaZ37larFA-2FuV5MohrYpdrra25MtI4CzodbRR1Rd1llbiMO0-2BD-2FTOYXnltepaVIP=
+K0uqDhwoCqig6hCrP8B-2FMT7glE6k0kfd57sC7M-2FMxeWTQhPgxtQxdpXj6QmyxXidju01ml3=
+-2BW77FQAu33-2BKvKVTBK4Rj1mz1xcv331MrhLVYF6TSjG9Op8IK3074wLtum-2FhJRuoVVH1-=
+2FeD892ul-2BVg4x-2FSLC-2F0boBkZ34W522rbCVajAcZ9y5UXqcSXe-2BZljZzg-2FZuLSZCG=
+XYJc83l-2FgXmQV677bu0EpIjYE3WjHZE-3Dp5lR_TUDo-2BBITdlVAPSUyyUbSUeLF6fWHoyeX=
+CPF9-2FJ384Gy7KQlSZrisOJtLJmkbKxNdzjfHMx0rJa6ughNje-2BSC7CXPqHWdfH9YdExUDPj=
+UM5MFFna4ZG4QgPIT5yTpOf-2B-2BxU1H3uV6McyZE-2F531mrA-2Fmj-2FK0xSdZ5a-2FzroBR=
+0TWFrckA-2BBST8A-2BnSe0MdPFnd5rahF3V-2FMFTDqpQcJ81lWCW8Qui93Z5aeSVekYHinF2S=
+7aatvTJqNFqkrXx44VO62z8m0DkaDTQEtnGAmcx7pQvLBBdBHl2VRfizCwFktghHMoI7roIrqnU=
+BECijKtzYj5MLX7Uv8uQoAiEfYbw3yG6q-2Be-2BySY0lx-2BfxTxSp56mh8iO-2BWCRufkYOr-=
+2F57kiYIfS6zGObXjXA8xiWbjy5Y2e-2FvZAjaO8VcWglcG0QKX7f2UfOyuQi0yU2W79a3l7baL=
+DtQbhD4GuG-2Bk0IxVHbsoU2fvEV1XVXK-2BcjWJoG9OQcTqAf9dY3SN0TiXVAppKIMruHr0Ykd=
+dBPT9bwMAb-2BkTxNrpMxHitmZETUd0BajT6tCO5AyGK3g-2F1oNAYrpQCC36ixt-2FJrS7Shfw=
+jXdkG12BuD5q-2F6l79F2EY2BjEyngmMT-2BvMZLC4DhQdN8I-2BOuSedDVkTEryeH1-2BYhAAS=
+jQ4B1GIYOAnecY-2ByrRjYLST-2F7jZo-3D" style=3D"text-decoration: none; color:=
+ #57B0C6;">These novels, non-fiction books, and poetry collections </a>capt=
+ure the magic of a season teeming with new possibilities.
+                         <br>
+                         <br>A Meetup organizer discusses <a href=3D"http:/=
+/clicks.meetup.com/ls/click?upn=3DXbaZ37larFA-2FuV5MohrYpdrra25MtI4CzodbRR1=
+Rd1lxqxYkXYBBGOticeCJqAVWv1AIhncMKJe6OJ7T45IT6ao5dbXsPg17ctbwL-2FIWypnz5bC0=
+rD-2FcOAoTvid-2B9qBsoSOHRWr9fEBwcFxa-2F9KN5kA6s-2BvSGj8JkK7RUG4afRm-2F-2F8f=
+9tbWgnGU505l5Jwqj-2BONwZHQi5BUeNEJW3Oet3FnYyp0-2Bb6hVDkjC1YlBz-2B-2FLCdoMio=
+YbH9EDNutrL4kiM10S-2Fj1rlcwRxFexjVh3fA-3D-3DtFqS_TUDo-2BBITdlVAPSUyyUbSUeLF=
+6fWHoyeXCPF9-2FJ384Gy7KQlSZrisOJtLJmkbKxNdzjfHMx0rJa6ughNje-2BSC7CXPqHWdfH9=
+YdExUDPjUM5MFFna4ZG4QgPIT5yTpOf-2B-2BxU1H3uV6McyZE-2F531mrA-2Fmj-2FK0xSdZ5a=
+-2FzroBR0TWFrckA-2BBST8A-2BnSe0MdPFnd5rahF3V-2FMFTDqpQcJ81lWCW8Qui93Z5aeSVe=
+kYHinF2S7aatvTJqNFqkrXx44VO62z8m0DkaDTQEtnGAmcx7pQvLBBdBHl2VRfizCwFktghHMoI=
+7roIrqnUBECijKtzYj5MLX7Uv8uQoAiEfYbw3yG6q-2Be-2BySY0lx-2BfxTxSp56mh8iO-2BWC=
+RufkYOr-2F57kiYIfS6zGObXjXA8xiWbjy5Y2e-2FvZAjaO8VcWglcG0QKX7f2UfOyuQi0yU2W7=
+9a3l7baLDtQbhD4GuG-2Bk0IxVHbsoU2fvEV1XVXK-2BcjWJoG9OQcTqAf9dY3SN0TiXVAppKIM=
+ruHr0YkddBPT9bwMAb-2BkTxPzSzN99rUGBXS559G0-2FAsYpHCMaJ0tBnntiHzn6czvUidw97v=
+fCAHvToJGcsj4-2FUezke-2BVXJBOtzCCbW5OdlDBtOUC4ZkhWXT-2Bbhh4eb-2F6-2Fr28ZV5k=
+eshKs5mZc3L5fEYR2W4KAtkq9t2bioQys77o-3D" style=3D"text-decoration: none; co=
+lor: #57B0C6;">the human empowerment movement and his approach to finding f=
+ulfillment on the Keep Connected podcast.</a>
+                         <br>
+                         <br>Stay up to date with the <a href=3D"http://cli=
+cks.meetup.com/ls/click?upn=3DXbaZ37larFA-2FuV5MohrYpdrra25MtI4CzodbRR1Rd1n=
+1ATsmEGcbNYesath0Z-2F-2F6ZqviAH7oQegCG4E6E2FUWR8IQtYjKNCVRRYx7fs5rEem1X8Y3V=
+D-2BOUEePvl7hz-2FkTBckztYMGtSEYt6-2Fy2T66BQjorT44alLt1IVSfvrvh-2B6WKR7P1Hgg=
+VK2uz86r72FsuzK4cpTarn09FMuiaFfEKpK7B2swUqpfCoipIIPpHCkHeE3JS3eVKxIvlFa0w2G=
+CuwQRopOtcjB-2F1t6-2BW9lKw-3D-3DPqBF_TUDo-2BBITdlVAPSUyyUbSUeLF6fWHoyeXCPF9=
+-2FJ384Gy7KQlSZrisOJtLJmkbKxNdzjfHMx0rJa6ughNje-2BSC7CXPqHWdfH9YdExUDPjUM5M=
+FFna4ZG4QgPIT5yTpOf-2B-2BxU1H3uV6McyZE-2F531mrA-2Fmj-2FK0xSdZ5a-2FzroBR0TWF=
+rckA-2BBST8A-2BnSe0MdPFnd5rahF3V-2FMFTDqpQcJ81lWCW8Qui93Z5aeSVekYHinF2S7aat=
+vTJqNFqkrXx44VO62z8m0DkaDTQEtnGAmcx7pQvLBBdBHl2VRfizCwFktghHMoI7roIrqnUBECi=
+jKtzYj5MLX7Uv8uQoAiEfYbw3yG6q-2Be-2BySY0lx-2BfxTxSp56mh8iO-2BWCRufkYOr-2F57=
+kiYIfS6zGObXjXA8xiWbjy5Y2e-2FvZAjaO8VcWglcG0QKX7f2UfOyuQi0yU2W79a3l7baLDtQb=
+hD4GuG-2Bk0IxVHbsoU2fvEV1XVXK-2BcjWJoG9OQcTqAf9dY3SN0TiXVAppKIMruHr0YkddBPT=
+9bwMAb-2BkTxEQ9m3iMzXOY-2Frsu5xhZ2WJ8HqIdvdnY6xYEG8W5IgdEJr2-2FRYEfjE27vxk2=
+YIKlp1hMEjNulRIwrPQ-2F2YgVaABOW8q4pESF8Y0VCLTqKPN3Gj9-2FV6DJsbVEXRhHlaVIiLQ=
+ZJjTILQNv8bMC4h41V7k-3D" style=3D"text-decoration: none; color: #57B0C6;">l=
+atest updates and product releases from the Meetup team.</a>
+                         <br>
+                         <br>Learn how organizers have been using <a href=
+=3D"http://clicks.meetup.com/ls/click?upn=3DXbaZ37larFA-2FuV5MohrYpdrra25Mt=
+I4CzodbRR1Rd1kJKbrc4FxdqRbSoWGgUX54kyNf-2F4XXCwlHIxebYZv9MjaurD3ycC0titThFT=
+GfPGUs6xa2aPy9TgXxr20sk2-2F4ZcTYXXp0v5BRMX8c2ccOhUG39tHVqo-2B0MrIj9kPLmSLbT=
+xNONACAEl6bV4nzU-2FaQ-2BXQIlsXZh-2Fbl6avIbtF6vWlrdjNY3znEI-2BZGKewk4TnAXOXs=
+529X2rOpdLem4kZ2R7wI-2BsB0aCaRYiKsWWBu-2BoGlnt0TRMXTH4nUHZ2aKOc-3DTGg__TUDo=
+-2BBITdlVAPSUyyUbSUeLF6fWHoyeXCPF9-2FJ384Gy7KQlSZrisOJtLJmkbKxNdzjfHMx0rJa6=
+ughNje-2BSC7CXPqHWdfH9YdExUDPjUM5MFFna4ZG4QgPIT5yTpOf-2B-2BxU1H3uV6McyZE-2F=
+531mrA-2Fmj-2FK0xSdZ5a-2FzroBR0TWFrckA-2BBST8A-2BnSe0MdPFnd5rahF3V-2FMFTDqp=
+QcJ81lWCW8Qui93Z5aeSVekYHinF2S7aatvTJqNFqkrXx44VO62z8m0DkaDTQEtnGAmcx7pQvLB=
+BdBHl2VRfizCwFktghHMoI7roIrqnUBECijKtzYj5MLX7Uv8uQoAiEfYbw3yG6q-2Be-2BySY0l=
+x-2BfxTxSp56mh8iO-2BWCRufkYOr-2F57kiYIfS6zGObXjXA8xiWbjy5Y2e-2FvZAjaO8VcWgl=
+cG0QKX7f2UfOyuQi0yU2W79a3l7baLDtQbhD4GuG-2Bk0IxVHbsoU2fvEV1XVXK-2BcjWJoG9OQ=
+cTqAf9dY3SN0TiXVAppKIMruHr0YkddBPT9bwMAb-2BkTxNA9q89vXRuuzGItNpprRlKZPddQok=
+Lkc-2BT9Qn-2B9RnyxsxU-2F6TctZ-2BveFqlBV6vdkS6KPZUrytzwZ4rhLhDhQ7v46bTmdNFiV=
+jQrvbervT9g359pvu0Hzu-2BMabaOvK4-2F4KEDLn30x-2BRTtuhGKy4m-2Brk-3D" style=3D=
+"text-decoration: none; color: #57B0C6;">Meetup=E2=80=99s Fundraising tool =
+to receive voluntary donations from group members.</a>
+                         <br>
+                         =20
+                        =20
+                        =20
+                         </p>
+                        </td>
+                      </tr>
+                      <tr style=3D"border-spacing: none; border-collapse: c=
+ollapse; margin: 0; padding: 0; border: none;">
+                              <td height=3D"30px" style=3D"border-spacing: =
+none; border-collapse: collapse; margin: 0; padding: 0; border: none;">
+                              </td>
+                            </tr>
+                      <tr style=3D"border-spacing: none; border-collapse: c=
+ollapse; margin: 0; padding: 0; border: none;">
+                         <td align=3D"center" class=3D"space-1;" style=3D"b=
+order-spacing: none; border-collapse: collapse; margin: 0; padding: 0; bord=
+er: none;">
+                        <div><a class=3D"button-bottom" href=3D"http://clic=
+ks.meetup.com/ls/click?upn=3DXbaZ37larFA-2FuV5MohrYpdrra25MtI4CzodbRR1Rd1ny=
+ScVMWoP2AmgEshK8X94oMZlhxrAcEapY8SOqaUTU3uFWWoAx0c-2FOUPOwZcpmzQOC-2F6pVQ32=
+aHF-2FcKdVIpfOG9NNEtjeZqXw7UEzjjQOx9vgUQQ13FaTf-2F30aNNWfULTpHbUrissjjzHwtu=
+YhjDTWwk9N9-2FTCkmB0dRkEgNGw7PfMLSFREKWWyglHE0lblno-3DgMC1_TUDo-2BBITdlVAPS=
+UyyUbSUeLF6fWHoyeXCPF9-2FJ384Gy7KQlSZrisOJtLJmkbKxNdzjfHMx0rJa6ughNje-2BSC7=
+CXPqHWdfH9YdExUDPjUM5MFFna4ZG4QgPIT5yTpOf-2B-2BxU1H3uV6McyZE-2F531mrA-2Fmj-=
+2FK0xSdZ5a-2FzroBR0TWFrckA-2BBST8A-2BnSe0MdPFnd5rahF3V-2FMFTDqpQcJ81lWCW8Qu=
+i93Z5aeSVekYHinF2S7aatvTJqNFqkrXx44VO62z8m0DkaDTQEtnGAmcx7pQvLBBdBHl2VRfizC=
+wFktghHMoI7roIrqnUBECijKtzYj5MLX7Uv8uQoAiEfYbw3yG6q-2Be-2BySY0lx-2BfxTxSp56=
+mh8iO-2BWCRufkYOr-2F57kiYIfS6zGObXjXA8xiWbjy5Y2e-2FvZAjaO8VcWglcG0QKX7f2UfO=
+yuQi0yU2W79a3l7baLDtQbhD4GuG-2Bk0IxVHbsoU2fvEV1XVXK-2BcjWJoG9OQcTqAf9dY3SN0=
+TiXVAppKIMruHr0YkddBPT9bwMAb-2BkTxLKouEpFCOZyJSTGgkWc-2FLFhfoTiNkMSVOhjthGh=
+hj9Fmt39r436ASMJaffWD8AzjWoFwyOgQbr-2FF7DtJbRSn0FI-2F2JyQ8bko5gGfLE9MRaP5ua=
+-2BpOS9VtSWW1ZhFI35F7Dqd2PzQRfn4D9wi8iAMRc-3D" style=3D"background-color: #=
+ffffff; width: 75%; border-radius: 8px; color: #57B0C6; display: inline-blo=
+ck; font-family: helvetica, regular; font-size: 16px; line-height: 25px; te=
+xt-align: center; text-decoration: none; -webkit-text-size-adjust: none; pa=
+dding: 1% 5%; border: 2px solid #e6e6e6;"><strong>Read more stories</strong=
+></a></div><br>
+                        </td>
+                      </tr>
+                      <tr style=3D"border-spacing: none; border-collapse: c=
+ollapse; margin: 0; padding: 0; border: none;"><td height=3D"20px" style=3D=
+"border-spacing: none; border-collapse: collapse; margin: 0; padding: 0; bo=
+rder: none;"></td></tr>
+                      <tr style=3D"border-spacing: none; border-collapse: c=
+ollapse; margin: 0; padding: 0; border: none;">
+                        <td style=3D"border-spacing: none; border-collapse:=
+ collapse; margin: 0; padding: 0; border: none;">
+                           <a href=3D"http://clicks.meetup.com/ls/click?upn=
+=3DXbaZ37larFA-2FuV5MohrYpdrra25MtI4CzodbRR1Rd1kglvKpc4odOYEeNuU8h7kTAtSki4=
+GWdAzXa3gCYFlpgapRmbM-2FuRxkIi6XSHVNoGxUgPxqVujdDA-2BuUg-2BXaq8sIzt-2FKgQKd=
+PfJOQqeN-2FhFGu5kdxXr1JI0khYlTR2iMvbz3oBoki8gf9UHN21xEliF4Noe6mR0lSTGRlsAyF=
+UVG-2Bz-2Bf-2Fhl-2Bx-2BJdPLm0Tm4pVAggKVvB72WhEXTB5U0xg4tgIJp_TUDo-2BBITdlVA=
+PSUyyUbSUeLF6fWHoyeXCPF9-2FJ384Gy7KQlSZrisOJtLJmkbKxNdzjfHMx0rJa6ughNje-2BS=
+C7CXPqHWdfH9YdExUDPjUM5MFFna4ZG4QgPIT5yTpOf-2B-2BxU1H3uV6McyZE-2F531mrA-2Fm=
+j-2FK0xSdZ5a-2FzroBR0TWFrckA-2BBST8A-2BnSe0MdPFnd5rahF3V-2FMFTDqpQcJ81lWCW8=
+Qui93Z5aeSVekYHinF2S7aatvTJqNFqkrXx44VO62z8m0DkaDTQEtnGAmcx7pQvLBBdBHl2VRfi=
+zCwFktghHMoI7roIrqnUBECijKtzYj5MLX7Uv8uQoAiEfYbw3yG6q-2Be-2BySY0lx-2BfxTxSp=
+56mh8iO-2BWCRufkYOr-2F57kiYIfS6zGObXjXA8xiWbjy5Y2e-2FvZAjaO8VcWglcG0QKX7f2U=
+fOyuQi0yU2W79a3l7baLDtQbhD4GuG-2Bk0IxVHbsoU2fvEV1XVXK-2BcjWJoG9OQcTqAf9dY3S=
+N0TiXVAppKIMruHr0YkddBPT9bwMAb-2BkTxCscUW-2BHsRT0N9KvfabJ5BorChxL-2BL7ZLc-2=
+BsI-2F8C5OmRsQ0j-2Fuc7IJlBC26e8H1Ok2Jenzo3xEp5fWDrOaLHGfqJF6873-2F3HLQgFrU5=
+ZZbtxBFgUn3G5ZPgCJ9aPsTn5XAw-2BWvza0TvBFelAro6-2FSYI-3D">
+                        <img src=3D"https://braze-images.com/appboy/communi=
+cation/assets/image_assets/images/6255d123f5f42033bdd0e572/original.png?164=
+9791267" style=3D"width: 100%;"></a>
+                      </td></tr>
+                    </tbody>
+                  </table>
+                  <!--[if (mso) | (IE)]>
+                          </td></tr>
+                          </table>
+                          </center>
+                        <![endif]--><!-- END CONTENT BLOCK  BUTTON--><!-- E=
+ND CONTENT BLOCK  UPDATE--></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if (mso) | (IE)]>
+              </td></tr>
+              </table>
+              </center>
+            <![endif]--></td>
+          </tr>
+          <!-- END CONTENT BODY BLOCK --><!-- START OVER FOOTER BLOCK -->
+          <tr style=3D"border-spacing: none; border-collapse: collapse; mar=
+gin: 0; padding: 0; border: none;">
+            <td style=3D"border-spacing: none; border-collapse: collapse; m=
+argin: 0; padding: 0; border: none;"><!--[if (mso) | (IE)]>
+              <center>
+              <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0">
+              <tr><td width=3D"640">
+            <![endif]-->
+            <table align=3D"center" class=3D"bg-mobile" style=3D"max-width:=
+ 640px; width: 100%; border-spacing: none; border-collapse: collapse; margi=
+n: 0; padding: 0; border: none;" bgcolor=3D"#ffffff">
+              <tbody style=3D"border-spacing: none; border-collapse: collap=
+se; margin: 0; padding: 0; border: none;">
+             =20
+                <tr style=3D"border-spacing: none; border-collapse: collaps=
+e; margin: 0; padding: 0; border: none;">
+                  <td align=3D"center" class=3D"space-footer" style=3D"bord=
+er-spacing: none; border-collapse: collapse; margin: 0; padding: 60px 0 0; =
+border: none;">
+                  <table align=3D"center" width=3D"100%" style=3D"border-sp=
+acing: none; border-collapse: collapse; margin: 0; padding: 0; border: none=
+;">
+                    <tbody style=3D"border-spacing: none; border-collapse: =
+collapse; margin: 0; padding: 0; border: none;">
+                      <tr style=3D"border-spacing: none; border-collapse: c=
+ollapse; margin: 0; padding: 0; border: none;">
+                        <table align=3D"center" class=3D"footer-store" styl=
+e=3D"border-spacing: none; border-collapse: collapse; width: 94%; margin: 0=
+ auto; padding: 0; border: none;">
+                          <tbody style=3D"border-spacing: none; border-coll=
+apse: collapse; margin: 0; padding: 0; border: none;">
+                            <tr style=3D"border-spacing: none; border-colla=
+pse: collapse; margin: 0; padding: 0; border: none;">
+                              <td align=3D"right" style=3D"width: 50%; bord=
+er-spacing: none; border-collapse: collapse; margin: 0; padding: 0 5px 0 0;=
+ border: none;"><a href=3D"http://clicks.meetup.com/ls/click?upn=3DXbaZ37la=
+rFA-2FuV5MohrYpZmev6DrQOwiRvxtl1pL63pg7JcqRG1951THm2xXWVG-2BaeaXGlWf4pr7L-2=
+FopjdaRdA-3D-3D1Iyt_TUDo-2BBITdlVAPSUyyUbSUeLF6fWHoyeXCPF9-2FJ384Gy7KQlSZri=
+sOJtLJmkbKxNdzjfHMx0rJa6ughNje-2BSC7CXPqHWdfH9YdExUDPjUM5MFFna4ZG4QgPIT5yTp=
+Of-2B-2BxU1H3uV6McyZE-2F531mrA-2Fmj-2FK0xSdZ5a-2FzroBR0TWFrckA-2BBST8A-2BnS=
+e0MdPFnd5rahF3V-2FMFTDqpQcJ81lWCW8Qui93Z5aeSVekYHinF2S7aatvTJqNFqkrXx44VO62=
+z8m0DkaDTQEtnGAmcx7pQvLBBdBHl2VRfizCwFktghHMoI7roIrqnUBECijKtzYj5MLX7Uv8uQo=
+AiEfYbw3yG6q-2Be-2BySY0lx-2BfxTxSp56mh8iO-2BWCRufkYOr-2F57kiYIfS6zGObXjXA8x=
+iWbjy5Y2e-2FvZAjaO8VcWglcG0QKX7f2UfOyuQi0yU2W79a3l7baLDtQbhD4GuG-2Bk0IxVHbs=
+oU2fvEV1XVXK-2BcjWJoG9OQcTqAf9dY3SN0TiXVAppKIMruHr0YkddBPT9bwMAb-2BkTxAomRh=
+2pACMBHBOeOlEa4kXv5ctWJuCKw4T4B4nCRhbZsdkMqQc26TWkCBthIUGa3Kr7qhrA-2BkgdpD3=
+25i63hp5c8nAzhiFxY8R47F-2FYJc3w-2BYNknLnrbmrqb2tnrFOfAKL-2BU-2FW6yRhbctRp6q=
+0aNCs-3D"><img alt=3D"iPhone App Store" border=3D"=E2=80=9D0=E2=80=B3" clas=
+s=3D"app-logo" src=3D"https://secure.meetupstatic.com/s/img/app_download/io=
+s/download.en.png" width=3D"160" style=3D"max-width: 160px; width: 95%;"> <=
+/a></td>
+                              <td align=3D"left" style=3D"width: 50%; borde=
+r-spacing: none; border-collapse: collapse; margin: 0; padding: 0 0 0 5px; =
+border: none;"><a href=3D"http://clicks.meetup.com/ls/click?upn=3D8Y2vsX5dS=
+U9BIj3r0FDX3kuj5bdG4U9taHSR2QQEr421RrMdQB-2BqvlHbE0A456-2FNTj6weBkE4s-2BxJ0=
+WK2LdJ0YfSx8ppD2lE6op9jlCoFAA-3DmbQI_TUDo-2BBITdlVAPSUyyUbSUeLF6fWHoyeXCPF9=
+-2FJ384Gy7KQlSZrisOJtLJmkbKxNdzjfHMx0rJa6ughNje-2BSC7CXPqHWdfH9YdExUDPjUM5M=
+FFna4ZG4QgPIT5yTpOf-2B-2BxU1H3uV6McyZE-2F531mrA-2Fmj-2FK0xSdZ5a-2FzroBR0TWF=
+rckA-2BBST8A-2BnSe0MdPFnd5rahF3V-2FMFTDqpQcJ81lWCW8Qui93Z5aeSVekYHinF2S7aat=
+vTJqNFqkrXx44VO62z8m0DkaDTQEtnGAmcx7pQvLBBdBHl2VRfizCwFktghHMoI7roIrqnUBECi=
+jKtzYj5MLX7Uv8uQoAiEfYbw3yG6q-2Be-2BySY0lx-2BfxTxSp56mh8iO-2BWCRufkYOr-2F57=
+kiYIfS6zGObXjXA8xiWbjy5Y2e-2FvZAjaO8VcWglcG0QKX7f2UfOyuQi0yU2W79a3l7baLDtQb=
+hD4GuG-2Bk0IxVHbsoU2fvEV1XVXK-2BcjWJoG9OQcTqAf9dY3SN0TiXVAppKIMruHr0YkddBPT=
+9bwMAb-2BkTxMXu9eHbyNwFwOs8CV2uCwfcliAjsd8eTjZht1FO0-2B1OPc9-2FO11SK47epIfH=
+uWTBqx2x5Qxhp3nVoiMKqJG77j1bbQtOmagIM0i-2FSrjaQE0T6wXPAs8K13zGO-2FLF18dVdUQ=
+r-2BLqZbBNyKsjzWIsVtXM-3D"><img alt=3D"Google Play" border=3D"=E2=80=9D0=E2=
+=80=B3" class=3D"app-logo" src=3D"https://secure.meetupstatic.com/s/img/app=
+_download/android/download.en.png" width=3D"160" style=3D"max-width: 160px;=
+ width: 95%;"> </a></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                       =20
+                      </tr>
+                    </tbody>
+                  </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if (mso) | (IE)]>
+              </td></tr>
+              </table>
+              </center>
+            <![endif]--></td>
+          </tr>
+          <!-- END OVER FOOTER BLOCK --><!-- START BELOW FOOTER BLOCK -->
+          <tr style=3D"border-spacing: none; border-collapse: collapse; mar=
+gin: 0; padding: 0; border: none;">
+            <td align=3D"center" class=3D"bg-mobile" style=3D"border-spacin=
+g: none; border-collapse: collapse; margin: 0; padding: 0; border: none;" b=
+gcolor=3D"#ffffff">
+            <table class=3D"bg-mobile" width=3D"100%" style=3D"border-spaci=
+ng: none; border-collapse: collapse; margin: 0; padding: 0; border: none;" =
+bgcolor=3D"#ffffff">
+              <tbody style=3D"border-spacing: none; border-collapse: collap=
+se; margin: 0; padding: 0; border: none;">
+                <tr style=3D"border-spacing: none; border-collapse: collaps=
+e; margin: 0; padding: 0; border: none;">
+                  <td align=3D"center" class=3D"footer-below" style=3D"bord=
+er-spacing: none; border-collapse: collapse; margin: 0; padding: 7% 0; bord=
+er: none;">
+                  <p class=3D"footer-text" style=3D"border-spacing: none; b=
+order-collapse: collapse; font-family: Helvetica,Neue,Regular; font-size: 1=
+0px; color: #697a80; line-height: 150%; margin: 0; padding: 0; border: none=
+;">You received this message because you are a registered member of Meetup.=
+<br>
+                  <a class=3D"footer-link" clicktracking=3D"off" href=3D"ht=
+tps://www.meetup.com/lp/newsletter-preferences/?external_id=3D371468858&utm=
+_medium=3Demail&utm_source=3Dbraze_adhoc&utm_campaign=3Dmmrk_orgeng_org_new=
+sletter_03162023&utm_term=3Dnewsletter&utm_content=3Dlp_meetup" style=3D"co=
+lor: #2a414a; text-decoration: none;">Unsubscribe</a> from this type of ema=
+il. <a class=3D"footer-link" href=3D"http://clicks.meetup.com/ls/click?upn=
+=3D8Y2vsX5dSU9BIj3r0FDX3hKPTxoZ-2F4CoTjtrmZj9WRKKQ1pB0tDVZoJ57HL7uQTU2lFpSt=
+zBX-2B6qbgjjpecwQ77xXYi3z10-2FfmJWeS7QciUhRUdMSALqu0Rhxf8yFdT-2Fsk9-2B16GZw=
+Vs1TDxNn1KKygwiAjLYUUwx9IckzWKM-2BpDNdvmHcUI09guwZsuoR6kZ-2F989nCokI6gchm6O=
+DU9XBa5vD6cUyyP6ITd6QTP5-2FRY-3DrLcr_TUDo-2BBITdlVAPSUyyUbSUeLF6fWHoyeXCPF9=
+-2FJ384Gy7KQlSZrisOJtLJmkbKxNdzjfHMx0rJa6ughNje-2BSC7CXPqHWdfH9YdExUDPjUM5M=
+FFna4ZG4QgPIT5yTpOf-2B-2BxU1H3uV6McyZE-2F531mrA-2Fmj-2FK0xSdZ5a-2FzroBR0TWF=
+rckA-2BBST8A-2BnSe0MdPFnd5rahF3V-2FMFTDqpQcJ81lWCW8Qui93Z5aeSVekYHinF2S7aat=
+vTJqNFqkrXx44VO62z8m0DkaDTQEtnGAmcx7pQvLBBdBHl2VRfizCwFktghHMoI7roIrqnUBECi=
+jKtzYj5MLX7Uv8uQoAiEfYbw3yG6q-2Be-2BySY0lx-2BfxTxSp56mh8iO-2BWCRufkYOr-2F57=
+kiYIfS6zGObXjXA8xiWbjy5Y2e-2FvZAjaO8VcWglcG0QKX7f2UfOyuQi0yU2W79a3l7baLDtQb=
+hD4GuG-2Bk0IxVHbsoU2fvEV1XVXK-2BcjWJoG9OQcTqAf9dY3SN0TiXVAppKIMruHr0YkddBPT=
+9bwMAb-2BkTxJXZuk2LiYc-2FfVlYvlU8iCA2R8q8pIjlJKa6OfGpy5GYEJJl0aWKnoEAgFnVIy=
+Aa4EPSmcQ-2BXW6tayR3OzGbDt9qQxJUG5K5Efa6LoVbdKudfojzBWVDyqjaBTob2Oqlhi9SwOw=
+QaqRUQmJkgczdNqI-3D" style=3D"color: #2a414a; text-decoration: none;">Manag=
+e your settings </a> for all types of email updates.<br>
+                  Visit <a class=3D"footer-link" href=3D"http://clicks.meet=
+up.com/ls/click?upn=3D8Y2vsX5dSU9BIj3r0FDX3hKPTxoZ-2F4CoTjtrmZj9WRLwKZRAorX=
+PNMZVwCIVN5rVR5S-2FriZ5VfraAjoH5-2FdTE2rseGpWS6Ewwc7zr-2FHV4zoZz-2FiucoK1Iu=
+ZTblI1NK1TRh0LijwxBr8jRmGOncLNUl-2F5MQpLB2g6aMyAFLqwv6XElloGFGFzBG1B-2Bb-2B=
+yfgXNVbVAtHSS5KcgZQmEPI6nghJHcXjx2qR1BigSr6YRuqA-3D-JXt_TUDo-2BBITdlVAPSUyy=
+UbSUeLF6fWHoyeXCPF9-2FJ384Gy7KQlSZrisOJtLJmkbKxNdzjfHMx0rJa6ughNje-2BSC7CXP=
+qHWdfH9YdExUDPjUM5MFFna4ZG4QgPIT5yTpOf-2B-2BxU1H3uV6McyZE-2F531mrA-2Fmj-2FK=
+0xSdZ5a-2FzroBR0TWFrckA-2BBST8A-2BnSe0MdPFnd5rahF3V-2FMFTDqpQcJ81lWCW8Qui93=
+Z5aeSVekYHinF2S7aatvTJqNFqkrXx44VO62z8m0DkaDTQEtnGAmcx7pQvLBBdBHl2VRfizCwFk=
+tghHMoI7roIrqnUBECijKtzYj5MLX7Uv8uQoAiEfYbw3yG6q-2Be-2BySY0lx-2BfxTxSp56mh8=
+iO-2BWCRufkYOr-2F57kiYIfS6zGObXjXA8xiWbjy5Y2e-2FvZAjaO8VcWglcG0QKX7f2UfOyuQ=
+i0yU2W79a3l7baLDtQbhD4GuG-2Bk0IxVHbsoU2fvEV1XVXK-2BcjWJoG9OQcTqAf9dY3SN0TiX=
+VAppKIMruHr0YkddBPT9bwMAb-2BkTxOoK5ryHfioZ13LkucQjZ-2FZE6BkNGPUg3kEbpWeOqEh=
+FKrEF0K-2BEjrnvRiaGV6pXI8wbAfzQ-2FvHEK4BarIR-2BRl8N84mksbXx5zENtv85FSEaJEk3=
+J-2FXY9sCv-2FTgKhiBS9qlEtIu9Io-2Bt8sZiPCMdAjM-3D" style=3D"color: #2a414a; =
+text-decoration: none;">your account page</a> to change your contact detail=
+s, privacy settings, and other settings.<br>
+                  <a class=3D"footer-link" href=3D"http://clicks.meetup.com=
+/ls/click?upn=3D8Y2vsX5dSU9BIj3r0FDX3lSPClZdoQRTM87Zc9pGBVv4IaI0DdWeyx54S6K=
+DP8i-2BOSVZC175vkMReJkNBj5X8MJzuT1gf6jE5t7SdmyEagN5dtdceKx-2BVwhO8LJtt6AoeE=
+BH0ijC0NtxmpJqbB0MohOqj8hr1k2hyj-2FtOcwyE3260yAIbb-2BSwenoafzQCoZjNL2AwRM3-=
+2FnRGcG7kV80Pkz0JST-2BWl1IVscOVQBqZV10-3DjgB8_TUDo-2BBITdlVAPSUyyUbSUeLF6fW=
+HoyeXCPF9-2FJ384Gy7KQlSZrisOJtLJmkbKxNdzjfHMx0rJa6ughNje-2BSC7CXPqHWdfH9YdE=
+xUDPjUM5MFFna4ZG4QgPIT5yTpOf-2B-2BxU1H3uV6McyZE-2F531mrA-2Fmj-2FK0xSdZ5a-2F=
+zroBR0TWFrckA-2BBST8A-2BnSe0MdPFnd5rahF3V-2FMFTDqpQcJ81lWCW8Qui93Z5aeSVekYH=
+inF2S7aatvTJqNFqkrXx44VO62z8m0DkaDTQEtnGAmcx7pQvLBBdBHl2VRfizCwFktghHMoI7ro=
+IrqnUBECijKtzYj5MLX7Uv8uQoAiEfYbw3yG6q-2Be-2BySY0lx-2BfxTxSp56mh8iO-2BWCRuf=
+kYOr-2F57kiYIfS6zGObXjXA8xiWbjy5Y2e-2FvZAjaO8VcWglcG0QKX7f2UfOyuQi0yU2W79a3=
+l7baLDtQbhD4GuG-2Bk0IxVHbsoU2fvEV1XVXK-2BcjWJoG9OQcTqAf9dY3SN0TiXVAppKIMruH=
+r0YkddBPT9bwMAb-2BkTxP9DlI3MFYkJcjP73a-2B4Ak4v7z3B5QTJwWd1QubYbTx5Dw1kds3g1=
+z0lkooqshPpf0yHobA71cfKRmN7SSGJBu73i3gLwhUIrlVJgsDvXn8vIFBoGFEAqT8vEdjNaKRB=
+h3GVb8T098Via-2F8KqsVEj9M-3D" style=3D"color: #2a414a; text-decoration: non=
+e;">Meetup LLC</a>, POB 4668 #37895 NY NY USA 10163<br>
+                   Read our <a class=3D"footer-link" href=3D"http://clicks.=
+meetup.com/ls/click?upn=3DXbaZ37larFA-2FuV5MohrYpdrra25MtI4CzodbRR1Rd1lhUUq=
+Aoqop-2FiYO7Df4o2hT-2FcFCBR08Iq5f5UuOkTBHBjRRNeJ5HHlvfu4CD-2B1lJQ1De2H2I8tp=
+tfHkKaUsVRLlbG8hYJTZgGLlKbsGGO8F3unfFnNK4q6evASGSvcAZDrp-2FIXbMXbbE3ORO2dik=
+wBf1CaH7JkZPv0xbWKt3g7V-2Ft6AOl99-2Fq6n6rDUBWKoy6g-3D_gMm_TUDo-2BBITdlVAPSU=
+yyUbSUeLF6fWHoyeXCPF9-2FJ384Gy7KQlSZrisOJtLJmkbKxNdzjfHMx0rJa6ughNje-2BSC7C=
+XPqHWdfH9YdExUDPjUM5MFFna4ZG4QgPIT5yTpOf-2B-2BxU1H3uV6McyZE-2F531mrA-2Fmj-2=
+FK0xSdZ5a-2FzroBR0TWFrckA-2BBST8A-2BnSe0MdPFnd5rahF3V-2FMFTDqpQcJ81lWCW8Qui=
+93Z5aeSVekYHinF2S7aatvTJqNFqkrXx44VO62z8m0DkaDTQEtnGAmcx7pQvLBBdBHl2VRfizCw=
+FktghHMoI7roIrqnUBECijKtzYj5MLX7Uv8uQoAiEfYbw3yG6q-2Be-2BySY0lx-2BfxTxSp56m=
+h8iO-2BWCRufkYOr-2F57kiYIfS6zGObXjXA8xiWbjy5Y2e-2FvZAjaO8VcWglcG0QKX7f2UfOy=
+uQi0yU2W79a3l7baLDtQbhD4GuG-2Bk0IxVHbsoU2fvEV1XVXK-2BcjWJoG9OQcTqAf9dY3SN0T=
+iXVAppKIMruHr0YkddBPT9bwMAb-2BkTxC0g0XPAmoY-2Fr-2FpJoBG0kOHe3h8TwPLlfuKf2n0=
+yvc70dyNWGv9NgojNMJAydSsxxwhFoxdOzok8bR-2BvQCgvRhoqBWseQ0tCPy-2B7jrrQAOiWJp=
+91xesnra6GjAwbLttO2TChHwpKoGVpwIJCTYIVjJI-3D" style=3D"color: #2a414a; text=
+-decoration: none;">Privacy Policy</a>.</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </td>
+          </tr>
+          <!-- END BELOW FOOTER BLOCK -->
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table></html>
+
+--c618f413e6d4bf02553d33f935b484656e5682dad64f0010170d47e6b201--
+

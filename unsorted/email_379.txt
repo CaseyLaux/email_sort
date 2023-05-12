@@ -1,0 +1,7 @@
+{
+  "prompt": "Subject: Alert: Notice of Copyright Infringement\nFrom:Spectrum <abuse@charter.com>\nTo:support@ourcompany.com\nDate:Tue, 21 Mar 2023 12:17:30 +0000 (UTC)\nContent:    \r\n  We have received reports that your account has repeatedly violated Spectrum's Acceptable Use Policy.\n###\n\n",
+  "completion": " ",
+  "email_subject": "Alert: Notice of Copyright Infringement",
+  "email_sender": "Spectrum <abuse@charter.com>",
+  "email_date": "Tue, 21 Mar 2023 12:17:30 +0000 (UTC)"
+}

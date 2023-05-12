@@ -1,0 +1,7 @@
+{
+  "prompt": "Subject: web link to pay for membership online\nFrom:Lori McMullin <Lori@daytonachamber.com>\nTo:support@ourcompany.com\nDate:Fri, 17 Mar 2023 17:20:43 +0000\nContent:Go to https://www.daytonachamber.com/\r\nAt top, right, you will see a Member Portal tab\r\nLog in there\r\nYou will see your portal options, including paying invoices\r\n\r\nThanks!\r\n\r\nLori McMullin, APR\r\nDirector of Business Development\r\nDaytona Regional Chamber of Commerce\r\n126 East Orange Ave.\r\nDaytona Beach, FL USA 32114\r\n386.523.3680\r\nDaytonaChamber.com<https://officialbikeweek.com/> / OfficialBikeWeek.com<https://officialbikeweek.com/>\r\nLeadership Daytona Class XXII Graduate\r\n[cid:image001.jpg@01D958D3.45EA5870]\r\n\r\n\n###\n\n",
+  "completion": " ",
+  "email_subject": "web link to pay for membership online",
+  "email_sender": "Lori McMullin <Lori@daytonachamber.com>",
+  "email_date": "Fri, 17 Mar 2023 17:20:43 +0000"
+}

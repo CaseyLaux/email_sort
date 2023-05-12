@@ -1,0 +1,410 @@
+Delivered-To: greenturtlekava@gmail.com
+Received: by 2002:a05:7208:8788:b0:64:a764:ea5d with SMTP id hc8csp1396293rbb;
+        Mon, 20 Mar 2023 05:42:57 -0700 (PDT)
+X-Received: by 2002:a54:460f:0:b0:37f:879d:f548 with SMTP id p15-20020a54460f000000b0037f879df548mr8643506oip.14.1679316177054;
+        Mon, 20 Mar 2023 05:42:57 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1679316177; cv=none;
+        d=google.com; s=arc-20160816;
+        b=1EtU4MoYA7YUuMUDYXTPlpNrl4RWgJhHGxL8r6TfAx6D/yr/BJDKvD5Cd7oJEVbTZB
+         Vg8e/mSacCDAJuPlU5lt4MrSciLFvRp2Re1AO8DWOu+xoe/sA96Y2Wes4FX8wDRDVdO7
+         VWbCkd4KuXnoedzYtB4VPGY6D7DkNDo/aqGglGDI4Y6lHayBc62Nd7G2RB2RTzUqbwqi
+         AREItUjHi2U5nUKnB5s7gVU9Bgtrutzm/y2vEFLxPnf9/8cBIlreWngGENsc3PgGy7/3
+         hkGwLiKIdPHLtOINzyZ91eW3cUe/MazVkFaxUHTqD7+QGECz4F6Fssd/hTwySh1FaOAX
+         rB5A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:mime-version:references:in-reply-to:from
+         :dkim-signature;
+        bh=m6GtJ+rK8TSsISemIsCrZAKf8ilDtRfJvgqHC78QXy0=;
+        b=xMNcxVV0MtUTzpY35N8FarrrOqJ7dhlMx2+INOkVx6iL3zEdLBsdmpZwyDrCazmRku
+         7WusI9HHPayXyHMjQCsYjs6KCZzdESEW78V/txnjoy9Dm2dWmc2mD625IlAA73HKIAli
+         PgYBOHhZr4fpRE8vdFBqpT5R7YPscf7m/Epp3rFTAbj+wiki1DAajNVvlAg3fwLFFnoC
+         qus/45l3AGku/or9lqK4neaSOtjNJTqGukmJVlIvLUsBKbHUplPwFF+msJpEHLsC+d2r
+         ea2VosfIIJy7O6ziWpQCKd29+WFX5qx1jKeMN+3yJ9rpKiMQ9p8YO2ymho5r5Nn0gD/l
+         fXkg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@joinhomebase.com header.s=google header.b=QdIorEs6;
+       spf=pass (google.com: domain of sierra@joinhomebase.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=sierra@joinhomebase.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=joinhomebase.com
+Return-Path: <sierra@joinhomebase.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id r197-20020acaa8ce000000b0035b8f70ae9fsor2005728oie.112.2023.03.20.05.42.56
+        for <greenturtlekava@gmail.com>
+        (Google Transport Security);
+        Mon, 20 Mar 2023 05:42:57 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sierra@joinhomebase.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@joinhomebase.com header.s=google header.b=QdIorEs6;
+       spf=pass (google.com: domain of sierra@joinhomebase.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=sierra@joinhomebase.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=joinhomebase.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=joinhomebase.com; s=google; t=1679316176;
+        h=to:subject:message-id:date:mime-version:references:in-reply-to:from
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=m6GtJ+rK8TSsISemIsCrZAKf8ilDtRfJvgqHC78QXy0=;
+        b=QdIorEs67bp1GBTBF/O6Voy/7zOwE5mmYQw4P3zcsh4zGVgu/ta+VMgi7cxeO+nTgy
+         A0tUOLbadwttiGurmJ7DY6ZVRVexI/+chAp+46f+WjYgmzjS4DTZChqgb7CoWPUOpaoX
+         1WFBMk7W4AivX3SyCOxdgu8J3hvhfqYEsFP7HJrz5LZnvb1F1BDT0UCD5vjb68bayFE6
+         cjqXaAWEGKwZFJndW1chM/JcqWjkdHAjtD2Fn7rLSk/diGqubj7iIYCn7hyjshxoU+AR
+         tQSrb1bKJktMgY58jhsBoyPZ667TTCm+w3rCyVPdJZSB02fV+2MPo3xMZ1WR02MhDwa7
+         IgaQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1679316176;
+        h=to:subject:message-id:date:mime-version:references:in-reply-to:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=m6GtJ+rK8TSsISemIsCrZAKf8ilDtRfJvgqHC78QXy0=;
+        b=aHbqc4qeeVwFzCPMXTF1ejKXz+3V3aB75M6k/JgGdcVRTPILn58GmUn1aLgXqiW7Qr
+         XM+ooWa1IQjZeaexPuhUJYwqJxkvfs7kS9CxGbJTeI6ej6czp8Q2rf5VfJkJoGOTuuIx
+         WqVvgWZQMaLt4wrovM2tErnsLLususLSiSro+jLq+sts2EkCtBjlnlq9cbvhmMCsvYMj
+         bMmSLyNuPgUCbwKKNLYDn1WAF9eLmtARVEsXt8JzTi3fx5SHrIaOc9cbM5ljra35ZG53
+         3zAl4Yw8k2hlNaedNop3g7kPN45vj9rsAb5vDdNqL31MWx7FoDjLocHs8kdh58hfFuPV
+         47tw==
+X-Gm-Message-State: AO0yUKUJAugzup1TB2aK/SvsxgG3ETtPf0KRdMXWY9jqvNZw0xkM8a+h
+	/6Ny9dzL6QotveluJcroK88JaOpFCcckUHCoUaAGpFa+XFT8bgga+ik=
+X-Google-Smtp-Source: AK7set+/qf6OwmU9KzE2XzoBgfA52QLQ7Io+tGhnBrK5rPKuBUu1rXk7V+aHaWhD8biaiVidtWi8juuVpTaILpPg9ZE=
+X-Received: by 2002:a54:4897:0:b0:384:1c31:d132 with SMTP id
+ r23-20020a544897000000b003841c31d132mr4463744oic.6.1679316176367; Mon, 20 Mar
+ 2023 05:42:56 -0700 (PDT)
+Received: from 300935273661 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 20 Mar 2023 05:42:56 -0700
+From: sierra lane <sierra@joinhomebase.com>
+In-Reply-To: <CAC7jkmEbwQmJ+J490Bb7i3ZUobx9vLQFVp0aqH0-ugdqpPAzGw@mail.gmail.com>
+References: <CAC7jkmEbwQmJ+J490Bb7i3ZUobx9vLQFVp0aqH0-ugdqpPAzGw@mail.gmail.com>
+Mime-Version: 1.0
+Date: Mon, 20 Mar 2023 05:42:56 -0700
+Message-ID: <CAC7jkmEiP2TU2fhGziYms2SMy7VQ_1JK0ReOgdkU145gy9H2TA@mail.gmail.com>
+Subject: =?UTF-8?B?UmU6IExldOKAmXMgc2F2ZSB5b3UgdGltZSDij7A=?=
+To: Candace <greenturtlekava@gmail.com>
+Content-Type: multipart/alternative; boundary="00000000000028882505f75444de"
+
+--00000000000028882505f75444de
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi Candace,
+
+Checking in briefly about *maximizing Homebase=E2=80=99s value* and your in=
+terest
+in learning more about the different ways we can help. Have any questions
+come up?
+
+If you want to learn more, or simply have a few questions about our
+different plans
+<https://sales.joinhomebase.com/t/105509/c/bb07d993-6225-4640-88b2-e3c6373c=
+006a/NB2HI4DTHIXS62TPNFXGQ33NMVRGC43FFZRW63JPNBXW2ZLCMFZWKLLQOJUWG2LOM4XQ=
+=3D=3D=3D=3D/joinhomebase-com-homebase-pricing>,
+I=E2=80=99m here.
+
+Book a meeting with sierra lane
+<https://sales.joinhomebase.com/t/105509/c/bb07d993-6225-4640-88b2-e3c6373c=
+006a/NB2HI4DTHIXS63LFMV2GS3THOMXHGYLMMVZWY33GOQXGG33NF5UG63LFMJQXGZJPONUWK4=
+TSMFWGC3TFH5WWKZLUNFXGOX3EMV2GC2LMHUZTINLGGRSDMYRNHBRGIZJNGQ2TSZJNHE3GCMZNG=
+43DOODCMZTDSYLGGE4A=3D=3D=3D=3D/meetings-salesloft-com-homebase-sierralane>
+
+Best,
+
+*_____*
+
+*Sierra Lane*
+
+Business Advisor
+
+w: www.joinhomebase.com
+<https://sales.joinhomebase.com/t/105509/c/bb07d993-6225-4640-88b2-e3c6373c=
+006a/NB2HI4B2F4XXO53XFZVG62LONBXW2ZLCMFZWKLTDN5WQ=3D=3D=3D=3D/www-joinhomeb=
+ase-com>
+
+p: (628) 345-8675
+
+Schedule a call with us
+<https://sales.joinhomebase.com/t/105509/c/bb07d993-6225-4640-88b2-e3c6373c=
+006a/NB2HI4DTHIXS6Y3BNRSW4ZDMPEXGG33NF5UGEYLDMNXXK3TUL5WWC3TBM5SW2ZLOOQXWCY=
+3DN52W45BNMFZXG2LTORQW4Y3F/calendly-com-hbaccount_management-account-assist=
+ance>
+
+Need more help?
+
+View our videos
+<https://sales.joinhomebase.com/t/105509/c/bb07d993-6225-4640-88b2-e3c6373c=
+006a/NB2HI4DTHIXS63JOPFXXK5DVMJSS4Y3PNUXWG2DBNZXGK3BPKVBTM32FMVKDEVCPINHEKR=
+CNGVHWGWLEMRKXQQJDNVSW45I=3D/m-youtube-com-channel-uc6oeet2tocnedm5ocydduxa=
+-23menu>
+I Support page
+<https://sales.joinhomebase.com/t/105509/c/bb07d993-6225-4640-88b2-e3c6373c=
+006a/NB2HI4DTHIXS643VOBYG64TUFZVG62LONBXW2ZLCMFZWKLTDN5WS62DDF5SW4LLVOM=3D=
+=3D=3D=3D=3D=3D/support-joinhomebase-com-hc-en-us>
+
+
+
+Affected by coronavirus? We=E2=80=99ve got real-time data and resources for
+reopening in our back-to-business toolkit
+<https://sales.joinhomebase.com/t/105509/c/bb07d993-6225-4640-88b2-e3c6373c=
+006a/NB2HI4B2F4XWQ3LCMFZWKLTDN4XUEMSCORXW63DLNF2A=3D=3D=3D=3D/hmbase-co-b2b=
+toolkit>
+.
+
+
+P.S. Know any other businesses that could benefit from using Homebase?
+Click here
+<https://sales.joinhomebase.com/t/105509/c/bb07d993-6225-4640-88b2-e3c6373c=
+006a/NB2HI4DTHIXS6YLQOAXGU33JNZUG63LFMJQXGZJOMNXW2L3SMVTGK4TSMFWHG=3D=3D=3D=
+/app-joinhomebase-com-referrals>to
+refer them, and we=E2=80=99ll send you $100 for every paying Homebase custo=
+mer you
+refer.
+
+
+Would you like to opt out?
+<https://sales.joinhomebase.com/t/105509/opt_out/bb07d993-6225-4640-88b2-e3=
+c6373c006a>
+
+On Mar 16, 2023 7:47 AM, "sierra lane" <sierra@joinhomebase.com> wrote:
+
+> Hi Candace,
+>
+> sierra here, your Homebase advisor. I wanted to check in now that it=E2=
+=80=99s
+> been a few weeks since you joined Homebase.
+>
+> I know every minute counts when you=E2=80=99re running a business. So I w=
+anted to
+> quickly connect on how Homebase can streamline your administrative tasks =
+*even
+> more* than it already is.
+>
+> Homebase offers a wide range of options to help with hiring, onboarding,
+> HR & compliance, employee retention, and labor cost controls. *Would
+> improving any of the above save you time, energy, or money? *
+>
+> When would be a good time to connect? Feel free to book a time on my
+> calendar.
+>
+> Book a meeting with sierra lane
+> <https://sales.joinhomebase.com/t/105509/c/bb07d993-6225-4640-88b2-e3c637=
+3c006a/NB2HI4DTHIXS63LFMV2GS3THOMXHGYLMMVZWY33GOQXGG33NF5UG63LFMJQXGZJPONUW=
+K4TSMFWGC3TFH5WWKZLUNFXGOX3EMV2GC2LMHUZTINLGGRSDMYRNHBRGIZJNGQ2TSZJNHE3GCMZ=
+NG43DOODCMZTDSYLGGE4A=3D=3D=3D=3D/meetings-salesloft-com-homebase-sierralan=
+e>
+> .
+>
+> All the best,
+>
+> *_____*
+>
+> *Sierra Lane*
+>
+> Business Advisor
+>
+> w: www.joinhomebase.com
+> <https://sales.joinhomebase.com/t/105509/c/bb07d993-6225-4640-88b2-e3c637=
+3c006a/NB2HI4B2F4XXO53XFZVG62LONBXW2ZLCMFZWKLTDN5WQ=3D=3D=3D=3D/www-joinhom=
+ebase-com>
+>
+> p: (628) 345-8675
+>
+> Schedule a call with us
+> <https://sales.joinhomebase.com/t/105509/c/bb07d993-6225-4640-88b2-e3c637=
+3c006a/NB2HI4DTHIXS6Y3BNRSW4ZDMPEXGG33NF5UGEYLDMNXXK3TUL5WWC3TBM5SW2ZLOOQXW=
+CY3DN52W45BNMFZXG2LTORQW4Y3F/calendly-com-hbaccount_management-account-assi=
+stance>
+>
+> Need more help?
+>
+> View our videos
+> <https://sales.joinhomebase.com/t/105509/c/bb07d993-6225-4640-88b2-e3c637=
+3c006a/NB2HI4DTHIXS63JOPFXXK5DVMJSS4Y3PNUXWG2DBNZXGK3BPKVBTM32FMVKDEVCPINHE=
+KRCNGVHWGWLEMRKXQQJDNVSW45I=3D/m-youtube-com-channel-uc6oeet2tocnedm5ocyddu=
+xa-23menu>
+> I Support page
+> <https://sales.joinhomebase.com/t/105509/c/bb07d993-6225-4640-88b2-e3c637=
+3c006a/NB2HI4DTHIXS643VOBYG64TUFZVG62LONBXW2ZLCMFZWKLTDN5WS62DDF5SW4LLVOM=
+=3D=3D=3D=3D=3D=3D/support-joinhomebase-com-hc-en-us>
+>
+>
+>
+> Affected by coronavirus? We=E2=80=99ve got real-time data and resources f=
+or
+> reopening in our back-to-business toolkit
+> <https://sales.joinhomebase.com/t/105509/c/bb07d993-6225-4640-88b2-e3c637=
+3c006a/NB2HI4B2F4XWQ3LCMFZWKLTDN4XUEMSCORXW63DLNF2A=3D=3D=3D=3D/hmbase-co-b=
+2btoolkit>
+> .
+>
+>
+> P.S. Know any other businesses that could benefit from using Homebase?
+> Click here
+> <https://sales.joinhomebase.com/t/105509/c/bb07d993-6225-4640-88b2-e3c637=
+3c006a/NB2HI4DTHIXS6YLQOAXGU33JNZUG63LFMJQXGZJOMNXW2L3SMVTGK4TSMFWHG=3D=3D=
+=3D/app-joinhomebase-com-referrals>to
+> refer them, and we=E2=80=99ll send you $100 for every paying Homebase cus=
+tomer you
+> refer.
+>
+>
+> Would you like to opt out?
+> <https://sales.joinhomebase.com/t/105509/opt_out/bb07d993-6225-4640-88b2-=
+e3c6373c006a>
+>
+
+--00000000000028882505f75444de
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div class=3D"sales_loft_wrapper" style=3D"font-family:Arial;font-size:11pt=
+">
+<div>
+<p><span style=3D"font-weight:400">Hi Candace,</span></p>
+<p><span style=3D"font-weight:400">Checking in briefly about <strong>maximi=
+zing Homebase=E2=80=99s value</strong> and your interest in learning more a=
+bout the different ways we can help. Have any questions come up?</span></p>
+<p><span style=3D"font-weight:400">If you want to learn more, or simply hav=
+e a few questions about our different </span><a href=3D"https://sales.joinh=
+omebase.com/t/105509/c/bb07d993-6225-4640-88b2-e3c6373c006a/NB2HI4DTHIXS62T=
+PNFXGQ33NMVRGC43FFZRW63JPNBXW2ZLCMFZWKLLQOJUWG2LOM4XQ=3D=3D=3D=3D/joinhomeb=
+ase-com-homebase-pricing" target=3D"_blank" rel=3D"noopener"><span style=3D=
+"font-weight:400">plans</span></a><span style=3D"font-weight:400">,=C2=A0 I=
+=E2=80=99m here.</span></p>
+<p><span style=3D"font-weight:400"><a href=3D"https://sales.joinhomebase.co=
+m/t/105509/c/bb07d993-6225-4640-88b2-e3c6373c006a/NB2HI4DTHIXS63LFMV2GS3THO=
+MXHGYLMMVZWY33GOQXGG33NF5UG63LFMJQXGZJPONUWK4TSMFWGC3TFH5WWKZLUNFXGOX3EMV2G=
+C2LMHUZTINLGGRSDMYRNHBRGIZJNGQ2TSZJNHE3GCMZNG43DOODCMZTDSYLGGE4A=3D=3D=3D=
+=3D/meetings-salesloft-com-homebase-sierralane" target=3D"_blank">Book a me=
+eting with sierra lane</a></span></p>
+<p><span style=3D"font-weight:400">Best,</span></p>
+</div>
+</div><div class=3D"sl-signature"><div class=3D"sales_loft_wrapper" style=
+=3D"font-family:Arial;font-size:11pt">
+<p dir=3D"ltr"><span><b>_____</b></span></p>
+<p dir=3D"ltr"><span><b>Sierra Lane</b></span></p>
+<p dir=3D"ltr"><span>Business Advisor=C2=A0</span></p>
+<br>
+<p dir=3D"ltr"><span><img src=3D"https://lh6.googleusercontent.com/DLIElNCI=
+SzVfZfb3npDN4Sj7Q1WeUFmlyYrtdAppOMF5EwzXlmp0IUseAnA1AwI22uDyMBM8spKWpu2vOVl=
+3x2GWZJE6S8H6sUYfUAxn2xHLgPPvuo9xv5Eaty0LbjFyukxEzHgX" width=3D"134" height=
+=3D"20"></span></p>
+<p dir=3D"ltr"><span>w:</span><span>=C2=A0</span><a href=3D"https://sales.j=
+oinhomebase.com/t/105509/c/bb07d993-6225-4640-88b2-e3c6373c006a/NB2HI4B2F4X=
+XO53XFZVG62LONBXW2ZLCMFZWKLTDN5WQ=3D=3D=3D=3D/www-joinhomebase-com" target=
+=3D"_blank" rel=3D"noopener"><span>www.joinhomebase.com</span></a></p>
+<p dir=3D"ltr"><span>p: </span><span>(628) 345-8675</span></p>
+<br>
+<p dir=3D"ltr"><a href=3D"https://sales.joinhomebase.com/t/105509/c/bb07d99=
+3-6225-4640-88b2-e3c6373c006a/NB2HI4DTHIXS6Y3BNRSW4ZDMPEXGG33NF5UGEYLDMNXXK=
+3TUL5WWC3TBM5SW2ZLOOQXWCY3DN52W45BNMFZXG2LTORQW4Y3F/calendly-com-hbaccount_=
+management-account-assistance" target=3D"_blank" rel=3D"noopener"><span>Sch=
+edule a call with us</span></a></p>
+<br>
+<p dir=3D"ltr"><span>Need more help?</span></p>
+<p dir=3D"ltr"><a href=3D"https://sales.joinhomebase.com/t/105509/c/bb07d99=
+3-6225-4640-88b2-e3c6373c006a/NB2HI4DTHIXS63JOPFXXK5DVMJSS4Y3PNUXWG2DBNZXGK=
+3BPKVBTM32FMVKDEVCPINHEKRCNGVHWGWLEMRKXQQJDNVSW45I=3D/m-youtube-com-channel=
+-uc6oeet2tocnedm5ocydduxa-23menu" target=3D"_blank" rel=3D"noopener"><span>=
+View our videos</span></a><span> I </span><a href=3D"https://sales.joinhome=
+base.com/t/105509/c/bb07d993-6225-4640-88b2-e3c6373c006a/NB2HI4DTHIXS643VOB=
+YG64TUFZVG62LONBXW2ZLCMFZWKLTDN5WS62DDF5SW4LLVOM=3D=3D=3D=3D=3D=3D/support-=
+joinhomebase-com-hc-en-us" target=3D"_blank" rel=3D"noopener"><span>Support=
+ page</span></a></p>
+<p dir=3D"ltr">=C2=A0</p>
+<p dir=3D"ltr"><span>Affected by coronavirus? We=E2=80=99ve got real-time d=
+ata and resources for reopening in our </span><a href=3D"https://sales.join=
+homebase.com/t/105509/c/bb07d993-6225-4640-88b2-e3c6373c006a/NB2HI4B2F4XWQ3=
+LCMFZWKLTDN4XUEMSCORXW63DLNF2A=3D=3D=3D=3D/hmbase-co-b2btoolkit" target=3D"=
+_blank" rel=3D"noopener"><span>back-to-business toolkit</span></a><span>.</=
+span><span>=C2=A0</span></p>
+<p dir=3D"ltr">=C2=A0</p>
+<span>P.S. Know any other businesses that could benefit from using Homebase=
+? Click </span><a href=3D"https://sales.joinhomebase.com/t/105509/c/bb07d99=
+3-6225-4640-88b2-e3c6373c006a/NB2HI4DTHIXS6YLQOAXGU33JNZUG63LFMJQXGZJOMNXW2=
+L3SMVTGK4TSMFWHG=3D=3D=3D/app-joinhomebase-com-referrals" target=3D"_blank"=
+ rel=3D"noopener"><span>here </span></a><span>to refer them, and we=E2=80=
+=99ll send you $100 for every paying Homebase customer you refer.</span>
+</div></div>
+<br><br><div class=3D"sl-email-footer mceNonEditable"><a class=3D"sl_opt_ou=
+t_link_class" href=3D"https://sales.joinhomebase.com/t/105509/opt_out/bb07d=
+993-6225-4640-88b2-e3c6373c006a">Would you like to opt out?</a></div>
+<br>
+<div class=3D"gmail_quote sl-previous-email">On Mar 16, 2023 7:47 AM, &quot=
+;sierra lane&quot; &lt;<a href=3D"mailto:sierra@joinhomebase.com">sierra@jo=
+inhomebase.com</a>&gt; wrote:<br type=3D"attribution">
+<blockquote class=3D"gmail_quote" style=3D"margin:0 0 0 .8ex;border-left:1p=
+x #ccc solid;padding-left:1ex">
+<div class=3D"sales_loft_wrapper" style=3D"font-family:Arial;font-size:11pt=
+">
+<p><span style=3D"font-weight:400">Hi Candace,</span></p>
+<p><span style=3D"font-weight:400">sierra here, your Homebase advisor. I wa=
+nted to check in now that it=E2=80=99s been a few weeks since you joined Ho=
+mebase.</span></p>
+<p><span style=3D"font-weight:400">I know every minute counts when you=E2=
+=80=99re running a business. So I wanted to quickly connect on how Homebase=
+ can streamline your administrative tasks </span><b>even more</b><span styl=
+e=3D"font-weight:400"> than it already is.</span></p>
+<p><span style=3D"font-weight:400">Homebase offers a wide range of options =
+to help with hiring, onboarding, HR &amp; compliance, employee retention, a=
+nd labor cost controls. <strong>Would improving any of the above save you t=
+ime, energy, or money?=C2=A0</strong></span></p>
+<p><span style=3D"font-weight:400">When would be a good time to connect? Fe=
+el free to book a time on my calendar.</span></p>
+<p><span style=3D"font-weight:400"><a href=3D"https://sales.joinhomebase.co=
+m/t/105509/c/bb07d993-6225-4640-88b2-e3c6373c006a/NB2HI4DTHIXS63LFMV2GS3THO=
+MXHGYLMMVZWY33GOQXGG33NF5UG63LFMJQXGZJPONUWK4TSMFWGC3TFH5WWKZLUNFXGOX3EMV2G=
+C2LMHUZTINLGGRSDMYRNHBRGIZJNGQ2TSZJNHE3GCMZNG43DOODCMZTDSYLGGE4A=3D=3D=3D=
+=3D/meetings-salesloft-com-homebase-sierralane" target=3D"_blank">Book a me=
+eting with sierra lane</a>.</span></p>
+<p><span style=3D"font-weight:400">All the best,=C2=A0</span></p>
+</div>
+<div class=3D"sl-signature"><div class=3D"sales_loft_wrapper" style=3D"font=
+-family:Arial;font-size:11pt">
+<p dir=3D"ltr"><span><b>_____</b></span></p>
+<p dir=3D"ltr"><span><b>Sierra Lane</b></span></p>
+<p dir=3D"ltr"><span>Business Advisor=C2=A0</span></p>
+<br>
+<p dir=3D"ltr"><span><img src=3D"https://lh6.googleusercontent.com/DLIElNCI=
+SzVfZfb3npDN4Sj7Q1WeUFmlyYrtdAppOMF5EwzXlmp0IUseAnA1AwI22uDyMBM8spKWpu2vOVl=
+3x2GWZJE6S8H6sUYfUAxn2xHLgPPvuo9xv5Eaty0LbjFyukxEzHgX" width=3D"134" height=
+=3D"20"></span></p>
+<p dir=3D"ltr"><span>w:</span><span>=C2=A0</span><a href=3D"https://sales.j=
+oinhomebase.com/t/105509/c/bb07d993-6225-4640-88b2-e3c6373c006a/NB2HI4B2F4X=
+XO53XFZVG62LONBXW2ZLCMFZWKLTDN5WQ=3D=3D=3D=3D/www-joinhomebase-com" target=
+=3D"_blank" rel=3D"noopener"><span>www.joinhomebase.com</span></a></p>
+<p dir=3D"ltr"><span>p: </span><span>(628) 345-8675</span></p>
+<br>
+<p dir=3D"ltr"><a href=3D"https://sales.joinhomebase.com/t/105509/c/bb07d99=
+3-6225-4640-88b2-e3c6373c006a/NB2HI4DTHIXS6Y3BNRSW4ZDMPEXGG33NF5UGEYLDMNXXK=
+3TUL5WWC3TBM5SW2ZLOOQXWCY3DN52W45BNMFZXG2LTORQW4Y3F/calendly-com-hbaccount_=
+management-account-assistance" target=3D"_blank" rel=3D"noopener"><span>Sch=
+edule a call with us</span></a></p>
+<br>
+<p dir=3D"ltr"><span>Need more help?</span></p>
+<p dir=3D"ltr"><a href=3D"https://sales.joinhomebase.com/t/105509/c/bb07d99=
+3-6225-4640-88b2-e3c6373c006a/NB2HI4DTHIXS63JOPFXXK5DVMJSS4Y3PNUXWG2DBNZXGK=
+3BPKVBTM32FMVKDEVCPINHEKRCNGVHWGWLEMRKXQQJDNVSW45I=3D/m-youtube-com-channel=
+-uc6oeet2tocnedm5ocydduxa-23menu" target=3D"_blank" rel=3D"noopener"><span>=
+View our videos</span></a><span> I </span><a href=3D"https://sales.joinhome=
+base.com/t/105509/c/bb07d993-6225-4640-88b2-e3c6373c006a/NB2HI4DTHIXS643VOB=
+YG64TUFZVG62LONBXW2ZLCMFZWKLTDN5WS62DDF5SW4LLVOM=3D=3D=3D=3D=3D=3D/support-=
+joinhomebase-com-hc-en-us" target=3D"_blank" rel=3D"noopener"><span>Support=
+ page</span></a></p>
+<p dir=3D"ltr">=C2=A0</p>
+<p dir=3D"ltr"><span>Affected by coronavirus? We=E2=80=99ve got real-time d=
+ata and resources for reopening in our </span><a href=3D"https://sales.join=
+homebase.com/t/105509/c/bb07d993-6225-4640-88b2-e3c6373c006a/NB2HI4B2F4XWQ3=
+LCMFZWKLTDN4XUEMSCORXW63DLNF2A=3D=3D=3D=3D/hmbase-co-b2btoolkit" target=3D"=
+_blank" rel=3D"noopener"><span>back-to-business toolkit</span></a><span>.</=
+span><span>=C2=A0</span></p>
+<p dir=3D"ltr">=C2=A0</p>
+<span>P.S. Know any other businesses that could benefit from using Homebase=
+? Click </span><a href=3D"https://sales.joinhomebase.com/t/105509/c/bb07d99=
+3-6225-4640-88b2-e3c6373c006a/NB2HI4DTHIXS6YLQOAXGU33JNZUG63LFMJQXGZJOMNXW2=
+L3SMVTGK4TSMFWHG=3D=3D=3D/app-joinhomebase-com-referrals" target=3D"_blank"=
+ rel=3D"noopener"><span>here </span></a><span>to refer them, and we=E2=80=
+=99ll send you $100 for every paying Homebase customer you refer.</span>
+</div></div>
+<br><br><div class=3D"sl-previous-email-footer mceNonEditable"><a class=3D"=
+sl_previous_link_class" href=3D"https://sales.joinhomebase.com/t/105509/opt=
+_out/bb07d993-6225-4640-88b2-e3c6373c006a">Would you like to opt out?</a></=
+div>
+</blockquote>
+</div><img src=3D"https://sales.joinhomebase.com/t/105509/open/bb07d993-622=
+5-4640-88b2-e3c6373c006a.gif" alt=3D"" width=3D"1" height=3D"1">
+
+--00000000000028882505f75444de--
+

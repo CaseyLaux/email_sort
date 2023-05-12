@@ -1,0 +1,486 @@
+Delivered-To: greenturtlekava@gmail.com
+Received: by 2002:a05:7208:8788:b0:64:a764:ea5d with SMTP id hc8csp4005819rbb;
+        Thu, 16 Mar 2023 15:46:01 -0700 (PDT)
+X-Google-Smtp-Source: AK7set9IvcfzaQwrfR/zYFW33lpbqgdy8khrP0rAAZr6AaEys2X/jAk99ffRqN43/N3QNaM6byiM
+X-Received: by 2002:a17:90b:1d81:b0:23d:3913:bc26 with SMTP id pf1-20020a17090b1d8100b0023d3913bc26mr6018728pjb.2.1679006761097;
+        Thu, 16 Mar 2023 15:46:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1679006761; cv=none;
+        d=google.com; s=arc-20160816;
+        b=Q6lvrBYnRcKv0Y1Iv3t3CD5/YtNpFwyv2H2qunYhii+hzqFl2Jmu/Aqiy4OYwpkIP3
+         kKIO03CVOMx+LO3gZzQcBMCPKSslZ6Tn4GvEius2TladjP4x3kv+/0rdzxzoF+tAzWBF
+         xd2F8oOyEvSqJYQTktnZynSXWDD/IcApPD6+S2hJSeJgf8RpTeuZnRTiwP9kLhUbB9LC
+         jEu1d22Tv7nIzvekyj17FOe4EisZN3g4MT2bl8oNVxzKQL1hmNxOuqtkXah10KlOiwMX
+         eETmDlvSNi83+7Wnbi0yARLZPzS/hprE547yOLbsJ9k3uYCltFFd2+cLU1UG6tch56+n
+         /k5g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:from:message-id:subject:reply-to:date:list-unsubscribe
+         :mime-version:to:dkim-signature;
+        bh=huiQ9FXGkgZrHitIrN9o11aWXMe2q0KnvL5v5/SVpmU=;
+        b=KGRR7COd9MVOeqjQUkETaH6JfjCSyDs06Rmu+TKXDBtP6A5aqTn6SgrVOnGdZXYNq2
+         RBf3I6P8YI5mIR9ixhSLrLa5n3qbrCImEAx9Ha+Azt8sWGQn5h3+XlLGqsD0LRj7BjFx
+         IKPu3LcExCo1BepRC/DbAvBlm1ErP1R2PbatL+nfTIp17TzsztIpdshrlvs5krGARReF
+         JVlnkLTIjn+Pipza9HW2+GsJkQrzOkuYj/mBpTLmP0lmAUKuM6AERfX27eXBkR/DDcCU
+         p3sFfYpVIKnk7wQMIQOBjrIYqVg8QxRuLfyO3G+vl7aJwcp7Rt//EhjeFLHjRAvTVQjs
+         4wWg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@qr-code-generator.com header.s=intercom header.b=GNA7VFoF;
+       spf=pass (google.com: domain of bounces+12483972613127@outbound.intercom.qr-code-generator.com designates 192.174.84.116 as permitted sender) smtp.mailfrom=bounces+12483972613127@outbound.intercom.qr-code-generator.com
+Return-Path: <bounces+12483972613127@outbound.intercom.qr-code-generator.com>
+Received: from mta-174-84-116.intercom.com.sparkpostmail.com (mta-174-84-116.intercom.com.sparkpostmail.com. [192.174.84.116])
+        by mx.google.com with ESMTPS id r4-20020a17090a690400b00233ce76f19dsi707036pjj.11.2023.03.16.15.46.00
+        for <greenturtlekava@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 16 Mar 2023 15:46:01 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+12483972613127@outbound.intercom.qr-code-generator.com designates 192.174.84.116 as permitted sender) client-ip=192.174.84.116;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@qr-code-generator.com header.s=intercom header.b=GNA7VFoF;
+       spf=pass (google.com: domain of bounces+12483972613127@outbound.intercom.qr-code-generator.com designates 192.174.84.116 as permitted sender) smtp.mailfrom=bounces+12483972613127@outbound.intercom.qr-code-generator.com
+X-MSFBL: Vg4QmNP8F/o/EaBXlxNUJMWvMDymYCf5FY/u5FH5j4Y=|eyJjdXN0b21lcl9pZCI
+	6IjEiLCJzdWJhY2NvdW50X2lkIjoiNTEiLCJ0ZW5hbnRfaWQiOiJpbnRlcmNvbSI
+	sIm1lc3NhZ2VfaWQiOiI2NDEwMjg5YzEzNjQ5ZjI1NWIwNyIsInIiOiJncmVlbnR
+	1cnRsZWthdmFAZ21haWwuY29tIn0=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=qr-code-generator.com; s=intercom; t=1679006760;
+	i=@qr-code-generator.com;
+	bh=huiQ9FXGkgZrHitIrN9o11aWXMe2q0KnvL5v5/SVpmU=;
+	h=To:Content-Type:List-Unsubscribe:Date:Subject:Message-ID:From:
+	 From:To:Cc:Subject;
+	b=GNA7VFoFS0ZNqQS62D7FNI9gzIRbjA/5qjulDKA17oj4kwOKalfRWR2R5298ZYX10
+	 nsalN/crclKttp02hnrmkrpa5BHT9mU5JfXb47FS2irhB9VwRGc9PcPEsoQpb5F3HJ
+	 2kZLoq2UvmKZCEfXTeVqUSsDvaEghpMOgSfCv5LA=
+To: greenturtlekava@gmail.com
+Content-Type: multipart/alternative; boundary="_----bZ1VSy5umJO+KVNTf9P0bA===_05/70-40741-82C93146"
+MIME-Version: 1.0
+List-Unsubscribe: <mailto:unsubscribe_12483972613127_64139c1fc1f234ac727d6f24@qr-code-generator.intercom-mail.com>, <https://qr-code-generator.intercom-mail.com/subscriptions/unsubscribe?app_id=u4ys98rc&conversation_id=12483972613127&user_id=64139c1fc1f234ac727d6f24&source=header>
+Date: Thu, 16 Mar 2023 22:46:00 +0000
+Reply-To: No-Reply at QR Code Generator <noreply@qr-code-generator.com>
+X-Mailgun-Tag: user-announcement
+X-Intercom-App-Id: u4ys98rc
+X-Intercom-Bin: 100
+Subject: =?utf-8?B?V2VsY29tZSB0byBRUiBDb2RlIEdlbmVyYXRvciBQUk8g8J+OiQ==?=
+Message-ID: <1ae4888f-c7522bc4-1679006760-12483972613127@outbound.intercom.qr-code-generator.com>
+X-Report-Abuse: Please report spam or abuse to abuse@intercom.io
+From: "No-Reply at QR Code Generator" <noreply@qr-code-generator.com>
+X-Auto-Response-Suppress: OOF, AutoReply
+X-Mailgun-Variables: {"app_id":"u4ys98rc","conversation_id":"12483972613127","user_id":"64139c1fc1f234ac727d6f24","intercom_localized_email_content_id":"3827244"}
+Feedback-ID: email:94042689:u4ys98rc:intercom
+
+--_----bZ1VSy5umJO+KVNTf9P0bA===_05/70-40741-82C93146
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+You=E2=80=99ve found the secret QR Code sauce for your business =0D=0A [Ima=
+ge "email-marketing_restaurants_welcome_banner_v2.png"] As many as 65% of r=
+estaurant and bar guests will accept no physical menus as a new rule in the=
+ wake of coronavirus. So how can you safely replace printed menus for easy =
+access=3F The secret ingredient lies within our PDF QR Code. Why=3F =0D=0A =
+- It=E2=80=99s easy to create. Simply upload your menu in PDF format to the=
+ QR Code. =0D=0A- It=E2=80=99s easy to scan. Display your QR Code at your r=
+estaurant or bar where your customers can easily scan it. =0D=0A- It=E2=80=
+=99s easy to share. Your QR Code comes with a short URL so you can use it t=
+o promote your menu online. =0D=0A Sounds good=3F Turn your menu into a QR =
+Code now! =0D=0ALearn how Cheers, Your friends at QR Code Generator PRO =0D=
+=0A =0D=0A Have any questions=3F Visit our Help Center. Alternatively, you =
+can contact our Support Team via the Contact Form in your account.
+--_----bZ1VSy5umJO+KVNTf9P0bA===_05/70-40741-82C93146
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="UTF-8"
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/htm=
+l4/strict.dtd">=0D=0A<html>=0D=0A<head>=0D=0A<meta content=3D"text/html; ch=
+arset=3Dutf-8" http-equiv=3D"Content-Type">=0D=0A<meta name=3D"viewport" co=
+ntent=3D"width=3Ddevice-width">=0D=0A<meta name=3D"format-detection" conten=
+t=3D"telephone=3Dno">=0D=0A=0D=0A<!-- Resets -->=0D=0A=0D=0A<style type=3D"=
+text/css" data-premailer=3D"ignore">=0D=0A  #outlook a{=0D=0A    padding: 0=
+;=0D=0A  }=0D=0A  body{=0D=0A    -webkit-text-size-adjust: none;=0D=0A    -=
+ms-text-size-adjust: none;=0D=0A    font-weight: 400;=0D=0A    margin: 0;=
+=0D=0A    padding: 0;=0D=0A  }=0D=0A  .ReadMsgBody{=0D=0A    width: 100%;=
+=0D=0A  }=0D=0A  .ExternalClass{=0D=0A    width: 100%;=0D=0A  }=0D=0A  img =
+{=0D=0A    border: 0;=0D=0A    max-width: 100%;=0D=0A    height: auto;=0D=
+=0A    outline: none;=0D=0A    display: inline-block;=0D=0A    margin: 0;=
+=0D=0A    padding: 0;=0D=0A    text-decoration: none;=0D=0A    line-height:=
+ 100%;=0D=0A  }=0D=0A  #backgroundTable{=0D=0A    height: 100% !important;=
+=0D=0A    margin: 0;=0D=0A    padding: 0;=0D=0A    width: 100% !important;=
+=0D=0A  }=0D=0A</style>=0D=0A=0D=0A=0D=0A<!-- Main styles -->=0D=0A=0D=0A<s=
+tyle type=3D"text/css">=0D=0A  /**=0D=0A   * Generic=0D=0A   */=0D=0A=0D=0A=
+  .main {=0D=0A    font-family: Helvetica, Arial, sans-serif;=0D=0A    lett=
+er-spacing: 0;=0D=0A  }=0D=0A=0D=0A  table {=0D=0A    border-spacing: 0;=0D=
+=0A    border-collapse: separate;=0D=0A    table-layout: fixed;=0D=0A    ma=
+x-width: 100%;=0D=0A  }=0D=0A=0D=0A  td {=0D=0A    font-size: 16px;=0D=0A  =
+  padding: 0;=0D=0A    font-family: Helvetica, Arial, sans-serif;=0D=0A  }=
+=0D=0A=0D=0A  a {=0D=0A    border: none;=0D=0A    outline: none !important;=
+=0D=0A  }=0D=0A=0D=0A  .intercom-template-body {=0D=0A    background-color:=
+ white;=0D=0A  }=0D=0A=0D=0A  .intercom-template-body .intercom-template-co=
+ntent {=0D=0A    background-color: white;=0D=0A  }=0D=0A=0D=0A  =0D=0A    .=
+intercom-template-body .footer {=0D=0A      background: #f8f8f8;=0D=0A    }=
+=0D=0A  =0D=0A=0D=0A  /**=0D=0A   * Header=0D=0A   */=0D=0A=0D=0A  .header =
+td img{=0D=0A    padding: 0 0 37px;=0D=0A  }=0D=0A=0D=0A  .header .logo {=
+=0D=0A    text-align: center;=0D=0A  }=0D=0A=0D=0A  /**=0D=0A   * Content=
+=0D=0A   */=0D=0A=0D=0A  .content .content-td {=0D=0A    line-height: 150%;=
+=0D=0A    color: #818181;=0D=0A    padding: 0 0 60px;=0D=0A  }=0D=0A=0D=0A =
+ .content .content-td > :first-child {=0D=0A    margin-top: 0;=0D=0A  }=0D=
+=0A=0D=0A  .content .content-td > :last-child {=0D=0A    margin-bottom: 0;=
+=0D=0A  }=0D=0A=0D=0A  .content h1 {=0D=0A    font-size: 36px;=0D=0A    fon=
+t-weight: 300;=0D=0A    line-height: 1.2;=0D=0A    margin: 30px 0 5px;=0D=
+=0A    color: #0098d9;=0D=0A  }=0D=0A=0D=0A  .content h1 a {=0D=0A    color=
+: #0098d9;=0D=0A  }=0D=0A=0D=0A  .content-td h1 + h2 {=0D=0A    margin-top:=
+ 0px !important;=0D=0A  }=0D=0A=0D=0A  .content-td h2 + h1 {=0D=0A    margi=
+n-top: 0px !important;=0D=0A  }=0D=0A=0D=0A  .content h2 {=0D=0A    font-si=
+ze: 21px;=0D=0A    font-weight: bold;=0D=0A    color: #303030;=0D=0A    lin=
+e-height: 1.25;=0D=0A    margin: 30px 0 5px;=0D=0A  }=0D=0A=0D=0A  .content=
+ h2 a {=0D=0A    color: #303030;=0D=0A  }=0D=0A=0D=0A  .content-td h3 ,=0D=
+=0A  .content-td h4 ,=0D=0A  .content-td h5 {=0D=0A    font-size: 16px;=0D=
+=0A    font-weight: bold;=0D=0A    margin: 20px 0 10px;=0D=0A  }=0D=0A=0D=
+=0A  .content p {=0D=0A    font-size: 16px;=0D=0A    margin: 0 0 13px 0;=0D=
+=0A  }=0D=0A=0D=0A  .content p.intro {=0D=0A    font-size: 18px;=0D=0A    c=
+olor: #5d6678;=0D=0A    margin: 40px 0 50px;=0D=0A  }=0D=0A=0D=0A  .content=
+ a {=0D=0A    color: #178acc;=0D=0A    text-decoration: underline;=0D=0A  }=
+=0D=0A=0D=0A  .content strong,=0D=0A  .content b {=0D=0A    color: #606060;=
+=0D=0A  }=0D=0A=0D=0A  .content ol,=0D=0A  .content ul {=0D=0A    margin: 2=
+0px 0 30px 0;=0D=0A    padding: 0;=0D=0A  }=0D=0A=0D=0A  .content ol li,=0D=
+=0A  .content ul li {=0D=0A    margin: 5px 0;=0D=0A  }=0D=0A=0D=0A  .conten=
+t blockquote {=0D=0A    padding: 15px 40px;=0D=0A    margin: 20px 15px;=0D=
+=0A    font-style: italic;=0D=0A    color: #8C8C8C;=0D=0A    font-size: 17p=
+x;=0D=0A    text-align: center;=0D=0A    font-family: Georgia, sans-serif;=
+=0D=0A  }=0D=0A=0D=0A  .content blockquote a {=0D=0A    color: #8C8C8C;=0D=
+=0A  }=0D=0A=0D=0A  .content td.content-td table.intercom-container {=0D=0A=
+    margin: 18px 10%;=0D=0A  }=0D=0A  .content td.content-td table.intercom=
+-container.intercom-align-center {=0D=0A    margin-left: auto;=0D=0A    mar=
+gin-right: auto;=0D=0A  }=0D=0A=0D=0A  .content td.content-td table.interco=
+m-align-center td{=0D=0A    text-align: center;=0D=0A    width: 100% !impor=
+tant;=0D=0A  }=0D=0A=0D=0A  .content td.content-td table.intercom-container=
+ td {=0D=0A    background-color: #0098d9;=0D=0A    width: auto;=0D=0A    pa=
+dding: 13px 35px;=0D=0A    border-radius: 26px;=0D=0A    font-family: Helve=
+tica, Arial, sans-serif;=0D=0A    margin: 0;=0D=0A    border: none;=0D=0A  =
+}=0D=0A=0D=0A  .content td.content-td table.intercom-container .intercom-h2=
+b-button {=0D=0A    display: inline-block;=0D=0A    min-height: 20px;=0D=0A=
+    color: white;=0D=0A    font-size: 15px;=0D=0A    text-decoration: none;=
+=0D=0A    background-color: #0098d9;=0D=0A    border: none !important;=0D=
+=0A  }=0D=0A=0D=0A  .content table.intercom-responsive-layout-table {=0D=0A=
+    padding: 0;=0D=0A    width: 100%;=0D=0A    position: relative;=0D=0A   =
+ display: table;=0D=0A    table-layout: fixed;=0D=0A    border-spacing: 0;=
+=0D=0A    border-collapse: collapse;=0D=0A    border: none;=0D=0A    margin=
+-left: 0 !important;=0D=0A    margin-right: 0 !important;=0D=0A  }=0D=0A=0D=
+=0A  .content table.intercom-responsive-layout-table td {=0D=0A    word-wra=
+p: break-word;=0D=0A    =0D=0A    -moz-hyphens: auto;=0D=0A    hyphens: aut=
+o;=0D=0A    border-spacing: 0;=0D=0A    border-collapse: collapse;=0D=0A   =
+ border: none;=0D=0A    color: #818181;=0D=0A    font-size: 16px;=0D=0A    =
+vertical-align: top;=0D=0A    text-align: left;=0D=0A    =0D=0A  }=0D=0A=0D=
+=0A  .content table.intercom-responsive-layout-table td.columns {=0D=0A    =
+margin: 0 auto;=0D=0A    padding-left: 16px;=0D=0A    padding-bottom: 16px;=
+=0D=0A    min-width: none !important;=0D=0A  }=0D=0A=0D=0A  hr {=0D=0A    b=
+order: none;=0D=0A    border-top: 1px solid #F0F0F0;=0D=0A    border-bottom=
+: 0;=0D=0A    margin: 50px 60px;=0D=0A  }=0D=0A=0D=0A  .content table th {=
+=0D=0A    font-weight: bold;=0D=0A    background: #F6F6F6;=0D=0A  }=0D=0A=
+=0D=0A  .content table td,=0D=0A  .content table th {=0D=0A    padding: 7px=
+ 10px;=0D=0A    border: 1px solid #DADADA;=0D=0A    text-align: left;=0D=0A=
+    vertical-align: top;=0D=0A  }=0D=0A=0D=0A  .content .content-td table {=
+=0D=0A    margin: 40px 0 20px;=0D=0A    border-collapse: collapse;=0D=0A  }=
+=0D=0A=0D=0A  .content td.content-td .im {=0D=0A    display: block;=0D=0A  =
+}=0D=0A=0D=0A  /* Star (> *) selector breaks outlooks :( */=0D=0A  .content=
+ td.content-td h1 ,=0D=0A  .content td.content-td h2 ,=0D=0A  .content td.c=
+ontent-td h3 ,=0D=0A  .content td.content-td h4 ,=0D=0A  .content td.conten=
+t-td h5 ,=0D=0A  .content td.content-td p ,=0D=0A  .content td.content-td o=
+l ,=0D=0A  .content td.content-td ul ,=0D=0A  .content td.content-td .inter=
+com-container ,=0D=0A  .content td.content-td blockquote ,=0D=0A  .content =
+td.content-td table ,=0D=0A  .content td.content-td img ,=0D=0A  .content t=
+d.content-td hr ,=0D=0A  .content td.content-td ic-block {=0D=0A    padding=
+-left: 10%;=0D=0A    padding-right: 10%;=0D=0A  }=0D=0A=0D=0A  .content td.=
+content-td div.intercom-container {=0D=0A    line-height: 0;=0D=0A    margi=
+n: 18px 0;=0D=0A  }=0D=0A=0D=0A  .content td.content-td table {=0D=0A    pa=
+dding: 0;=0D=0A    margin-left: 10%;=0D=0A    margin-right: 10%;=0D=0A  }=
+=0D=0A=0D=0A  .content td.content-td blockquote {=0D=0A    padding-left: 50=
+px;=0D=0A    padding-right: 50px;=0D=0A    margin-left: 50px;=0D=0A    marg=
+in-right: 50px;=0D=0A  }=0D=0A=0D=0A  .content td.content-td ol ,=0D=0A  .c=
+ontent td.content-td ul {=0D=0A    padding-left: 16%;=0D=0A  }=0D=0A=0D=0A =
+ .content td.content-td img {=0D=0A    max-width: 100%;=0D=0A    margin: 0;=
+=0D=0A    padding: 0;=0D=0A  }=0D=0A=0D=0A  .content td.content-td p img,=
+=0D=0A  .content td.content-td h1 img,=0D=0A  .content td.content-td h2 img=
+,=0D=0A  .content td.content-td li img,=0D=0A  .content td.content-td .inte=
+rcom-h2b-button img {=0D=0A    margin: 0;=0D=0A    padding: 0;=0D=0A  }=0D=
+=0A=0D=0A  .content td.content-td .intercom-container.featured {=0D=0A    m=
+argin-left: 0;=0D=0A    margin-right: 0;=0D=0A    padding: 0;=0D=0A  }=0D=
+=0A=0D=0A  /**/=0D=0A  .content td..content-td pre {=0D=0A    margin: 0 0 1=
+0px;=0D=0A    padding: 10px;=0D=0A    background-color: #f5f5f5;=0D=0A    o=
+verflow: auto;=0D=0A  }=0D=0A=0D=0A  .content td..content-td pre code {=0D=
+=0A    font-family: Courier, monospace;=0D=0A    font-size: 14px;=0D=0A    =
+line-height: 1.4;=0D=0A    white-space: nowrap;=0D=0A  }=0D=0A=0D=0A  /**=
+=0D=0A   * Footer=0D=0A   */=0D=0A=0D=0A  .footer {=0D=0A    max-width: 800=
+px;=0D=0A  }=0D=0A=0D=0A  .footer .footer-td {=0D=0A    text-align: center;=
+=0D=0A    width: 100%;=0D=0A    padding: 26px 30px 22px;=0D=0A  }=0D=0A=0D=
+=0A  .footer h2,=0D=0A  .footer p,=0D=0A  .footer a {=0D=0A    text-decorat=
+ion: none;=0D=0A    font-size: 13px;=0D=0A    color: #a8a8a8;=0D=0A  }=0D=
+=0A=0D=0A  .footer h2 {=0D=0A    font-weight: bold;=0D=0A  }=0D=0A=0D=0A  .=
+footer p {=0D=0A    margin: 0 0 10px 0;=0D=0A    line-height: 1.5;=0D=0A   =
+ font-weight: 300;=0D=0A  }=0D=0A=0D=0A  .footer .unsub {=0D=0A    margin: =
+0;=0D=0A  }=0D=0A=0D=0A  .footer .unsub a {=0D=0A    text-decoration: under=
+line;=0D=0A  }=0D=0A=0D=0A  .footer .powered-by {=0D=0A    display: block;=
+=0D=0A    margin: 10px 0 10px;=0D=0A  }=0D=0A=0D=0A  .footer .powered-by a{=
+=0D=0A    font-weight: bold;=0D=0A  }=0D=0A=0D=0A  .footer .social {=0D=0A =
+   margin: 27px 0 20px;=0D=0A  }=0D=0A=0D=0A  a.intercom-h2b-button {=0D=0A=
+    background-color: #0098d9;=0D=0A    border-radius: 26px;=0D=0A    displ=
+ay: inline-block;=0D=0A    min-height: 20px;=0D=0A    color: white !importa=
+nt;=0D=0A    font-size: 15px;=0D=0A    text-decoration: none !important;=0D=
+=0A  }=0D=0A=0D=0A  table.intercom-container td > a.intercom-h2b-button {=
+=0D=0A    padding: 0px;=0D=0A  }=0D=0A=0D=0A  .content-td table.intercom-re=
+sponsive-layout-table div.intercom-container,=0D=0A  .content-td table.inte=
+rcom-responsive-layout-table div.embercom-prosemirror-composer-block-contai=
+ner {=0D=0A      margin-top: 0;=0D=0A  }=0D=0A=0D=0A  /**=0D=0A   * Overrid=
+es=0D=0A   */=0D=0A=0D=0A  table.intercom-embedded-survey td {=0D=0A    bor=
+der: 0;=0D=0A  }=0D=0A</style>=0D=0A=0D=0A<!-- Responsive-->=0D=0A<style ty=
+pe=3D"text/css" data-premailer=3D"ignore">=0D=0A=0D=0A  @media screen and (=
+max-width: 600px) {=0D=0A    .main {=0D=0A      width: 100% !important;=0D=
+=0A    }=0D=0A  }=0D=0A=0D=0A  @media screen and (max-width: 480px) {=0D=0A=
+    .content td.content-td h1 ,=0D=0A    .content td.content-td h2 ,=0D=0A =
+   .content td.content-td h3 ,=0D=0A    .content td.content-td h4 ,=0D=0A  =
+  .content td.content-td h5 ,=0D=0A    .content td.content-td p ,=0D=0A    =
+.content td.content-td ol ,=0D=0A    .content td.content-td ul ,=0D=0A    =
+.content td.content-td .intercom-container ,=0D=0A    .content td.content-=
+td blockquote ,=0D=0A    .content td.content-td table ,=0D=0A    .content t=
+d.content-td hr {=0D=0A      padding-left: 5% !important;=0D=0A      paddin=
+g-right: 5% !important;=0D=0A    }=0D=0A=0D=0A    .content td.content-td ol=
+ ,=0D=0A    .content td.content-td ul {=0D=0A      padding-left: 15% !impor=
+tant;=0D=0A    }=0D=0A=0D=0A    .content td.content-td table.intercom-conta=
+iner.intercom-align-center {=0D=0A      text-align: center;=0D=0A      min-=
+width: 90% !important;=0D=0A      padding-left: 5% !important;=0D=0A      p=
+adding-right: 5% !important;=0D=0A    }=0D=0A=0D=0A    .content td.content-=
+td table {=0D=0A      margin-left: 5% !important;=0D=0A      margin-right: =
+5% !important;=0D=0A    }=0D=0A=0D=0A    .content td.content-td table[align=
+=3Dcenter] {=0D=0A      margin: 18px auto !important=0D=0A    }=0D=0A=0D=0A=
+    .content td.content-td .intercom-container.featured {=0D=0A      paddin=
+g-left: 0 !important;=0D=0A      padding-right: 0 !important;=0D=0A    }=0D=
+=0A=0D=0A    .content td.content-td blockquote {=0D=0A      padding-left: 1=
+0% !important;=0D=0A      padding-right: 10% !important;=0D=0A      margin-=
+left: 0 !important;=0D=0A      padding-right: 0 !important;=0D=0A    }=0D=
+=0A=0D=0A    .content h1 {=0D=0A      font-size: 30px !important;=0D=0A    =
+  margin: 30px 0 0 !important;=0D=0A    }=0D=0A=0D=0A    .content h2 {=0D=
+=0A      font-size: 20px !important;=0D=0A    }=0D=0A=0D=0A    .content p,=
+=0D=0A    .content li,=0D=0A    .content b,=0D=0A    .content i,=0D=0A    .=
+content strong,=0D=0A    .content em,=0D=0A    .content h3 {=0D=0A      fon=
+t-size: 14px !important;=0D=0A    }=0D=0A=0D=0A    .content p.intro {=0D=0A=
+      font-size: 16px !important;=0D=0A      margin-top: 30px !important;=
+=0D=0A      margin-bottom: 30px !important;=0D=0A    }=0D=0A=0D=0A    .foot=
+er .footer-td-wrap {=0D=0A      padding-left: 20px !important;=0D=0A      p=
+adding-right: 20px !important;=0D=0A    }=0D=0A  }=0D=0A=0D=0A  .content-td=
+ blockquote + * {=0D=0A    margin-top: 20px !important;=0D=0A  }=0D=0A=0D=
+=0A  .ExternalClass .content h1 {=0D=0A    padding: 30px 0 15px !important;=
+=0D=0A  }=0D=0A=0D=0A  .ExternalClass .content h2 {=0D=0A    padding: 15px =
+0 !important;=0D=0A  }=0D=0A=0D=0A  .ExternalClass .content-td p {=0D=0A   =
+ padding: 10px 0 !important;=0D=0A  }=0D=0A=0D=0A  .ExternalClass .intercom=
+-container {=0D=0A    padding: 10px 0 !important;=0D=0A  }=0D=0A=0D=0A  .Ex=
+ternalClass .content-td hr + * {=0D=0A    padding-top: 20px !important;=0D=
+=0A  }=0D=0A=0D=0A  .ExternalClass .content ol ,=0D=0A  .ExternalClass .con=
+tent ul {=0D=0A    padding: 20px 0 20px 40px !important;=0D=0A    margin: 0=
+ !important;=0D=0A  }=0D=0A=0D=0A  .ExternalClass .content ol li,=0D=0A  .E=
+xternalClass .content ul li {=0D=0A    padding: 3px 0 !important;=0D=0A    =
+margin: 0 !important;=0D=0A  }=0D=0A=0D=0A  .ExternalClass .footer h2 {=0D=
+=0A    padding-bottom: 5px !important;=0D=0A  }=0D=0A=0D=0A  .ExternalClass=
+ .footer p {=0D=0A    padding: 10px 0 !important;=0D=0A  }=0D=0A=0D=0A</sty=
+le>=0D=0A=0D=0A=0D=0A<!-- Outlook fix -->=0D=0A=0D=0A<!--[if gte mso 9]>=0D=
+=0A    <style type=3D"text/css">=0D=0A      table {=0D=0A        border-col=
+lapse: collapse !important;=0D=0A      }=0D=0A      td {=0D=0A        borde=
+r-collapse: collapse !important;=0D=0A      }=0D=0A    </style>=0D=0A<![end=
+if]-->=0D=0A=0D=0A<style type=3D"text/css">=0D=0A  .intercom-align-right {=
+=0D=0A  text-align: right !important;=0D=0A}=0D=0A.intercom-align-center {=
+=0D=0A  text-align: center !important;=0D=0A}=0D=0A.intercom-align-left {=
+=0D=0A  text-align: left !important;=0D=0A}=0D=0A/* Over-ride for RTL */=0D=
+=0A.right-to-left .intercom-align-right{=0D=0A  text-align: left !important=
+;=0D=0A}=0D=0A.right-to-left .intercom-align-left{=0D=0A  text-align: right=
+ !important;=0D=0A}=0D=0A.right-to-left .intercom-align-left {=0D=0A  text-=
+align:right !important;=0D=0A}=0D=0A.right-to-left li {=0D=0A  text-align:r=
+ight !important;=0D=0A  direction: rtl;=0D=0A}=0D=0A.right-to-left .interco=
+m-align-left img,=0D=0A.right-to-left .intercom-align-left .intercom-h2b-bu=
+tton {=0D=0A  margin-left: 0 !important;=0D=0A}=0D=0A.intercom-attachment,=
+=0D=0A.intercom-attachments,=0D=0A.intercom-attachments td,=0D=0A.intercom-=
+attachments th,=0D=0A.intercom-attachments tr,=0D=0A.intercom-attachments t=
+body,=0D=0A.intercom-attachments .icon,=0D=0A.intercom-attachments .icon im=
+g {=0D=0A  border: none !important;=0D=0A  box-shadow: none !important;=0D=
+=0A  padding: 0 !important;=0D=0A  margin: 0 !important;=0D=0A}=0D=0A.inter=
+com-attachments {=0D=0A  margin: 10px 0 !important;=0D=0A}=0D=0A.intercom-a=
+ttachments .icon,=0D=0A.intercom-attachments .icon img {=0D=0A  width: 16px=
+ !important;=0D=0A  height: 16px !important;=0D=0A}=0D=0A.intercom-attachme=
+nts .icon {=0D=0A  padding-right: 5px !important;=0D=0A}=0D=0A.intercom-att=
+achment {=0D=0A  display: inline-block !important;=0D=0A  margin-bottom: 5p=
+x !important;=0D=0A}=0D=0A=0D=0A.intercom-interblocks-content-card {=0D=0A =
+ width: 334px !important;=0D=0A  max-height: 136px !important;=0D=0A  max-w=
+idth: 100% !important;=0D=0A  overflow: hidden !important;=0D=0A  border-ra=
+dius: 20px !important;=0D=0A  font-size: 16px !important;=0D=0A  border: 1p=
+x solid #e0e0e0 !important;=0D=0A}=0D=0A=0D=0A.intercom-interblocks-link,=
+=0D=0A.intercom-interblocks-article-card {=0D=0A  text-decoration: none !im=
+portant;=0D=0A}=0D=0A=0D=0A.intercom-interblocks-article-icon {=0D=0A  widt=
+h: 22.5% !important;=0D=0A  height: 136px !important;=0D=0A  float: left !i=
+mportant;=0D=0A  background-color: #fafafa !important;=0D=0A  background-im=
+age: url('https://qr-code-generator.intercom-mail.com/assets/article_book-1=
+a595be287f73c0d02f548f513bfc831.png') !important;=0D=0A  background-repeat:=
+ no-repeat !important;=0D=0A  background-size: 32px !important;=0D=0A  back=
+ground-position: center !important;=0D=0A}=0D=0A=0D=0A.intercom-interblocks=
+-article-text {=0D=0A  width: 77.5% !important;=0D=0A  float: right !import=
+ant;=0D=0A  background-color: #fff !important;=0D=0A}=0D=0A=0D=0A.intercom-=
+interblocks-link-title,=0D=0A.intercom-interblocks-article-title {=0D=0A  c=
+olor: #519dd4 !important;=0D=0A  font-size: 15px !important;=0D=0A  margin:=
+ 16px 18px 12px !important;=0D=0A  line-height: 1.3em !important;=0D=0A  ov=
+erflow: hidden !important;=0D=0A}=0D=0A=0D=0A.intercom-interblocks-link-des=
+cription,=0D=0A.intercom-interblocks-article-body {=0D=0A  margin: 0 18px 1=
+2px !important;=0D=0A  font-size: 14px !important;=0D=0A  color: #65757c !i=
+mportant;=0D=0A  line-height: 1.3em !important;=0D=0A}=0D=0A=0D=0A.intercom=
+-interblocks-link-author,=0D=0A.intercom-interblocks-article-author {=0D=0A=
+  margin: 10px 15px !important;=0D=0A  height: 24px !important;=0D=0A  line=
+-height: normal !important;=0D=0A}=0D=0A=0D=0A.intercom-interblocks-link-au=
+thor-avatar,=0D=0A.intercom-interblocks-article-author-avatar {=0D=0A  widt=
+h: 16px !important;=0D=0A  height: 16px !important;=0D=0A  display: inline-=
+block !important;=0D=0A  vertical-align: middle !important;=0D=0A  float: l=
+eft;=0D=0A  margin-right: 5px;=0D=0A}=0D=0A=0D=0A.intercom-interblocks-link=
+-author-avatar-image,=0D=0A.intercom-interblocks-article-author-avatar-imag=
+e {=0D=0A  width: 16px !important;=0D=0A  height: 16px !important;=0D=0A  b=
+order-radius: 50% !important;=0D=0A  margin: 0 !important;=0D=0A  vertical-=
+align: top !important;=0D=0A  font-size: 12px !important;=0D=0A}=0D=0A=0D=
+=0A.intercom-interblocks-link-author-name,=0D=0A.intercom-interblocks-artic=
+le-author-name {=0D=0A  color: #74848b !important;=0D=0A  margin: 0 0 0 5px=
+ !important;=0D=0A  font-size: 12px !important;=0D=0A  font-weight: 500 !im=
+portant;=0D=0A  overflow: hidden !important;=0D=0A}=0D=0A=0D=0A.intercom-in=
+terblocks-article-written-by {=0D=0A  color: #8897a4 !important;=0D=0A  mar=
+gin: 1px 0 0 5px !important;=0D=0A  font-size: 12px !important;=0D=0A  over=
+flow: hidden !important;=0D=0A  vertical-align: middle !important;=0D=0A  f=
+loat: left !important;=0D=0A}=0D=0A=0D=0A</style>=0D=0A=0D=0A=0D=0A=0D=0A=
+=0D=0A</head>=0D=0A=0D=0A<body style=3D"background-color: white; margin: 0p=
+x;" class=3D"intercom-template-body" bgcolor=3D"white">=0D=0A<div style=3D"=
+color:transparent;visibility:hidden;opacity:0;font-size:0px;border:0;max-he=
+ight:1px;width:1px;margin:0px;padding:0px;border-width:0px!important;displa=
+y:none!important;line-height:0px!important;"><img border=3D"0" width=3D"1" =
+height=3D"1" src=3D"https://qrcg.intercom-mail.com/q/ULgZg8urZE46rq1JdW5MhA=
+~~/AAAAAQA~/RgRl9iEoPVcIaW50ZXJjb21CCmQQKJwTZJ8lWwdSGWdyZWVudHVydGxla2F2YUB=
+nbWFpbC5jb21YBAAAADM~" alt=3D""/></div>=0D=0A=0D=0A=0D=0A  <table cellspaci=
+ng=3D"0" border=3D"0" cellpadding=3D"0" align=3D"center" width=3D"600" clas=
+s=3D"main announcement intercom-template-content" style=3D"font-family: Hel=
+vetica, Arial, sans-serif; letter-spacing: 0; border-spacing: 0; border-col=
+lapse: separate; table-layout: fixed; max-width: 100%; background-color: wh=
+ite;" bgcolor=3D"white">=0D=0A    <tbody>=0D=0A<tr>=0D=0A      <td style=3D=
+"font-size: 16px; font-family: Helvetica, Arial, sans-serif; padding: 60px =
+0 0;">=0D=0A=0D=0A        <!-- Header -->=0D=0A        =0D=0A  <table width=
+=3D"100%" class=3D"header" style=3D"border-spacing: 0; border-collapse: sep=
+arate; table-layout: fixed; max-width: 100%;">=0D=0A    <tbody>=0D=0A<tr>=
+=0D=0A      <td class=3D"logo" style=3D"font-size: 16px; font-family: Helve=
+tica, Arial, sans-serif; text-align: center; padding: 0;" align=3D"center">=
+=0D=0A        =0D=0A          <img src=3D"https://qr-code-generator.interco=
+m-mail.com/i/o/574731413/19ec756afd89026f7a818f1b/logo+QRCG+.jpg" width=3D"=
+165" height=3D"0" class=3D"featured" style=3D"padding: 0 0 37px;">=0D=0A   =
+     =0D=0A      </td>=0D=0A    </tr>=0D=0A  </tbody>=0D=0A</table>=0D=0A=
+=0D=0A=0D=0A        <!-- Main content -->=0D=0A        <table width=3D"100%=
+" class=3D"content" style=3D"border-spacing: 0; border-collapse: separate; =
+table-layout: fixed; max-width: 100%;">=0D=0A          <tbody>=0D=0A<tr>=0D=
+=0A            <td class=3D"content-td" style=3D"font-size: 16px; font-fami=
+ly: Helvetica, Arial, sans-serif; line-height: 150%; color: #818181; paddin=
+g: 0 0 60px;">=0D=0A              <h1 class=3D"intercom-align-center" style=
+=3D"font-size: 36px; font-weight: 300; line-height: 1.2; color: #0098d9; pa=
+dding-left: 10%; padding-right: 10%; text-align: center !important; margin:=
+ 0 0 5px;" align=3D"center">You=E2=80=99ve found the secret QR Code sauce f=
+or your business</h1>=0D=0A<div class=3D"intercom-container" style=3D"paddi=
+ng-left: 10%; padding-right: 10%; line-height: 0; margin: 18px 0;"><a targe=
+t=3D"_blank" href=3D"https://qr-code-generator.intercom-clicks.com/via/e=3F=
+ob=3DCyPgI1%2BI%2FozjiCiAGbmphgtomQn%2FW2AfN5milZBSN3Zh9moXLjWOyeHOGp0UP1nu=
+GoPCZAByEg6NPkuJxTueC9oSi5PV0cWTkhVrKABH0xAoKLXuXBkE%2Bs8bzoXBFfZaX0l5IJHEW=
+mNwhwFqfKWFqzy27%2FCpixDy6Qm%2BbPMEE6%2FxczMPic8rtS%2BPGqAgFO3tQFrhvUj0aPWN=
+ZAfNe2YVGv3qwL8v4p34cIrfH7gOYTXJmif7BbDdn9ISqG2zXMfw&h=3Da4ba1c9111471a618f=
+28aa7726f4ad1ac3fa61ad-u4ys98rc_12483972613127&l=3D080e1304bb14fdb871cd9003=
+e91e8b903e1c279a-9233156" style=3D"outline: none !important; color: #178acc=
+; text-decoration: underline; border-style: none;"><img src=3D"https://qr-c=
+ode-generator.intercom-mail.com/i/o/218181501/5d00aa5615b9fa7af82f04d3/emai=
+l-marketing_restaurants_welcome_banner_v2.png" width=3D"600" style=3D"max-w=
+idth: 100%; margin: 0; padding: 0;"></a></div>=0D=0A<p style=3D"font-size: =
+16px; padding-left: 10%; padding-right: 10%; margin: 0 0 13px;">As many as =
+65% of restaurant and bar guests will accept no physical menus as a new rul=
+e in the wake of coronavirus. So how can you safely replace printed menus f=
+or easy access=3F The secret ingredient lies within our PDF QR Code. Why=3F=
+</p>=0D=0A<ul style=3D"margin: 20px 0 30px; padding: 0 10% 0 16%;">=0D=0A<l=
+i style=3D"margin: 5px 0;">It=E2=80=99s easy to create. Simply upload your =
+menu in PDF format to the QR Code.</li>=0D=0A<li style=3D"margin: 5px 0;">I=
+t=E2=80=99s easy to scan. Display your QR Code at your restaurant or bar wh=
+ere your customers can easily scan it.</li>=0D=0A<li style=3D"margin: 5px 0=
+;">It=E2=80=99s easy to share. Your QR Code comes with a short URL so you c=
+an use it to promote your menu online.</li>=0D=0A</ul>=0D=0A<p style=3D"fon=
+t-size: 16px; padding-left: 10%; padding-right: 10%; margin: 0 0 13px;">Sou=
+nds good=3F Turn your menu into a QR Code now!</p>=0D=0A<table class=3D"int=
+ercom-container intercom-align-center" align=3D"center" style=3D"border-spa=
+cing: 0; border-collapse: collapse; table-layout: fixed; max-width: 100%; t=
+ext-align: center !important; margin: 18px auto; padding: 0 10%;"><tbody><t=
+r><td style=3D"font-size: 16px; font-family: Helvetica, Arial, sans-serif; =
+text-align: center; width: 100% !important; background-color: #0098d9; bord=
+er-radius: 26px; vertical-align: top; margin: 0; padding: 13px 35px; border=
+: 1px none #DADADA;" align=3D"center" bgcolor=3D"#0098d9" valign=3D"top"><a=
+ class=3D"intercom-h2b-button" target=3D"_blank" href=3D"https://qr-code-ge=
+nerator.intercom-clicks.com/via/e=3Fob=3DCyPgI1%2BI%2FozjiCiAGbmphgtomQn%2F=
+W2AfN5milZBSN3Zh9moXLjWOyeHOGp0UP1nuGoPCZAByEg6NPkuJxTueC9oSi5PV0cWTkhVrKAB=
+H0xAoKLXuXBkE%2Bs8bzoXBFfZaX0l5IJHEWmNwhwFqfKWFqzy27%2FCpixDy6Qm%2BbPMEE6%2=
+FxczMPic8rtS%2BPGqAgFO3tQFrhvUj0aPWNZAfNe2YVGv3qwL8v4p34cIrfH7gOYTXJmif7BbD=
+dn9ISqG2zXMfw&h=3Da4ba1c9111471a618f28aa7726f4ad1ac3fa61ad-u4ys98rc_1248397=
+2613127&l=3D78fe8c61a423c092ba763e3023d73fe36f7f77c1-9233157" style=3D"outl=
+ine: none !important; color: white !important; text-decoration: none !impor=
+tant; display: inline-block; min-height: 20px; font-size: 15px; background-=
+color: #0098d9; border-radius: 26px; padding: 0px; border-style: none;">Lea=
+rn how</a></td></tr></tbody></table>=0D=0A<p style=3D"font-size: 16px; padd=
+ing-left: 10%; padding-right: 10%; margin: 0 0 13px;">Cheers,<br>Your frien=
+ds at QR Code Generator PRO</p>=0D=0A<p style=3D"font-size: 16px; padding-l=
+eft: 10%; padding-right: 10%; margin: 0 0 13px;"></p>=0D=0A<p style=3D"font=
+-size: 16px; padding-left: 10%; padding-right: 10%; margin: 0;">Have any qu=
+estions=3F Visit our <a href=3D"https://qr-code-generator.intercom-clicks.c=
+om/via/e=3Fob=3DF5vn%2BJr33or3TRwu1HWTAlZer%2FAVYQkYmAtxrdJm8jMM6%2FbHc3EAD=
+bNF0XScya8d&h=3D09f5f50a20755b3861ee85975aa021d7b2bb28be-u4ys98rc_124839726=
+13127&l=3D2fc76e8178956936fafc8f98fcc021b2bf01f3a6-18901569" target=3D"_bla=
+nk" class=3D"intercom-content-link" style=3D"outline: none !important; colo=
+r: #178acc; text-decoration: underline; border-style: none;">Help Center</a=
+>. Alternatively, you can contact our Support Team via the <a href=3D"https=
+://qr-code-generator.intercom-clicks.com/via/e=3Fob=3DELMYhD7qXVdV8%2Bo4s1G=
+SACcQHDmIONxAxUe3RZzIVmxR67JU0PdrazQFQSzTQpEDf3WrGa4r%2Bzc9Q21cF24ydzgDbp3I=
+RxofrZUqopp8968%3D&h=3D947bc2451ebfc76d68237bc20f781107f411508a-u4ys98rc_12=
+483972613127&l=3Df42945818ff331898654fd531e9561048c59083c-19155031" target=
+=3D"_blank" class=3D"intercom-content-link" style=3D"outline: none !importa=
+nt; color: #178acc; text-decoration: underline; border-style: none;">Contac=
+t Form</a> in your account.</p>=0D=0A            </td>=0D=0A          </tr>=
+=0D=0A        </tbody>=0D=0A</table>=0D=0A=0D=0A      </td>=0D=0A    </tr>=
+=0D=0A  </tbody>=0D=0A</table>=0D=0A=0D=0A  <!-- Footer -->=0D=0A  =0D=0A  =
+  <table cellspacing=3D"0" border=3D"0" cellpadding=3D"0" align=3D"center" =
+width=3D"100%" bgcolor=3D"transparent" class=3D"main footer" style=3D"font-=
+family: Helvetica, Arial, sans-serif; letter-spacing: 0; border-spacing: 0;=
+ border-collapse: separate; table-layout: fixed; max-width: 800px; backgrou=
+nd-color: #f8f8f8;">=0D=0A      <tbody>=0D=0A<tr>=0D=0A        <td class=3D=
+"footer-td" style=3D"font-size: 16px; font-family: Helvetica, Arial, sans-s=
+erif; text-align: center; width: 100%; padding: 26px 30px 22px;" align=3D"c=
+enter">=0D=0A          =0D=0A  <h2 style=3D"text-decoration: none; font-siz=
+e: 13px; color: #a8a8a8; font-weight: bold;">Follow us</h2>=0D=0A  <p class=
+=3D"social" style=3D"text-decoration: none; font-size: 13px; color: #a8a8a8=
+; line-height: 1.5; font-weight: 300; margin: 27px 0 20px;">=0D=0A    =0D=
+=0A      <a href=3D"https://qr-code-generator.intercom-mail.com/via/e=3Fob=
+=3DUOMPDH2gUUahrASxMInK1HA0AFhvxGGNs6Knmpqn7BeiFmkWgyfcT2q3a45R9C9z&h=3D5a1=
+d8266da98ceadc504c06b3cc827e161b8e1f9-u4ys98rc_12483972613127" style=3D"out=
+line: none !important; text-decoration: none; font-size: 13px; color: #a8a8=
+a8; border-style: none;"><img alt=3D"Facebook" src=3D"https://qr-code-gener=
+ator.intercom-mail.com/assets/email/broadcast/facebook-2263526f2b7c7cf3c7c2=
+a066588b01ef.png" width=3D"60"></a>=0D=0A    =0D=0A    =0D=0A      <a href=
+=3D"https://qr-code-generator.intercom-mail.com/via/e=3Fob=3DeJg1Y9yEqBza8O=
+5jG3%2B8n%2FZYrbljzlgPMPO75N7ZGlk%3D&h=3D4b3ebf1a3fd4a08143ede9599dccce193f=
+6b81d7-u4ys98rc_12483972613127" style=3D"outline: none !important; text-dec=
+oration: none; font-size: 13px; color: #a8a8a8; border-style: none;"><img a=
+lt=3D"Twitter" src=3D"https://qr-code-generator.intercom-mail.com/assets/em=
+ail/broadcast/twitter-fe222f8697fa267d095338db3f583c94.png" width=3D"60"></=
+a>=0D=0A    =0D=0A  </p>=0D=0A=0D=0A=0D=0A          =0D=0A  <p style=3D"tex=
+t-decoration: none; font-size: 13px; color: #a8a8a8; line-height: 1.5; font=
+-weight: 300; margin: 0 0 10px;">Bitly Europe GmbH I Am Lenkwerk 13 I 33609=
+ Bielefeld, Germany | Management: Steffen Hetzel | Local Court Bielefeld HR=
+B 43671</p>=0D=0A=0D=0A          =0D=0A            <p class=3D"unsub" style=
+=3D"text-decoration: none; font-size: 13px; color: #a8a8a8; line-height: 1.=
+5; font-weight: 300; margin: 0;"><a href=3D"https://qr-code-generator.inter=
+com-mail.com/subscriptions/unsubscribe=3Fapp_id=3Du4ys98rc&conversation_id=
+=3D12483972613127&user_id=3D64139c1fc1f234ac727d6f24&source=3Dbody" style=
+=3D"outline: none !important; text-decoration: underline; font-size: 13px; =
+color: #a8a8a8; border-style: none;">Unsubscribe from our emails</a></p>=0D=
+=0A          =0D=0A          =0D=0A        </td>=0D=0A      </tr>=0D=0A    =
+</tbody>=0D=0A</table>=0D=0A  =0D=0A=0D=0A=0D=0A<img src=3D"https://qr-code=
+-generator.intercom-mail.com/via/o=3Fh=3Dc5ca691a50867ad07e271afb998a1b9da9=
+c911e9-u4ys98rc_12483972613127" width=3D"1" height=3D"1" style=3D"display: =
+block;" alt=3D"intercom">=0D=0A=0D=0A<img border=3D"0" width=3D"1" height=
+=3D"1" alt=3D"" src=3D"https://qrcg.intercom-mail.com/q/woyn37iwlYOXAvvPdJE=
+LwA~~/AAAAAQA~/RgRl9iEoPlcIaW50ZXJjb21CCmQQKJwTZJ8lWwdSGWdyZWVudHVydGxla2F2=
+YUBnbWFpbC5jb21YBAAAADM~">=0D=0A</body>=0D=0A</html>
+--_----bZ1VSy5umJO+KVNTf9P0bA===_05/70-40741-82C93146--
+
+

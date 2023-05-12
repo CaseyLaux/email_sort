@@ -1,0 +1,7 @@
+{
+  "prompt": "Subject: Your Deluxe Order Has Shipped\nFrom:Deluxe Corporation <customerservice@shopdeluxe.com>\nTo:support@ourcompany.com\nDate:Wed, 22 Mar 2023 11:06:08 +0000\nContent:\r\n\r\nYour Deluxe order #2053218273 is now being shipped.\r\n\r\nAny ordered products not shown below will be shipped separately and confirmed by separate e-mail.\r\nNot all products ship the same day, so please allow time for e-mail notification and delivery.\r\n\r\nPRODUCTS SHIPPED\r\n\r\nCH3UP1-1, CHASE MANUAL 3ON INTROPACK\r\n     Shipped:  3/21/23\r\nCH3UP1-1, CHASE MANUAL 3ON INTROPACK\r\n     Shipped:  3/21/23\r\n     Tracking #:  1Z0150781383560351\r\n     To track your order's progress online, visit:\r\n     https://wwwapps.ups.com/tracking/tracking.cgi?&tracknum=1Z0150781383560351\r\n\r\nIf you have questions about your order, please contact us toll-free at 800-328-0304. \r\n\r\nThank you again for ordering from Deluxe!\r\n\r\nDeluxe | P.O. Box 419059 Rancho Cordova, CA 95741-9059 \r\n(c) 2023 Deluxe Corporation\n###\n\n",
+  "completion": " ",
+  "email_subject": "Your Deluxe Order Has Shipped",
+  "email_sender": "Deluxe Corporation <customerservice@shopdeluxe.com>",
+  "email_date": "Wed, 22 Mar 2023 11:06:08 +0000"
+}
