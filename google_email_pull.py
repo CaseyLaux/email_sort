@@ -1,8 +1,8 @@
-import imaplib, email, json, os
+import imaplib, email, json, os, base64
 from datetime import datetime, timedelta
-
+import secrats
 user = 'greenturtlekava@gmail.com'
-password = 'hjolwtqwkwnhzhjp'
+password = base64.b64decode(secrats.kava_password)
 imap_url = 'imap.gmail.com'
 directory = "front-end\\email-review\\public\\unsorted"
 
