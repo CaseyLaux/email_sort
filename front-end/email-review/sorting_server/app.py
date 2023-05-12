@@ -3,7 +3,7 @@ from flask_cors import CORS
 import os
 import shutil
 import configparser
-import unsorted_indexer
+import email_indexer
 import json
 
 # Read settings from a configuration file
@@ -53,7 +53,7 @@ def move_email():
     
     try:
         os.getcwd
-        unsorted_indexer.index_emails()
+        email_indexer.index_emails()
     except Exception as e:
         with open("debug.txt", "w") as x:
             x.write(str(e))
@@ -61,7 +61,7 @@ def move_email():
             x.write(f"${original_path}, \n , ${new_path}")
 
     finally:
-        unsorted_indexer.index_emails()
+        email_indexer.index_emails()
         return jsonify({'message': 'Email moved successfully.'}), 200
 
 @app.route('/api/delete-email', methods=['POST'])
@@ -82,7 +82,7 @@ def delete_email():
         return jsonify({'error': f'Failed to delete email: {str(e)}'}), 500
     
     try:
-        unsorted_indexer.index_emails()
+        email_indexer.index_emails()
     except Exception as e:
         with open("debug.txt", "w") as x:
             x.write(str(e))
@@ -90,7 +90,7 @@ def delete_email():
             x.write(f"{original_path}")
 
     finally:
-        unsorted_indexer.index_emails()
+        email_indexer.index_emails()
         return jsonify({'message': 'Email deleted successfully.'}), 200
 
 
