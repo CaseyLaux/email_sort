@@ -1,7 +1,0 @@
-{
-  "prompt": "Subject: Do you ever outsource your writing?\nFrom:Crystal Coker <crystal.l.coker@gmail.com>\nTo:support@ourcompany.com\nDate:Tue, 11 Apr 2023 14:25:10 -0400\nContent:Hi Candace!\r\n\r\nDo you ever outsource any of your writing to freelancers?\r\n\r\nI’m a freelance writer here in central Florida, and I'd love to help you\r\ntackle your workload and get projects done quickly and efficiently.\r\n\r\nI specialize in health, wellness, and lifestyle topics, and I have\r\nextensive research, writing, and editing experience. You can take a look at\r\nmy writing here\r\n<https://streaklinks.com/BduXiUULC3jrIhGHVQXEw3FO/https%3A%2F%2Flist25.com%2F25-reasons-the-english-language-makes-no-sense%2F>\r\n.\r\n\r\nI’d love to jump on a call with you and hear more about your business. Let\r\nme know a couple of times you’re free in the next couple of weeks, and we\r\ncan set up a call.\r\n\r\nThanks so much!\r\n\r\n--\r\n\r\nCrystal Coker\r\n\r\nhttps://www.linkedin.com/in/crystal-coker-gaiasgift/\r\n\r\nᐧ\r\n\n###\n\n",
-  "completion": " ",
-  "email_subject": "Do you ever outsource your writing?",
-  "email_sender": "Crystal Coker <crystal.l.coker@gmail.com>",
-  "email_date": "Tue, 11 Apr 2023 14:25:10 -0400"
-}

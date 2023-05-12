@@ -1,7 +1,0 @@
-{
-  "prompt": "Subject: The Shoppes at Beville Road - Sidewalk Obstruction\nFrom:Rebecca Mavros <Rebecca.Mavros@tscg.com>\nTo:support@ourcompany.com\nDate:Fri, 24 Mar 2023 18:37:19 +0000\nContent:Hi Seth,\r\n\r\nPlease use this email as a notice that the furniture located outside your premises will need to be relocated or reconfigured to accommodate ADA's requirements that a sidewalk must have a clear width of at least 36 inches.  I was on the property the other day and noticed a handicap woman struggling to make it around the furniture to get towards the hair salon.  Please refer to section 71.D of your lease regarding the use of patio furniture and feel free to reach out with any questions.\r\n\r\nKind regards,\r\nRebecca\r\n\r\nRebecca Mavros\r\nAssistant Property Manager at TSCG\r\n\r\n\r\n\r\nO (904) 746-0375 |  C (331) 202-7499\r\nW www.tscg.com<http://www.tscg.com>\r\n\r\nConfidentiality Note: The information contained in this email and document(s) attached are for the exclusive use of the addressee and may contain confidential, privileged and non-disclosable information. If the recipient of this email is not the addressee, such recipient is strictly prohibited from reading, photocopying, distributing or otherwise using this email or its contents in any way and must immediately delete this e-mail.\r\n\r\n\n###\n\n",
-  "completion": " ",
-  "email_subject": "The Shoppes at Beville Road - Sidewalk Obstruction",
-  "email_sender": "Rebecca Mavros <Rebecca.Mavros@tscg.com>",
-  "email_date": "Fri, 24 Mar 2023 18:37:19 +0000"
-}

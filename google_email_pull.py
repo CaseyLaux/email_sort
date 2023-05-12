@@ -2,9 +2,11 @@ import imaplib, email, json, os, base64
 from datetime import datetime, timedelta
 import secrats
 user = 'greenturtlekava@gmail.com'
-password = base64.b64decode(secrats.kava_password)
+password = secrats.decode(secrats.kava_password)
 imap_url = 'imap.gmail.com'
 directory = "front-end\\email-review\\public\\unsorted"
+
+
 
 
 def get_body(msg):

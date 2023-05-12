@@ -1,7 +1,0 @@
-{
-  "prompt": "Subject: =?utf-8?B?TmVlZCBoZWxwIGdldHRpbmcgc3RhcnRlZCB3aXRoIHlvdXIgUVIg?=\r\n\t=?utf-8?B?Q29kZT8g8J+Riw==?=\nFrom:\"No-Reply at QR Code Generator\" <noreply@qr-code-generator.com>\nTo:support@ourcompany.com\nDate:Sat, 18 Mar 2023 23:04:58 +0000\nContent:It’s not as hard as you think, but we’re always here to help \r\n [Image \"email-marketing_restaurants_need-help_banner.png\"] You’re new to QR Code Generator PRO and probably have some questions. That’s why we’ve put together our Help Center where you can access 24/7. But if you’re looking for more in-depth guides and information, visit our Guides and Blog that have the answers to everything you can think of. \r\n Cheers, Your friends at QR Code Generator PRO\n###\n\n",
-  "completion": " ",
-  "email_subject": "=?utf-8?B?TmVlZCBoZWxwIGdldHRpbmcgc3RhcnRlZCB3aXRoIHlvdXIgUVIg?=\r\n\t=?utf-8?B?Q29kZT8g8J+Riw==?=",
-  "email_sender": "\"No-Reply at QR Code Generator\" <noreply@qr-code-generator.com>",
-  "email_date": "Sat, 18 Mar 2023 23:04:58 +0000"
-}

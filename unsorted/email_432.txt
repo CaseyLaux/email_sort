@@ -1,7 +1,0 @@
-{
-  "prompt": "Subject: =?utf-8?B?V2VsY29tZSB0byBRUiBDb2RlIEdlbmVyYXRvciBQUk8g8J+OiQ==?=\nFrom:\"No-Reply at QR Code Generator\" <noreply@qr-code-generator.com>\nTo:support@ourcompany.com\nDate:Thu, 16 Mar 2023 22:46:00 +0000\nContent:You’ve found the secret QR Code sauce for your business \r\n [Image \"email-marketing_restaurants_welcome_banner_v2.png\"] As many as 65% of restaurant and bar guests will accept no physical menus as a new rule in the wake of coronavirus. So how can you safely replace printed menus for easy access? The secret ingredient lies within our PDF QR Code. Why? \r\n - It’s easy to create. Simply upload your menu in PDF format to the QR Code. \r\n- It’s easy to scan. Display your QR Code at your restaurant or bar where your customers can easily scan it. \r\n- It’s easy to share. Your QR Code comes with a short URL so you can use it to promote your menu online. \r\n Sounds good? Turn your menu into a QR Code now! \r\nLearn how Cheers, Your friends at QR Code Generator PRO \r\n \r\n Have any questions? Visit our Help Center. Alternatively, you can contact our Support Team via the Contact Form in your account.\n###\n\n",
-  "completion": " ",
-  "email_subject": "=?utf-8?B?V2VsY29tZSB0byBRUiBDb2RlIEdlbmVyYXRvciBQUk8g8J+OiQ==?=",
-  "email_sender": "\"No-Reply at QR Code Generator\" <noreply@qr-code-generator.com>",
-  "email_date": "Thu, 16 Mar 2023 22:46:00 +0000"
-}

@@ -1,7 +1,0 @@
-{
-  "prompt": "Subject: =?UTF-8?Q?Features_you=E2=80=99ll_love?=\nFrom:Clover Business Solutions <merchantservices@email.clover.com>\nTo:support@ourcompany.com\nDate:Thu, 16 Mar 2023 08:03:31 -0500 (CDT)\nContent:\r\n\r\nThis email was sent to greenturtlekava@gmail.com. If you no longer wish to receive these emails you may unsubscribe here: https://connect.firstdata.com/-Unsubscribe.html?mkt_unsubscribe=1&mkt_tok=MjE1LUVXQi0wNTEAAAGKiX1k-coTcJnzR2Ur0F93Z2B5bUzBg68CUPm-wnbX8xjrEeAGJq-krohBO8E1Vc2PMFqMDTVZ8o69cJZokSq-F1RcvmEeaa-D9fCHYROZzx0e.\r\n\n###\n\n",
-  "completion": " ",
-  "email_subject": "=?UTF-8?Q?Features_you=E2=80=99ll_love?=",
-  "email_sender": "Clover Business Solutions <merchantservices@email.clover.com>",
-  "email_date": "Thu, 16 Mar 2023 08:03:31 -0500 (CDT)"
-}

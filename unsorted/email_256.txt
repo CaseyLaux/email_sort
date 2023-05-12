@@ -1,7 +1,0 @@
-{
-  "prompt": "Subject: Collecting Event Fees on Meetup =?UTF-8?B?8J+SsA==?=\nFrom:Meetup <info@email.meetup.com>\nTo:support@ourcompany.com\nDate:Mon, 27 Mar 2023 14:00:11 +0000 (UTC)\nContent:\r\n\r\n\r\n10 -->\n###\n\n",
-  "completion": " ",
-  "email_subject": "Collecting Event Fees on Meetup =?UTF-8?B?8J+SsA==?=",
-  "email_sender": "Meetup <info@email.meetup.com>",
-  "email_date": "Mon, 27 Mar 2023 14:00:11 +0000 (UTC)"
-}

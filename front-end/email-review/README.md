@@ -1,5 +1,2 @@
-This is the email Sorting project.
-Currently the data flow is like this
+This is the front end of the project. It is a react js project that pulls the emails from unsorted directory to display and rate.
 
-Google_email_pull.py pulls emails using credentials from secrets.py to authenticate
-It then stores the last n emails in the directory

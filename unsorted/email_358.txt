@@ -1,7 +1,0 @@
-{
-  "prompt": "Subject: =?utf-8?B?UmVhZHkgdG8gc2t5cm9ja2V0IHlvdXIgYnVzaW5lc3Mgd2l0aCB1?=\r\n\t=?utf-8?B?cz8g8J+agA==?=\nFrom:\"No-Reply at QR Code Generator\" <noreply@qr-code-generator.com>\nTo:support@ourcompany.com\nDate:Wed, 22 Mar 2023 23:44:35 +0000\nContent:Take a second to view our plans &amp; pricing \n [Image \"email-marketing_restaurants_7-day-trial_banner.png\"] We hope that you have enjoyed using QR Code Generator PRO so far. If you love it, please take a second to choose a plan and update your payment details. This way, you get to enjoy uninterrupted access to the features you love after your 14-day free trial ends. \nChoose a plan \n Cheers, Your friends at QR Code Generator PRO \n \n Have any questions? Visit our Help Center. Alternatively, you can contact our Support Team via the Contact Form in your account.\n###\n\n",
-  "completion": " ",
-  "email_subject": "=?utf-8?B?UmVhZHkgdG8gc2t5cm9ja2V0IHlvdXIgYnVzaW5lc3Mgd2l0aCB1?=\r\n\t=?utf-8?B?cz8g8J+agA==?=",
-  "email_sender": "\"No-Reply at QR Code Generator\" <noreply@qr-code-generator.com>",
-  "email_date": "Wed, 22 Mar 2023 23:44:35 +0000"
-}

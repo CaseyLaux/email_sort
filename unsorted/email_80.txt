@@ -1,7 +1,0 @@
-{
-  "prompt": "Subject: Re: Payment\nFrom:Kava Chocolate <kavabars@gmail.com>\nTo:support@ourcompany.com\nDate:Mon, 10 Apr 2023 08:18:10 -0700\nContent:Colin,\r\n\r\nYou can write a check and mail it to the address below, or I can send you a\r\npay pal request to your email address.\r\n\r\nThanks\r\n\r\n\r\n\r\nOn Fri, Apr 7, 2023 at 7:26 PM Green Turtle Kava <greenturtlekava@gmail.com>\r\nwrote:\r\n\r\n> I am trying to figure out how to pay an open invoice we have. Please let\r\n> me know how this can be paid.\r\n>\r\n> --\r\n> Regards,\r\n> Colin Talmage\r\n> *Green Turtle Kava Team*\r\n> greenturtlekava@gmail.com\r\n>\r\n> *Shells for Shells*\r\n> greenturtlekava.co\r\n>\r\n> This e-mail, including attachments, may include confidential and/or\r\n> proprietary information, and may be used only by the person or entity to\r\n> which it is addressed. If the reader of this e-mail is not the intended\r\n> recipient or his or her authorized agent, the reader is hereby notified\r\n> that any dissemination, distribution or copying of this e-mail is\r\n> prohibited. If you have received this e-mail in error, please notify the\r\n> sender by replying to this message and delete this e-mail immediately.\r\n>\r\n\n###\n\n",
-  "completion": " ",
-  "email_subject": "Re: Payment",
-  "email_sender": "Kava Chocolate <kavabars@gmail.com>",
-  "email_date": "Mon, 10 Apr 2023 08:18:10 -0700"
-}

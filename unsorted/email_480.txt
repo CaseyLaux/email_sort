@@ -1,7 +1,0 @@
-{
-  "prompt": "Subject: DoorDash Payment to Green Turtle Kava (Beville Rd) (Daytona Beach) for 03/07/2023 to 03/12/2023\nFrom:\"DoorDash\" <accounts@doordash.com>\nTo:support@ourcompany.com\nDate:Mon, 13 Mar 2023 12:53:40 +0000\nContent:DoorDash See the details. \r\n\r\n\r\nHi Green Turtle Kava (Beville Rd) (Daytona Beach)!\r\n\r\nYou are expected to receive a payment of $58.29.\r\n\r\nThis payment covers transactions from  03/07/2023 through 03/12/2023*\r\n\r\nYou will receive an email on Thursday with the finalized payout amount and you \r\nwill be able to view the full payment details in the Financials tab of the\r\nMerchant Portal <https://www.doordash.com/merchant/financials?store_id=23124183>\r\n. Real-time order data can be accessed by visiting the Orders tab of the\r\nMerchant Portal \r\n<https://www.doordash.com/merchant/deliveries/list?store_id=23124183>.\r\n\r\n*May include adjustments and error charges for orders that happened prior to \r\nthis date range\n###\n\n",
-  "completion": " ",
-  "email_subject": "DoorDash Payment to Green Turtle Kava (Beville Rd) (Daytona Beach) for 03/07/2023 to 03/12/2023",
-  "email_sender": "\"DoorDash\" <accounts@doordash.com>",
-  "email_date": "Mon, 13 Mar 2023 12:53:40 +0000"
-}

@@ -1,7 +1,0 @@
-{
-  "prompt": "Subject: A special thank you from Bad Omens\nFrom:Spotify <no-reply@spotify.com>\nTo:support@ourcompany.com\nDate:Wed, 05 Apr 2023 14:00:00 +0000 (UTC)\nContent:====================\r\n Spotify Fans First\r\n====================\r\n\r\n\r\nThanks for being a fan\r\n\r\n\r\n\r\nBad Omens are giving you special access to get tickets to their upcoming tour!\r\n\r\n\r\n\r\n** Presale starts at 10:00 AM local\r\n **\r\n\r\nOffer code: FOREVER\r\n\r\nEnds April 6, 2023 at 10:00 PM\r\n\r\n\r\n\r\n\r\n--\r\n\r\nGet Spotify for:\r\n  * iPhone (https://itunes.apple.com/app/spotify-music/id324684580)\r\n  * iPad (https://itunes.apple.com/app/spotify-music/id324684580)\r\n  * Android (https://play.google.com/store/apps/details?id=com.spotify.music)\r\n  * Other (https://www.spotify.com/download/)\r\n\r\nunsubscribe (\"https://www.spotify.com/accounts/profile\")\r\n\r\n  * Terms of Use (https://www.spotify.com/legal/end-user-agreement/)\r\n  * Privacy Policy (https://www.spotify.com/legal/privacy-policy/)\r\n  * Contact Us (https://www.spotify.com/about-us/contact/)\r\n\r\nSpotify USA Inc, 4 World Trade Center, 150 Greenwich Street, 62nd Floor, New York, NY 10007, USA\r\n\n###\n\n",
-  "completion": " ",
-  "email_subject": "A special thank you from Bad Omens",
-  "email_sender": "Spotify <no-reply@spotify.com>",
-  "email_date": "Wed, 05 Apr 2023 14:00:00 +0000 (UTC)"
-}

@@ -1,4 +1,0 @@
-{
-  "prompt": "Subject: Quick Survey\nFrom:Joseph O'Brien <joseph.obrien42@yahoo.com>\nTo:support@ourcompany.com\nDate:Fri, 7 Apr 2023 16:46:14 -0400\nContent:https://docs.google.com/forms/d/e/1FAIpQLSfRJCcMZtiyC5sAFvggU0rLtRE5wKQ-f1WmwZwBQ4VMrqVWcw/viewform?usp=sf_link￼\r\nDoes background auditory stimuli affect reading comprehension?\r\ndocs.google.com\r\n\r\n\n###\n\n",
-  "completion": "6 Research"
-}

@@ -1,7 +1,0 @@
-{
-  "prompt": "Subject: =?utf-8?B?VW5jb3ZlciB5b3VyIHJlc3RhdXJhbnQncyB0cnVlIHBvdGVudGlh?=\r\n\t=?utf-8?B?bCDwn6eQ?=\nFrom:\"No-Reply at QR Code Generator\" <noreply@qr-code-generator.com>\nTo:support@ourcompany.com\nDate:Mon, 27 Mar 2023 00:25:16 +0000\nContent:Build a community, get feedback, and share coupons \r\n [Image \"email-marketing_restaurants_qr-code-types_banner.png\"] Our QR Codes can be more than just a way to display your menu. They can also display all your social media channels so your customers can get online updates on new dishes using the Social Media QR Code. Or easily get feedback to improve on your services with the Feedback QR Code. If that’s not enough, offer deals and discounts to attract first-time customers or reward loyal ones with the Coupon QR Code. \r\nCreate now \r\n Have any questions? Visit our Help Center. Alternatively, you can contact our Support Team via the Contact Form in your account. \r\n Cheers, Your friends at QR Code Generator PRO\n###\n\n",
-  "completion": " ",
-  "email_subject": "=?utf-8?B?VW5jb3ZlciB5b3VyIHJlc3RhdXJhbnQncyB0cnVlIHBvdGVudGlh?=\r\n\t=?utf-8?B?bCDwn6eQ?=",
-  "email_sender": "\"No-Reply at QR Code Generator\" <noreply@qr-code-generator.com>",
-  "email_date": "Mon, 27 Mar 2023 00:25:16 +0000"
-}

@@ -1,7 +1,0 @@
-{
-  "prompt": "Subject: Statement\nFrom:<Michelle.Marlatt@tscg.com>\nTo:support@ourcompany.com\nDate:Wed, 22 Mar 2023 18:33:36 -0700\nContent:#SHOPPINGCENTER#\r\nDear Seth,\r\n\r\nAttached is your monthly tenant statement for your lease at J-3 The Shoppes at Beville Road.  Please review and submit payment.\r\nThank you for your prompt attention to this matter.\r\n\r\nRegards,\r\n\r\nRebecca Mavros\r\nProperty Manager\r\n\n###\n\n",
-  "completion": " ",
-  "email_subject": "Statement",
-  "email_sender": "<Michelle.Marlatt@tscg.com>",
-  "email_date": "Wed, 22 Mar 2023 18:33:36 -0700"
-}

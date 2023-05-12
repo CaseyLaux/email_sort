@@ -1,7 +1,0 @@
-{
-  "prompt": "Subject: Friendship is trending =?UTF-8?B?8J+TiA==?=\nFrom:Meetup <info@email.meetup.com>\nTo:support@ourcompany.com\nDate:Tue, 11 Apr 2023 14:10:58 +0000 (UTC)\nContent:\r\n\n###\n\n",
-  "completion": " ",
-  "email_subject": "Friendship is trending =?UTF-8?B?8J+TiA==?=",
-  "email_sender": "Meetup <info@email.meetup.com>",
-  "email_date": "Tue, 11 Apr 2023 14:10:58 +0000 (UTC)"
-}

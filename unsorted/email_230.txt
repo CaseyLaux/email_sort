@@ -1,7 +1,0 @@
-{
-  "prompt": "Subject: =?utf-8?B?TmVlZCBoZWxwIGRlY2lkaW5nPyBBbGxvdyB1cyB0byBzaG93IHlv?=\r\n\t=?utf-8?B?dSB0aGUgd2F5IPCfmIA=?=\nFrom:\"No-Reply at QR Code Generator\" <noreply@qr-code-generator.com>\nTo:support@ourcompany.com\nDate:Wed, 29 Mar 2023 00:45:08 +0000\nContent:Here’s what you can expect when you upgrade \r\n [Image \"email-marketing_restaurants_upgrade_banner.png\"] QR Code Generator PRO is not your average QR Code platform. With an upgrade to any of our plans, you can create Dynamic QR Codes that you can edit at any time, get scan statistics, as well as access to unlimited Static QR Codes. \r\n To get started right away, choose a plan below. \r\nChoose a plan Cheers, Your friends at QR Code Generator PRO \r\n \r\n Have any questions? Visit our Help Center. Alternatively, you can contact our Support Team via the Contact Form in your account.\n###\n\n",
-  "completion": " ",
-  "email_subject": "=?utf-8?B?TmVlZCBoZWxwIGRlY2lkaW5nPyBBbGxvdyB1cyB0byBzaG93IHlv?=\r\n\t=?utf-8?B?dSB0aGUgd2F5IPCfmIA=?=",
-  "email_sender": "\"No-Reply at QR Code Generator\" <noreply@qr-code-generator.com>",
-  "email_date": "Wed, 29 Mar 2023 00:45:08 +0000"
-}

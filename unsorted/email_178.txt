@@ -1,7 +1,0 @@
-{
-  "prompt": "Subject: Hiring Positions\nFrom:TattooBeauty <kaycelynn44@gmail.com>\nTo:support@ourcompany.com\nDate:Fri, 31 Mar 2023 15:37:11 -0700\nContent:Good afternoon,\r\n\r\nMy name is Kayce Shields. I am currently in town visiting with my family\r\nand looking for a position as a Kava tender in the area of Daytona Beach. I\r\nhave experience with Kavatending at Rooted Kava located in Lake Worth,\r\nFlorida. I would love to set up an interview with you if that is possible!\r\n\r\nAttached is my resume, please feel free to reach out! I look forward to\r\nhearing from you!\r\n\r\nBest,\r\n\r\nKayce Shields 🛡️\r\n561.284.4806\r\n\n###\n\n",
-  "completion": " ",
-  "email_subject": "Hiring Positions",
-  "email_sender": "TattooBeauty <kaycelynn44@gmail.com>",
-  "email_date": "Fri, 31 Mar 2023 15:37:11 -0700"
-}

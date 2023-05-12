@@ -1,7 +1,0 @@
-{
-  "prompt": "Subject: Meetup Invoice US2023-67850\nFrom:meetup@taxamo.com\nTo:support@ourcompany.com\nDate:Sat, 25 Mar 2023 03:23:12 +0000 (UTC)\nContent:Invoice\r\n\r\nHello Michael Ferrari,\r\n\r\nAn invoice has been prepared for your purchase.\r\nPlease click on the following link to see your invoice:\r\nhttps://invoicestaxamo.s3.amazonaws.com/PAAAAAEaDAAC9wAAAAAAAAAKCAAAyOUFCNTUwODAwMDI/invoice.html\r\nor download a PDF version here:\r\nhttps://invoicestaxamo.s3.amazonaws.com/PAAAAAEaDAAC9wAAAAAAAAAKCAAAyOUFCNTUwODAwMDI/invoice.pdf\r\n\r\nBest regards,\r\nMeetup\r\n\r\n\r\n\n###\n\n",
-  "completion": " ",
-  "email_subject": "Meetup Invoice US2023-67850",
-  "email_sender": "meetup@taxamo.com",
-  "email_date": "Sat, 25 Mar 2023 03:23:12 +0000 (UTC)"
-}
