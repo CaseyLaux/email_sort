@@ -1,0 +1,2 @@
+SiemlessEmail
+This project is an email client that will pull emails from multiple addresses and store them in one client. During this import process there will be a fine tunned gpt model that rates and classifies. Currently I am still working on the data set to tune this model so the project is a glorified data input gui
