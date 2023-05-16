@@ -21,7 +21,7 @@ def move_email():
     # Use os.path.join to build platform-independent paths
     original_path = os.path.join('..', 'public', data['originalPath'])
     new_path = os.path.join('..', 'public', data['newPath'])
-    
+    bodyless_path = os.path.join('..', 'public', data['new_bodyless_Path'])
     if not os.path.exists(original_path):
         return jsonify({'error': 'Source file not found.'}), 400
 
@@ -42,10 +42,7 @@ def move_email():
             json.dump(data['email'], f)
          # New code: save the updatedEmail_bodyless JSON to a new file.
         with open(new_path.replace('.json', '_bodyless.json'), 'w') as f:
-            json.dump(data['emails'], f)
-    except Exception as e:
-        with open("debug.json","w" ) as d:
-            json.dump(data['email'], d)
+            json.dump(data['bodyless_email'], f)
     except Exception as e:
         with open("debug.json","w" ) as d:
             json.dump(data, d)

@@ -113,13 +113,15 @@ const EmailViewer = () => {
     };
   
     const newPath = `human_sorted\\${classification}_${rating}_${email.email_date.replace(/[^a-zA-Z0-9]/g, '_')}_${email.email_sender.replace(/[^a-zA-Z0-9]/g, '_')}.json`;
+    const new_bodyless_Path = `human_sorted\\${classification}_${rating}_${email.email_date.replace(/[^a-zA-Z0-9]/g, '_')}_${email.email_sender.replace(/[^a-zA-Z0-9]/g, '_')} _bodyless.json`;
+
     // Log the filename before saving it
     console.log('Saving email to:', newPath);
     try {
       const response = await fetch('http://localhost:3001/api/move-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: updatedEmail, originalPath, newPath, updatedEmail_bodyless}),
+        body: JSON.stringify({ email: updatedEmail, originalPath, newPath, bodyless_email: updatedEmail_bodyless, new_bodyless_Path}),
       });
   
       if (!response.ok) {
