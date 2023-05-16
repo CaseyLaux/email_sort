@@ -10,7 +10,7 @@ def index_emails():
     print(os.getcwd())
     # Make sure the directory exists
     if not os.path.exists(email_directory):
-        print(f"The 546'human_sorted' directory does not exist at {email_directory}")
+        print(f"The 'human_sorted' directory does not exist at {email_directory}")
         exit(1)
 
     # List all files in the email directory
@@ -21,7 +21,6 @@ def index_emails():
 
 # Write the array of email filenames to index.json
     with open(os.path.join(email_directory, 'index.json'), 'w') as index_file:
-        print(email_files)
         json.dump(email_files, index_file)
 
     print(f"index.json has been created in the {email_directory} directory.")
@@ -32,7 +31,7 @@ def index_sorted_emails():
     print(os.getcwd())
     # Make sure the directory exists
     if not os.path.exists(email_directory):
-        print(f"The 546'human_sorted' directory does not exist at {email_directory}")
+        print(f"The 'human_sorted' directory does not exist at {email_directory}")
         exit(1)
 
     # List all files in the email directory
