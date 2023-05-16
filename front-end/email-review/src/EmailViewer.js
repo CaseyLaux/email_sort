@@ -104,7 +104,7 @@ const EmailViewer = () => {
   
     // Add classification and rating to the email completion field
     const updatedEmail = {
-      prompt: `Subject: ${email.email_subject}\nFrom:${email.email_sender}\nDate:${email.email_date}\nContent:${email.prompt}.split('\n\n###\n\n')[1]\n\n###\n\n`,
+      prompt: `Subject: ${email.email_subject}\nFrom:${email.email_sender}\nDate:${email.email_date}\nContent:${email.prompt.split('\n\n###\n\n')[1]}\n\n###\n\n`,
       completion: `Classification: ${classification}, Rating: ${rating}`,
     };
     const updatedEmail_bodyless = {
