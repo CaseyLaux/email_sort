@@ -3,70 +3,56 @@ from flask_cors import CORS
 import os
 import shutil
 import configparser
-import email_indexer
-import json
 from pymongo import MongoClient
+import email_indexer
+
+# Define constants for paths
+BASE_PATH = os.path.join('..', 'public')
 
 # Read settings from a configuration file
 config = configparser.ConfigParser()
 config.read('config.ini')
-app_port = config.getint('app', 'port')
-mongo_uri = config.get('mongo', 'uri')  # Get MongoDB connection URI from the config file
-database_name = config.get('mongo', 'database')  # Get MongoDB database name from the config file
-body_collection = config.get('mongo', 'body_collection')  # Get MongoDB collection name from the config file
-bodyless_collection = config.get('mongo', 'bodyless_collection')  # Get MongoDB collection name from the config file
 
-client = MongoClient(mongo_uri)
-db = client[database_name]
-body_collection_db = db[body_collection]
-bodyless_collection_db = db[bodyless_collection]
+# Get MongoDB settings from the config file
+mongo_settings = {key: config.get('mongo', key) for key in ['uri', 'database', 'body_collection', 'bodyless_collection']}
+
+# Get MongoDB connection and collections
+client = MongoClient(mongo_settings['uri'])
+db = client[mongo_settings['database']]
+body_collection_db = db[mongo_settings['body_collection']]
+bodyless_collection_db = db[mongo_settings['bodyless_collection']]
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for the Flask app
 
+def handle_email_move(original_path, new_path, email_data):
+    # Move the email
+    try:
+        shutil.move(original_path, new_path)
+        # Insert data to MongoDB
+        body_collection_db.insert_one(email_data['email'])
+        bodyless_collection_db.insert_one(email_data['bodyless_email'])
+    except Exception as e:
+        print(f"Error moving or saving email: {e}")
+        return jsonify({'error': f'Failed to move or save email: {str(e)}'}), 500
+
 @app.route('/api/move-email', methods=['POST'])
 def move_email():
     data = request.get_json()
-    
-    # Use os.path.join to build platform-independent paths
-    original_path = os.path.join('..', 'public', data['originalPath'])
-    new_path = os.path.join('..', 'public', data['newPath'])
-    bodyless_path = os.path.join('..', 'public', data['new_bodyless_Path'])
+    original_path = os.path.join(BASE_PATH, data['originalPath'])
+    new_path = os.path.join(BASE_PATH, data['newPath'])
 
     if not os.path.exists(original_path):
         return jsonify({'error': 'Source file not found.'}), 400
 
-    # Move the email
-    try:
-        shutil.move(original_path, new_path)
-    except Exception as e:
-        print(f"Error moving file: {e}")
-        return jsonify({'error': f'Failed to move email: {str(e)}'}), 500
-
-    # Save the updated email JSON
-    try:
-        # Insert data to MongoDB
-        body_collection_db.insert_one(data['email'])
-        bodyless_collection_db.insert_one(data['bodyless_email'])
-    except Exception as e:
-        print(f"Error saving email: {e}")
-        return jsonify({'error': f'Failed to save email: {str(e)}'}), 500
-    
-    try:
-        email_indexer.index_emails()
-    except Exception as e:
-        print(f"Error indexing emails: {e}")
-
-    finally:
-        email_indexer.index_emails()
-        return jsonify({'message': 'Email moved successfully.'}), 200
+    response = handle_email_move(original_path, new_path, data)
+    email_indexer.index_emails()
+    return response if response else jsonify({'message': 'Email moved successfully.'}), 200
 
 @app.route('/api/delete-email', methods=['POST'])
 def delete_email():
     data = request.get_json()
-    
-    # Use os.path.join to build platform-independent paths
-    original_path = os.path.join('..', 'public', data['originalPath'])
+    original_path = os.path.join(BASE_PATH, data['originalPath'])
 
     if not os.path.exists(original_path):
         return jsonify({'error': 'Source file not found.'}), 400
@@ -77,17 +63,9 @@ def delete_email():
     except Exception as e:
         print(f"Error deleting file: {e}")
         return jsonify({'error': f'Failed to delete email: {str(e)}'}), 500
-    
-    try:
-        email_indexer.index_emails()
-    except Exception as e:
-        print(f"Error indexing emails: {e}")
 
-    finally:
-        email_indexer.index_emails()
-        return jsonify({'message': 'Email deleted successfully.'}), 200
-
-
+    email_indexer.index_emails()
+    return jsonify({'message': 'Email deleted successfully.'}), 200
 
 if __name__ == '__main__':
-    app.run(port=app_port)
+    app.run(port=config.getint('app', 'port'))
