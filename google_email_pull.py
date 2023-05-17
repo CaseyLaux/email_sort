@@ -1,11 +1,17 @@
 import imaplib, email, json, os, base64
 from datetime import datetime, timedelta
 import secrats
+from pymongo import MongoClient
 user = 'greenturtlekava@gmail.com'
 password = secrats.decode(secrats.kava_password)
 imap_url = 'imap.gmail.com'
 directory = "front-end\\email-review\\public\\unsorted"
-
+mongo_uri = "mongodb://localhost:27017/"
+database_name = "Emails"
+unsorted_collection = "unsorted"
+client = MongoClient(mongo_uri)
+db = client[database_name]
+unsorted_collection  = db[unsorted_collection]
 
 
 
@@ -87,8 +93,5 @@ for i in range(len(senders)):
         "email_date": dates[i]
     }
 
-    email_number = latest_email_number + i + 1
-    with open(f"{directory}/email_{email_number}.txt", "w", encoding="utf-8") as f:
-        f.write(json.dumps(email_data, ensure_ascii=False, indent=2))
+    unsorted_collection.insert_one(email_data)
 
-    print(f"Saved email {email_number} to {directory}/email_{email_number}.json")
