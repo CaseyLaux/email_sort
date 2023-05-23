@@ -8,7 +8,7 @@ from pymongo import MongoClient
 
 # Read settings from a configuration file
 config = configparser.ConfigParser()
-config.read('config.ini')
+config.read('./sorting_server/config.ini')
 
 # Get MongoDB settings from the config file
 mongo_settings = {key: config.get('mongo', key) for key in ['uri', 'database', 'body_collection', 'bodyless_collection', 'unsorted_collection']}

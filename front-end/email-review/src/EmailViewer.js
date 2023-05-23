@@ -4,6 +4,27 @@ import Email from './Email';
 import EmailControls from './EmailControls';
 
 const EmailViewer = () => {
+  const classificationValues = {
+    Spam: 29,
+    Marketing: 31,
+    Events: 37,
+    Delivery: 41,
+    Analytics: 43,
+    Business: 47,
+    Invoice: 53,
+    Urgent: 59,
+  };
+  const rating_values = {
+    1: 2,
+    2: 3,
+    3: 5,
+    4: 7,
+    5: 11,
+    6: 13,
+    7: 17,
+    8: 19,
+    9: 23,
+  };
   const [humanSortedEmails, setHumanSortedEmails] = useState([]);
   const [unsortedEmails, setUnsortedEmails] = useState([]);
   const [humanSortedIndex, setHumanSortedIndex] = useState(0);
@@ -58,15 +79,27 @@ const EmailViewer = () => {
 
   const moveEmail = async (email) => {
     // Validate rating and classification inputs
-    if (!rating || !classification) {
-      alert('Please enter a rating and classification.');
+      if (!rating || !classification) {
+        alert('Please enter a rating and classification.');
+        return;
+      }
+    
+      // Get classification value
+      const classificationValue = classificationValues[classification];
+      if (!classificationValue) {
+        alert('Invalid classification.');
+        return;
+      }
+      const ratingValue = rating_values[rating];
+      if (!rating) {
+        alert('Invalid Rating.');
       return;
     }
-  
-    // Add classification and rating to the email completion field
+    let completionValue = ratingValue * classificationValue;
+    // Add classification value and rating to the email completion field
     const updatedEmail = {
       ...email,
-      completion: `Classification: ${classification}, Rating: ${rating}`,
+      completion: `Classification: ${completionValue}\n\n###\n\n`,
       _id: email._id.$oid,
     };
   
@@ -123,24 +156,34 @@ const EmailViewer = () => {
         </h2>
         <Email email={unsortedEmails[unsortedIndex] ? unsortedEmails[unsortedIndex] : null} />
         <div>
-          <label htmlFor="rating">Rating (1-10): </label>
-          <input
-            id="rating"
-            type="number"
-            min="1"
-            max="10"
+          <label htmlFor="Rating">Rating: </label>
+          <select
+            id="Rating"
             value={rating}
             onChange={(e) => setRating(e.target.value)}
-          />
+          >
+            <option value="">Select a Rating</option>
+            {Object.keys(rating_values).map((key) => (
+              <option key={key} value={key}>
+                {key}
+              </option>
+            ))}
+          </select>
         </div>
         <div>
           <label htmlFor="classification">Classification: </label>
-          <input
+          <select
             id="classification"
-            type="text"
             value={classification}
             onChange={(e) => setClassification(e.target.value)}
-          />
+          >
+            <option value="">Select a classification</option>
+            {Object.keys(classificationValues).map((key) => (
+              <option key={key} value={key}>
+                {key}
+              </option>
+            ))}
+          </select>
         </div>
         <button
           onClick={() =>
