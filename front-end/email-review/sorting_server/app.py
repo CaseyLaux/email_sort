@@ -1,7 +1,6 @@
 from bson import json_util, ObjectId
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import os
 import configparser
 from pymongo import MongoClient
 
@@ -28,7 +27,7 @@ CORS(app)  # Enable CORS for the Flask app
 def get_emails():
     body_emails = list(body_collection_db.find())
     unsorted_emails = list(unsorted_collection_db.find())
-    return json_util.dumps({'body_emails': body_emails, 'unsorted_emails': unsorted_emails}), 200
+    return json_util.dumps({'body_emails':body_emails, 'unsorted_emails': unsorted_emails}), 200
 def handle_email_move(email_data):
     # Move the email
     try:
