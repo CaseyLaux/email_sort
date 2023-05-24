@@ -1,17 +1,28 @@
-import imaplib, email, json, os, base64
+import imaplib, email, json, os, base64, uuid
 from datetime import datetime, timedelta
 import secrats
 from pymongo import MongoClient
+
+#Change this later to take in token from auth server and associate it with database entries
 user = 'greenturtlekava@gmail.com'
-password = secrats.decode(secrats.kava_password)
+password = "qrobdjbyllkrlphx"
 imap_url = 'imap.gmail.com'
 directory = "front-end\\email-review\\public\\unsorted"
 mongo_uri = "mongodb://localhost:27017/"
 database_name = "Emails"
 unsorted_collection = "unsorted"
+
+account_bytes = base64.b64encode(password.encode('utf-8'))
+account_string = account_bytes.decode('utf-8')
+
+encoded_bytes = base64.b64encode(user.encode('utf-8'))
+encoded_address = encoded_bytes.decode('utf-8')
+
+
 client = MongoClient(mongo_uri)
-db = client[database_name]
-unsorted_collection  = db[unsorted_collection]
+db = client[account_string]
+address_collection = db[encoded_address]
+
 
 
 
@@ -38,17 +49,6 @@ def get_emails(result_bytes):
 def get_emails_since(con, since, before):
     result, data = con.search(None, 'SINCE', since.strftime('%d-%b-%Y'), 'BEFORE', before.strftime('%d-%b-%Y'))
     return data
-
-
-def get_latest_email_number():
-    files = os.listdir(directory)
-    max_number = 0
-    for file in files:
-        if file.startswith("email_") and file.endswith(".txt"):
-            number = int(file[6:-4])
-            if number > max_number:
-                max_number = number
-    return max_number
 
 
 con = imaplib.IMAP4_SSL(imap_url)
@@ -82,16 +82,18 @@ for msg in msgs[::-1]:
             dates.append(date)
             bodies.append(body)
 
-latest_email_number = get_latest_email_number()
 
 for i in range(len(senders)):
+    email_id = str(uuid.uuid4())
     email_data = {
         "prompt": f"Subject: {subjects[i]}\nFrom:{senders[i]}\nTo:support@ourcompany.com\nDate:{dates[i]}\nContent:{bodies[i].decode('utf-8', errors='replace')}\n###\n\n",
         "completion": " ",
         "email_subject": subjects[i],
         "email_sender": senders[i],
-        "email_date": dates[i]
+        "email_date": dates[i],
+        "email_id": email_id,
+
     }
 
-    unsorted_collection.insert_one(email_data)
+    address_collection.insert_one(email_data)
 
