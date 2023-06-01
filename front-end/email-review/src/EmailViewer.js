@@ -26,7 +26,7 @@ const EmailViewer = () => {
     9: 23,
   };
   const [humanSortedEmails, setHumanSortedEmails] = useState([]);
-  const [unsortedEmails, setUnsortedEmails] = useState([]);
+  const [user_unsorted_Emails, setUserUnsortedEmails] = useState([]);
   const [humanSortedIndex, setHumanSortedIndex] = useState(0);
   const [unsortedIndex, setUnsortedIndex] = useState(0);
   const [rating, setRating] = useState('');
@@ -50,7 +50,7 @@ const EmailViewer = () => {
       }
   
       // Update unsortedEmails state to remove the deleted email
-      setUnsortedEmails((prevState) => prevState.filter((e) => e._id !== email._id));
+      setUserUnsortedEmails((prevState) => prevState.filter((e) => e._id !== email._id));
   
       alert('Email deleted successfully.');
     } catch (error) {
@@ -66,9 +66,9 @@ const EmailViewer = () => {
         const data = await response.json();
         console.log(data);
         setHumanSortedEmails(data.body_emails);
-        setUnsortedEmails(data.unsorted_emails);
+        setUserUnsortedEmails(data.user_unsorted_emails);
         console.log(humanSortedEmails);
-        console.log(unsortedEmails);
+        console.log(user_unsorted_Emails);
       } catch (error) {
         console.error('Error loading emails:', error);
       }
@@ -77,7 +77,7 @@ const EmailViewer = () => {
     loadEmails();
   }, []);
 
-  const moveEmail = async (email) => {
+  const update_email = async (email) => {
     // Validate rating and classification inputs
       if (!rating || !classification) {
         alert('Please enter a rating and classification.');
@@ -99,7 +99,7 @@ const EmailViewer = () => {
     // Add classification value and rating to the email completion field
     const updatedEmail = {
       ...email,
-      completion: `Classification: ${completionValue}\n\n###\n\n`,
+      completion: completionValue,
       _id: email._id.$oid,
     };
   
@@ -115,7 +115,7 @@ const EmailViewer = () => {
       }
   
       // Update unsortedEmails state to remove the moved email
-      setUnsortedEmails((prevState) => prevState.filter((e) => e._id !== email._id));
+      setUserUnsortedEmails((prevState) => prevState.filter((e) => e._id !== email._id));
   
       // Reset rating and classification inputs
       setRating('');
@@ -152,9 +152,9 @@ const EmailViewer = () => {
       <div className="email-box unsorted">
         <h2>
           Unsorted Emails{' '}
-          {unsortedEmails[unsortedIndex] && unsortedFilenames[unsortedIndex]}
+          {user_unsorted_Emails[unsortedIndex] && unsortedFilenames[unsortedIndex]}
         </h2>
-        <Email email={unsortedEmails[unsortedIndex] ? unsortedEmails[unsortedIndex] : null} />
+        <Email email={user_unsorted_Emails[unsortedIndex] ? user_unsorted_Emails[unsortedIndex] : null} />
         <div>
           <label htmlFor="Rating">Rating: </label>
           <select
@@ -187,7 +187,7 @@ const EmailViewer = () => {
         </div>
         <button
           onClick={() =>
-            moveEmail(unsortedEmails[unsortedIndex], `unsorted\\${unsortedFilenames[unsortedIndex]}`)
+            update_email(user_unsorted_Emails[unsortedIndex], `unsorted\\${unsortedFilenames[unsortedIndex]}`)
           }
           disabled={!rating || !classification}
         >
@@ -195,7 +195,7 @@ const EmailViewer = () => {
         </button>
         <button
           onClick={() =>
-            deleteEmail(unsortedEmails[unsortedIndex], `unsorted\\${unsortedFilenames[unsortedIndex]}`)
+            deleteEmail(user_unsorted_Emails[unsortedIndex], `unsorted\\${unsortedFilenames[unsortedIndex]}`)
           }
         >
           Delete Email
@@ -203,7 +203,7 @@ const EmailViewer = () => {
         <EmailControls
           changeIndex={changeIndex}
           currentIndex={unsortedIndex}
-          emailsLength={unsortedEmails.length}
+          emailsLength={user_unsorted_Emails.length}
           buttonTexts={{ previous: 'Previous', next: 'Next' }}
           changeFunc={setUnsortedIndex}
 />

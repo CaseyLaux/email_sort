@@ -3,7 +3,9 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import configparser
 from pymongo import MongoClient
-
+import sys
+sys.path.append("C:\\Users\\casey\\PycharmProjects\\email_sort\\")
+from secrats import ColinGTK
 # Define constants for paths
 
 # Read settings from a configuration file
@@ -16,6 +18,8 @@ mongo_settings = {key: config.get('mongo', key) for key in ['uri', 'database', '
 # Get MongoDB connection and collections
 client = MongoClient(mongo_settings['uri'])
 db = client[mongo_settings['database']]
+user_database = client[ColinGTK().Account_ID]
+user_collection = user_database[ColinGTK().user]
 body_collection_db = db[mongo_settings['body_collection']]
 bodyless_collection_db = db[mongo_settings['bodyless_collection']]
 unsorted_collection_db = db[mongo_settings['unsorted_collection']]
@@ -26,8 +30,10 @@ CORS(app)  # Enable CORS for the Flask app
 @app.route('/api/get-emails', methods=['GET'])
 def get_emails():
     body_emails = list(body_collection_db.find())
-    unsorted_emails = list(unsorted_collection_db.find())
-    return json_util.dumps({'body_emails':body_emails, 'unsorted_emails': unsorted_emails}), 200
+    user_unsorted_emails = list(user_collection.find())
+    #debug = open('debug.txt', 'w')        
+    #debug.write('test user database:' + str(user_unsorted_emails))
+    return json_util.dumps({'body_emails':body_emails, 'user_unsorted_emails': user_unsorted_emails}), 200
 def handle_email_move(email_data):
     # Move the email
     try:
@@ -38,7 +44,7 @@ def handle_email_move(email_data):
         print(f"Error moving or saving email: {e}")
         return jsonify({'error': f'Failed to move or save email: {str(e)}'}), 500
 @app.route('/api/move-email', methods=['POST'])
-def move_email():
+def update_email():
     data = request.get_json()
     email_id = ObjectId(data['email']['_id'])
 
@@ -47,15 +53,13 @@ def move_email():
 
     # Insert the updated email into the body collection
     try:
-        body_collection_db.insert_one(data['email'])
+        filter = { '_id': email_id }
+        update = { '$set': { f"completion": data['email']['completion'] } }
+        user_collection.update_one(filter, update)
     except Exception as e:
         print(f"Error inserting email: {e}")
         return jsonify({'error': f'Failed to insert email: {str(e)}'}), 500
-    try:
-        unsorted_collection_db.delete_one({'_id': email_id})
-    except Exception as e:
-        print(f"Error deleting email: {e}")
-        return jsonify({'error': f'Failed to delete email: {str(e)}'}), 500
+    
 
     return jsonify({'message': 'Email moved successfully.'}), 200
 

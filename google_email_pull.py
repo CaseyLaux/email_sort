@@ -1,23 +1,20 @@
 import imaplib, email, json, os, base64, uuid
 from datetime import datetime, timedelta
-import secrats
+from secrats import decrypt_secrets, ColinGTK
 from pymongo import MongoClient
 
 #Change this later to take in token from auth server and associate it with database entries
-user = 'greenturtlekava@gmail.com'
-password = "qrobdjbyllkrlphx"
+user, password = decrypt_secrets()
 imap_url = 'imap.gmail.com'
 directory = "front-end\\email-review\\public\\unsorted"
 mongo_uri = "mongodb://localhost:27017/"
 database_name = "Emails"
 unsorted_collection = "unsorted"
 
-account_bytes = base64.b64encode(password.encode('utf-8'))
-account_string = account_bytes.decode('utf-8')
+account_instance = ColinGTK()
 
-encoded_bytes = base64.b64encode(user.encode('utf-8'))
-encoded_address = encoded_bytes.decode('utf-8')
-
+account_string = account_instance.Account_ID
+encoded_address = account_instance.user
 
 client = MongoClient(mongo_uri)
 db = client[account_string]
