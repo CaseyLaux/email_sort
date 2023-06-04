@@ -1,9 +1,12 @@
+import EmailDetail from './EmailDetail';
 import React, { useState, useEffect } from 'react';
 import './EmailViewer.css';
 import Email from './Email';
 import EmailControls from './EmailControls';
+import EmailList from './EmailList';
 
 const EmailViewer = () => {
+  const [currentEmail, setCurrentEmail] = useState(null);
   const classificationValues = {
     Spam: 29,
     Marketing: 31,
@@ -31,8 +34,19 @@ const EmailViewer = () => {
   const [unsortedIndex, setUnsortedIndex] = useState(0);
   const [rating, setRating] = useState('');
   const [classification, setClassification] = useState('');
-  const [unsortedFilenames, setUnsortedFilenames] = useState([]);
   
+  const [emailDetailViewOpen, setEmailDetailViewOpen] = useState(false);
+  const [currentDetailViewEmail, setCurrentDetailViewEmail] = useState(null);
+
+  const openEmailDetailView = (email) => {
+    setCurrentDetailViewEmail(email);
+    setEmailDetailViewOpen(true);
+  };
+
+  const closeEmailDetailView = () => {
+    setEmailDetailViewOpen(false);
+  };
+
   const deleteEmail = async (email) => {
     const email_id = {
       ...email,
@@ -65,10 +79,8 @@ const EmailViewer = () => {
         const response = await fetch('http://localhost:3001/api/get-emails');
         const data = await response.json();
         console.log(data);
-        setHumanSortedEmails(data.body_emails);
+        setHumanSortedEmails(data.user_sorted_emails);
         setUserUnsortedEmails(data.user_unsorted_emails);
-        console.log(humanSortedEmails);
-        console.log(user_unsorted_Emails);
       } catch (error) {
         console.error('Error loading emails:', error);
       }
@@ -138,24 +150,22 @@ const EmailViewer = () => {
 
   return (
     <div className="email-viewer-container">
-      <div className="email-box human-sorted">
-        <h2>Human Sorted Emails</h2>
-        <Email email={humanSortedEmails[humanSortedIndex] ? humanSortedEmails[humanSortedIndex] : null} />
+      <div className="email-box unsorted">
+      <h2>
+          Selected email
+        </h2>
+
+        <EmailList emails={user_unsorted_Emails} setCurrentEmail={openEmailDetailView} />
+        <Email email={currentEmail} />
+        
         <EmailControls
           changeIndex={changeIndex}
-          currentIndex={humanSortedIndex}
-          emailsLength={humanSortedEmails.length}
+          currentIndex={unsortedIndex}
+          emailsLength={user_unsorted_Emails.length}
           buttonTexts={{ previous: 'Previous', next: 'Next' }}
-          changeFunc={setHumanSortedIndex}
-/>
-      </div>
-      <div className="email-box unsorted">
-        <h2>
-          Unsorted Emails{' '}
-          {user_unsorted_Emails[unsortedIndex] && unsortedFilenames[unsortedIndex]}
-        </h2>
-        <Email email={user_unsorted_Emails[unsortedIndex] ? user_unsorted_Emails[unsortedIndex] : null} />
-        <div>
+          changeFunc={setUnsortedIndex}
+          />
+          <div>
           <label htmlFor="Rating">Rating: </label>
           <select
             id="Rating"
@@ -169,7 +179,7 @@ const EmailViewer = () => {
               </option>
             ))}
           </select>
-        </div>
+          </div>
         <div>
           <label htmlFor="classification">Classification: </label>
           <select
@@ -187,7 +197,7 @@ const EmailViewer = () => {
         </div>
         <button
           onClick={() =>
-            update_email(user_unsorted_Emails[unsortedIndex], `unsorted\\${unsortedFilenames[unsortedIndex]}`)
+            update_email(user_unsorted_Emails[unsortedIndex])
           }
           disabled={!rating || !classification}
         >
@@ -195,7 +205,7 @@ const EmailViewer = () => {
         </button>
         <button
           onClick={() =>
-            deleteEmail(user_unsorted_Emails[unsortedIndex], `unsorted\\${unsortedFilenames[unsortedIndex]}`)
+            deleteEmail(user_unsorted_Emails[unsortedIndex])
           }
         >
           Delete Email
@@ -207,6 +217,12 @@ const EmailViewer = () => {
           buttonTexts={{ previous: 'Previous', next: 'Next' }}
           changeFunc={setUnsortedIndex}
 />
+          {emailDetailViewOpen && (
+          <EmailDetail
+            email={currentDetailViewEmail}
+            onClose={closeEmailDetailView}
+          />
+        )}
       </div>
     </div>
   );

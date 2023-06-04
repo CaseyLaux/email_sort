@@ -20,20 +20,22 @@ client = MongoClient(mongo_settings['uri'])
 db = client[mongo_settings['database']]
 user_database = client[ColinGTK().Account_ID]
 user_collection = user_database[ColinGTK().user]
-body_collection_db = db[mongo_settings['body_collection']]
-bodyless_collection_db = db[mongo_settings['bodyless_collection']]
-unsorted_collection_db = db[mongo_settings['unsorted_collection']]
+user_sorted_string = ColinGTK().user + '_rated'
+
+user_sorted_collection = user_database[user_sorted_string]
+
+
 app = Flask(__name__)
 CORS(app)  # Enable CORS for the Flask app
 
 #Gather emails from the database
 @app.route('/api/get-emails', methods=['GET'])
 def get_emails():
-    body_emails = list(body_collection_db.find())
+    user_sorted_emails = list(user_sorted_collection.find())
     user_unsorted_emails = list(user_collection.find())
     #debug = open('debug.txt', 'w')        
     #debug.write('test user database:' + str(user_unsorted_emails))
-    return json_util.dumps({'body_emails':body_emails, 'user_unsorted_emails': user_unsorted_emails}), 200
+    return json_util.dumps({'user_sorted_emails':user_sorted_emails, 'user_unsorted_emails': user_unsorted_emails}), 200
 def handle_email_move(email_data):
     # Move the email
     try:
