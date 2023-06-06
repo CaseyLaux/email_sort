@@ -5,7 +5,7 @@ const EmailList = ({ emails, setCurrentEmail }) => {
     <div>
       {emails.map((email, index) => (
         <button key={index} onClick={() => setCurrentEmail(email)}>
-          {email.email_subject} - {email.email_sender}
+          {email.email_sender} - {email.email_subject}
         </button>
       ))}
     </div>

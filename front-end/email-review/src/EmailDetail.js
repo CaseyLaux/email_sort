@@ -1,6 +1,7 @@
 import React from 'react';
 
 const EmailDetail = ({ email, onClose }) => {
+  console.log('EmailDetail received email:', email);
   return (
     <div className="email-detail">
       <button onClick={onClose}>Close</button>

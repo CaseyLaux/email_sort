@@ -38,7 +38,10 @@ const EmailViewer = () => {
   const [emailDetailViewOpen, setEmailDetailViewOpen] = useState(false);
   const [currentDetailViewEmail, setCurrentDetailViewEmail] = useState(null);
 
+  
   const openEmailDetailView = (email) => {
+    console.log('Opening email detail view for email:', email);
+    setCurrentEmail(email);
     setCurrentDetailViewEmail(email);
     setEmailDetailViewOpen(true);
   };
@@ -149,82 +152,70 @@ const EmailViewer = () => {
   };
 
   return (
-    <div className="email-viewer-container">
-      <div className="email-box unsorted">
-      <h2>
-          Selected email
-        </h2>
-
-        <EmailList emails={user_unsorted_Emails} setCurrentEmail={openEmailDetailView} />
-        <Email email={currentEmail} />
-        
-        <EmailControls
-          changeIndex={changeIndex}
-          currentIndex={unsortedIndex}
-          emailsLength={user_unsorted_Emails.length}
-          buttonTexts={{ previous: 'Previous', next: 'Next' }}
-          changeFunc={setUnsortedIndex}
-          />
-          <div>
-          <label htmlFor="Rating">Rating: </label>
-          <select
-            id="Rating"
-            value={rating}
-            onChange={(e) => setRating(e.target.value)}
-          >
-            <option value="">Select a Rating</option>
-            {Object.keys(rating_values).map((key) => (
-              <option key={key} value={key}>
-                {key}
-              </option>
-            ))}
-          </select>
-          </div>
-        <div>
-          <label htmlFor="classification">Classification: </label>
-          <select
-            id="classification"
-            value={classification}
-            onChange={(e) => setClassification(e.target.value)}
-          >
-            <option value="">Select a classification</option>
-            {Object.keys(classificationValues).map((key) => (
-              <option key={key} value={key}>
-                {key}
-              </option>
-            ))}
-          </select>
-        </div>
-        <button
-          onClick={() =>
-            update_email(user_unsorted_Emails[unsortedIndex])
-          }
-          disabled={!rating || !classification}
-        >
-          Submit and Move Email
-        </button>
-        <button
-          onClick={() =>
-            deleteEmail(user_unsorted_Emails[unsortedIndex])
-          }
-        >
-          Delete Email
-        </button>
-        <EmailControls
-          changeIndex={changeIndex}
-          currentIndex={unsortedIndex}
-          emailsLength={user_unsorted_Emails.length}
-          buttonTexts={{ previous: 'Previous', next: 'Next' }}
-          changeFunc={setUnsortedIndex}
-/>
-          {emailDetailViewOpen && (
-          <EmailDetail
-            email={currentDetailViewEmail}
-            onClose={closeEmailDetailView}
-          />
-        )}
-      </div>
+    <div className="email-viewer-container" style={{display: 'flex', flexDirection: 'row'}}>
+  <div className="email-list" style={{marginRight: '20px'}}>
+    <EmailList emails={user_unsorted_Emails} setCurrentEmail={openEmailDetailView} />
+  </div>
+  <div className="email-box unsorted">
+    <h2>
+      Selected email
+    </h2>
+    <Email email={currentEmail} />
+    <div>
+      <label htmlFor="Rating">Rating: </label>
+      <select
+        id="Rating"
+        value={rating}
+        onChange={(e) => setRating(e.target.value)}
+      >
+        <option value="">Select a Rating</option>
+        {Object.keys(rating_values).map((key) => (
+          <option key={key} value={key}>
+            {key}
+          </option>
+        ))}
+      </select>
     </div>
+    <div>
+      <label htmlFor="classification">Classification: </label>
+      <select
+        id="classification"
+        value={classification}
+        onChange={(e) => setClassification(e.target.value)}
+      >
+        <option value="">Select a classification</option>
+        {Object.keys(classificationValues).map((key) => (
+          <option key={key} value={key}>
+            {key}
+          </option>
+        ))}
+      </select>
+    </div>
+    <button
+      onClick={() =>
+        update_email(user_unsorted_Emails[unsortedIndex])
+      }
+      disabled={!rating || !classification}
+    >
+      Submit and Move Email
+    </button>
+    <button
+      onClick={() =>
+        deleteEmail(user_unsorted_Emails[unsortedIndex])
+      }
+    >
+      Delete Email
+    </button>
+    <EmailControls
+      changeIndex={changeIndex}
+      currentIndex={unsortedIndex}
+      emailsLength={user_unsorted_Emails.length}
+      buttonTexts={{ previous: 'Previous', next: 'Next' }}
+      changeFunc={setUnsortedIndex}
+    />
+  </div>
+</div>
+  
   );
 };
 
