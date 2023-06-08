@@ -152,8 +152,9 @@ const EmailViewer = () => {
   };
 
   return (
-    <div className="email-viewer-container" style={{display: 'flex', flexDirection: 'row'}}>
-  <div className="email-list" style={{marginRight: '20px'}}>
+    <div className="email-viewer-container">
+  <div className="email-unsorted-list" >
+    <h3>Unsorted emails</h3>
     <EmailList emails={user_unsorted_Emails} setCurrentEmail={openEmailDetailView} />
   </div>
   <div className="email-box unsorted">
@@ -214,8 +215,12 @@ const EmailViewer = () => {
       changeFunc={setUnsortedIndex}
     />
   </div>
+  <div className="email-unsorted-list" >
+    <h3>Sorterd emails</h3>
+    <EmailList emails={humanSortedEmails} setCurrentEmail={openEmailDetailView} />
+  </div>
 </div>
-  
+
   );
 };
 

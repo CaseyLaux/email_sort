@@ -2,7 +2,7 @@ import imaplib, email, json, os, base64, uuid
 from datetime import datetime, timedelta
 from secrats import decrypt_secrets, ColinGTK
 from pymongo import MongoClient
-
+import bot_sort
 #Change this later to take in token from auth server and associate it with database entries
 user, password = decrypt_secrets()
 imap_url = 'imap.gmail.com'
@@ -11,17 +11,35 @@ mongo_uri = "mongodb://localhost:27017/"
 database_name = "Emails"
 unsorted_collection = "unsorted"
 
+#Set vars
+
 account_instance = ColinGTK()
-
 account_string = account_instance.Account_ID
-encoded_address = account_instance.user
+account_address = account_instance.user
+bot_sorted_collection_string = (str(account_address) + "_bot_sorted") 
 
+#Connect to database
 client = MongoClient(mongo_uri)
 db = client[account_string]
-address_collection = db[encoded_address]
+address_collection = db[account_address]
 
 
+#Create collections
+bot_sorted_collection = db[bot_sorted_collection_string]
 
+account_data = {
+    "account_string": account_string,
+    "account_address": account_address,
+    "bot_sorted_collection_string": bot_sorted_collection_string,
+    "email_id": "",
+    "prompt": ""
+}
+def clean_string(input_string):
+    if len(input_string) > 1000:
+        # If so, truncate it to the first 1000 characters
+        input_string = input_string[:1000]
+
+    return input_string
 
 def get_body(msg):
     if msg.is_multipart():
@@ -53,7 +71,7 @@ con.login(user, password)
 con.select('Inbox')
 
 # Calculate the date 12 hours ago
-since_date = datetime.now() - timedelta(hours=60)
+since_date = datetime.now() - timedelta(hours=24)
 before_date = datetime.now() - timedelta(hours=0)
 
 msgs = get_emails(get_emails_since(con, since_date, before_date))
@@ -73,7 +91,8 @@ for msg in msgs[::-1]:
             subject = mail["Subject"]
             date = mail["Date"]
             body = get_body(mail)
-
+            body = clean_string(body)
+            
             senders.append(sender)
             subjects.append(subject)
             dates.append(date)
@@ -91,6 +110,11 @@ for i in range(len(senders)):
         "email_id": email_id,
 
     }
-
+    account_data["email_id"] = email_id
+    j_account_data = json.dumps(account_data)
     address_collection.insert_one(email_data)
+    bot_sorted_collection.insert_one(email_data)
+    bot_sort.categorize_emails(j_account_data)
+    
+
 

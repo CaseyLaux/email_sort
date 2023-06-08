@@ -57,7 +57,10 @@ def update_email():
     try:
         filter = { '_id': email_id }
         update = { '$set': { f"completion": data['email']['completion'] } }
-        user_collection.update_one(filter, update)
+        unsorted_email = user_collection.find_one(filter)
+        user_sorted_collection.insert_one(unsorted_email)
+        user_sorted_collection.update_one(filter, update)
+        user_collection.delete_one(filter)
     except Exception as e:
         print(f"Error inserting email: {e}")
         return jsonify({'error': f'Failed to insert email: {str(e)}'}), 500

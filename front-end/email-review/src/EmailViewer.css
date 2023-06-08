@@ -34,8 +34,6 @@
 }
 
 button {
-  background-color: #007bff;
-  color: #fff;
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 5px;
@@ -61,8 +59,13 @@ input[type="number"] {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-.email-list {
-  width: 10%; /* Added to limit the width of email list to 10% of the screen */
+.email-unsorted-list {
+  width: 20%; /* Added to limit the width of email list to 10% of the screen */
   margin-right: 5%; /* Added to create some space between the email list and email box */
+  overflow-y: auto; /* Added to handle overflow of content */
+}
+.email-sorted-list {
+  width: 20%; /* Added to limit the width of email list to 10% of the screen */
+  margin-left: 5%; /* Added to create some space between the email list and email box */
   overflow-y: auto; /* Added to handle overflow of content */
 }
