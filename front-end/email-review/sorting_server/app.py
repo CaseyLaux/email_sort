@@ -21,9 +21,9 @@ db = client[mongo_settings['database']]
 user_database = client[ColinGTK().Account_ID]
 user_collection = user_database[ColinGTK().user]
 user_sorted_string = ColinGTK().user + '_rated'
-
+bot_sorted_string = ColinGTK().user + '_bot_sorted'
 user_sorted_collection = user_database[user_sorted_string]
-
+bot_sorted_collection = user_database[bot_sorted_string]
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for the Flask app
@@ -33,9 +33,8 @@ CORS(app)  # Enable CORS for the Flask app
 def get_emails():
     user_sorted_emails = list(user_sorted_collection.find())
     user_unsorted_emails = list(user_collection.find())
-    #debug = open('debug.txt', 'w')        
-    #debug.write('test user database:' + str(user_unsorted_emails))
-    return json_util.dumps({'user_sorted_emails':user_sorted_emails, 'user_unsorted_emails': user_unsorted_emails}), 200
+    bot_sorted_emails = list(bot_sorted_collection.find())
+    return json_util.dumps({'user_sorted_emails':user_sorted_emails, 'user_unsorted_emails': user_unsorted_emails, 'bot_sorted_emails': bot_sorted_emails}), 200
 def handle_email_move(email_data):
     # Move the email
     try:
