@@ -30,6 +30,23 @@ const RATING_VALUES = {
   9: 23,
 };
 
+// Function to refresh emails
+const refreshEmails = async () => {
+  try {
+    const response = await fetch('http://localhost:3001/api/refresh-emails');
+
+    if (!response.ok) {
+      throw new Error('Failed to refresh emails.');
+    }
+
+    // Reload emails
+    loadEmails();
+  } catch (error) {
+    console.error('Error refreshing emails:', error);
+  }
+};
+
+
 // The main functional component
 const EmailViewer = () => {
   // States for the component
@@ -165,6 +182,8 @@ const EmailViewer = () => {
   return (
     <div className="email-viewer-container">
       <div className="email-unsorted-list" >
+      <button onClick={refreshEmails}>Refresh Emails</button>
+
         <h3>Unsorted emails</h3>
         <EmailList emails={userUnsortedEmails} setCurrentEmail={openEmailDetailView} />
       </div>

@@ -6,6 +6,8 @@ from pymongo import MongoClient
 import sys
 sys.path.append("C:\\Users\\casey\\PycharmProjects\\email_sort\\")
 from secrats import ColinGTK
+import google_email_pull
+
 # Define constants for paths
 
 # Read settings from a configuration file
@@ -27,6 +29,16 @@ bot_sorted_collection = user_database[bot_sorted_string]
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for the Flask app
+
+
+@app.route('/api/refresh-emails', methods=['GET'])
+def refresh_emails():
+    try:
+        google_email_pull.get_emails()
+        return jsonify({'message': 'Emails refreshed successfully.'}), 200
+    except Exception as e:
+        print(f"Error refreshing emails: {e}")
+        return jsonify({'error': f'Failed to refresh emails: {str(e)}'}), 500
 
 #Gather emails from the database
 @app.route('/api/get-emails', methods=['GET'])
