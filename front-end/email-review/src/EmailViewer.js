@@ -39,10 +39,9 @@ const refreshEmails = async () => {
       throw new Error('Failed to refresh emails.');
     }
 
-    // Reload emails
-    loadEmails();
+    alert('Emails refreshed successfully.');
   } catch (error) {
-    console.error('Error refreshing emails:', error);
+    alert('Failed to refresh emails.');
   }
 };
 
@@ -64,6 +63,12 @@ const EmailViewer = () => {
 
   // Functions for opening and closing the email detail view
   const openEmailDetailView = (email) => {
+    // Find the index of the selected email
+    const index = userUnsortedEmails.findIndex((e) => e._id === email._id);
+    
+    // Set the unsortedIndex to the selected email's index
+    if (index !== -1) setUnsortedIndex(index);
+    
     setCurrentEmail(email);
     setCurrentDetailViewEmail(email);
     setEmailDetailViewOpen(true);
@@ -183,7 +188,6 @@ const EmailViewer = () => {
     <div className="email-viewer-container">
       <div className="email-unsorted-list" >
       <button onClick={refreshEmails}>Refresh Emails</button>
-
         <h3>Unsorted emails</h3>
         <EmailList emails={userUnsortedEmails} setCurrentEmail={openEmailDetailView} />
       </div>

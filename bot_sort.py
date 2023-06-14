@@ -12,7 +12,10 @@ import logging
 logging.basicConfig(filename='bot_sort_debug.txt', level=logging.DEBUG)
 
 # Set up OpenAI API key 
-
+def clean_string(input_string):
+        if len(input_string) > 1000:
+            # If so, truncate it to the first 1000 characters
+            input_string = input_string[:1000]
 # Function to categorize email titles
 def categorize_emails(i_account_data):
     logging.debug('Starting categorize_emails function')
@@ -36,7 +39,6 @@ def categorize_emails(i_account_data):
             time.sleep(5)
 
     logging.debug(f'Email: {email}')
-
     prompt = email["prompt"]
     openai.api_key = "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"
     response = openai.Completion.create(
