@@ -8,7 +8,7 @@ import base64
 import uuid
 sys.path.append("C:\\Users\\casey\\PycharmProjects\\email_sort\\")
 from secrats import ColinGTK
-import google_email_pull
+import test_email_pull
 
 # Define constants for paths
 
@@ -44,9 +44,11 @@ CORS(app)  # Enable CORS for the Flask app
 @app.route('/api/refresh-emails', methods=['GET'])
 def refresh_emails():
     try:
-        google_email_pull.get_emails()
+        test_email_pull.get_emails()
         return jsonify({'message': 'Emails refreshed successfully.'}), 200
     except Exception as e:
+        f = open("refreshdebug.txt", "w")
+        f.write(str(e))
         return jsonify({'error': f'Failed to refresh emails: {str(e)}'}), 500
 
 #Gather emails from the database
@@ -57,7 +59,6 @@ def get_emails():
     bot_sorted_emails = list(bot_sorted_collection.find())
     debug_collection.update_one(debug_filter, {'$set': {'emails': user_sorted_emails}})
     
-
     return json_util.dumps({'user_sorted_emails':user_sorted_emails, 'user_unsorted_emails': user_unsorted_emails, 'bot_sorted_emails': bot_sorted_emails}), 200
 
 @app.route('/api/move-email', methods=['POST'])

@@ -10,6 +10,7 @@ from secrats import decrypt_secrets, ColinGTK
 from email.header import decode_header
 import bot_sort
 import re
+import pytz
 from bs4 import BeautifulSoup
 # Setting up logging vars
 breaker = "#" * 60
@@ -20,42 +21,42 @@ logging.info(f"EMAIL PULLER RUN {datetime.now()}")
 logging.info(big_breaker)
 logging.info("Fetching credentials")
 logging.info(breaker)
-user, secret = decrypt_secrets()
-email_address = user
-password = secret
 
-# Setting up vars for database
-mongo_uri = "mongodb://localhost:27017/"
-
-account_instance = ColinGTK()
-account_string = account_instance.Account_ID
-account_address = account_instance.user
-bot_sorted_collection_string = (str(account_address) + "_bot_sorted") 
-
-
-
-# Connecting to database
-client = MongoClient(mongo_uri)
-db = client[account_string]
-debug_db = client["debug"]
-
-# Setting up collections
-address_collection = db[account_address]
-bot_collection = db[bot_sorted_collection_string]
-debug_collection = debug_db["debug"]
-debug_string = str(uuid.uuid4())
-debug_collection.insert_one({"debug_string": debug_string})
-debug_filter = {"debug_string": debug_string}
-
-account_data = {
-        "account_string": account_string,
-        "account_address": account_address,
-        "bot_sorted_collection_string": bot_sorted_collection_string,
-        "email_id": "",
-    }
 
 def get_emails():
+    user, secret = decrypt_secrets()
+    email_address = user
+    password = secret
 
+    # Setting up vars for database
+    mongo_uri = "mongodb://localhost:27017/"
+
+    account_instance = ColinGTK()
+    account_string = account_instance.Account_ID
+    account_address = account_instance.user
+    bot_sorted_collection_string = (str(account_address) + "_bot_sorted") 
+
+
+
+    # Connecting to database
+    client = MongoClient(mongo_uri)
+    db = client[account_string]
+    debug_db = client["debug"]
+
+    # Setting up collections
+    address_collection = db[account_address]
+    bot_collection = db[bot_sorted_collection_string]
+    debug_collection = debug_db["debug"]
+    debug_string = str(uuid.uuid4())
+    debug_collection.insert_one({"debug_string": debug_string})
+    debug_filter = {"debug_string": debug_string}
+
+    account_data = {
+            "account_string": account_string,
+            "account_address": account_address,
+            "bot_sorted_collection_string": bot_sorted_collection_string,
+            "email_id": "",
+        }
     breaker = "#" * 60
     big_breaker = ("#" * 120) + "\n" + ("#" * 120)
 
@@ -68,19 +69,25 @@ def get_emails():
     
     imap = imaplib.IMAP4_SSL(imap_server)
     imap.login(email_address, password)
-    since_date = datetime.now() - timedelta(hours=24)
+    start_datetime = datetime.now(pytz.utc) - timedelta(hours=120)
+    end_datetime = datetime.now(pytz.utc) - timedelta(hours=60)
+
+# format them as strings to use in the IMAP search
+    start_date_str = start_datetime.strftime("%d-%b-%Y")
+    end_date_str = end_datetime.strftime("%d-%b-%Y")
+
     imap.select('Inbox')
-    logging.info(f"searching for emails since {since_date}")
+    logging.info(f"searching for emails since ")
 
     # pulling emails since since_date var hours ago
     def get_emails_since(con, since, before):
-            result, data = con.search(None, 'SINCE', since.strftime('%d-%b-%Y'), 'BEFORE', before.strftime('%d-%b-%Y'))
+            result, data = con.search(None, 'SINCE', since, 'BEFORE', before)
             return data
     logging.info(breaker)
     logging.info("Fetching emails since {since_date}")
 
     # Using search results to pull emails since since_date
-    search_results = get_emails_since(imap, since_date, datetime.now())
+    search_results = get_emails_since(imap, start_date_str, end_date_str)
     def decode_content(part, i):
             
         # Pull charset and encoding to decode body text
