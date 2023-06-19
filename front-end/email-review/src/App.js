@@ -13,14 +13,7 @@ function App() {
   
   return (
     <div className="App">
-      <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/inbox" element={<Inbox />} />
-        <Route path="/sortedinbox" element={<SortedInbox />} />
-        <Route path="/unsortedinbox" element={<UnsortedInbox />} />
-      </Routes>
-    </Router>
+      
       <EmailViewer/>
     </div>
   );

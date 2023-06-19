@@ -16,8 +16,38 @@ def clean_string(input_string):
         if len(input_string) > 1000:
             # If so, truncate it to the first 1000 characters
             input_string = input_string[:1000]
+
 # Function to categorize email titles
 def categorize_emails(i_account_data):
+    CLASSIFICATION_VALUES = {
+        "Spam": 29,
+        "Marketing": 31,
+        "Events": 37,
+        "Delivery": 41,
+        "Analytics": 43,
+        "Business": 47,
+        "Invoice": 53,
+        "Urgent": 59,
+    }
+
+    RATING_VALUES = {
+        1: 2,
+        2: 3,
+        3: 5,
+        4: 7,
+        5: 11,
+        6: 13,
+        7: 17,
+        8: 19,
+        9: 23,
+    }
+    def get_rating_and_category(value):
+        for rating, rating_prime in RATING_VALUES.items():
+            if value % rating_prime == 0:
+                for category, category_prime in CLASSIFICATION_VALUES.items():
+                    if value / rating_prime == category_prime:
+                        return rating, category
+        return 0, "RATING_ERROR"
     logging.debug('Starting categorize_emails function')
     i_j_account_data = json.loads(i_account_data)
     mongo_uri = "mongodb://localhost:27017/"
@@ -52,13 +82,18 @@ def categorize_emails(i_account_data):
     )
 
     categories = response.choices[0].text.strip().split("\n")
-    logging.debug(f'{prompt                                                                                                             }: {categories}')
-
     categories = str(categories).replace('#', '')
     categories = categories.replace(' ', '')
     categories = categories.replace('[', '')
     categories = categories.replace(']', '')
     categories = categories.replace("'", '')
-
+    if categories == '':
+        categories = '0'
+    print(categories)
+    rating, category = get_rating_and_category(int(categories))
+    print(rating)
+    print(category)
     collection.update_one(filter, {"$set": {"completion": categories}})
+    collection.update_one(filter, {"$set": {"rating": rating}})
+    collection.update_one(filter, {"$set": {"category": category.lower()}})
     return 

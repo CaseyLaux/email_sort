@@ -1,1 +1,1 @@
-'str' object has no attribute 'decode'
+cannot unpack non-iterable function object

@@ -22,15 +22,27 @@ const EmailList = ({ emails, setCurrentEmail }) => {
     9: 23,
   };
 
-  const colorValues = {
-    Business: 'blue',
-    Marketing: 'green',
-    Events: 'orange',
-    Spam: 'white',
-    Delivery: 'yellow',
-    Analytics: 'grey',
-    Invoice: 'red',
-    Urgent: 'brightred',
+  const getClassForEmailType = (type) => {
+    switch (type) {
+      case 'Business':
+        return 'button-business';
+      case 'Marketing':
+        return 'button-marketing';
+      case 'Events':
+        return 'button-events';
+      case 'Spam':
+        return 'button-spam';
+      case 'Delivery':
+        return 'button-delivery';
+      case 'Analytics':
+        return 'button-analytics';
+      case 'Invoice':
+        return 'button-invoice';
+      case 'Urgent':
+        return 'button-urgent';
+      default:
+        return '';
+    }
   };
 
   const isPrime = (num) => {
@@ -60,12 +72,13 @@ const EmailList = ({ emails, setCurrentEmail }) => {
 
         return (
           <button
-            key={index}
-            style={{ backgroundColor: colorValues[classification] || 'default' }} // default is the color if classification does not exist in colorValues
-            onClick={() => setCurrentEmail(email)}
-          >
-            {email.email_sender} - {email.email_subject} - Classification: {classification} - Rating: {rating}
-          </button>
+  key={index}
+  className={`button ${getClassForEmailType(classification)}`} // use CSS class for background color
+  onClick={() => setCurrentEmail(email)}
+>
+  {email.email_sender} - {email.email_subject} 
+  <span className="rating"> {rating}</span>
+</button>
         );
       })}
     </div>

@@ -9,9 +9,8 @@ from pymongo import MongoClient
 from secrats import decrypt_secrets, ColinGTK
 from email.header import decode_header
 import bot_sort
-import re
 import pytz
-from bs4 import BeautifulSoup
+
 # Setting up logging vars
 breaker = "#" * 60
 big_breaker = ("#" * 120) + "\n" + ("#" * 120)
@@ -35,7 +34,7 @@ def get_emails():
     account_string = account_instance.Account_ID
     account_address = account_instance.user
     bot_sorted_collection_string = (str(account_address) + "_bot_sorted") 
-
+    
 
 
     # Connecting to database
@@ -46,6 +45,7 @@ def get_emails():
     # Setting up collections
     address_collection = db[account_address]
     bot_collection = db[bot_sorted_collection_string]
+    last_email_pull_collection = db['last_email_pull']
     debug_collection = debug_db["debug"]
     debug_string = str(uuid.uuid4())
     debug_collection.insert_one({"debug_string": debug_string})
@@ -59,16 +59,37 @@ def get_emails():
         }
     breaker = "#" * 60
     big_breaker = ("#" * 120) + "\n" + ("#" * 120)
-
+    
     # Set up IMAP
     imap_server = 'imap.gmail.com'
-    logging.info(big_breaker)
-    logging.info(f"Connecting to {imap_server}")
-    logging.info(breaker)
+    
     
     
     imap = imaplib.IMAP4_SSL(imap_server)
     imap.login(email_address, password)
+
+    start_datetime = datetime.now(pytz.utc) - timedelta(days=0)
+    end_datetime = datetime.now(pytz.utc) - timedelta(days=2)
+
+    # uncomment to pull only new emails
+    #last_email_pull_doc = last_email_pull_collection.find_one()
+
+# format them as strings to use in the IMAP search
+    #if last_email_pull_doc is None:
+    #    # if it's the first time, default to 120 hours ago
+    #    start_datetime = datetime.now(pytz.utc) - timedelta(hours=120)
+    #    # create document
+    #    last_email_pull_collection.insert_one({'_id': 'last_pull_time', 'datetime': start_datetime})
+    #else:
+        # otherwise, get the last pull time from the database
+    #    start_datetime = last_email_pull_doc['datetime']
+    #end_datetime = datetime.now(pytz.utc)
+
+    
+
+    imap.select('Inbox')
+    
+
     start_datetime = datetime.now(pytz.utc) - timedelta(hours=120)
     end_datetime = datetime.now(pytz.utc) - timedelta(hours=60)
 
@@ -88,6 +109,10 @@ def get_emails():
 
     # Using search results to pull emails since since_date
     search_results = get_emails_since(imap, start_date_str, end_date_str)
+    
+
+    # Using search results to pull emails since since_date
+    #search_results = get_emails_since(imap, start_datetime, end_datetime)
     def decode_content(part, i):
             
         # Pull charset and encoding to decode body text
@@ -110,7 +135,7 @@ def get_emails():
         debug_collection.update_one(debug_filter, update_values)
         payload = payload.decode(charset, errors='replace')
         clean_body = payload.replace('  ', '').replace('\r', '').replace('\u200c', '').replace('\u0020', '')
-        #if part.get('Content-Transfer-Encoding') == 'quoted-printable':
+    
         if payload is None:
             payload =  ''
         if len(clean_body) > 1000:
@@ -213,17 +238,14 @@ def get_emails():
             "body": bodies[i],
             "html_body": html_bodies[i]
         }
-        logging.info(breaker)
-        logging.info("Inserting email data into database")
 
         account_data["email_id"] = email_id
         j_account_data = json.dumps(account_data)
-        logging.info(breaker)
-        logging.info(f"Inserting email data into databases")
+        
         address_collection.insert_one(email_data)
+        last_email_pull_collection.update_one({'_id': 'last_pull_time'}, {'$set': {'datetime': end_datetime}})
         bot_collection.insert_one(email_data)
-        logging.info(breaker)
-        logging.info("Running bot sort")
+        
         bot_sort.categorize_emails(j_account_data)
     # Inserting email data into database
     

@@ -1,9 +1,154 @@
 .email-viewer-container {
   display: flex;
-  justify-content: space-around;
+  height: 100vh;
   font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
-  padding: 2rem 0;
+  background-color: #1a0022;
+  color: #f2f2f2; /* Changed text color to light grey for visibility against dark background */
+}
+
+.email-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 20%;
+  height: 100%;
+  padding: 1rem;
+  border-right: 1px solid #ccc;
+  background-color: #28002e; /* Darker shade of purple for contrast */
+  box-sizing: border-box;
+  color: #f2f2f2; /* Light grey for visibility */
+}
+
+.email-sidebar h3 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #f2f2f2; /* Light grey for visibility */
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid #f2f2f2; /* Light grey for visibility */
+  padding-bottom: 0.5rem;
+}
+
+.email-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.email-sidebar li {
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  color: #f2f2f2; /* Light grey for visibility */
+}
+
+.email-sidebar li:hover {
+  background-color: #3b0062; /* Lighter shade of purple for contrast */
+  color: #f2f2f2; /* Light grey for visibility */
+}
+
+.email-sidebar li.active {
+  background-color: #3b0062; /* Lighter shade of purple for contrast */
+  color: #f2f2f2; /* Light grey for visibility */
+}
+
+.email-main-content {
+  flex-grow: 1;
+  height: 100%;
+  padding: 1rem;
+  background-color: #1a0022; /* Same dark purple as main container */
+  box-sizing: border-box;
+  color: #f2f2f2; /* Light grey for visibility */
+  overflow-y: scroll;
+}
+
+.button {
+  background-color: purple;
+  color: white;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  position: relative;
+}
+
+.button-business:after,
+.button-marketing:after,
+.button-events:after,
+.button-spam:after,
+.button-delivery:after,
+.button-analytics:after,
+.button-invoice:after,
+.button-urgent:after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 100%;
+  right: 0;
+  top: 0;
+  z-index: 1; /* New property */
+}
+
+.button-business:after {
+  background-color: #007BFF; /* Blue */
+}
+
+.button-marketing:after {
+  background-color: #28a745; /* Green */
+}
+
+.button-events:after {
+  background-color: #ffc107; /* Yellow */
+}
+
+.button-spam:after {
+  background-color: #000000; /* Red */
+}
+
+.button-delivery:after {
+  background-color: #17a2b8; /* Cyan */
+}
+
+.button-analytics:after {
+  background-color: #686663; /* Orange */
+}
+
+.button-invoice:after {
+  background-color: #20c997; /* Teal */
+}
+
+.button-urgent:after {
+  background-color: #ff0000; /* Purple */
+}
+
+.rating {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgb(255, 255, 255);
+  z-index: 2;
+}
+
+
+/* Default button style in case none of the classifications match */
+.button {
+  background-color: purple;
+  color: white;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  display: block; /* Change this line */
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  position: relative;
 }
 
 .email-box {
@@ -33,23 +178,6 @@
   margin-bottom: 1.5rem;
 }
 
-button {
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
 input[type="text"],
 input[type="number"] {
   width: 100%;
@@ -59,10 +187,11 @@ input[type="number"] {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-.email-unsorted-list {
+.email-unsorted-list,
+.email-sorted-list {
   width: 20%; /* Added to limit the width of email list to 10% of the screen */
   margin-right: 5%; /* Added to create some space between the email list and email box */
-  overflow-y: auto; /* Added to handle overflow of content */
+  overflow-y: scroll; /* Changed to handle overflow of content */
 }
 .email-sorted-list {
   width: 20%; /* Added to limit the width of email list to 10% of the screen */
