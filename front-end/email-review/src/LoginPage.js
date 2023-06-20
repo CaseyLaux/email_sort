@@ -1,28 +1,38 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-import './LoginPage.css'; // Import the new CSS
+import { Link, useNavigate } from 'react-router-dom';
+import './LoginPage.css';
 
 const LoginPage = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
+    const navigate = useNavigate();
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        try {
-            console.log(username, password)
-            const response = await axios.post('http://localhost:8081/api/v1/login', { username, password });
-            
+        const userCredentials = {
+            username: username,
+            password: password
+        };
+
+        axios.post('http://localhost:8081/api/v1/login', userCredentials, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
             if (response.data.token) {
                 localStorage.setItem('jwt', response.data.token);
-                window.location = "/"; // Redirect to home page or dashboard
+                navigate("/");
             } else {
                 // Handle error here (invalid credentials)
             }
-        } catch (error) {
+        })
+        .catch(error => {
             // Handle error here (e.g. server error)
-        }
+        });
     };
 
     return (
@@ -38,7 +48,7 @@ const LoginPage = () => {
                 <p>Don't have an account? <Link to="/signup">Sign up here</Link></p>
             </form>
         </div>
-    );  
+    );
 }
 
 export default LoginPage;
