@@ -3,12 +3,14 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
 import EmailViewer from './EmailViewer';
 import LoginPage from './LoginPage';
+import SignupPage from './SignupPage';
 
 const App = () => {
   return (
     <Router>
       <Routes>
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
         <Route path="/" element={<ProtectedRoute component={EmailViewer} />} />
       </Routes>
     </Router>

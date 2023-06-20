@@ -1,12 +1,13 @@
 from flask import Flask, request, jsonify
 from flask_jwt_extended import JWTManager, create_access_token, get_jwt_identity, jwt_required
-
+from flask_cors import CORS
 import datetime
 import pymongo
 import hashlib
 
 #Setup
 app = Flask(__name__)
+CORS(app) 
 app_port = 8081
 app.config['JWT_SECRET_KEY'] = '2a56363f-1c5a-434c-bd23-a8b157383ce9'
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = datetime.timedelta(days=1) # define the life span of the token
