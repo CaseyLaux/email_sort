@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_jwt_extended import JWTManager, create_access_token, get_jwt_identity, jwt_required
 from flask_cors import CORS
+from cerberus import Validator
 import datetime
 import pymongo
 import hashlib
@@ -32,15 +33,24 @@ def home():
 @app.route("/api/v1/users", methods=["POST"])
 def register():
     new_user = request.get_json() # store the json body request
-    if(new_user['username'] == None or new_user['email'] == None or new_user['password'] == None):
-        return jsonify({'msg': 'Please include the correct fields!'}), 406
-    # Creating Hash of password to store in the database
-    new_user["password"] = hashlib.sha256(new_user["password"].encode("utf-8")).hexdigest() # encrpt password
-    # Checking if user already exists
-    doc = users_collection.find_one({"username": new_user["username"]}) # check if user exist
-    # If not exists than create one
+
+    # Define a schema for our expected input
+    schema = {
+        'username': {'type': 'string', 'minlength': 1, 'maxlength' : 20}, 
+        'email': {'type': 'string', 'minlength': 1, 'regex': '^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$', 'maxlength' : 60}, 
+        'password': {'type': 'string', 'minlength': 1, 'maxlength' : 60}
+    }
+    v = Validator(schema)
+
+    # Validate the input data. If it's valid, continue processing. If not, return an error message.
+    if not v.validate(new_user):
+        return jsonify({"msg": v.errors}), 400
+
+    new_user["password"] = hashlib.sha256(new_user["password"].encode("utf-8")).hexdigest() 
+
+    doc = users_collection.find_one({"username": new_user["username"]}) 
+
     if not doc:
-        # Creating user
         users_collection.insert_one(new_user)
         return jsonify({'msg': 'User created successfully'}), 201
     else:
@@ -49,25 +59,25 @@ def register():
 #User Account Authentication
 @app.route("/api/v1/login", methods=["POST"])
 def login():
-    login_details = request.get_json() # store the json body request
-    username = login_details.get('username', None)
-    password = login_details.get('password', None)
-    if not username:
-        return jsonify({"msg": "Please supply a 'username' json parameter"}), 400
-    if not password:
-        return jsonify({"msg": "Please supply a 'password' json parameter"}), 400
-    # Getting the login Details from payload
-    login_details = request.get_json() # store the json body request
-    # Checking if user exists in database or not
-    user_from_db = users_collection.find_one({'username': username})  # search for user in database
-    # If user exists
+    login_details = request.get_json()
+
+    # define a schema for our expected input
+    schema = {'username': {'type': 'string', 'minlength': 1, 'maxlength': 20}, 'password': {'type': 'string', 'minlength': 1, 'maxlength': 60}}
+    v = Validator(schema)
+
+    # Validate the input data. If it's valid, continue processing. If not, return an error message.
+    if not v.validate(login_details):
+        return jsonify({"msg": v.errors}), 400
+
+    username = login_details.get('username')
+    password = login_details.get('password')
+
+    user_from_db = users_collection.find_one({'username': username})
+
     if user_from_db:
-        # Check if password is correct
         encrpted_password = hashlib.sha256(password.encode("utf-8")).hexdigest()
         if encrpted_password == user_from_db['password']:
-            # Create JWT Access Token
-            access_token = create_access_token(identity=user_from_db['username']) # create jwt token
-            # Return Token
+            access_token = create_access_token(identity=user_from_db['username'])
             return jsonify(access_token=access_token), 200
         else:
             return jsonify({'msg': 'The username or password is incorrect'}), 401
