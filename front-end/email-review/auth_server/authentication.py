@@ -49,14 +49,21 @@ def register():
 #User Account Authentication
 @app.route("/api/v1/login", methods=["POST"])
 def login():
+    login_details = request.get_json() # store the json body request
+    username = login_details.get('username', None)
+    password = login_details.get('password', None)
+    if not username:
+        return jsonify({"msg": "Please supply a 'username' json parameter"}), 400
+    if not password:
+        return jsonify({"msg": "Please supply a 'password' json parameter"}), 400
     # Getting the login Details from payload
     login_details = request.get_json() # store the json body request
     # Checking if user exists in database or not
-    user_from_db = users_collection.find_one({'username': login_details['username']})  # search for user in database
+    user_from_db = users_collection.find_one({'username': username})  # search for user in database
     # If user exists
     if user_from_db:
         # Check if password is correct
-        encrpted_password = hashlib.sha256(login_details['password'].encode("utf-8")).hexdigest()
+        encrpted_password = hashlib.sha256(password.encode("utf-8")).hexdigest()
         if encrpted_password == user_from_db['password']:
             # Create JWT Access Token
             access_token = create_access_token(identity=user_from_db['username']) # create jwt token
@@ -64,23 +71,6 @@ def login():
             return jsonify(access_token=access_token), 200
         else:
             return jsonify({'msg': 'The username or password is incorrect'}), 401
-        
-@app.route("/api/v1/users", methods=["GET"])
-@jwt_required()
-def get_template():
-    """Get the templates of specefic user    Returns:
-        dict: Return the profile and template 
-    """
-    # Getting the user from access token
-    current_user = get_jwt_identity() # Get the identity of the current user
-    user_from_db = users_collection.find_one({'username' : current_user})
-    # Checking if user exists
-    if user_from_db:
-        # Viewing if templated already present in collection
-        user_template = {'profile' : user_from_db["username"]}
-        return jsonify({"docs":list(db.templates.find(user_template, {"_id":0}))}), 200
-    else:
-        return jsonify({'msg': 'Access Token Expired'}), 404
 
 if __name__ == '__main__':
     app.run(port=app_port)
