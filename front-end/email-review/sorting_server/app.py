@@ -8,7 +8,7 @@ import base64
 import uuid
 sys.path.append("C:\\Users\\casey\\PycharmProjects\\email_sort\\")
 from secrats import ColinGTK
-import test_email_pull
+import pull_emails
 from resort_emails import resort_emails
 
 # Define constants for paths
@@ -57,7 +57,7 @@ def resort_emails_endpoint():
 @app.route('/api/refresh-emails', methods=['GET'])
 def refresh_emails():
     try:
-        test_email_pull.get_emails()
+        pull_emails.get_emails()
         return jsonify({'message': 'Emails refreshed successfully.'}), 200
     except Exception as e:
         f = open("refreshdebug.txt", "w")
