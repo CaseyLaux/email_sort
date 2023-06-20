@@ -1,21 +1,17 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/navbar';
-import Inbox from './Inbox';
-import SortedInbox from './SortedInbox';
-import UnsortedInbox from './UnsortedInbox';
- 
+import ProtectedRoute from './ProtectedRoute';
 import EmailViewer from './EmailViewer';
-import "./index.css"
+import LoginPage from './LoginPage';
 
-
-function App() {
-  
+const App = () => {
   return (
-    <div className="App">
-      
-      <EmailViewer/>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/" element={<ProtectedRoute component={EmailViewer} />} />
+      </Routes>
+    </Router>
   );
 }
 
