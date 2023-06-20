@@ -8,19 +8,20 @@ import hashlib
 #Setup
 app = Flask(__name__)
 app_port = 8081
-jwt = JWTManager(app) # initialize JWTManager
 app.config['JWT_SECRET_KEY'] = '2a56363f-1c5a-434c-bd23-a8b157383ce9'
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = datetime.timedelta(days=1) # define the life span of the token
+jwt = JWTManager(app) # initialize JWTManager
 
 # Specify the host and port for the MongoDB server
-host = 'localhost'  # Replace with your MongoDB server host
-port = 27017  # Replace with the desired port number
+db_host = 'localhost'  # Replace with your MongoDB server host
+db_port = 27017  # Replace with the desired port number
 
 #MongoDB Setup
-client = pymongo.MongoClient(host, port)
+client = pymongo.MongoClient(db_host, db_port)
 db = client["ai"]
 users_collection = db["users"]
 
+#Landing Page
 @app.route('/')
 def home():
 	return 'Authorization Landing Page'
