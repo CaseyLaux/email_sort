@@ -7,6 +7,7 @@ import hashlib
 
 #Setup
 app = Flask(__name__)
+port = 8081
 jwt = JWTManager(app) # initialize JWTManager
 app.config['JWT_SECRET_KEY'] = '2a56363f-1c5a-434c-bd23-a8b157383ce9'
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = datetime.timedelta(days=1) # define the life span of the token
@@ -63,4 +64,4 @@ def login():
             return jsonify({'msg': 'The username or password is incorrect'}), 401
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=port)
