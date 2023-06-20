@@ -16,22 +16,22 @@ const LoginPage = () => {
             username: username,
             password: password
         };
-
+        console.log(userCredentials);
         axios.post('http://localhost:8081/api/v1/login', userCredentials, {
             headers: {
                 'Content-Type': 'application/json'
             }
         })
         .then(response => {
-            if (response.data.token) {
-                localStorage.setItem('jwt', response.data.token);
+            if (response.data.access_token) {
+                localStorage.setItem('jwt', response.data.access_token);
                 navigate("/");
             } else {
-                // Handle error here (invalid credentials)
+                console.log(response);
             }
         })
         .catch(error => {
-            // Handle error here (e.g. server error)
+            console.log(error); 
         });
     };
 
