@@ -2,7 +2,6 @@
 import EmailDetail from './EmailDetail';
 import React, { useState, useEffect } from 'react';
 import './EmailViewer.css';
-import EmailControls from './EmailControls';
 import EmailList from './EmailList';
 import { FaRegTrashAlt, FaArrowRight, FaArrowLeft, FaEnvelopeOpenText, FaRedo } from 'react-icons/fa';
 // Defining a mapping for classification values and rating values

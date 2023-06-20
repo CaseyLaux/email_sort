@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './LoginPage.css'; // Import the new CSS
 
 const LoginPage = () => {
     const [username, setUsername] = useState('');
@@ -23,14 +24,17 @@ const LoginPage = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h2>Login</h2>
-            <label>username:</label>
-            <input type="username" value={username} onChange={(e) => setUsername(e.target.value)} required />
-            <label>Password:</label>
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-            <button type="submit">Login</button>
-        </form>
+        <div className="login-container">
+            <h1 className="app-name">Siemless Email</h1> {/* Add the application name */}
+            <form className="login-form" onSubmit={handleSubmit}>
+                <h2>Login</h2>
+                <label>Username:</label>
+                <input type="username" value={username} onChange={(e) => setUsername(e.target.value)} required />
+                <label>Password:</label>
+                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                <button type="submit">Login</button>
+            </form>
+        </div>
     );
 }
 

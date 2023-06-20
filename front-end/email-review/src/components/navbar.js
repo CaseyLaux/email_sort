@@ -11,9 +11,7 @@ const Navbar = () => {
         <li>
           <Link to="/sortedinbox">Sorted Inbox</Link>
         </li>
-        <li>
-          <Link to="/unsortedinbox">Unsorted Inbox</Link>
-        </li>
+        
       </ul>
     </nav>
   );
