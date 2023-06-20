@@ -4,6 +4,7 @@ import sys
 import subprocess
 import os
 import test_autoformat
+import openai
 sys.path.append("C:\\Users\\casey\\PycharmProjects\\email_sort\\")
 
 from secrats import ColinGTK
@@ -14,13 +15,20 @@ db = client[ColinGTK().Account_ID]
 collection_string = ColinGTK().user + "re-sorted"
 collection = db[collection_string]
 
+def delete_documents(ids_to_delete):
+    for id in ids_to_delete:
+        print(id)
+        collection.delete_one({"_id": id})
 def database_pull():
     # Fetch all documents from the collection, but only include the 'email_prompt' and 'completion' fields
-    documents = collection.find({}, {"prompt": 1, "completion": 1})
+    documents = collection.find({}, {"prompt": 1, "completion": 1, "_id": 1})
 
     # Convert MongoDB Cursor to list of dicts
     documents_list = list(documents)
-
+    ids_to_delete = [document['_id'] for document in documents_list]
+    if documents_list == []:
+        exit(print("No documents found in collection"))
+    
     # Remove the '_id' key from each document
     for document in documents_list:
         document.pop('_id', None)
@@ -38,14 +46,34 @@ def database_pull():
     # Write the documents to a json file
     with open(filename, 'w') as file:
         file.write(json.dumps(documents_list, indent=4))
-    return filename
-        
+    return filename, ids_to_delete
 
-
-
-
-if __name__ == "__main__":
-    filename = database_pull()
-    subprocess.run(["powershell.exe", "-ExecutionPolicy", "Bypass", "-File", "./sorting_server/format_data.ps1", filename])
+def resort_emails():
+    filename, deleteData = database_pull()
     test_autoformat.autoformat(filename)
+    openai.api_key = "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"
+    train_data = filename.replace(".json", "_prepared.jsonl")
+
+    if not os.path.exists(train_data):
+        train_data = filename.replace(".json", "_prepared_train.jsonl")
+        valid_data = filename.replace(".json", "_prepared_valid.jsonl")
+        openai.File.create(
+            file=open(train_data, "rb"),
+            purpose='fine-tune'
+        )
+        openai.File.create(
+            file=open(valid_data, "rb"),
+            purpose='fine-tune'
+        )
+        subprocess.run(["powershell.exe", "-ExecutionPolicy", "Bypass", "-File", "./front-end/email-review/sorting_server/train_model.ps1", train_data, valid_data])
+
+    openai.File.create(
+        file=open(train_data, "rb"),
+        purpose='fine-tune'
+    )
     
+    subprocess.run(["powershell.exe", "-ExecutionPolicy", "Bypass", "-File", "./front-end/email-review/sorting_server/train_model.ps1", train_data])
+    delete_documents(deleteData)
+if __name__ == "__main__":
+    resort_emails()
+    print("Done")

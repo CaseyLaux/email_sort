@@ -9,6 +9,7 @@ import uuid
 sys.path.append("C:\\Users\\casey\\PycharmProjects\\email_sort\\")
 from secrats import ColinGTK
 import test_email_pull
+from resort_emails import resort_emails
 
 # Define constants for paths
 
@@ -41,6 +42,18 @@ debug_collection.insert_one(debug_filter)
 app = Flask(__name__)
 CORS(app)  # Enable CORS for the Flask app
 
+
+@app.route('/api/resort-emails', methods=['GET'])
+def resort_emails_endpoint():
+    try:
+        resort_emails()
+        return jsonify({'message': 'Emails resorted successfully.'}), 200
+    except Exception as e:
+        print(f"Error running resort_emails: {e}")
+        return jsonify({'error': f'Failed to resort emails: {str(e)}'}), 500
+
+
+
 @app.route('/api/refresh-emails', methods=['GET'])
 def refresh_emails():
     try:
@@ -60,6 +73,8 @@ def get_emails():
     debug_collection.update_one(debug_filter, {'$set': {'emails': user_sorted_emails}})
     
     return json_util.dumps({'user_sorted_emails':user_sorted_emails, 'user_unsorted_emails': user_unsorted_emails, 'bot_sorted_emails': bot_sorted_emails}), 200
+
+
 
 @app.route('/api/move-email', methods=['POST'])
 def update_email():

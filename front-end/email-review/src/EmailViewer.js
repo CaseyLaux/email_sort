@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import './EmailViewer.css';
 import EmailControls from './EmailControls';
 import EmailList from './EmailList';
-import { FaRegTrashAlt, FaArrowRight, FaArrowLeft, FaEnvelopeOpenText } from 'react-icons/fa';
+import { FaRegTrashAlt, FaArrowRight, FaArrowLeft, FaEnvelopeOpenText, FaRedo } from 'react-icons/fa';
 // Defining a mapping for classification values and rating values
 const COLOR_VALUES = {
   Spam: '#000000',
@@ -237,6 +237,19 @@ const EmailViewer = () => {
       alert('Failed to move email.');
     }
   };
+  const resortEmails = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/api/resort-emails');
+  
+      if (!response.ok) {
+        throw new Error('Failed to resort emails.');
+      }
+  
+      alert('Emails resorted successfully.');
+    } catch (error) {
+      alert('Failed to resort emails.');
+    }
+  };
   const getCurrentEmails = () => {
     switch (currentCategory) {
       case 'Unsorted':
@@ -269,10 +282,14 @@ const EmailViewer = () => {
     <div className="email-viewer-container" style={{display: 'flex'}}>
   {isLoading ? <p>Loading...</p> : null}
   <div className="email-sidebar" style={{width: '300px'}}>
-    <h3>Siemless emails</h3>
-    <button onClick={refreshEmails}>
+  <button onClick={resortEmails}>
+  <FaRedo /> Resort Emails
+</button>
+<button onClick={refreshEmails}>
       <FaEnvelopeOpenText /> Refresh Emails
     </button>
+    <h3>Siemless emails</h3>
+    
     <ul>
       <li onClick={() => setCurrentCategory('Unsorted')}>Unsorted Emails</li>
       <li onClick={() => setCurrentCategory('Human Sorted')}>Human Sorted</li>
