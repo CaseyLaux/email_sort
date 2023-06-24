@@ -244,6 +244,7 @@ const EmailViewer = () => {
 
   // Function for updating an email
   const updateEmail = async () => {
+    const token = localStorage.getItem('jwt');
     // Validation for rating and classification inputs
     if (!rating || !classification) {
       alert('Please enter a rating and classification.');
@@ -274,8 +275,12 @@ const EmailViewer = () => {
     try {
       console.log({email: updatedEmail})
       const response = await fetch('http://localhost:3001/api/move-email', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      method: 'POST',
+      
+        headers: { 
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+      },
         body: JSON.stringify({ email: updatedEmail }),
       });
       //await refreshEmails();

@@ -1352,3 +1352,374 @@ INFO:root:############################################################
 INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:3001
 INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:38:50] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:38:50] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:38:50] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:38:51] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:42:50] "OPTIONS /api/move-email HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:42:50] "[31m[1mPOST /api/move-email HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:54:48] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:54:48] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:54:49] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:54:49] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:54:49] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:54:50] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:54:50] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:54:50] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:54:51] "OPTIONS /api/move-email HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:54:51] "GET /api/get-emails HTTP/1.1" 200 -
+ERROR:app:Exception on /api/move-email [POST]
+Traceback (most recent call last):
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_jwt_extended\view_decorators.py", line 174, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 111, in update_email
+    email_id = ObjectId(data['email']['_id'])
+AttributeError: module 'datetime' has no attribute 'now'
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:54:51] "[35m[1mPOST /api/move-email HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:54:51] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:54:51] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:54:52] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:56:29] "OPTIONS /api/move-email HTTP/1.1" 200 -
+ERROR:app:Exception on /api/move-email [POST]
+Traceback (most recent call last):
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_jwt_extended\view_decorators.py", line 174, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 111, in update_email
+AttributeError: module 'datetime' has no attribute 'now'
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:56:29] "[35m[1mPOST /api/move-email HTTP/1.1[0m" 500 -
+INFO:root:EMAIL PULLER RUN 2023-06-24 00:56:43.995232
+INFO:root:########################################################################################################################
+########################################################################################################################
+INFO:root:Fetching credentials
+INFO:root:############################################################
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:56:55] "OPTIONS /api/move-email HTTP/1.1" 200 -
+ERROR:app:Exception on /api/move-email [POST]
+Traceback (most recent call last):
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_jwt_extended\view_decorators.py", line 174, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 107, in update_email
+    debug_collection.insert_one(debug_filter)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 628, in insert_one
+    self._insert_one(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 569, in _insert_one
+    self.__database.client._retryable_write(acknowledged, _insert_command, session)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1476, in _retryable_write
+    return self._retry_with_session(retryable, func, s, None)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1349, in _retry_with_session
+    return self._retry_internal(retryable, func, session, bulk)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\_csot.py", line 105, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1390, in _retry_internal
+    return func(session, sock_info, retryable)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 567, in _insert_command
+    _check_write_command_response(result)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\helpers.py", line 217, in _check_write_command_response
+    _raise_last_write_error(write_errors)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\helpers.py", line 189, in _raise_last_write_error
+    raise DuplicateKeyError(error.get("errmsg"), 11000, error)
+pymongo.errors.DuplicateKeyError: E11000 duplicate key error collection: debug.email_server index: _id_ dup key: { _id: ObjectId('6496778c56d7639700e3fbc6') }, full error: {'index': 0, 'code': 11000, 'errmsg': "E11000 duplicate key error collection: debug.email_server index: _id_ dup key: { _id: ObjectId('6496778c56d7639700e3fbc6') }", 'keyPattern': {'_id': 1}, 'keyValue': {'_id': ObjectId('6496778c56d7639700e3fbc6')}}
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:56:55] "[35m[1mPOST /api/move-email HTTP/1.1[0m" 500 -
+INFO:root:EMAIL PULLER RUN 2023-06-24 00:57:59.611091
+INFO:root:########################################################################################################################
+########################################################################################################################
+INFO:root:Fetching credentials
+INFO:root:############################################################
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:58:15] "OPTIONS /api/move-email HTTP/1.1" 200 -
+ERROR:app:Exception on /api/move-email [POST]
+Traceback (most recent call last):
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_jwt_extended\view_decorators.py", line 174, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 107, in update_email
+    debug_collection.insert_one(debug_filter)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 628, in insert_one
+    self._insert_one(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 569, in _insert_one
+    self.__database.client._retryable_write(acknowledged, _insert_command, session)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1476, in _retryable_write
+    return self._retry_with_session(retryable, func, s, None)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1349, in _retry_with_session
+    return self._retry_internal(retryable, func, session, bulk)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\_csot.py", line 105, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1390, in _retry_internal
+    return func(session, sock_info, retryable)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 567, in _insert_command
+    _check_write_command_response(result)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\helpers.py", line 217, in _check_write_command_response
+    _raise_last_write_error(write_errors)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\helpers.py", line 189, in _raise_last_write_error
+    raise DuplicateKeyError(error.get("errmsg"), 11000, error)
+pymongo.errors.DuplicateKeyError: E11000 duplicate key error collection: debug.email_server index: _id_ dup key: { _id: ObjectId('649677d7aa346fa9e33249d6') }, full error: {'index': 0, 'code': 11000, 'errmsg': "E11000 duplicate key error collection: debug.email_server index: _id_ dup key: { _id: ObjectId('649677d7aa346fa9e33249d6') }", 'keyPattern': {'_id': 1}, 'keyValue': {'_id': ObjectId('649677d7aa346fa9e33249d6')}}
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:58:15] "[35m[1mPOST /api/move-email HTTP/1.1[0m" 500 -
+INFO:root:EMAIL PULLER RUN 2023-06-24 00:58:30.592420
+INFO:root:########################################################################################################################
+########################################################################################################################
+INFO:root:Fetching credentials
+INFO:root:############################################################
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:58:42] "OPTIONS /api/move-email HTTP/1.1" 200 -
+ERROR:app:Exception on /api/move-email [POST]
+Traceback (most recent call last):
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_jwt_extended\view_decorators.py", line 174, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 107, in update_email
+    debug_collection.insert_one(debug_filter)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 628, in insert_one
+    self._insert_one(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 569, in _insert_one
+    self.__database.client._retryable_write(acknowledged, _insert_command, session)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1476, in _retryable_write
+    return self._retry_with_session(retryable, func, s, None)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1349, in _retry_with_session
+    return self._retry_internal(retryable, func, session, bulk)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\_csot.py", line 105, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1390, in _retry_internal
+    return func(session, sock_info, retryable)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 567, in _insert_command
+    _check_write_command_response(result)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\helpers.py", line 217, in _check_write_command_response
+    _raise_last_write_error(write_errors)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\helpers.py", line 189, in _raise_last_write_error
+    raise DuplicateKeyError(error.get("errmsg"), 11000, error)
+pymongo.errors.DuplicateKeyError: E11000 duplicate key error collection: debug.email_server index: _id_ dup key: { _id: ObjectId('649677f6ae6f69c2c1015161') }, full error: {'index': 0, 'code': 11000, 'errmsg': "E11000 duplicate key error collection: debug.email_server index: _id_ dup key: { _id: ObjectId('649677f6ae6f69c2c1015161') }", 'keyPattern': {'_id': 1}, 'keyValue': {'_id': ObjectId('649677f6ae6f69c2c1015161')}}
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:58:42] "[35m[1mPOST /api/move-email HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:59:50] "OPTIONS /api/move-email HTTP/1.1" 200 -
+ERROR:app:Exception on /api/move-email [POST]
+Traceback (most recent call last):
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_jwt_extended\view_decorators.py", line 174, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 107, in update_email
+    debug_collection.insert_one(debug_filter)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 628, in insert_one
+    self._insert_one(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 569, in _insert_one
+    self.__database.client._retryable_write(acknowledged, _insert_command, session)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1476, in _retryable_write
+    return self._retry_with_session(retryable, func, s, None)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1349, in _retry_with_session
+    return self._retry_internal(retryable, func, session, bulk)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\_csot.py", line 105, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1390, in _retry_internal
+    return func(session, sock_info, retryable)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 567, in _insert_command
+    _check_write_command_response(result)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\helpers.py", line 217, in _check_write_command_response
+    _raise_last_write_error(write_errors)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\helpers.py", line 189, in _raise_last_write_error
+    raise DuplicateKeyError(error.get("errmsg"), 11000, error)
+pymongo.errors.DuplicateKeyError: E11000 duplicate key error collection: debug.email_server index: _id_ dup key: { _id: ObjectId('649677f6ae6f69c2c1015161') }, full error: {'index': 0, 'code': 11000, 'errmsg': "E11000 duplicate key error collection: debug.email_server index: _id_ dup key: { _id: ObjectId('649677f6ae6f69c2c1015161') }", 'keyPattern': {'_id': 1}, 'keyValue': {'_id': ObjectId('649677f6ae6f69c2c1015161')}}
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:59:50] "[35m[1mPOST /api/move-email HTTP/1.1[0m" 500 -
+INFO:root:EMAIL PULLER RUN 2023-06-24 01:00:44.112425
+INFO:root:########################################################################################################################
+########################################################################################################################
+INFO:root:Fetching credentials
+INFO:root:############################################################
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 01:00:53] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 01:00:53] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 01:00:54] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 01:00:54] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 01:01:10] "OPTIONS /api/move-email HTTP/1.1" 200 -
+ERROR:app:Exception on /api/move-email [POST]
+Traceback (most recent call last):
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_jwt_extended\view_decorators.py", line 174, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 107, in update_email
+    debug_collection.insert_one(debug_filter)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 628, in insert_one
+    self._insert_one(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 569, in _insert_one
+    self.__database.client._retryable_write(acknowledged, _insert_command, session)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1476, in _retryable_write
+    return self._retry_with_session(retryable, func, s, None)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1349, in _retry_with_session
+    return self._retry_internal(retryable, func, session, bulk)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\_csot.py", line 105, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1390, in _retry_internal
+    return func(session, sock_info, retryable)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 567, in _insert_command
+    _check_write_command_response(result)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\helpers.py", line 217, in _check_write_command_response
+    _raise_last_write_error(write_errors)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\helpers.py", line 189, in _raise_last_write_error
+    raise DuplicateKeyError(error.get("errmsg"), 11000, error)
+pymongo.errors.DuplicateKeyError: E11000 duplicate key error collection: debug.email_server index: _id_ dup key: { _id: ObjectId('6496787c3e55999dfddfba03') }, full error: {'index': 0, 'code': 11000, 'errmsg': "E11000 duplicate key error collection: debug.email_server index: _id_ dup key: { _id: ObjectId('6496787c3e55999dfddfba03') }", 'keyPattern': {'_id': 1}, 'keyValue': {'_id': ObjectId('6496787c3e55999dfddfba03')}}
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 01:01:11] "[35m[1mPOST /api/move-email HTTP/1.1[0m" 500 -
+INFO:root:EMAIL PULLER RUN 2023-06-24 01:03:04.548819
+INFO:root:########################################################################################################################
+########################################################################################################################
+INFO:root:Fetching credentials
+INFO:root:############################################################
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 01:03:14] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 01:03:14] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 01:03:14] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 01:03:14] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 01:03:25] "OPTIONS /api/move-email HTTP/1.1" 200 -
+ERROR:app:Exception on /api/move-email [POST]
+Traceback (most recent call last):
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_jwt_extended\view_decorators.py", line 174, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 106, in update_email
+    debug_collection.insert_one(debug_filter)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 628, in insert_one
+    self._insert_one(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 569, in _insert_one
+    self.__database.client._retryable_write(acknowledged, _insert_command, session)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1476, in _retryable_write
+    return self._retry_with_session(retryable, func, s, None)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1349, in _retry_with_session
+    return self._retry_internal(retryable, func, session, bulk)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\_csot.py", line 105, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1390, in _retry_internal
+    return func(session, sock_info, retryable)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 567, in _insert_command
+    _check_write_command_response(result)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\helpers.py", line 217, in _check_write_command_response
+    _raise_last_write_error(write_errors)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\helpers.py", line 189, in _raise_last_write_error
+    raise DuplicateKeyError(error.get("errmsg"), 11000, error)
+pymongo.errors.DuplicateKeyError: E11000 duplicate key error collection: debug.email_server index: _id_ dup key: { _id: ObjectId('64967908a87f36d8c8023e8e') }, full error: {'index': 0, 'code': 11000, 'errmsg': "E11000 duplicate key error collection: debug.email_server index: _id_ dup key: { _id: ObjectId('64967908a87f36d8c8023e8e') }", 'keyPattern': {'_id': 1}, 'keyValue': {'_id': ObjectId('64967908a87f36d8c8023e8e')}}
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 01:03:25] "[35m[1mPOST /api/move-email HTTP/1.1[0m" 500 -
+INFO:root:EMAIL PULLER RUN 2023-06-24 01:05:24.779771
+INFO:root:########################################################################################################################
+########################################################################################################################
+INFO:root:Fetching credentials
+INFO:root:############################################################
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 01:05:33] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 01:05:33] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 01:05:33] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 01:05:33] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 01:05:45] "OPTIONS /api/move-email HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 01:05:45] "POST /api/move-email HTTP/1.1" 200 -
+INFO:root:EMAIL PULLER RUN 2023-06-24 01:07:45.063273
+INFO:root:########################################################################################################################
+########################################################################################################################
+INFO:root:Fetching credentials
+INFO:root:############################################################
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:EMAIL PULLER RUN 2023-06-24 01:16:27.449254
+INFO:root:########################################################################################################################
+########################################################################################################################
+INFO:root:Fetching credentials
+INFO:root:############################################################
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m

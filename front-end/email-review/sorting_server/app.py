@@ -66,8 +66,6 @@ def resort_emails_endpoint():
 @jwt_required() 
 def refresh_emails():
     current_user = get_jwt_identity()
-    
-
     try:
         pull_emails.get_emails()
         return jsonify({'message': 'Emails refreshed successfully.'}), 200
@@ -83,7 +81,6 @@ def get_emails():
     current_user = get_jwt_identity()
     debug_collection.update_one(debug_filter, {'$set': {'runInfo': "Running get emails"}})
     try:
-        
         debug_collection.update_one(debug_filter, {'$set': {'user': current_user}})
     except Exception as e:
         debug_collection.update_one(debug_filter, {'$set': {'errors': e}})
@@ -105,10 +102,12 @@ def get_emails():
 @jwt_required() 
 def update_email():
     data = request.get_json()
-    current_user = get_jwt_identity()
-
+    debug_id = str(uuid.uuid4())
+    debug_filter = {"debug_id": debug_id}
     debug_collection.update_one(debug_filter, {'$set': {'runInfo': "Running move email"}})
-    debug_collection.update_one(debug_filter, {'$set': {'dateTime': datetime.now()}})
+    current_user = get_jwt_identity()
+    
+   
     debug_collection.update_one(debug_filter, {'$set': {'user': current_user}})
     
     email_id = ObjectId(data['email']['_id'])

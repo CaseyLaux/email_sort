@@ -23,40 +23,34 @@ logging.info(breaker)
 
 
 def get_emails():
-    user, secret = decrypt_secrets()
-    email_address = user
-    password = secret
+    #user = username
+    #print(username)
+    user = "Colin"
+    
 
     # Setting up vars for database
     mongo_uri = "mongodb://localhost:27017/"
 
-    account_instance = ColinGTK()
-    account_string = account_instance.Account_ID
-    account_address = account_instance.user
-    bot_sorted_collection_string = (str(account_address) + "_bot_sorted") 
-    
-
-
-    # Connecting to database
     client = MongoClient(mongo_uri)
-    db = client[account_string]
+    db = client[user]
+    account_info_collection = db["email_accounts"]
     debug_db = client["debug"]
 
     # Setting up collections
-    address_collection = db[account_address]
-    bot_collection = db[bot_sorted_collection_string]
+    account_info = account_info_collection.find_one()
+    secret = account_info["secret"]
+    email_address = account_info["email"]
+
+
+    email_collection = db["email"]
+    bot_sorted_collection = db["bot_sorted"]
     last_email_pull_collection = db['last_email_pull']
     debug_collection = debug_db["debug"]
     debug_string = str(uuid.uuid4())
     debug_collection.insert_one({"debug_string": debug_string})
     debug_filter = {"debug_string": debug_string}
 
-    account_data = {
-            "account_string": account_string,
-            "account_address": account_address,
-            "bot_sorted_collection_string": bot_sorted_collection_string,
-            "email_id": "",
-        }
+    
     breaker = "#" * 60
     big_breaker = ("#" * 120) + "\n" + ("#" * 120)
     
@@ -66,7 +60,7 @@ def get_emails():
     
     
     imap = imaplib.IMAP4_SSL(imap_server)
-    imap.login(email_address, password)
+    imap.login(email_address, secret)
 
     start_datetime = datetime.now(pytz.utc) - timedelta(days=0)
     end_datetime = datetime.now(pytz.utc) - timedelta(days=2)
@@ -169,7 +163,12 @@ def get_emails():
         return ''.join(header_parts)
     # Arrays to add to email_data then to database 
 
-
+    account_data = {
+            "account_string": user,
+            "account_address": email_address,
+            "bot_sorted_collection_string": "bot_sorted",
+            "email_id": "",
+        }
     senders = []
     subjects = []
     bodies = []
@@ -239,12 +238,13 @@ def get_emails():
             "html_body": html_bodies[i]
         }
 
+        
         account_data["email_id"] = email_id
         j_account_data = json.dumps(account_data)
-        
-        address_collection.insert_one(email_data)
+
+        email_collection.insert_one(email_data)
         last_email_pull_collection.update_one({'_id': 'last_pull_time'}, {'$set': {'datetime': end_datetime}})
-        bot_collection.insert_one(email_data)
+        bot_sorted_collection.insert_one(email_data)
         
         bot_sort.categorize_emails(j_account_data)
     # Inserting email data into database
