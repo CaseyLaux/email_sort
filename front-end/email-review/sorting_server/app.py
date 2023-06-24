@@ -6,12 +6,21 @@ from pymongo import MongoClient
 import sys
 import base64
 import uuid
+import datetime
 sys.path.append("C:\\Users\\casey\\PycharmProjects\\email_sort\\")
 from secrats import ColinGTK
 import pull_emails
 from resort_emails import resort_emails
+from flask_jwt_extended import JWTManager, jwt_required, get_jwt_identity
 
-# Define constants for paths
+# Flask settings
+app = Flask(__name__)
+CORS(app)  # Enable CORS for the Flask app
+app.config['JWT_SECRET_KEY'] = '2a56363f-1c5a-434c-bd23-a8b157383ce9'
+jwt = JWTManager(app)
+CORS(app)
+
+
 
 # Read settings from a configuration file
 config = configparser.ConfigParser()
@@ -35,15 +44,14 @@ user_sorted_collection = user_database[user_sorted_string]
 bot_sorted_string = ColinGTK().user + '_bot_sorted'
 bot_sorted_collection = user_database[bot_sorted_string]
 
-debug_collection = debugDB['debug']
+debug_collection = debugDB['email_server']
 debug_id = str(uuid.uuid4())
 debug_filter = {"debug_id": debug_id}
 debug_collection.insert_one(debug_filter)
-app = Flask(__name__)
-CORS(app)  # Enable CORS for the Flask app
 
 
 @app.route('/api/resort-emails', methods=['GET'])
+@jwt_required() 
 def resort_emails_endpoint():
     try:
         resort_emails()
@@ -55,7 +63,11 @@ def resort_emails_endpoint():
 
 
 @app.route('/api/refresh-emails', methods=['GET'])
+@jwt_required() 
 def refresh_emails():
+    current_user = get_jwt_identity()
+    
+
     try:
         pull_emails.get_emails()
         return jsonify({'message': 'Emails refreshed successfully.'}), 200
@@ -66,7 +78,20 @@ def refresh_emails():
 
 #Gather emails from the database
 @app.route('/api/get-emails', methods=['GET'])
+@jwt_required()
 def get_emails():
+    current_user = get_jwt_identity()
+    debug_collection.update_one(debug_filter, {'$set': {'runInfo': "Running get emails"}})
+    try:
+        
+        debug_collection.update_one(debug_filter, {'$set': {'user': current_user}})
+    except Exception as e:
+        debug_collection.update_one(debug_filter, {'$set': {'errors': e}})
+    user_database = client[current_user]
+    user_collection  = user_database["emails"]
+    bot_sorted_collection = user_database["bot_sorted"]
+
+
     user_sorted_emails = list(user_sorted_collection.find())
     user_unsorted_emails = list(user_collection.find())
     bot_sorted_emails = list(bot_sorted_collection.find())
@@ -77,15 +102,21 @@ def get_emails():
 
 
 @app.route('/api/move-email', methods=['POST'])
+@jwt_required() 
 def update_email():
     data = request.get_json()
-    #d = open("movedebug.txt", "w")
-    #d.write(str(data))
-    #d.close()
-    #print(data)
-    email_id = ObjectId(data['email']['_id'])
-    print(data["email"]['completion'])
+    current_user = get_jwt_identity()
 
+    debug_collection.update_one(debug_filter, {'$set': {'runInfo': "Running move email"}})
+    debug_collection.update_one(debug_filter, {'$set': {'dateTime': datetime.now()}})
+    debug_collection.update_one(debug_filter, {'$set': {'user': current_user}})
+    
+    email_id = ObjectId(data['email']['_id'])
+    debug_collection.update_one(debug_filter, {'$set': {'email_id': email_id}})
+    
+    user_database = client[current_user]
+    user_collection  = user_database["emails"]
+    bot_sorted_collection = user_database["bot_sorted"]
     # Insert the updated email into the body collection
     try:
         filter = { '_id': email_id }

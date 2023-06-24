@@ -28,6 +28,15 @@ def home():
 	return 'Authorization Landing Page'
 
 
+
+@app.route("/api/v1/auth-check", methods=["POST"])
+@jwt_required()
+def verify_token():
+    # Getting the username from JWT token
+    current_user = get_jwt_identity() # get jwt identity
+    # Returning the username
+    return jsonify(username=current_user), 200
+
 #User Account Creation
 @app.route("/api/v1/users", methods=["POST"])
 def register():
@@ -36,12 +45,20 @@ def register():
         return jsonify({'msg': 'Please include the correct fields!'}), 406
     # Creating Hash of password to store in the database
     new_user["password"] = hashlib.sha256(new_user["password"].encode("utf-8")).hexdigest() # encrpt password
+    new_user["new_user"] = 1
     # Checking if user already exists
     doc = users_collection.find_one({"username": new_user["username"]}) # check if user exist
     # If not exists than create one
     if not doc:
         # Creating user
         users_collection.insert_one(new_user)
+        new_user_database = client[new_user["username"]]
+        user_accounts_collection = new_user_database["email_accounts"]
+        user_account_info_collection = new_user_database["acc_info"]
+        user_account_info_collection.insert_one(new_user)
+        
+        user_accounts_collection.insert_one({"email": new_user["email"]})
+        
         return jsonify({'msg': 'User created successfully'}), 201
     else:
         return jsonify({'msg': 'Username already exists'}), 409

@@ -72,7 +72,7 @@ const EmailViewer = () => {
   const [currentDetailViewEmail, setCurrentDetailViewEmail] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const categories = ['spam', 'marketing', 'events', 'delivery', 'analytics', 'business', 'invoice', 'urgent'];
-
+  const [username, setUsername] = useState(null);
   const [error, setError] = useState(null);
 
   // Functions for opening and closing the email detail view
@@ -105,26 +105,48 @@ const EmailViewer = () => {
       ...currentDetailViewEmail,
       _id: currentDetailViewEmail._id.$oid,
     };
-
-    // Deleting an email from the API and updating state
+  
     try {
-      const response = await fetch('http://localhost:3001/api/delete-email', {
+      // Get JWT token from local storage
+      const token = localStorage.getItem('token');
+      if (!token) {
+        throw new Error('No token found in local storage.');
+      }
+  
+      // Send token to the authentication server and get the username
+      let usernameResponse = await fetch('http://localhost:3001/api/v1/auth-check', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+  
+      if (!usernameResponse.ok) {
+        throw new Error('Failed to get username from auth server.');
+      }
+  
+      let { username } = await usernameResponse.json();
+  
+      // Delete the email using the fetched username
+      const response = await fetch(`http://localhost:3001/api/${username}/delete-email`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: email_id }),
       });
-
+  
       if (!response.ok) {
         throw new Error('Failed to delete email.');
       }
-
+  
       setUserUnsortedEmails((prevState) => prevState.filter((e) => e._id !== currentDetailViewEmail._id));
   
       alert('Email deleted successfully.');
     } catch (error) {
-      alert('Failed to delete email.');
+      alert(`Failed to delete email. Error: ${error.message}`);
     }
   };
+  
   const groupEmailsByCompletion = (emails) => {
     console.log(emails)
     // Create an empty object to hold the groups
@@ -148,10 +170,48 @@ const EmailViewer = () => {
   };
   // Function for loading emails on component mount
   useEffect(() => {
+    async function checkAuthAndGetUsername() {
+      try {
+        // Get JWT token from local storage
+        const token = localStorage.getItem('jwt');
+        if (!token) {
+          throw new Error('No token found in local storage.');
+        }
+  
+        // Send token to the authentication server and get the username
+        let response = await fetch('http://localhost:8081/api/v1/auth-check', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+          },
+        });
+  
+        if (!response.ok) {
+          throw new Error('Failed to get username from auth server.');
+        }
+  
+        let data = await response.json();
+        setUsername(data.username);
+        console.log(data.username)
+        // setUsername(data.username);
+      } catch (error) {
+        console.error('Error fetching username:', error);
+      }
+    }
+  
+    // Call the async function
+    checkAuthAndGetUsername();
     async function loadEmails() {
       try {
-        const response = await fetch('http://localhost:3001/api/get-emails');
-        const data = await response.json();
+        const token = localStorage.getItem('jwt');  
+      const response = await fetch('http://localhost:3001/api/get-emails', {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      const data = await response.json();
+
         // console.log(data)
         setHumanSortedEmails(data.user_sorted_emails);
         setUserUnsortedEmails(data.user_unsorted_emails);

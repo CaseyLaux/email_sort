@@ -435,3 +435,920 @@ INFO:root:############################################################
 INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:3001
 INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 00:37:28] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 00:37:29] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 00:37:30] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:root:EMAIL PULLER RUN 2023-06-20 17:41:03.027449
+INFO:root:########################################################################################################################
+########################################################################################################################
+INFO:root:Fetching credentials
+INFO:root:############################################################
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:EMAIL PULLER RUN 2023-06-20 18:15:47.131429
+INFO:root:########################################################################################################################
+########################################################################################################################
+INFO:root:Fetching credentials
+INFO:root:############################################################
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 18:16:43] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 18:16:46] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 18:16:49] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 18:21:16] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 18:21:18] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 18:21:21] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 18:35:14] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 18:35:19] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 18:35:20] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 18:35:24] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 18:35:26] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 18:35:29] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 18:36:16] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 18:37:17] "[33mOPTIONS /api/v1/auth-check HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 18:37:20] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 18:37:59] "[33mOPTIONS /api/v1/auth-check HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 18:37:59] "[33mOPTIONS /api/v1/auth-check HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 18:38:01] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 18:38:03] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 18:38:06] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 18:38:51] "[33mOPTIONS /api/v1/auth-check HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 18:38:59] "[33mOPTIONS /api/v1/auth-check HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 18:38:59] "[33mOPTIONS /api/v1/auth-check HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 18:39:09] "[33mOPTIONS /api/v1/auth-check HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 18:39:11] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 18:39:28] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 18:39:33] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 18:39:36] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 18:39:39] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 18:51:08] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 18:51:42] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 21:49:32] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 21:49:36] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 21:49:39] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:root:EMAIL PULLER RUN 2023-06-20 21:52:28.625501
+INFO:root:########################################################################################################################
+########################################################################################################################
+INFO:root:Fetching credentials
+INFO:root:############################################################
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 21:52:44] "[31m[1mGET /api/get-emails HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 21:52:44] "[31m[1mGET /api/get-emails HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 21:52:50] "[31m[1mGET /api/get-emails HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 21:52:51] "[31m[1mGET /api/get-emails HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 21:53:14] "[31m[1mGET /api/get-emails HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 21:53:14] "[31m[1mGET /api/get-emails HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 22:18:44] "[31m[1mGET /api/get-emails HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 22:18:45] "[31m[1mGET /api/get-emails HTTP/1.1[0m" 401 -
+INFO:root:EMAIL PULLER RUN 2023-06-20 22:20:39.567876
+INFO:root:########################################################################################################################
+########################################################################################################################
+INFO:root:Fetching credentials
+INFO:root:############################################################
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 22:21:02] "[31m[1mGET /api/get-emails HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 22:21:02] "[31m[1mGET /api/get-emails HTTP/1.1[0m" 401 -
+INFO:root:EMAIL PULLER RUN 2023-06-20 22:22:37.993630
+INFO:root:########################################################################################################################
+########################################################################################################################
+INFO:root:Fetching credentials
+INFO:root:############################################################
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:EMAIL PULLER RUN 2023-06-20 22:26:17.199465
+INFO:root:########################################################################################################################
+########################################################################################################################
+INFO:root:Fetching credentials
+INFO:root:############################################################
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:EMAIL PULLER RUN 2023-06-20 22:27:38.598402
+INFO:root:########################################################################################################################
+########################################################################################################################
+INFO:root:Fetching credentials
+INFO:root:############################################################
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:EMAIL PULLER RUN 2023-06-20 22:28:56.600173
+INFO:root:########################################################################################################################
+########################################################################################################################
+INFO:root:Fetching credentials
+INFO:root:############################################################
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:EMAIL PULLER RUN 2023-06-20 22:30:14.628065
+INFO:root:########################################################################################################################
+########################################################################################################################
+INFO:root:Fetching credentials
+INFO:root:############################################################
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 23:23:30] "[31m[1mGET /api/get-emails HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 23:23:30] "[31m[1mGET /api/get-emails HTTP/1.1[0m" 401 -
+INFO:root:EMAIL PULLER RUN 2023-06-20 23:25:58.232126
+INFO:root:########################################################################################################################
+########################################################################################################################
+INFO:root:Fetching credentials
+INFO:root:############################################################
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 23:26:27] "[31m[1mGET /api/get-emails HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 23:26:27] "[31m[1mGET /api/get-emails HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 23:31:36] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 23:31:36] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 23:31:36] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 23:31:36] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 23:31:37] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 23:31:37] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 23:31:37] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 23:31:38] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 23:31:38] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 23:31:39] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 23:31:48] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 23:31:48] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 23:31:48] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Jun/2023 23:31:48] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:root:EMAIL PULLER RUN 2023-06-23 20:44:19.238879
+INFO:root:########################################################################################################################
+########################################################################################################################
+INFO:root:Fetching credentials
+INFO:root:############################################################
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 20:46:38] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 20:46:38] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 20:46:38] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 20:46:38] "GET /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 20:48:48] "OPTIONS /api/move-email HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 20:48:48] "[35m[1mPOST /api/move-email HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 21:17:00] "OPTIONS /api/move-email HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 21:17:00] "[35m[1mPOST /api/move-email HTTP/1.1[0m" 500 -
+INFO:root:EMAIL PULLER RUN 2023-06-23 22:47:11.629473
+INFO:root:########################################################################################################################
+########################################################################################################################
+INFO:root:Fetching credentials
+INFO:root:############################################################
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 22:56:02] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 22:56:02] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+ERROR:app:Exception on /api/get-emails [GET]
+Traceback (most recent call last):
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_jwt_extended\view_decorators.py", line 174, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 85, in get_emails
+    debug_collection.update_one(debug_filter, {'$set': {'dateTime': datetime.now()}})
+AttributeError: module 'datetime' has no attribute 'now'
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 22:56:02] "[35m[1mGET /api/get-emails HTTP/1.1[0m" 500 -
+ERROR:app:Exception on /api/get-emails [GET]
+Traceback (most recent call last):
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_jwt_extended\view_decorators.py", line 174, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 85, in get_emails
+    debug_collection.update_one(debug_filter, {'$set': {'dateTime': datetime.now()}})
+AttributeError: module 'datetime' has no attribute 'now'
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 22:56:02] "[35m[1mGET /api/get-emails HTTP/1.1[0m" 500 -
+INFO:root:EMAIL PULLER RUN 2023-06-23 22:56:53.200906
+INFO:root:########################################################################################################################
+########################################################################################################################
+INFO:root:Fetching credentials
+INFO:root:############################################################
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 22:57:20] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 22:57:20] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+ERROR:app:Exception on /api/get-emails [GET]
+Traceback (most recent call last):
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_jwt_extended\view_decorators.py", line 174, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 85, in get_emails
+    debug_collection.update_one(debug_filter, {'$set': {'dateTime': datetime.now()}})
+AttributeError: module 'datetime' has no attribute 'now'
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 22:57:21] "[35m[1mGET /api/get-emails HTTP/1.1[0m" 500 -
+ERROR:app:Exception on /api/get-emails [GET]
+Traceback (most recent call last):
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_jwt_extended\view_decorators.py", line 174, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 85, in get_emails
+    debug_collection.update_one(debug_filter, {'$set': {'dateTime': datetime.now()}})
+AttributeError: module 'datetime' has no attribute 'now'
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 22:57:21] "[35m[1mGET /api/get-emails HTTP/1.1[0m" 500 -
+INFO:root:EMAIL PULLER RUN 2023-06-23 22:58:28.794872
+INFO:root:########################################################################################################################
+########################################################################################################################
+INFO:root:Fetching credentials
+INFO:root:############################################################
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 22:58:55] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 22:58:55] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+ERROR:app:Exception on /api/get-emails [GET]
+Traceback (most recent call last):
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_jwt_extended\view_decorators.py", line 174, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 85, in get_emails
+    debug_collection.update_one(debug_filter, {'$set': {'dateTime': datetime.now()}})
+AttributeError: module 'datetime' has no attribute 'now'
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 22:58:55] "[35m[1mGET /api/get-emails HTTP/1.1[0m" 500 -
+ERROR:app:Exception on /api/get-emails [GET]
+Traceback (most recent call last):
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_jwt_extended\view_decorators.py", line 174, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 85, in get_emails
+    debug_collection.update_one(debug_filter, {'$set': {'dateTime': datetime.now()}})
+AttributeError: module 'datetime' has no attribute 'now'
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 22:58:56] "[35m[1mGET /api/get-emails HTTP/1.1[0m" 500 -
+INFO:root:EMAIL PULLER RUN 2023-06-23 23:00:19.933427
+INFO:root:########################################################################################################################
+########################################################################################################################
+INFO:root:Fetching credentials
+INFO:root:############################################################
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 23:00:52] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 23:00:52] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+ERROR:app:Exception on /api/get-emails [GET]
+Traceback (most recent call last):
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_jwt_extended\view_decorators.py", line 174, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 85, in get_emails
+    debug_collection.update_one(debug_filter, {'$set': {'dateTime': datetime.now()}})
+AttributeError: module 'datetime' has no attribute 'now'
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 23:00:53] "[35m[1mGET /api/get-emails HTTP/1.1[0m" 500 -
+ERROR:app:Exception on /api/get-emails [GET]
+Traceback (most recent call last):
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_jwt_extended\view_decorators.py", line 174, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 85, in get_emails
+    debug_collection.update_one(debug_filter, {'$set': {'dateTime': datetime.now()}})
+AttributeError: module 'datetime' has no attribute 'now'
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 23:00:53] "[35m[1mGET /api/get-emails HTTP/1.1[0m" 500 -
+INFO:root:EMAIL PULLER RUN 2023-06-23 23:02:27.482022
+INFO:root:########################################################################################################################
+########################################################################################################################
+INFO:root:Fetching credentials
+INFO:root:############################################################
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 23:02:45] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 23:02:45] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+ERROR:app:Exception on /api/get-emails [GET]
+Traceback (most recent call last):
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_jwt_extended\view_decorators.py", line 174, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 85, in get_emails
+    dateNtime = str(datetime.now())
+AttributeError: module 'datetime' has no attribute 'now'
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 23:02:46] "[35m[1mGET /api/get-emails HTTP/1.1[0m" 500 -
+ERROR:app:Exception on /api/get-emails [GET]
+Traceback (most recent call last):
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_jwt_extended\view_decorators.py", line 174, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 85, in get_emails
+    dateNtime = str(datetime.now())
+AttributeError: module 'datetime' has no attribute 'now'
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 23:02:46] "[35m[1mGET /api/get-emails HTTP/1.1[0m" 500 -
+INFO:root:EMAIL PULLER RUN 2023-06-23 23:03:17.608469
+INFO:root:########################################################################################################################
+########################################################################################################################
+INFO:root:Fetching credentials
+INFO:root:############################################################
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 23:03:36] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 23:03:36] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+ERROR:app:Exception on /api/get-emails [GET]
+Traceback (most recent call last):
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_jwt_extended\view_decorators.py", line 174, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 85, in get_emails
+    dateNtime = str(datetime.now())
+AttributeError: module 'datetime' has no attribute 'now'
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 23:03:37] "[35m[1mGET /api/get-emails HTTP/1.1[0m" 500 -
+ERROR:app:Exception on /api/get-emails [GET]
+Traceback (most recent call last):
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_jwt_extended\view_decorators.py", line 174, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 85, in get_emails
+    dateNtime = str(datetime.now())
+AttributeError: module 'datetime' has no attribute 'now'
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 23:03:37] "[35m[1mGET /api/get-emails HTTP/1.1[0m" 500 -
+INFO:root:EMAIL PULLER RUN 2023-06-23 23:08:02.979149
+INFO:root:########################################################################################################################
+########################################################################################################################
+INFO:root:Fetching credentials
+INFO:root:############################################################
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 23:08:21] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 23:08:21] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+ERROR:app:Exception on /api/get-emails [GET]
+Traceback (most recent call last):
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 86, in get_emails
+    dateNtime = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_jwt_extended\view_decorators.py", line 174, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 90, in get_emails
+    debug_collection.update_one(debug_filter, {'$set': {'errors': e}})
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 1041, in update_one
+    self._update_retryable(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 836, in _update_retryable
+    return self.__database.client._retryable_write(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1476, in _retryable_write
+    return self._retry_with_session(retryable, func, s, None)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1349, in _retry_with_session
+    return self._retry_internal(retryable, func, session, bulk)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\_csot.py", line 105, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1390, in _retry_internal
+    return func(session, sock_info, retryable)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 817, in _update
+    return self._update(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 773, in _update
+    result = sock_info.command(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\pool.py", line 795, in command
+    self._raise_connection_failure(error)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\pool.py", line 767, in command
+    return command(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\network.py", line 127, in command
+    request_id, msg, size, max_doc_size = message._op_msg(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\message.py", line 692, in _op_msg
+    return _op_msg_uncompressed(flags, command, identifier, docs, opts)
+bson.errors.InvalidDocument: cannot encode object: AttributeError("module 'datetime' has no attribute 'now'"), of type: <class 'AttributeError'>
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 23:08:21] "[35m[1mGET /api/get-emails HTTP/1.1[0m" 500 -
+ERROR:app:Exception on /api/get-emails [GET]
+Traceback (most recent call last):
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 86, in get_emails
+    dateNtime = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_jwt_extended\view_decorators.py", line 174, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 90, in get_emails
+    debug_collection.update_one(debug_filter, {'$set': {'errors': e}})
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 1041, in update_one
+    self._update_retryable(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 836, in _update_retryable
+    return self.__database.client._retryable_write(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1476, in _retryable_write
+    return self._retry_with_session(retryable, func, s, None)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1349, in _retry_with_session
+    return self._retry_internal(retryable, func, session, bulk)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\_csot.py", line 105, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1390, in _retry_internal
+    return func(session, sock_info, retryable)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 817, in _update
+    return self._update(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 773, in _update
+    result = sock_info.command(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\pool.py", line 795, in command
+    self._raise_connection_failure(error)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\pool.py", line 767, in command
+    return command(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\network.py", line 127, in command
+    request_id, msg, size, max_doc_size = message._op_msg(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\message.py", line 692, in _op_msg
+    return _op_msg_uncompressed(flags, command, identifier, docs, opts)
+bson.errors.InvalidDocument: cannot encode object: AttributeError("module 'datetime' has no attribute 'now'"), of type: <class 'AttributeError'>
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 23:08:21] "[35m[1mGET /api/get-emails HTTP/1.1[0m" 500 -
+INFO:root:EMAIL PULLER RUN 2023-06-23 23:09:09.559434
+INFO:root:########################################################################################################################
+########################################################################################################################
+INFO:root:Fetching credentials
+INFO:root:############################################################
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 23:09:25] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 23:09:26] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+ERROR:app:Exception on /api/get-emails [GET]
+Traceback (most recent call last):
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 86, in get_emails
+    dateNtime = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_jwt_extended\view_decorators.py", line 174, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 90, in get_emails
+    debug_collection.update_one(debug_filter, {'$set': {'errors': e}})
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 1041, in update_one
+    self._update_retryable(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 836, in _update_retryable
+    return self.__database.client._retryable_write(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1476, in _retryable_write
+    return self._retry_with_session(retryable, func, s, None)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1349, in _retry_with_session
+    return self._retry_internal(retryable, func, session, bulk)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\_csot.py", line 105, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1390, in _retry_internal
+    return func(session, sock_info, retryable)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 817, in _update
+    return self._update(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 773, in _update
+    result = sock_info.command(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\pool.py", line 795, in command
+    self._raise_connection_failure(error)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\pool.py", line 767, in command
+    return command(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\network.py", line 127, in command
+    request_id, msg, size, max_doc_size = message._op_msg(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\message.py", line 692, in _op_msg
+    return _op_msg_uncompressed(flags, command, identifier, docs, opts)
+bson.errors.InvalidDocument: cannot encode object: AttributeError("module 'datetime' has no attribute 'now'"), of type: <class 'AttributeError'>
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 23:09:26] "[35m[1mGET /api/get-emails HTTP/1.1[0m" 500 -
+ERROR:app:Exception on /api/get-emails [GET]
+Traceback (most recent call last):
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 86, in get_emails
+    dateNtime = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_jwt_extended\view_decorators.py", line 174, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 90, in get_emails
+    debug_collection.update_one(debug_filter, {'$set': {'errors': e}})
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 1041, in update_one
+    self._update_retryable(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 836, in _update_retryable
+    return self.__database.client._retryable_write(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1476, in _retryable_write
+    return self._retry_with_session(retryable, func, s, None)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1349, in _retry_with_session
+    return self._retry_internal(retryable, func, session, bulk)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\_csot.py", line 105, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1390, in _retry_internal
+    return func(session, sock_info, retryable)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 817, in _update
+    return self._update(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 773, in _update
+    result = sock_info.command(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\pool.py", line 795, in command
+    self._raise_connection_failure(error)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\pool.py", line 767, in command
+    return command(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\network.py", line 127, in command
+    request_id, msg, size, max_doc_size = message._op_msg(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\message.py", line 692, in _op_msg
+    return _op_msg_uncompressed(flags, command, identifier, docs, opts)
+bson.errors.InvalidDocument: cannot encode object: AttributeError("module 'datetime' has no attribute 'now'"), of type: <class 'AttributeError'>
+INFO:werkzeug:127.0.0.1 - - [23/Jun/2023 23:09:26] "[35m[1mGET /api/get-emails HTTP/1.1[0m" 500 -
+INFO:root:EMAIL PULLER RUN 2023-06-23 23:10:20.954834
+INFO:root:########################################################################################################################
+########################################################################################################################
+INFO:root:Fetching credentials
+INFO:root:############################################################
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:32:33] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:32:33] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+ERROR:app:Exception on /api/get-emails [GET]
+Traceback (most recent call last):
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 86, in get_emails
+    dateNtime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+AttributeError: module 'datetime' has no attribute 'now'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_jwt_extended\view_decorators.py", line 174, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 90, in get_emails
+    debug_collection.update_one(debug_filter, {'$set': {'errors': e}})
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 1041, in update_one
+    self._update_retryable(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 836, in _update_retryable
+    return self.__database.client._retryable_write(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1476, in _retryable_write
+    return self._retry_with_session(retryable, func, s, None)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1349, in _retry_with_session
+    return self._retry_internal(retryable, func, session, bulk)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\_csot.py", line 105, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1390, in _retry_internal
+    return func(session, sock_info, retryable)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 817, in _update
+    return self._update(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 773, in _update
+    result = sock_info.command(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\pool.py", line 795, in command
+    self._raise_connection_failure(error)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\pool.py", line 767, in command
+    return command(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\network.py", line 127, in command
+    request_id, msg, size, max_doc_size = message._op_msg(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\message.py", line 692, in _op_msg
+    return _op_msg_uncompressed(flags, command, identifier, docs, opts)
+bson.errors.InvalidDocument: cannot encode object: AttributeError("module 'datetime' has no attribute 'now'"), of type: <class 'AttributeError'>
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:32:33] "[35m[1mGET /api/get-emails HTTP/1.1[0m" 500 -
+ERROR:app:Exception on /api/get-emails [GET]
+Traceback (most recent call last):
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 86, in get_emails
+    dateNtime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+AttributeError: module 'datetime' has no attribute 'now'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_jwt_extended\view_decorators.py", line 174, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 90, in get_emails
+    debug_collection.update_one(debug_filter, {'$set': {'errors': e}})
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 1041, in update_one
+    self._update_retryable(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 836, in _update_retryable
+    return self.__database.client._retryable_write(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1476, in _retryable_write
+    return self._retry_with_session(retryable, func, s, None)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1349, in _retry_with_session
+    return self._retry_internal(retryable, func, session, bulk)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\_csot.py", line 105, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1390, in _retry_internal
+    return func(session, sock_info, retryable)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 817, in _update
+    return self._update(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 773, in _update
+    result = sock_info.command(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\pool.py", line 795, in command
+    self._raise_connection_failure(error)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\pool.py", line 767, in command
+    return command(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\network.py", line 127, in command
+    request_id, msg, size, max_doc_size = message._op_msg(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\message.py", line 692, in _op_msg
+    return _op_msg_uncompressed(flags, command, identifier, docs, opts)
+bson.errors.InvalidDocument: cannot encode object: AttributeError("module 'datetime' has no attribute 'now'"), of type: <class 'AttributeError'>
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:32:33] "[35m[1mGET /api/get-emails HTTP/1.1[0m" 500 -
+INFO:root:EMAIL PULLER RUN 2023-06-24 00:37:04.800930
+INFO:root:########################################################################################################################
+########################################################################################################################
+INFO:root:Fetching credentials
+INFO:root:############################################################
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:37:24] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:37:24] "OPTIONS /api/get-emails HTTP/1.1" 200 -
+ERROR:app:Exception on /api/get-emails [GET]
+Traceback (most recent call last):
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 86, in get_emails
+    dateNtime = str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")  )
+AttributeError: module 'datetime' has no attribute 'now'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_jwt_extended\view_decorators.py", line 174, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 90, in get_emails
+    debug_collection.update_one(debug_filter, {'$set': {'errors': e}})
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 1041, in update_one
+    self._update_retryable(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 836, in _update_retryable
+    return self.__database.client._retryable_write(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1476, in _retryable_write
+    return self._retry_with_session(retryable, func, s, None)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1349, in _retry_with_session
+    return self._retry_internal(retryable, func, session, bulk)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\_csot.py", line 105, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1390, in _retry_internal
+    return func(session, sock_info, retryable)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 817, in _update
+    return self._update(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 773, in _update
+    result = sock_info.command(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\pool.py", line 795, in command
+    self._raise_connection_failure(error)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\pool.py", line 767, in command
+    return command(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\network.py", line 127, in command
+    request_id, msg, size, max_doc_size = message._op_msg(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\message.py", line 692, in _op_msg
+    return _op_msg_uncompressed(flags, command, identifier, docs, opts)
+bson.errors.InvalidDocument: cannot encode object: AttributeError("module 'datetime' has no attribute 'now'"), of type: <class 'AttributeError'>
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:37:24] "[35m[1mGET /api/get-emails HTTP/1.1[0m" 500 -
+ERROR:app:Exception on /api/get-emails [GET]
+Traceback (most recent call last):
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 86, in get_emails
+    dateNtime = str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")  )
+AttributeError: module 'datetime' has no attribute 'now'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_cors\extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\flask_jwt_extended\view_decorators.py", line 174, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+  File "C:\Users\casey\PycharmProjects\email_sort\front-end\email-review\sorting_server\app.py", line 90, in get_emails
+    debug_collection.update_one(debug_filter, {'$set': {'errors': e}})
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 1041, in update_one
+    self._update_retryable(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 836, in _update_retryable
+    return self.__database.client._retryable_write(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1476, in _retryable_write
+    return self._retry_with_session(retryable, func, s, None)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1349, in _retry_with_session
+    return self._retry_internal(retryable, func, session, bulk)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\_csot.py", line 105, in csot_wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\mongo_client.py", line 1390, in _retry_internal
+    return func(session, sock_info, retryable)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 817, in _update
+    return self._update(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\collection.py", line 773, in _update
+    result = sock_info.command(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\pool.py", line 795, in command
+    self._raise_connection_failure(error)
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\pool.py", line 767, in command
+    return command(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\network.py", line 127, in command
+    request_id, msg, size, max_doc_size = message._op_msg(
+  File "C:\Users\casey\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\pymongo\message.py", line 692, in _op_msg
+    return _op_msg_uncompressed(flags, command, identifier, docs, opts)
+bson.errors.InvalidDocument: cannot encode object: AttributeError("module 'datetime' has no attribute 'now'"), of type: <class 'AttributeError'>
+INFO:werkzeug:127.0.0.1 - - [24/Jun/2023 00:37:24] "[35m[1mGET /api/get-emails HTTP/1.1[0m" 500 -
+INFO:root:EMAIL PULLER RUN 2023-06-24 00:38:35.715135
+INFO:root:########################################################################################################################
+########################################################################################################################
+INFO:root:Fetching credentials
+INFO:root:############################################################
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
