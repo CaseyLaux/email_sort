@@ -40,8 +40,15 @@ const RATING_VALUES = {
 
 // Function to refresh emails
 const refreshEmails = async () => {
+  const token = localStorage.getItem('jwt');
   try {
-    const response = await fetch('http://localhost:3001/api/refresh-emails');
+    const response = await fetch('http://localhost:3001/api/refresh-emails', {
+      method: 'GET', // or 'POST'
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    });
 
     if (!response.ok) {
       throw new Error('Failed to refresh emails.');

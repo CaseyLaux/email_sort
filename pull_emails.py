@@ -16,39 +16,48 @@ breaker = "#" * 60
 big_breaker = ("#" * 120) + "\n" + ("#" * 120)
 
 # Setting up login creds for user
-logging.info(f"EMAIL PULLER RUN {datetime.now()}")
-logging.info(big_breaker)
-logging.info("Fetching credentials")
-logging.info(breaker)
 
 
-def get_emails():
-    #user = username
-    #print(username)
-    user = "Colin"
+
+def get_emails(username):
+    
+    
+    #username = "Colin"
     
 
     # Setting up vars for database
     mongo_uri = "mongodb://localhost:27017/"
 
     client = MongoClient(mongo_uri)
-    db = client[user]
-    account_info_collection = db["email_accounts"]
+    
     debug_db = client["debug"]
+    debug_collection = debug_db["pull_emails"]
+    debug_string = str(uuid.uuid4())
+    debug_collection.insert_one({"debug_string": debug_string})
+    debug_filter = {"debug_string": debug_string}
+    
+
+    db = client[username]
+    account_info_collection = db["email_accounts"]
+    amount_of_accounts = account_info_collection.count_documents({})
+    email_accounts = []
+    debug_collection.update_one(debug_filter, {"$set": {"amount_of_accounts": amount_of_accounts}})
+    for i in range(amount_of_accounts):
+        email_accounts.append(account_info_collection.find_one())
+    
 
     # Setting up collections
     account_info = account_info_collection.find_one()
-    secret = account_info["secret"]
     email_address = account_info["email"]
-
+    debug_collection.update_one(debug_filter, {"$set": {"email_address": email_address}})
+    
+    secret = account_info["secret"]
+    debug_collection.update_one(debug_filter, {"$set": {"secret": secret}})
 
     email_collection = db["email"]
     bot_sorted_collection = db["bot_sorted"]
     last_email_pull_collection = db['last_email_pull']
-    debug_collection = debug_db["debug"]
-    debug_string = str(uuid.uuid4())
-    debug_collection.insert_one({"debug_string": debug_string})
-    debug_filter = {"debug_string": debug_string}
+    
 
     
     breaker = "#" * 60
@@ -164,7 +173,7 @@ def get_emails():
     # Arrays to add to email_data then to database 
 
     account_data = {
-            "account_string": user,
+            "account_string": username,
             "account_address": email_address,
             "bot_sorted_collection_string": "bot_sorted",
             "email_id": "",

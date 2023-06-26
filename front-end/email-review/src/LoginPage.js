@@ -16,7 +16,9 @@ const LoginPage = () => {
             username: username,
             password: password
         };
+
         console.log(userCredentials);
+        
         axios.post('http://localhost:8081/api/v1/login', userCredentials, {
             headers: {
                 'Content-Type': 'application/json'
@@ -31,7 +33,11 @@ const LoginPage = () => {
             }
         })
         .catch(error => {
-            console.log(error); 
+            if (error.response && error.response.status === 401) {
+                alert('Username or password incorrect');
+            } else {
+                console.log(error); 
+            }
         });
     };
 

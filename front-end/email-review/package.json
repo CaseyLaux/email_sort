@@ -21,7 +21,7 @@
   },
   "scripts": {
     "start-react": "react-scripts start",
-    "start-flask": "python ./sorting_server/app.py",
+    "start-flask": "python ./sorting_server/email_server.py",
     "start-auth": "python ./auth_server/authorization.py",
     "start": "concurrently \"npm run start-react\" \"npm run start-flask\" \"npm run start-auth\"",
     "build": "react-scripts build",
