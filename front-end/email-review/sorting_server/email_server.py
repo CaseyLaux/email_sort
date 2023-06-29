@@ -7,11 +7,12 @@ import sys
 import base64
 import uuid
 import datetime
-sys.path.append("C:\\Users\\casey\\PycharmProjects\\email_sort\\")
-from secrats import ColinGTK
+sys.path.append("C:\\Users\\Administrator\\Desktop\\email_sort-working-version-collin\\")
 import pull_emails
-from resort_emails import resort_emails
+from resort_emails import sort_emails
 from flask_jwt_extended import JWTManager, jwt_required, get_jwt_identity
+from account_change import add_new_email
+from os import abort
 
 # Flask settings
 app = Flask(__name__)
@@ -35,26 +36,65 @@ db = client[mongo_settings['database']]
 debugDB = client['debug']
 
 
-user_database = client[ColinGTK().Account_ID]
-user_collection = user_database[ColinGTK().user]
-user_sorted_string = ColinGTK().user + 're-sorted'
-user_sorted_collection = user_database[user_sorted_string]
 
-
-bot_sorted_string = ColinGTK().user + '_bot_sorted'
-bot_sorted_collection = user_database[bot_sorted_string]
 
 debug_collection = debugDB['email_server']
 debug_id = str(uuid.uuid4())
 debug_filter = {"debug_id": debug_id}
 debug_collection.insert_one(debug_filter)
 
+@app.route('/email_add', methods=['POST'])
+@jwt_required()
+def add_email():
+    current_user = get_jwt_identity()
+    data = request.get_json()  # Get data sent to the endpoint
+    email = data.get('email')
+    password = data.get('password')
 
+    # Run the email_add.py script with email and password as arguments
+    add_new_email(current_user,email, password)
+
+    return jsonify({'message': 'Successfully ran email_add.py'}), 200
+
+
+
+@app.route('/profile', methods=['GET'])
+@jwt_required()
+def get_profile():
+    try:
+        debug_id = str(uuid.uuid4())
+        debug_filter = {"debug_id": debug_id}
+        current_user = get_jwt_identity()
+        debug_collection.insert_one(debug_filter)
+        debug_collection.update_one(debug_filter, {'$set': {'user': current_user}})
+        user_db = client[current_user]
+        account_collection = user_db["acc_info"]
+        user_info = account_collection.find_one({}, {'_id': 0})
+
+        if user_info is None:
+            abort(404, description="User info not found")
+        else:
+            return jsonify(user_info), 200
+    except Exception as e:
+        debug_collection.update_one(debug_filter, {'$set': {'errors': e}})  # Consider logging this to a log file for production code
+        abort(500, description="Internal Server Error")
+    
+    except Exception as e:
+        return jsonify({'error': f'Failed to get user profile: {str(e)}'}), 500
+    user = get_jwt_identity()
+    user_db = client[user]
+    account_collection = user_db["acc_info"]
+    user_info = account_collection.find_one()
+    if user:
+        return jsonify(user_info), 200
+    else:
+        return {"error": "User not found"}, 404
 @app.route('/api/resort-emails', methods=['GET'])
 @jwt_required() 
 def resort_emails_endpoint():
+    current_user = get_jwt_identity()
     try:
-        resort_emails()
+        sort_emails(current_user)
         return jsonify({'message': 'Emails resorted successfully.'}), 200
     except Exception as e:
         print(f"Error running resort_emails: {e}")
@@ -87,6 +127,7 @@ def get_emails():
     user_database = client[current_user]
     user_collection  = user_database["emails"]
     bot_sorted_collection = user_database["bot_sorted"]
+    user_sorted_collection = user_database["re-sorted"]
 
 
     user_sorted_emails = list(user_sorted_collection.find())
@@ -116,6 +157,7 @@ def update_email():
     user_database = client[current_user]
     user_collection  = user_database["emails"]
     bot_sorted_collection = user_database["bot_sorted"]
+    user_sorted_collection = user_database["re-sorted"]
     # Insert the updated email into the body collection
     try:
         filter = { '_id': email_id }
@@ -141,6 +183,11 @@ def update_email():
 @app.route('/api/delete-email', methods=['POST'])
 def delete_email():
     data = request.get_json()
+    current_user = get_jwt_identity()
+    user_database = client[current_user]
+    user_collection  = user_database["emails"]
+    bot_sorted_collection = user_database["bot_sorted"]
+    user_sorted_collection = user_database["re-sorted"]
     email_id = ObjectId(data['email']['_id'])
     print(f"Email ID: {email_id}")  # Print the email_id to check its value
 
