@@ -1,8 +1,11 @@
 // Importing necessary dependencies and components
+import { Link } from 'react-router-dom';
+import { FaUserCircle } from 'react-icons/fa';
 import EmailDetail from './EmailDetail';
 import React, { useState, useEffect } from 'react';
 import './EmailViewer.css';
 import EmailList from './EmailList';
+import Profile from './profile';
 import { FaRegTrashAlt, FaArrowRight, FaArrowLeft, FaEnvelopeOpenText, FaRedo } from 'react-icons/fa';
 // Defining a mapping for classification values and rating values
 const COLOR_VALUES = {
@@ -376,6 +379,9 @@ const EmailViewer = () => {
     </ul>
     </div>
     </ul>
+    <Link to="/profile" className="profile-icon">
+    <FaUserCircle size={30} />
+  </Link>
   </div>
   <div className="email-main-content" style={{flexGrow: 1}}>
     {emailDetailViewOpen ? (

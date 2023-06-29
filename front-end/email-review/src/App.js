@@ -4,6 +4,7 @@ import ProtectedRoute from './ProtectedRoute';
 import EmailViewer from './EmailViewer';
 import LoginPage from './LoginPage';
 import SignupPage from './SignupPage';
+import Profile from './profile';
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
+        <Route path="/profile" element={<ProtectedRoute component={Profile} />} />
         <Route path="/" element={<ProtectedRoute component={EmailViewer} />} />
       </Routes>
     </Router>

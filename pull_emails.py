@@ -49,10 +49,8 @@ def get_emails(username):
     # Setting up collections
     account_info = account_info_collection.find_one()
     email_address = account_info["email"]
-    debug_collection.update_one(debug_filter, {"$set": {"email_address": email_address}})
     
     secret = account_info["secret"]
-    debug_collection.update_one(debug_filter, {"$set": {"secret": secret}})
 
     email_collection = db["email"]
     bot_sorted_collection = db["bot_sorted"]
