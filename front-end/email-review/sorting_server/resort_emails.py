@@ -74,6 +74,6 @@ def resort_emails():
     
     subprocess.run(["powershell.exe", "-ExecutionPolicy", "Bypass", "-File", "./front-end/email-review/sorting_server/train_model.ps1", train_data])
     delete_documents(deleteData)
-if __name__ == "__main__":
-    resort_emails()
-    print("Done")
+#if __name__ == "__main__":
+#    resort_emails()
+#    print("Done")

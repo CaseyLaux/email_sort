@@ -28,6 +28,13 @@ users_collection = db["users"]
 def home():
 	return 'Authorization Landing Page'
 
+@app.route("/api/v1/auth-check", methods=["POST"])
+@jwt_required()
+def verify_token():
+    # Getting the username from JWT token
+    current_user = get_jwt_identity() # get jwt identity
+    # Returning the username
+    return jsonify(username=current_user), 200
 
 #User Account Creation
 @app.route("/api/v1/users", methods=["POST"])
@@ -41,17 +48,24 @@ def register():
         'password': {'type': 'string', 'minlength': 1, 'maxlength' : 60}
     }
     v = Validator(schema)
+    
 
     # Validate the input data. If it's valid, continue processing. If not, return an error message.
     if not v.validate(new_user):
         return jsonify({"msg": v.errors}), 400
 
     new_user["password"] = hashlib.sha256(new_user["password"].encode("utf-8")).hexdigest() 
-
+    new_user["new_user"] = 1
     doc = users_collection.find_one({"username": new_user["username"]}) 
 
     if not doc:
         users_collection.insert_one(new_user)
+        new_user_database = client[new_user["username"]]
+        user_accounts_collection = new_user_database["email_accounts"]
+        user_account_info_collection = new_user_database["acc_info"]
+        user_account_info_collection.insert_one(new_user)
+        
+        user_accounts_collection.insert_one({"email": new_user["email"]})
         return jsonify({'msg': 'User created successfully'}), 201
     else:
         return jsonify({'msg': 'Username already exists'}), 409
