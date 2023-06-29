@@ -1,12 +1,10 @@
 import imaplib, email
 import base64, json, quopri
-from secrats import decrypt_secrets, ColinGTK
 from datetime import datetime, timedelta
 from email.header import decode_header
 import logging
 import uuid
 from pymongo import MongoClient
-from secrats import decrypt_secrets, ColinGTK
 from email.header import decode_header
 import bot_sort
 import pytz
