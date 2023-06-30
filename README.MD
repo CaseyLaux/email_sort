@@ -1,4 +1,8 @@
 SiemlessEmail
-This project is an email client that will pull emails from multiple addresses and store them in one client. During this import process there will be a fine tunned gpt model that rates and classifies. Currently I am still working on the data set to tune this model so the project is a glorified data input gui
+This project is an email client that will pull emails from multiple addresses and store them in one client. During this import process there will be a fine tunned gpt model that rates and classifies.
 
-I just added the email_without_body var to the call to the backend server. Find a way to store this info i a seperate dir 
+
+The data flow for pulling the emails is as follows
+
+|pullemails.py| >>emaildata>> >>accountdata>> |mongoDB[username][emails]| >>emaildata>> |gptapi| >>BS_emaildata>> |mongoDB[username][bot_sorted]|
+

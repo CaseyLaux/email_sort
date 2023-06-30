@@ -1,5 +1,5 @@
 import React from 'react';
-import DOMPurify from 'dompurify'; // Don't forget to install this package using npm
+import DOMPurify from 'dompurify'; 
 
 const EmailDetail = ({ email, onClose }) => {
   console.log('EmailDetail received email:', email);

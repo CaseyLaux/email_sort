@@ -1,12 +1,10 @@
-// Importing necessary dependencies and components
-import { Link } from 'react-router-dom';
-import { FaUserCircle } from 'react-icons/fa';
-import EmailDetail from './EmailDetail';
 import React, { useState, useEffect } from 'react';
-import './EmailViewer.css';
+import { Link } from 'react-router-dom';
+import { FaUserCircle, FaRegTrashAlt, FaEnvelopeOpenText, FaRedo } from 'react-icons/fa';
+import EmailDetail from './EmailDetail';
 import EmailList from './EmailList';
-import Profile from './profile';
-import { FaRegTrashAlt, FaArrowRight, FaArrowLeft, FaEnvelopeOpenText, FaRedo } from 'react-icons/fa';
+import './EmailViewer.css';
+
 // Defining a mapping for classification values and rating values
 const COLOR_VALUES = {
   Spam: '#000000',
@@ -40,13 +38,15 @@ const RATING_VALUES = {
   8: 19,
   9: 23,
 };
+const categories = ['spam', 'marketing', 'events', 'delivery', 'analytics', 'business', 'invoice', 'urgent'];
 
-// Function to refresh emails
+
+// This function grabs the jwt token from storage and sends it to the refresh emails endpoint
 const refreshEmails = async () => {
   const token = localStorage.getItem('jwt');
   try {
     const response = await fetch('http://localhost:3001/api/refresh-emails', {
-      method: 'GET', // or 'POST'
+      method: 'GET', 
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
@@ -66,7 +66,6 @@ const refreshEmails = async () => {
 
 // The main functional component
 const EmailViewer = () => {
-  // States for the component
   const [selectedType, setSelectedType] = useState('');
   const [currentCategory, setCurrentCategory] = useState('Bot Sorted');
   const [currentEmail, setCurrentEmail] = useState(null);
@@ -81,11 +80,10 @@ const EmailViewer = () => {
   const [emailDetailViewOpen, setEmailDetailViewOpen] = useState(false);
   const [currentDetailViewEmail, setCurrentDetailViewEmail] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const categories = ['spam', 'marketing', 'events', 'delivery', 'analytics', 'business', 'invoice', 'urgent'];
-  const [username, setUsername] = useState(null);
   const [error, setError] = useState(null);
+  
 
-  // Functions for opening and closing the email detail view
+  // This function checks the current email and opens it in the emailDetailView
   const openEmailDetailView = (email) => {
     // Find the index of the selected email
     const index = userUnsortedEmails.findIndex((e) => e._id === email._id);
@@ -101,10 +99,7 @@ const EmailViewer = () => {
   const closeEmailDetailView = () => {
     setEmailDetailViewOpen(false);
   };
-  const getFilteredEmails = () => {
-    const allEmails = getCurrentEmails();
-    return selectedType ? allEmails.filter(email => email.type === selectedType) : allEmails;
-  };
+  
   
   
   
@@ -156,62 +151,31 @@ const EmailViewer = () => {
       alert(`Failed to delete email. Error: ${error.message}`);
     }
   };
-  
+
+  // This function looks at the emails during the import and adds them to their respective category
   const groupEmailsByCompletion = (emails) => {
-    console.log(emails)
-    // Create an empty object to hold the groups
     let emailGroups = {};
   
-    // Loop over the emails
     emails.forEach(email => {
-      // Check if the email category is in the list of categories
       if (categories.includes(email.category)) {
-        // If the category group doesn't exist yet, create it
         if (!emailGroups[email.category]) {
           emailGroups[email.category] = [];
         }
     
-        // Add the email to the category group
         emailGroups[email.category].push(email);
       }
     });
     
     return emailGroups;
   };
+
+
   // Function for loading emails on component mount
   useEffect(() => {
-    async function checkAuthAndGetUsername() {
-      try {
-        // Get JWT token from local storage
-        const token = localStorage.getItem('jwt');
-        if (!token) {
-          throw new Error('No token found in local storage.');
-        }
+    
   
-        // Send token to the authentication server and get the username
-        let response = await fetch('http://localhost:8081/api/v1/auth-check', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`,
-          },
-        });
-  
-        if (!response.ok) {
-          throw new Error('Failed to get username from auth server.');
-        }
-  
-        let data = await response.json();
-        setUsername(data.username);
-        console.log(data.username)
-        // setUsername(data.username);
-      } catch (error) {
-        console.error('Error fetching username:', error);
-      }
-    }
-  
-    // Call the async function
-    checkAuthAndGetUsername();
+    
+    // This function sends the jwt token to the get-emails endpoint and recieves the emails
     async function loadEmails() {
       try {
         const token = localStorage.getItem('jwt');  
@@ -252,7 +216,7 @@ const EmailViewer = () => {
 
 
 
-  // Function for updating an email
+  // This function passes the jwt token and current email then sends them to the move-email endpoint
   const updateEmail = async () => {
     const token = localStorage.getItem('jwt');
     // Validation for rating and classification inputs
@@ -273,7 +237,7 @@ const EmailViewer = () => {
       return;
     }
 
-    // Create updated email
+    
     let completionValue = ratingValue * classificationValue;
     const updatedEmail = {
       ...currentDetailViewEmail,
@@ -281,7 +245,7 @@ const EmailViewer = () => {
       _id: currentDetailViewEmail._id.$oid,
     };
   
-    // Move email by updating on the server
+
     try {
       console.log({email: updatedEmail})
       const response = await fetch('http://localhost:3001/api/move-email', {
@@ -293,8 +257,7 @@ const EmailViewer = () => {
       },
         body: JSON.stringify({ email: updatedEmail }),
       });
-      //await refreshEmails();
-      // window.location.reload();
+      
       if (!response.ok) {
         throw new Error('Failed to move email.');
       }
@@ -311,6 +274,9 @@ const EmailViewer = () => {
       alert('Failed to move email.');
     }
   };
+
+
+  // This function sends the jwt token to the resort-emails endpoint 
   const resortEmails = async () => {
     try {
       const token = localStorage.getItem('jwt'); // get the token from the storage
@@ -333,6 +299,7 @@ const EmailViewer = () => {
     }
     
   };
+
   const getCurrentEmails = () => {
     switch (currentCategory) {
       case 'Unsorted':
@@ -360,17 +327,21 @@ const EmailViewer = () => {
         return [];
     }
   };
+
+
   // Component render
   return (
     <div className="email-viewer-container" style={{display: 'flex'}}>
   {isLoading ? <p>Loading...</p> : null}
+
+  {/* email sidebar */}
   <div className="email-sidebar" style={{width: '300px'}}>
   <h3>Siemless emails</h3>
   <button onClick={resortEmails}>
   <FaRedo /> 
 </button>
 <button onClick={refreshEmails}>
-      <FaEnvelopeOpenText /> resort
+      <FaEnvelopeOpenText /> 
     </button>
     
     
@@ -392,11 +363,15 @@ const EmailViewer = () => {
     <FaUserCircle size={30} />
   </Link>
   </div>
+
+  {/* Main content */}
   <div className="email-main-content" style={{flexGrow: 1}}>
     {emailDetailViewOpen ? (
       <>
         <h2>Selected Email</h2>
         <EmailDetail email={currentDetailViewEmail} onClose={closeEmailDetailView} />
+
+              {/* Rating and Classification inputs */}
         <div>
           <label htmlFor="Rating">Rating: </label>
           <select
@@ -427,6 +402,8 @@ const EmailViewer = () => {
             ))}
           </select>
         </div>
+
+              {/* Submit and Delete buttons */}
         <div className="email-action-buttons">
           <button
             onClick={() => updateEmail(getCurrentEmails()[unsortedIndex])}
@@ -447,6 +424,8 @@ const EmailViewer = () => {
         <EmailList emails={getCurrentEmails()} setCurrentEmail={openEmailDetailView} />
       </>
     )}
+
+
   </div>
 </div>
 );
