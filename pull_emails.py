@@ -2,32 +2,25 @@ import imaplib, email
 import base64, json, quopri
 from datetime import datetime, timedelta
 from email.header import decode_header
-import logging
 import uuid
 from pymongo import MongoClient
 from email.header import decode_header
 import bot_sort
 import pytz
 
-# Setting up logging vars
-breaker = "#" * 60
-big_breaker = ("#" * 120) + "\n" + ("#" * 120)
 
-# Setting up login creds for user
+
+
 
 
 
 def get_emails(username):
-    
-    
     #username = "Colin"
-    
 
     # Setting up vars for database
     mongo_uri = "mongodb://localhost:27017/"
-
     client = MongoClient(mongo_uri)
-    
+
     debug_db = client["debug"]
     debug_collection = debug_db["pull_emails"]
     debug_string = str(uuid.uuid4())
@@ -39,6 +32,8 @@ def get_emails(username):
     amount_of_accounts = account_info_collection.count_documents({})
     email_accounts = []
     debug_collection.update_one(debug_filter, {"$set": {"amount_of_accounts": amount_of_accounts}})
+
+
     for i in range(amount_of_accounts):
         email_accounts.append(account_info_collection.find_one())
     
@@ -46,25 +41,17 @@ def get_emails(username):
     # Setting up collections
     account_info = account_info_collection.find_one()
     email_address = account_info["email"]
-    debug_collection.update_one(debug_filter, {"$set": {"email_address": email_address}})
-    
     secret = account_info["secret"]
-    debug_collection.update_one(debug_filter, {"$set": {"secret": secret}})
-
     email_collection = db["email"]
     bot_sorted_collection = db["bot_sorted"]
     last_email_pull_collection = db['last_email_pull']
-    
 
+    debug_collection.update_one(debug_filter, {"$set": {"email_address": email_address}})
+    debug_collection.update_one(debug_filter, {"$set": {"secret": secret}})
     
-    breaker = "#" * 60
-    big_breaker = ("#" * 120) + "\n" + ("#" * 120)
     
     # Set up IMAP
     imap_server = 'imap.gmail.com'
-    
-    
-    
     imap = imaplib.IMAP4_SSL(imap_server)
     imap.login(email_address, secret)
 
@@ -98,14 +85,11 @@ def get_emails(username):
     end_date_str = end_datetime.strftime("%d-%b-%Y")
 
     imap.select('Inbox')
-    logging.info(f"searching for emails since ")
 
     # pulling emails since since_date var hours ago
     def get_emails_since(con, since, before):
             result, data = con.search(None, 'SINCE', since, 'BEFORE', before)
             return data
-    logging.info(breaker)
-    logging.info("Fetching emails since {since_date}")
 
     # Using search results to pull emails since since_date
     search_results = get_emails_since(imap, start_date_str, end_date_str)
