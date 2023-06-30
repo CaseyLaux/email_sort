@@ -34,7 +34,6 @@ def get_emails(username):
     debug_collection.insert_one({"debug_string": debug_string})
     debug_filter = {"debug_string": debug_string}
     
-
     db = client[username]
     account_info_collection = db["email_accounts"]
     amount_of_accounts = account_info_collection.count_documents({})
@@ -257,5 +256,8 @@ def get_emails(username):
     # Inserting email data into database
     
     imap.close()
+
+
+
 if __name__ == '__main__':
      get_emails()

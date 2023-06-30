@@ -11,11 +11,21 @@ sys.path.append("C:\\Users\\casey\\PycharmProjects\\email_sort")
 
 
 
-def resort_emails(username):
+def resort_emails():
+    username = "Colin"
     client = MongoClient('localhost', 27017)
+    debugDB = client["debug"]
     db = client[username]
+    debugCollection = debugDB["resort_emails"]
+    debugCollection.insert_one({"message": "running resort_emails.py"})
+    debugCollection.insert_one({"message": "username: {}".format(username)})
+
     def delete_documents(ids_to_delete):
+        csDB = client["cold_storage"]
+        resortedCS_collection = csDB["re-sorted"]
         for id in ids_to_delete:
+            document = collection.find_one({"_id": id})
+            resortedCS_collection.insert_one(document)
             print(id)
             collection.delete_one({"_id": id})
 
@@ -53,10 +63,13 @@ def resort_emails(username):
         return filename, ids_to_delete
 
     filename, deleteData = database_pull()
+    debugCollection.update_one
     test_autoformat.autoformat(filename)
     openai.api_key = "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"
     train_data = filename.replace(".json", "_prepared.jsonl")
-
+    path = os.getcwd()
+    debugCollection.insert_one({"path": "path: {}".format(path)})
+    debugCollection.insert_one({"filename": "train_data: {}".format(filename)})
     if not os.path.exists(train_data):
         train_data = filename.replace(".json", "_prepared_train.jsonl")
         valid_data = filename.replace(".json", "_prepared_valid.jsonl")
@@ -77,6 +90,6 @@ def resort_emails(username):
     
     subprocess.run(["powershell.exe", "-ExecutionPolicy", "Bypass", "-File", "./front-end/email-review/sorting_server/train_model.ps1", train_data])
     delete_documents(deleteData)
-#if __name__ == "__main__":
-#    resort_emails()
-#    print("Done")
+if __name__ == "__main__":
+    resort_emails()
+    print("Done")

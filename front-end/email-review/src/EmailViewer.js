@@ -68,7 +68,7 @@ const refreshEmails = async () => {
 const EmailViewer = () => {
   // States for the component
   const [selectedType, setSelectedType] = useState('');
-  const [currentCategory, setCurrentCategory] = useState('Unsorted');
+  const [currentCategory, setCurrentCategory] = useState('Bot Sorted');
   const [currentEmail, setCurrentEmail] = useState(null);
   const [humanSortedEmails, setHumanSortedEmails] = useState([]);
   const [userUnsortedEmails, setUserUnsortedEmails] = useState([]);
@@ -313,16 +313,25 @@ const EmailViewer = () => {
   };
   const resortEmails = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/resort-emails');
-  
+      const token = localStorage.getItem('jwt'); // get the token from the storage
+    
+      const response = await fetch('http://localhost:3001/api/resort-emails', {
+        method: 'GET', // or 'POST'
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}` // attach the token as a Bearer token
+        }
+      });
+    
       if (!response.ok) {
         throw new Error('Failed to resort emails.');
       }
-  
+    
       alert('Emails resorted successfully.');
     } catch (error) {
       alert('Failed to resort emails.');
     }
+    
   };
   const getCurrentEmails = () => {
     switch (currentCategory) {
@@ -356,18 +365,18 @@ const EmailViewer = () => {
     <div className="email-viewer-container" style={{display: 'flex'}}>
   {isLoading ? <p>Loading...</p> : null}
   <div className="email-sidebar" style={{width: '300px'}}>
+  <h3>Siemless emails</h3>
   <button onClick={resortEmails}>
-  <FaRedo /> Resort Emails
+  <FaRedo /> 
 </button>
 <button onClick={refreshEmails}>
-      <FaEnvelopeOpenText /> Refresh Emails
+      <FaEnvelopeOpenText /> resort
     </button>
-    <h3>Siemless emails</h3>
+    
     
     <ul>
-      <li onClick={() => setCurrentCategory('Unsorted')}>Unsorted Emails</li>
       <li onClick={() => setCurrentCategory('Human Sorted')}>Human Sorted</li>
-      <li onClick={() => setCurrentCategory('Bot Sorted')}>Bot Sorted</li>
+      <li onClick={() => setCurrentCategory('Bot Sorted')}>Emails</li>
       <div className="color-key">
       <h3>Categories</h3>
       <ul>
