@@ -20,7 +20,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start-react": "react-scripts start",
+    "start-react": "set PORT=80 && react-scripts start",
     "start-flask": "python ./sorting_server/email_server.py",
     "start-auth": "python ./auth_server/authentication.py",
     "start": "concurrently \"npm run start-react\" \"npm run start-flask\" \"npm run start-auth\"",
