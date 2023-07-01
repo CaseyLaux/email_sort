@@ -96,7 +96,6 @@ def get_emails(username):
     
 
     # Using search results to pull emails since since_date
-    #search_results = get_emails_since(imap, start_datetime, end_datetime)
     def decode_content(part, i):
             
         # Pull charset and encoding to decode body text
