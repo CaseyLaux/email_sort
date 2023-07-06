@@ -1,5 +1,5 @@
 import React from 'react';
-import DOMPurify from 'dompurify'; // Don't forget to install this package using npm
+import DOMPurify from 'dompurify'; 
 
 const EmailDetail = ({ email, onClose }) => {
   console.log('EmailDetail received email:', email);
@@ -13,7 +13,8 @@ const EmailDetail = ({ email, onClose }) => {
   return (
     <div className="email-detail">
       <button onClick={onClose}>Close</button>
-      <h2>{email.subject}</h2>
+      <h2>{email.email_subject}</h2>
+      <p>From: {email.email_sender}</p>
       <div dangerouslySetInnerHTML={{ __html: sanitizedHTML }} />
       {/* ... any other email fields you want to display ... */}
     </div>

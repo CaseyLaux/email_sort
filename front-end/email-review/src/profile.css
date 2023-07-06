@@ -1,0 +1,58 @@
+body {
+    background-color: #f3f3f3;
+    font-family: Arial, sans-serif;
+  }
+  
+  div {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    color: #4b0082; /* Indigo */
+  }
+  
+  p {
+    color: #800080; /* Purple */
+    margin-bottom: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  label {
+    color: #800080; /* Purple */
+  }
+  
+  input[type="email"], input[type="password"] {
+    padding: 10px;
+    border: 1px solid #800080; /* Purple */
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  input[type="email"]:focus, input[type="password"]:focus {
+    border-color: #4b0082; /* Indigo */
+  }
+  
+  input[type="submit"] {
+    background-color: #4b0082; /* Indigo */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #800080; /* Purple */
+  }
+  

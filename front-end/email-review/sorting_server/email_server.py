@@ -7,9 +7,9 @@ import sys
 import base64
 import uuid
 import datetime
-sys.path.append("C:\\Users\\Administrator\\Desktop\\email_sort-working-version-collin\\")
+sys.path.append("C:\\Users\\casey\\PycharmProjects\\email_sort\\")
 import pull_emails
-from resort_emails import sort_emails
+from resort_emails import resort_emails
 from flask_jwt_extended import JWTManager, jwt_required, get_jwt_identity
 from account_change import add_new_email
 from os import abort
@@ -94,7 +94,7 @@ def get_profile():
 def resort_emails_endpoint():
     current_user = get_jwt_identity()
     try:
-        sort_emails(current_user)
+        resort_emails(current_user)
         return jsonify({'message': 'Emails resorted successfully.'}), 200
     except Exception as e:
         print(f"Error running resort_emails: {e}")

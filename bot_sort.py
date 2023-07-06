@@ -6,10 +6,7 @@ import openai
 from pymongo import MongoClient
 import json
 import time
-import logging
 
-# Set up logging
-logging.basicConfig(filename='bot_sort_debug.txt', level=logging.DEBUG)
 
 # Set up OpenAI API key 
 def clean_string(input_string):
@@ -48,7 +45,6 @@ def categorize_emails(i_account_data):
                     if value / rating_prime == category_prime:
                         return rating, category
         return 0, "RATING_ERROR"
-    logging.debug('Starting categorize_emails function')
     i_j_account_data = json.loads(i_account_data)
     mongo_uri = "mongodb://localhost:27017/"
     database = i_j_account_data["account_string"]
@@ -68,7 +64,6 @@ def categorize_emails(i_account_data):
             t+=5
             time.sleep(5)
 
-    logging.debug(f'Email: {email}')
     prompt = email["prompt"]
     openai.api_key = "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"
     response = openai.Completion.create(
