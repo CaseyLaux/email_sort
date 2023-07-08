@@ -11,8 +11,8 @@ sys.path.append("C:\\Users\\casey\\PycharmProjects\\email_sort")
 
 
 
-def resort_emails():
-    username = "Colin"
+def resort_emails(username):
+    #username = "Colin"
     client = MongoClient('localhost', 27017)
     debugDB = client["debug"]
     db = client[username]
@@ -65,7 +65,7 @@ def resort_emails():
     filename, deleteData = database_pull()
     debugCollection.update_one
     test_autoformat.autoformat(filename)
-    openai.api_key = "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"
+    openai.api_key = "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"
     train_data = filename.replace(".json", "_prepared.jsonl")
     path = os.getcwd()
     debugCollection.insert_one({"path": "path: {}".format(path)})

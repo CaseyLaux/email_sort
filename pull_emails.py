@@ -176,7 +176,11 @@ def get_emails(username):
         breaker = "#" * 60
         senders.append(email_message.get('From'))
         subject = email_message.get('Subject')
-        clean_subject = decode_header_value(subject, i)
+        if not subject is None:
+            clean_subject = decode_header_value(subject, i)
+        else:
+            clean_subject = ''
+        
         subjects.append(clean_subject)
         dates.append(email_message.get('Date'))
 
