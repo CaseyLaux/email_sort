@@ -1,1 +1,1 @@
-name 'secret' is not defined
+expected string or bytes-like object

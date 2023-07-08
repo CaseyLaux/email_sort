@@ -279,13 +279,13 @@ const EmailViewer = () => {
   // This function sends the jwt token to the resort-emails endpoint 
   const resortEmails = async () => {
     try {
-      const token = localStorage.getItem('jwt'); // get the token from the storage
+      const token = localStorage.getItem('jwt');
     
       const response = await fetch('http://localhost:3001/api/resort-emails', {
         method: 'GET', // or 'POST'
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}` // attach the token as a Bearer token
+          'Authorization': `Bearer ${token}` 
         }
       });
     
@@ -430,6 +430,5 @@ const EmailViewer = () => {
 </div>
 );
   
-  // End of the component
   };
   export default EmailViewer;
