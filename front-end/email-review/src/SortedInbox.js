@@ -7,7 +7,7 @@ const SortedInbox = () => {
   useEffect(() => {
     async function loadEmails() {
       try {
-        const response = await fetch('http://localhost:3001/api/get-emails');
+        const response = await fetch('https://serve.siemlessemail.com/api/get-emails');
         const data = await response.json();
         setEmails(data.user_sorted_emails);
       } catch (error) {

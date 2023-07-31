@@ -11,7 +11,7 @@ const Profile = () => {
   }, []);
 
   const fetchUserProfile = () => {
-    fetch(`http://localhost:3001/profile`, {
+    fetch(`https://serve.siemlessemail.com/profile`, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`
@@ -25,7 +25,7 @@ const Profile = () => {
   const handleEmailAndPasswordChange = (event) => {
     event.preventDefault();
 
-    fetch(`http://localhost:3001/email_add`, {
+    fetch(`https://serve.siemlessemail.com/email_add`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${token}`,
