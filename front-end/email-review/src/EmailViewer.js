@@ -45,7 +45,7 @@ const categories = ['spam', 'marketing', 'events', 'delivery', 'analytics', 'bus
 const refreshEmails = async () => {
   const token = localStorage.getItem('jwt');
   try {
-    const response = await fetch('http://localhost:3001/api/refresh-emails', {
+    const response = await fetch('https://serve.siemlessemail.com/api/refresh-emails', {
       method: 'GET', 
       headers: {
         'Content-Type': 'application/json',
@@ -119,7 +119,7 @@ const EmailViewer = () => {
       }
   
       // Send token to the authentication server and get the username
-      let usernameResponse = await fetch('http://localhost:3001/api/v1/auth-check', {
+      let usernameResponse = await fetch('https://serve.siemlessemail.com/api/v1/auth-check', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -134,7 +134,7 @@ const EmailViewer = () => {
       let { username } = await usernameResponse.json();
   
       // Delete the email using the fetched username
-      const response = await fetch(`http://localhost:3001/api/${username}/delete-email`, {
+      const response = await fetch(`https://serve.siemlessemail.com/api/${username}/delete-email`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: email_id }),
@@ -179,7 +179,7 @@ const EmailViewer = () => {
     async function loadEmails() {
       try {
         const token = localStorage.getItem('jwt');  
-      const response = await fetch('http://localhost:3001/api/get-emails', {
+      const response = await fetch('https://serve.siemlessemail.com/api/get-emails', {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -248,7 +248,7 @@ const EmailViewer = () => {
 
     try {
       console.log({email: updatedEmail})
-      const response = await fetch('http://localhost:3001/api/move-email', {
+      const response = await fetch('https://serve.siemlessemail.com/api/move-email', {
       method: 'POST',
       
         headers: { 
@@ -281,7 +281,7 @@ const EmailViewer = () => {
     try {
       const token = localStorage.getItem('jwt');
     
-      const response = await fetch('http://localhost:3001/api/resort-emails', {
+      const response = await fetch('https://serve.siemlessemail.com/api/resort-emails', {
         method: 'GET', // or 'POST'
         headers: {
           'Content-Type': 'application/json',

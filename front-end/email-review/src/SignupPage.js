@@ -13,7 +13,7 @@ const SignupPage = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:8081/api/v1/users', user);
+            const response = await axios.post('https://serve.siemlessemail.com/api/v1/users', user);
 
             if(response.status === 201) {
                 alert('User created successfully');
