@@ -5,6 +5,19 @@ import EmailDetail from './EmailDetail';
 import EmailList from './EmailList';
 import './EmailViewer.css';
 
+//const subdomains = {
+//  email_server: "https://serve.siemlessemail.com",
+//  auth_server: "https://auth.siemlessemail.com",
+//  front_end: "https://email.siemlessemail.com"
+//}
+const subdomains = {
+  email_server: "http://127.0.0.1:3001",
+  auth_server: "http://127.0.0.1:8081",
+  front_end: "http://127.0.0.1:3000"
+}
+
+
+
 // Defining a mapping for classification values and rating values
 const COLOR_VALUES = {
   Spam: '#000000',
@@ -44,8 +57,9 @@ const categories = ['spam', 'marketing', 'events', 'delivery', 'analytics', 'bus
 // This function grabs the jwt token from storage and sends it to the refresh emails endpoint
 const refreshEmails = async () => {
   const token = localStorage.getItem('jwt');
+  let refresh_url = `${subdomains.email_server}/api/refresh-emails`;
   try {
-    const response = await fetch('https://serve.siemlessemail.com/api/refresh-emails', {
+    const response = await fetch(refresh_url, {
       method: 'GET', 
       headers: {
         'Content-Type': 'application/json',
@@ -66,21 +80,21 @@ const refreshEmails = async () => {
 
 // The main functional component
 const EmailViewer = () => {
-  const [selectedType, setSelectedType] = useState('');
-  const [currentCategory, setCurrentCategory] = useState('Bot Sorted');
+  const [emailsByAccount, setEmailsByAccount] = useState({});
+  const [emailAccountNames, setEmailAccountNames] = useState([]);
   const [currentEmail, setCurrentEmail] = useState(null);
+  const [currentCategory, setCurrentCategory] = useState('');
   const [humanSortedEmails, setHumanSortedEmails] = useState([]);
   const [userUnsortedEmails, setUserUnsortedEmails] = useState([]);
-  const [humanSortedIndex, setHumanSortedIndex] = useState(0);
   const [unsortedIndex, setUnsortedIndex] = useState(0);
   const [rating, setRating] = useState('');
   const [classification, setClassification] = useState('');
   const [botSortedEmails, setBotSortedEmails] = useState([]);
-  const [botSortedIndex, setBotSortedIndex] = useState(0);
   const [emailDetailViewOpen, setEmailDetailViewOpen] = useState(false);
   const [currentDetailViewEmail, setCurrentDetailViewEmail] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [currentEmailAccount, setCurrentEmailAccount] = useState(null);
   
 
   // This function checks the current email and opens it in the emailDetailView
@@ -119,7 +133,8 @@ const EmailViewer = () => {
       }
   
       // Send token to the authentication server and get the username
-      let usernameResponse = await fetch('https://serve.siemlessemail.com/api/v1/auth-check', {
+      let AuthCheckUrl = `${subdomains.auth_server}/api/v1/auth-check`;
+      let usernameResponse = await fetch(AuthCheckUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -134,7 +149,9 @@ const EmailViewer = () => {
       let { username } = await usernameResponse.json();
   
       // Delete the email using the fetched username
-      const response = await fetch(`https://serve.siemlessemail.com/api/${username}/delete-email`, {
+      let delete_url = `${subdomains.email_server}/api/${username}/delete-email`
+
+      const response = await fetch(delete_url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: email_id }),
@@ -173,39 +190,44 @@ const EmailViewer = () => {
   // Function for loading emails on component mount
   useEffect(() => {
     
-  
     
-    // This function sends the jwt token to the get-emails endpoint and recieves the emails
-    async function loadEmails() {
+
+     // This function sends the jwt token to the get-emails endpoint and recieves the emails
+     async function loadEmails() {
       try {
-        const token = localStorage.getItem('jwt');  
-      const response = await fetch('https://serve.siemlessemail.com/api/get-emails', {
-        headers: {
-          Authorization: `Bearer ${token}`
+        const token = localStorage.getItem('jwt');
+        let load_url = `${subdomains.email_server}/api/get-emails`;
+        const response = await fetch(load_url, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+        const data = await response.json();
+    
+        let emailsByAccount = {};
+        let emailAccountNames = [];
+        let allEmails = []; 
+    
+        for (const emailAccount in data) {
+          emailsByAccount[emailAccount] = data[emailAccount];
+          emailAccountNames.push(emailAccount); // Add the email account name to the list
+          allEmails = allEmails.concat(data[emailAccount]);
         }
-      });
-      const data = await response.json();
+        
+        setEmailsByAccount(emailsByAccount); // You would define a state update function for this
+        setEmailAccountNames(emailAccountNames); // You would define a state update function for this
+        emailsByAccount["All emails"] = allEmails;
+        console.log(emailsByAccount["All emails"])
+        setIsLoading(false)
 
-        // console.log(data)
-        setHumanSortedEmails(data.user_sorted_emails);
-        setUserUnsortedEmails(data.user_unsorted_emails);
-        setBotSortedEmails(data.bot_sorted_emails);
-        const groupedEmails = groupEmailsByCompletion(data.bot_sorted_emails);
-
-        //setLoading(false)
       } catch (error) {
-        console.error('Error loading emails:', error);
+        console.error("An error occurred while loading emails:", error);
       }
     }
 
     setIsLoading(true);
     loadEmails()
-      .then((data) => {
-        setHumanSortedEmails(data.user_sorted_emails);
-        setUserUnsortedEmails(data.user_unsorted_emails);
-        setBotSortedEmails(data.bot_sorted_emails);
-        setIsLoading(false);
-      })
+      
       .catch((error) => {
         console.error('Error loading emails:', error);
         setError('Error loading emails.');
@@ -248,7 +270,8 @@ const EmailViewer = () => {
 
     try {
       console.log({email: updatedEmail})
-      const response = await fetch('https://serve.siemlessemail.com/api/move-email', {
+      let move_url = `${subdomains.email_server}/api/move-email`;
+      const response = await fetch(move_url, {
       method: 'POST',
       
         headers: { 
@@ -280,8 +303,9 @@ const EmailViewer = () => {
   const resortEmails = async () => {
     try {
       const token = localStorage.getItem('jwt');
-    
-      const response = await fetch('https://serve.siemlessemail.com/api/resort-emails', {
+
+      let resort_url = `${subdomains.email_server}/api/resort-emails`;
+      const response = await fetch(resort_url, {
         method: 'GET', // or 'POST'
         headers: {
           'Content-Type': 'application/json',
@@ -299,8 +323,15 @@ const EmailViewer = () => {
     }
     
   };
-
   const getCurrentEmails = () => {
+    if (currentCategory === 'All Emails') {
+      // Return all emails from all categories
+      return emailsByAccount["All emails"];
+    }
+    if (emailsByAccount[currentCategory]) {
+      return emailsByAccount[currentCategory];
+    }
+
     switch (currentCategory) {
       case 'Unsorted':
         return userUnsortedEmails;
@@ -344,10 +375,15 @@ const EmailViewer = () => {
       <FaEnvelopeOpenText /> 
     </button>
     
-    
     <ul>
-      <li onClick={() => setCurrentCategory('Human Sorted')}>Human Sorted</li>
-      <li onClick={() => setCurrentCategory('Bot Sorted')}>Emails</li>
+    <li onClick={() => setCurrentCategory('All Emails')}>All Emails</li>
+        {emailAccountNames.map((emailAccountName, index) => (
+          <li key={index} onClick={() => setCurrentCategory(emailAccountName)}>
+            {emailAccountName}
+          </li>
+        ))}
+      </ul>
+    <ul>
       <div className="color-key">
       <h3>Categories</h3>
       <ul>
@@ -420,7 +456,7 @@ const EmailViewer = () => {
       </>
     ) : (
       <>
-        <h3>{currentCategory} Emails</h3>
+        <h3>{currentCategory}</h3>
         <EmailList emails={getCurrentEmails()} setCurrentEmail={openEmailDetailView} />
       </>
     )}

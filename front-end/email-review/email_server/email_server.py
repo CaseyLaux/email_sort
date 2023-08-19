@@ -24,15 +24,13 @@ CORS(app)
 
 
 # Read settings from a configuration file
-config = configparser.ConfigParser()
-config.read('./sorting_server/config.ini')
+
 
 # Get MongoDB settings from the config file
-mongo_settings = {key: config.get('mongo', key) for key in ['uri', 'database', 'body_collection', 'bodyless_collection', 'unsorted_collection']}
 
 # Get MongoDB connection and collections
-client = MongoClient(mongo_settings['uri'])
-db = client[mongo_settings['database']]
+client = MongoClient("mongodb://localhost:27017/")
+db = client['emails']
 debugDB = client['debug']
 
 
@@ -119,23 +117,22 @@ def refresh_emails():
 @jwt_required()
 def get_emails():
     current_user = get_jwt_identity()
-    debug_collection.update_one(debug_filter, {'$set': {'runInfo': "Running get emails"}})
-    try:
-        debug_collection.update_one(debug_filter, {'$set': {'user': current_user}})
-    except Exception as e:
-        debug_collection.update_one(debug_filter, {'$set': {'errors': e}})
-    user_database = client[current_user]
-    user_collection  = user_database["emails"]
-    bot_sorted_collection = user_database["bot_sorted"]
-    user_sorted_collection = user_database["re-sorted"]
-
-
-    user_sorted_emails = list(user_sorted_collection.find())
-    user_unsorted_emails = list(user_collection.find())
-    bot_sorted_emails = list(bot_sorted_collection.find())
-    debug_collection.update_one(debug_filter, {'$set': {'emails': user_sorted_emails}})
     
-    return json_util.dumps({'user_sorted_emails':user_sorted_emails, 'user_unsorted_emails': user_unsorted_emails, 'bot_sorted_emails': bot_sorted_emails}), 200
+    
+    user_db = client[current_user]
+    email_accounts_cursor = user_db['email_accounts'].find({})
+    
+    emails_by_account = {}
+
+    for email_account in email_accounts_cursor:
+        email_address = email_account['email']
+        botSortString = email_address + "_bot_sort"
+        account_collection = user_db[botSortString] # Here, each email account corresponds to a collection in the database
+
+        emails_by_account[email_address] = list(account_collection.find())
+
+    return json_util.dumps(emails_by_account), 200
+
 
 
 
@@ -209,4 +206,4 @@ def delete_email():
 
 
 if __name__ == '__main__':
-    app.run(port=config.getint('app', 'port'))
+    app.run(port=3001)

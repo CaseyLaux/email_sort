@@ -43,12 +43,21 @@ def register():
 
     # Define a schema for our expected input
     schema = {
-        'username': {'type': 'string', 'minlength': 1, 'maxlength' : 20}, 
-        'email': {'type': 'string', 'minlength': 1, 'regex': '^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$', 'maxlength' : 60}, 
-        'password': {'type': 'string', 'minlength': 1, 'maxlength' : 60}
+        'username': {'type': 'string', 'minlength': 1, 'maxlength' : 20},
+        'password': {'type': 'string', 'minlength': 1, 'maxlength' : 60},
+        'emails': {
+            'type': 'list',
+            'schema': {
+                'type': 'dict',
+                'schema': {
+                    'email': {'type': 'string', 'minlength': 1, 'regex': '^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$', 'maxlength' : 60},
+                    'secret': {'type': 'string', 'minlength': 1, 'maxlength' : 60}
+                }
+            }
+        }
     }
+
     v = Validator(schema)
-    
 
     # Validate the input data. If it's valid, continue processing. If not, return an error message.
     if not v.validate(new_user):
@@ -64,8 +73,10 @@ def register():
         user_accounts_collection = new_user_database["email_accounts"]
         user_account_info_collection = new_user_database["acc_info"]
         user_account_info_collection.insert_one(new_user)
+
+        for email in new_user["emails"]:
+            user_accounts_collection.insert_one(email)
         
-        user_accounts_collection.insert_one({"email": new_user["email"]})
         return jsonify({'msg': 'User created successfully'}), 201
     else:
         return jsonify({'msg': 'Username already exists'}), 409

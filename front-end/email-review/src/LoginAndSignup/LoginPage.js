@@ -19,7 +19,7 @@ const LoginPage = () => {
 
         console.log(userCredentials);
         
-        axios.post('https://auth.siemlessemail.com/api/v1/login', userCredentials, {
+        axios.post('http://127.0.0.1:8081/api/v1/login', userCredentials, {
             headers: {
                 'Content-Type': 'application/json'
             }

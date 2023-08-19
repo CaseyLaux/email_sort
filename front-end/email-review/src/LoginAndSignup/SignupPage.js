@@ -3,17 +3,27 @@ import axios from 'axios';
 import './SignupPage.css'; // Import your CSS
 
 const SignupPage = () => {
-    const [user, setUser] = useState({username: '', email: '', password: ''});
+    const [user, setUser] = useState({username: '', password: '', emails: [{email: '', secret: ''}]});
 
-    const handleChange = e => {
+    const handleUserChange = e => {
         setUser({...user, [e.target.name]: e.target.value});
+    }
+
+    const handleEmailChange = (index, e) => {
+        const emails = [...user.emails];
+        emails[index] = {...emails[index], [e.target.name]: e.target.value};
+        setUser({...user, emails});
+    }
+
+    const addEmail = () => {
+        setUser({...user, emails: [...user.emails, {email: '', secret: ''}]});
     }
 
     const handleSubmit = async e => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('https://auth.siemlessemail.com/api/v1/users', user);
+            const response = await axios.post('http://127.0.0.1:8081/api/v1/users', user);
 
             if(response.status === 201) {
                 alert('User created successfully');
@@ -35,11 +45,18 @@ const SignupPage = () => {
             <form className="signup-form" onSubmit={handleSubmit}>
                 <h2>Sign Up</h2>
                 <label>Username:</label>
-                <input type="text" name="username" onChange={handleChange} required />
-                <label>Email:</label>
-                <input type="email" name="email" onChange={handleChange} required />
+                <input type="text" name="username" onChange={handleUserChange} required />
                 <label>Password:</label>
-                <input type="password" name="password" onChange={handleChange} required />
+                <input type="password" name="password" onChange={handleUserChange} required />
+                {user.emails.map((email, index) => (
+                    <div key={index}>
+                        <label>Email:</label>
+                        <input type="email" name="email" value={email.email} onChange={e => handleEmailChange(index, e)} required />
+                        <label>Secret:</label>
+                        <input type="password" name="secret" value={email.secret} onChange={e => handleEmailChange(index, e)} required />
+                    </div>
+                ))}
+                <button type="button" onClick={addEmail}>Add Email</button>
                 <button type="submit">Sign Up</button>
             </form>
         </div>

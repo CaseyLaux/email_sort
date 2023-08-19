@@ -53,6 +53,7 @@ def categorize_emails(i_account_data):
     db = client[database]
     collection = db[collection_name]
     filter = {"email_id": i_j_account_data["email_id"]}
+    print(filter)
     t=0
     email = None
     while email==None:
@@ -63,9 +64,8 @@ def categorize_emails(i_account_data):
         except email==None:
             t+=5
             time.sleep(5)
-
     prompt = email["prompt"]
-    openai.api_key = "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"
+    openai.api_key = "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"
     response = openai.Completion.create(
         engine="ada:ft-personal:new-prime-2023-06-07-01-27-19",
         prompt=prompt,

@@ -52,3 +52,17 @@
 .signup-form button:hover {
     background-color: #3c006e;
 }
+
+.signup-form div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Optional: If you want to add some margin between email-secret pairs */
+
+.signup-form div:not(:last-child) {
+    border-bottom: 3px solid #4B0082;  /* Adjust color as per your design */
+    padding-bottom: 10px; /* Adjust padding as needed */
+    margin-bottom: 10px; /* Adjust margin as needed */
+}
