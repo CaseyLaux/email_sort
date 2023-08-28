@@ -53,7 +53,7 @@ def categorize_emails(i_account_data):
     db = client[database]
     collection = db[collection_name]
     filter = {"email_id": i_j_account_data["email_id"]}
-    print(filter)
+    #print(filter)
     t=0
     email = None
     while email==None:
@@ -65,7 +65,7 @@ def categorize_emails(i_account_data):
             t+=5
             time.sleep(5)
     prompt = email["prompt"]
-    openai.api_key = "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"
+    openai.api_key = "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"
     response = openai.Completion.create(
         engine="ada:ft-personal:new-prime-2023-06-07-01-27-19",
         prompt=prompt,
@@ -84,10 +84,10 @@ def categorize_emails(i_account_data):
     categories = categories.replace("'", '')
     if categories == '':
         categories = '0'
-    print(categories)
+    #print(categories)
     rating, category = get_rating_and_category(int(categories))
-    print(rating)
-    print(category)
+    #print(rating)
+    #print(category)
     collection.update_one(filter, {"$set": {"completion": categories}})
     collection.update_one(filter, {"$set": {"rating": rating}})
     collection.update_one(filter, {"$set": {"category": category.lower()}})
