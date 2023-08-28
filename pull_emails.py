@@ -14,7 +14,7 @@ import pytz
 
 
 
-def get_emails(username):
+def get_emails():
     #username = "Colin"
 
     # Setting up vars for database

@@ -21,8 +21,8 @@
   },
   "scripts": {
     "start-react": "set PORT=80 && react-scripts start",
-    "start-flask": "python ./sorting_server/email_server.py",
-    "start-auth": "python ./auth_server/authentication.py",
+    "start-flask": "python ./email_server/email_server.py",
+    "start-auth": "python ./src/LoginAndSignup/auth_server/authentication.py",
     "start": "concurrently \"npm run start-react\" \"npm run start-flask\" \"npm run start-auth\"",
     "build": "react-scripts build",
     "test": "react-scripts test",

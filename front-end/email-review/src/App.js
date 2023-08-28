@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
-import EmailViewer from './EmailViewer';
-import LoginPage from './LoginPage';
-import SignupPage from './SignupPage';
+import EmailViewer from './MainEmailPage/EmailViewer';
+import LoginPage from './LoginAndSignup/LoginPage';
+import SignupPage from './LoginAndSignup/SignupPage';
 import Profile from './profile';
 
 const App = () => {
