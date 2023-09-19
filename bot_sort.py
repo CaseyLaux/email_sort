@@ -65,7 +65,7 @@ def categorize_emails(i_account_data):
             t+=5
             time.sleep(5)
     prompt = email["prompt"]
-    openai.api_key = "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"
+    openai.api_key = "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"
     response = openai.Completion.create(
         engine="ada:ft-personal:new-prime-2023-06-07-01-27-19",
         prompt=prompt,

@@ -214,8 +214,8 @@ const EmailViewer = () => {
           allEmails = allEmails.concat(data[emailAccount]);
         }
         
-        setEmailsByAccount(emailsByAccount); // You would define a state update function for this
-        setEmailAccountNames(emailAccountNames); // You would define a state update function for this
+        setEmailsByAccount(emailsByAccount);
+        setEmailAccountNames(emailAccountNames); 
         emailsByAccount["All emails"] = allEmails;
         console.log(emailsByAccount["All emails"])
         setIsLoading(false)
@@ -227,7 +227,6 @@ const EmailViewer = () => {
 
     setIsLoading(true);
     loadEmails()
-      
       .catch((error) => {
         console.error('Error loading emails:', error);
         setError('Error loading emails.');
@@ -324,39 +323,38 @@ const EmailViewer = () => {
     
   };
   const getCurrentEmails = () => {
+    console.log('Current Category:', currentCategory);
+  
+    const nonAccountCategories = [
+      'spam', 'marketing', 'events', 
+      'delivery', 'analytics', 'business', 
+      'invoice', 'urgent', 'rating_error'
+    ];
+    
+    const allEmailSources = [
+      ...userUnsortedEmails,
+      ...humanSortedEmails,
+      ...botSortedEmails,
+      ...emailsByAccount["All emails"]
+    ];
+    
+    if (nonAccountCategories.includes(currentCategory.toLowerCase())) {
+      return allEmailSources.filter(email => 
+        email && 
+        email.category && 
+        email.category.toLowerCase() === currentCategory.toLowerCase()
+      );
+    }
+  
     if (currentCategory === 'All Emails') {
-      // Return all emails from all categories
       return emailsByAccount["All emails"];
     }
+  
     if (emailsByAccount[currentCategory]) {
       return emailsByAccount[currentCategory];
     }
-
-    switch (currentCategory) {
-      case 'Unsorted':
-        return userUnsortedEmails;
-      case 'Human Sorted':
-        return humanSortedEmails;
-      case 'Bot Sorted':
-        return botSortedEmails;
-      case 'spam':
-      case 'marketing':
-      case 'events':
-      case 'delivery':
-      case 'analytics':
-      case 'business':
-      case 'invoice':
-      case 'urgent':
-      case 'rating_error':
-        // If the current category is any of these, return emails from all lists that match the category
-        return [...userUnsortedEmails, ...humanSortedEmails, ...botSortedEmails].filter(email => 
-          email && 
-          email.category && 
-          email.category.toLowerCase() === currentCategory.toLowerCase()
-        );
-      default:
-        return [];
-    }
+  
+    return [];
   };
 
 
