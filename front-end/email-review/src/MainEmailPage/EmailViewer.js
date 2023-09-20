@@ -217,7 +217,6 @@ const EmailViewer = () => {
         setEmailsByAccount(emailsByAccount);
         setEmailAccountNames(emailAccountNames); 
         emailsByAccount["All emails"] = allEmails;
-        console.log(emailsByAccount["All emails"])
         setIsLoading(false)
 
       } catch (error) {
@@ -268,7 +267,6 @@ const EmailViewer = () => {
   
 
     try {
-      console.log({email: updatedEmail})
       let move_url = `${subdomains.email_server}/api/move-email`;
       const response = await fetch(move_url, {
       method: 'POST',
@@ -323,7 +321,6 @@ const EmailViewer = () => {
     
   };
   const getCurrentEmails = () => {
-    console.log('Current Category:', currentCategory);
   
     const nonAccountCategories = [
       'spam', 'marketing', 'events', 
@@ -335,26 +332,24 @@ const EmailViewer = () => {
       ...userUnsortedEmails,
       ...humanSortedEmails,
       ...botSortedEmails,
-      ...emailsByAccount["All emails"]
+      ...(Array.isArray(emailsByAccount["All emails"]) ? emailsByAccount["All emails"] : [])
     ];
-    
+  
+    let filteredEmails = [];
+  
     if (nonAccountCategories.includes(currentCategory.toLowerCase())) {
-      return allEmailSources.filter(email => 
+      filteredEmails = allEmailSources.filter(email => 
         email && 
         email.category && 
         email.category.toLowerCase() === currentCategory.toLowerCase()
       );
+    } else if (currentCategory === 'All Emails') {
+      filteredEmails = emailsByAccount["All emails"];
+    } else if (emailsByAccount[currentCategory]) {
+      filteredEmails = emailsByAccount[currentCategory];
     }
   
-    if (currentCategory === 'All Emails') {
-      return emailsByAccount["All emails"];
-    }
-  
-    if (emailsByAccount[currentCategory]) {
-      return emailsByAccount[currentCategory];
-    }
-  
-    return [];
+    return filteredEmails.sort((a, b) => b.email_unix_time - a.email_unix_time);
   };
 
 

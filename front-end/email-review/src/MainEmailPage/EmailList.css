@@ -1,0 +1,23 @@
+.button {
+    width: 900px; /* Adjust as necessary */
+    height: 100px; /* Adjust as necessary */
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    padding: 10px; /* Adjust as necessary */
+    box-sizing: border-box;
+}
+  
+.button div {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: calc(100% - 20px); /* Adjusts the width considering padding */
+    text-align: center; /* Centers the text within each div */
+    min-height: 20px; /* Set a minimum height to each div */
+    box-sizing: border-box; /* Ensures padding and border are included in element's total width and height */
+}
+
+/* Additional styling to add more space between sender and subject line */
+.button div:nth-child(2) {
+    margin-bottom: 20px; /* Adjust as necessary for more or less space */
+}

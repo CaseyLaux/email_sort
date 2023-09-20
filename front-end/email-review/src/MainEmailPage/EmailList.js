@@ -1,4 +1,8 @@
+import React from 'react';
+import './EmailList.css';
+
 const EmailList = ({ emails, setCurrentEmail }) => {
+  console.log(emails)
   const classificationValues = {
     Spam: 29,
     Marketing: 31,
@@ -51,6 +55,13 @@ const EmailList = ({ emails, setCurrentEmail }) => {
     return num > 1;
   };
 
+  const formatDate = (unixTimestamp) => {
+    const date = new Date(unixTimestamp * 1000);
+    return date.toLocaleString();
+  };
+  const truncateText = (text, length = 100) => {
+    return text.length > length ? text.slice(0, length) + "..." : text;
+  };
   return (
     <div>
       {emails.map((email, index) => {
@@ -76,8 +87,11 @@ const EmailList = ({ emails, setCurrentEmail }) => {
   className={`button ${getClassForEmailType(classification)}`} // use CSS class for background color
   onClick={() => setCurrentEmail(email)}
 >
-  {email.email_sender} - {email.email_subject} 
-  <span className="rating"> {rating}</span>
+  
+  <div>{truncateText(email.email_sender)}</div>
+  <div>{truncateText(email.email_subject)}</div>
+  <div className="date-time">{formatDate(email.email_unix_time)}</div>
+  <span className="rating">{rating}</span>
 </button>
         );
       })}
