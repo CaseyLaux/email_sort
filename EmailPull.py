@@ -13,7 +13,63 @@ import time
 mongo_uri = "mongodb://localhost:27017/"
 client = MongoClient(mongo_uri)
 
-# Setting up login creds for user
+def get_emails_since(con, since_unix, before_unix):
+        since_datetime = unix_timestamp_to_datetime(since_unix)
+                
+        since_str = format_datetime_for_imap(since_datetime)
+        before_str = before_unix
+        print(f"since {since_str} before {before_unix}")
+                
+        result, data = con.search(None, 'SINCE', since_str, 'BEFORE', before_str)
+        return data
+
+def decode_header_value(value):
+        decoded_header = decode_header(value)
+        header_parts = []
+                
+        for decoded_string, encoding in decoded_header:
+            if isinstance(decoded_string, bytes):
+                if encoding:
+                    old_string = decoded_string
+                    decoded_string = decoded_string.decode(encoding)
+
+                else:
+                    old_string = decoded_string
+                    encoding = 'utf-8'
+                    decoded_string = decoded_string.decode('utf-8')
+
+
+            header_parts.append(decoded_string)
+        return ''.join(header_parts)
+
+def decode_content(part):
+        # Pull charset and encoding to decode body text
+        charset = part.get_content_charset()  # Get the charset
+        encoding = part.get('Content-Transfer-Encoding')  # Get the encoding
+
+                
+
+        if charset is None:
+            charset = 'utf-8'  # Use a default charset if none is specified
+                
+        payload = part.get_payload(decode=True)
+
+                
+        payload = payload.decode(charset, errors='replace')
+        clean_body = payload.replace('  ', '').replace('\r', '').replace('\u200c', '').replace('\u0020', '')
+            
+        if payload is None:
+            payload =  ''
+        if len(clean_body) > 1000:
+            clean_body = clean_body[:1000]
+        #clean_body = clean_body.decode(charset)
+        return payload, clean_body
+
+def unix_timestamp_to_datetime(timestamp):
+    return datetime.utcfromtimestamp(int(timestamp))
+            
+def format_datetime_for_imap(dt_object):
+    return dt_object.strftime("%d-%b-%Y")
 
 def get_users():
     mongo_uri = "mongodb://localhost:27017/"
@@ -46,7 +102,22 @@ def get_emails(username, email_address, email_secret):
     emailCollection = userDB[email_address]
     bot_sort_string = email_address + "_bot_sort"
     bot_sorted_collection = userDB[bot_sort_string]
-
+    account_data = {
+            "account_string": username,
+            "account_address": email_address,
+            "bot_sorted_collection_string": bot_sort_string,
+            "email_id": "",
+        }
+    senders = []
+    subjects = []
+    bodies = []
+    clean_bodies = []
+    dates = []
+    email_unix_time = []
+    test_array = []
+    html_bodies = []
+    i = 0
+    
     def get_timestamp():
 
         email_document = userDB["email_accounts"].find_one({'email': str(email_address)})
@@ -66,102 +137,35 @@ def get_emails(username, email_address, email_secret):
         else:
         # otherwise, get the last pull time from the database
             start_datetime = last_timestamp_doc
-        return start_datetime
+        end_datetime = datetime.now(pytz.utc)
+            #Uncomment to test 24 hour pull
+        #start_datetime = datetime.now(pytz.utc) - timedelta(hours=24)  
+        end_date_str = end_datetime.strftime("%d-%b-%Y")
+        return start_datetime, end_date_str
     
-    start_datetime = get_timestamp()
-    end_datetime = datetime.now(pytz.utc)
+        
+    start_datetime, end_date_str = get_timestamp()
 
     # Set up IMAP
     imap_server = 'imap.gmail.com'
-    
     imap = imaplib.IMAP4_SSL(imap_server)
-    imap.login(email_address, email_secret)
+    try:
+        imap.login(email_address, email_secret)
+    except imaplib.IMAP4.error:
+        print(f"Login failed for user {username} with email {email_address}")
+        return
+    imap.select('Inbox')
 
-    imap.select('Inbox')
-    
-                #Uncomment to test 24 hour pull
-            #start_datetime = datetime.now(pytz.utc) - timedelta(hours=24)
-    end_datetime = datetime.now(pytz.utc)
-            
-    end_date_str = end_datetime.strftime("%d-%b-%Y")
-    imap.select('Inbox')
-    def unix_timestamp_to_datetime(timestamp):
-        return datetime.utcfromtimestamp(int(timestamp))
-            
-    def format_datetime_for_imap(dt_object):
-        return dt_object.strftime("%d-%b-%Y")
-            
-    # pulling emails since since_date var hours ago
-    def get_emails_since(con, since_unix, before_unix):
-        since_datetime = unix_timestamp_to_datetime(since_unix)
-                
-        since_str = format_datetime_for_imap(since_datetime)
-        before_str = before_unix
-        print(f"since {since_str} before {before_unix}")
-                
-        result, data = con.search(None, 'SINCE', since_str, 'BEFORE', before_str)
-        return data
-    
 
             # Using search results to pull emails since since_date
     search_results = get_emails_since(imap, start_datetime, end_date_str)
-    def decode_content(part):
-        # Pull charset and encoding to decode body text
-        charset = part.get_content_charset()  # Get the charset
-        encoding = part.get('Content-Transfer-Encoding')  # Get the encoding
+    
+    
 
-                
-
-        if charset is None:
-            charset = 'utf-8'  # Use a default charset if none is specified
-                
-        payload = part.get_payload(decode=True)
-
-                
-        payload = payload.decode(charset, errors='replace')
-        clean_body = payload.replace('  ', '').replace('\r', '').replace('\u200c', '').replace('\u0020', '')
-            
-        if payload is None:
-            payload =  ''
-        if len(clean_body) > 1000:
-            clean_body = clean_body[:1000]
-        #clean_body = clean_body.decode(charset)
-        return payload, clean_body
-    def decode_header_value(value):
-        decoded_header = decode_header(value)
-        header_parts = []
-                
-        for decoded_string, encoding in decoded_header:
-            if isinstance(decoded_string, bytes):
-                if encoding:
-                    old_string = decoded_string
-                    decoded_string = decoded_string.decode(encoding)
-
-                else:
-                    old_string = decoded_string
-                    encoding = 'utf-8'
-                    decoded_string = decoded_string.decode('utf-8')
-
-
-            header_parts.append(decoded_string)
-        return ''.join(header_parts)
+    
     # Arrays to add to email_data then to database 
 
-    account_data = {
-            "account_string": username,
-            "account_address": email_address,
-            "bot_sorted_collection_string": bot_sort_string,
-            "email_id": "",
-        }
-    senders = []
-    subjects = []
-    bodies = []
-    clean_bodies = []
-    dates = []
-    email_unix_time = []
-    test_array = []
-    html_bodies = []
-    i = 0
+    
     result = bot_sorted_collection.find().sort("iterative_value", -1).limit(1)
     for doc in result:
         try:
@@ -250,11 +254,7 @@ def get_emails(username, email_address, email_secret):
     sorted_emails = sorted(emails, key=lambda x: x["email_unix_time"], reverse=True)
            
             
-    try:
-        email_with_largest_iterative = sorted_emails[0]
-        largest_timestamp = email_with_largest_iterative["email_date"]
-    except IndexError:
-        largest_timestamp = "No emails"
+    
     # 3. Iterate through the sorted emails, assign an iterative number, and then store the email data with the assigned number.
     for idx, email_data in enumerate(sorted_emails):
         idx + last_iterative_value
@@ -288,7 +288,8 @@ if __name__ == '__main__':
     emailsByUser = get_users()
     for username, email_list in emailsByUser.items():      
         for email_detail in email_list:
-            print(f"\t {username} Email: {email_detail['email']}, Secret: {email_detail['secret']}")
+            print("\n")
+            print(f"pulling emails for {username} {email_detail['email']}")
             get_emails(username, email_detail['email'], email_detail['secret'])
             
         
