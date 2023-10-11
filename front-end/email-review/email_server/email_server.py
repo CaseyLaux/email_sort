@@ -3,23 +3,18 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import configparser
 from pymongo import MongoClient
-import sys
-import base64
-import uuid
-import datetime
-sys.path.append("C:\\Users\\casey\\PycharmProjects\\email_sort\\")
-import pull_emails
-from resort_emails import resort_emails
+from tools.resort_emails import resort_emails
 from flask_jwt_extended import JWTManager, jwt_required, get_jwt_identity
 from account_change import add_new_email
 from os import abort
-
+import sys
+from tools.convertCLASS_RATING import find_classification_and_rating
+from tools.login_check import check_login
 # Flask settings
 app = Flask(__name__)
 CORS(app)  # Enable CORS for the Flask app
 app.config['JWT_SECRET_KEY'] = '2a56363f-1c5a-434c-bd23-a8b157383ce9'
 jwt = JWTManager(app)
-CORS(app)
 
 
 
@@ -31,15 +26,7 @@ CORS(app)
 # Get MongoDB connection and collections
 client = MongoClient("mongodb://localhost:27017/")
 db = client['emails']
-debugDB = client['debug']
 
-
-
-
-debug_collection = debugDB['email_server']
-debug_id = str(uuid.uuid4())
-debug_filter = {"debug_id": debug_id}
-debug_collection.insert_one(debug_filter)
 
 @app.route('/email_add', methods=['POST'])
 @jwt_required()
@@ -60,11 +47,8 @@ def add_email():
 @jwt_required()
 def get_profile():
     try:
-        debug_id = str(uuid.uuid4())
-        debug_filter = {"debug_id": debug_id}
+
         current_user = get_jwt_identity()
-        debug_collection.insert_one(debug_filter)
-        debug_collection.update_one(debug_filter, {'$set': {'user': current_user}})
         user_db = client[current_user]
         account_collection = user_db["acc_info"]
         user_info = account_collection.find_one({}, {'_id': 0})
@@ -74,7 +58,6 @@ def get_profile():
         else:
             return jsonify(user_info), 200
     except Exception as e:
-        debug_collection.update_one(debug_filter, {'$set': {'errors': e}})  # Consider logging this to a log file for production code
         abort(500, description="Internal Server Error")
     
     except Exception as e:
@@ -99,25 +82,24 @@ def resort_emails_endpoint():
         return jsonify({'error': f'Failed to resort emails: {str(e)}'}), 500
 
 
-
-@app.route('/api/refresh-emails', methods=['GET'])
-@jwt_required() 
-def refresh_emails():
+@app.route('/api/emailcheck', methods=['POST'])
+@jwt_required()
+def login_check():
     current_user = get_jwt_identity()
-    try:
-        pull_emails.get_emails(current_user)
-        return jsonify({'message': 'Emails refreshed successfully.'}), 200
-    except Exception as e:
-        f = open("refreshdebug.txt", "w")
-        f.write(str(e))
-        return jsonify({'error': f'Failed to refresh emails: {str(e)}'}), 500
+    loginSuccess = check_login(current_user)
+    
+    if loginSuccess == True:
+        return jsonify({'message': 'Email matches current user.'}), 200
+    else:
+        return jsonify({'error': f'{loginSuccess}'}), 401
+
+
 
 #Gather emails from the database
 @app.route('/api/get-emails', methods=['GET'])
 @jwt_required()
 def get_emails():
     current_user = get_jwt_identity()
-    
     
     user_db = client[current_user]
     email_accounts_cursor = user_db['email_accounts'].find({})
@@ -136,40 +118,42 @@ def get_emails():
 
 
 
-@app.route('/api/move-email', methods=['POST'])
+@app.route('/api/update-email', methods=['POST'])
 @jwt_required() 
 def update_email():
     data = request.get_json()
-    debug_id = str(uuid.uuid4())
-    debug_filter = {"debug_id": debug_id}
-    debug_collection.update_one(debug_filter, {'$set': {'runInfo': "Running move email"}})
     current_user = get_jwt_identity()
-    
-   
-    debug_collection.update_one(debug_filter, {'$set': {'user': current_user}})
-    
-    email_id = ObjectId(data['email']['_id'])
-    debug_collection.update_one(debug_filter, {'$set': {'email_id': email_id}})
-    
+    email_id = ObjectId(data['_id'])
+    email_account = data['email_account']
     user_database = client[current_user]
-    user_collection  = user_database["emails"]
-    bot_sorted_collection = user_database["bot_sorted"]
-    user_sorted_collection = user_database["re-sorted"]
+    bot_sorted_string = email_account + "_bot_sort"
+    resortString = email_account + "_re-sort"
+    user_collection  = user_database[bot_sorted_string]
+    user_sorted_collection = user_database[resortString]
+    completion = data['completion']
+    classification, rating = find_classification_and_rating(completion)
+    print(f"classification: {classification}")
+    print(f"rating: {rating}")
+    print(f"email id {email_id}")
     # Insert the updated email into the body collection
     try:
         filter = { '_id': email_id }
-        update = { '$set': { f"completion": data['email']['completion'] } }
+        update = { '$set': { "completion": completion, "category": classification, "rating": rating } }
         try:
-            old_email = bot_sorted_collection.find_one(filter)
-            bot_sorted_collection.delete_one(filter)
+            old_email = user_collection.find_one(filter)
+            if old_email:
+                user_collection.delete_one(filter)
+                user_collection.insert_one(old_email)
+                user_collection.update_one(filter, update)
+            else:
+                print("Email not found!")
         except old_email == None: 
+            print("error test")
             old_email = user_collection.find_one(filter)
             user_collection.delete_one(filter)
         
-        
         user_sorted_collection.insert_one(old_email)
         user_sorted_collection.update_one(filter, update)
-        user_collection.delete_one(filter)
     except Exception as e:
         print(f"Error inserting email: {e}")
         return jsonify({'error': f'Failed to insert email: {str(e)}'}), 500
